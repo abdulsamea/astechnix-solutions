@@ -1,5 +1,20 @@
-import { Link } from 'react-router-dom';
-import { Code2, Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
+import { Link } from "react-router-dom";
+import {
+  Code2,
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Github,
+  Twitter,
+} from "lucide-react";
+
+const serviceMap = {
+  "Cloud Services": "cloud-services",
+  "Full Stack Development": "full-stack",
+  "DevOps Solutions": "devops",
+  "UI/UX Design": "ui-ux",
+};
 
 const Footer = () => {
   return (
@@ -14,58 +29,66 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
-              Engineering scalable digital ecosystems for forward-thinking enterprises.
+              Engineering scalable digital ecosystems for forward-thinking
+              enterprises.
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/astechnix/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-white/5 hover:bg-pacific-cyan/20 flex items-center justify-center text-white/70 hover:text-pacific-cyan transition-all duration-300"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a
+              {/* <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-white/5 hover:bg-pacific-cyan/20 flex items-center justify-center text-white/70 hover:text-pacific-cyan transition-all duration-300"
               >
                 <Github className="w-5 h-5" />
-              </a>
-              <a
+              </a> */}
+              {/* <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-white/5 hover:bg-pacific-cyan/20 flex items-center justify-center text-white/70 hover:text-pacific-cyan transition-all duration-300"
               >
                 <Twitter className="w-5 h-5" />
-              </a>
+              </a> */}
             </div>
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-white text-lg mb-6">Services</h3>
+            <h3 className="font-heading font-semibold text-white text-lg mb-6">
+              Services
+            </h3>
             <ul className="space-y-3">
-              {['Cloud Services', 'Full Stack Development', 'DevOps Solutions', 'UI/UX Design'].map(
-                (service) => (
-                  <li key={service}>
-                    <Link
-                      to={`/${service.toLowerCase().replace(/\s+/g, '-').replace('solutions', '').replace('development', '').trim()}`}
-                      className="text-white/70 hover:text-pacific-cyan text-sm transition-colors duration-300"
-                    >
-                      {service}
-                    </Link>
-                  </li>
-                )
-              )}
+              {[
+                "Cloud Services",
+                "Full Stack Development",
+                "DevOps Solutions",
+                "UI/UX Design",
+              ].map((service) => (
+                <li key={service}>
+                  <Link
+                    to={`/${serviceMap[service]}`}
+                    className="text-white/70 hover:text-pacific-cyan text-sm transition-colors duration-300"
+                  >
+                    {service}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-white text-lg mb-6">Company</h3>
+            <h3 className="font-heading font-semibold text-white text-lg mb-6">
+              Company
+            </h3>
             <ul className="space-y-3">
-              {['About Us', 'Our Work', 'Careers', 'Blog'].map((item) => (
+              {["About Us", "Our Work", "Careers", "Blog"].map((item) => (
                 <li key={item}>
                   <a
                     href="#"
@@ -79,7 +102,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-white text-lg mb-6">Contact</h3>
+            <h3 className="font-heading font-semibold text-white text-lg mb-6">
+              Contact
+            </h3>
             <ul className="space-y-4">
               <li className="flex items-start space-x-3 text-white/70 text-sm">
                 <Mail className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-0.5" />
