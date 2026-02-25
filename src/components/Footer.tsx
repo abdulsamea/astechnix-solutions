@@ -128,7 +128,8 @@ const Footer = () => {
         <div className="border-t border-royal-blue/30 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-white/50 text-sm">
-              &copy; {new Date().getFullYear()} AStechnix. All rights reserved.
+              &copy; {new Date().getFullYear()} AStechnix Solutions. All rights
+              reserved.
             </p>
             <div className="flex space-x-6"></div>
           </div>
