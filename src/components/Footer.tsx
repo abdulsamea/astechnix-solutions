@@ -111,11 +111,21 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3 text-white/70 text-sm">
                 <Mail className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-0.5" />
-                <span>contact@astechnixsolutions.com</span>
+                <a
+                  href="mailto:contact@astechnixsolutions.com"
+                  className="text-white hover:text-pacific-cyan transition-colors block break-words sm:break-all md:break-words"
+                >
+                  <span>contact@astechnixsolutions.com</span>
+                </a>
               </li>
               <li className="flex items-start space-x-3 text-white/70 text-sm">
                 <Phone className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-0.5" />
-                <span>+91 90045 75425</span>
+                <a
+                  href="tel:+919004575425"
+                  className="text-white hover:text-pacific-cyan transition-colors"
+                >
+                  +91 90045 75425
+                </a>
               </li>
               <li className="flex items-start space-x-3 text-white/70 text-sm">
                 <MapPin className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-0.5" />

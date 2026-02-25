@@ -1,48 +1,66 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Cloud, Code, Layers, Palette, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import {
+  Cloud,
+  Code,
+  Layers,
+  Palette,
+  ArrowRight,
+  CheckCircle2,
+} from "lucide-react";
 
 const Home = () => {
   const services = [
     {
       icon: Cloud,
-      title: 'Cloud Services',
-      description: 'Scalable AWS, Azure, and GCP architectures engineered for high-availability.',
-      link: '/cloud-services',
-      gradient: 'from-pacific-cyan to-sky-blue',
+      title: "Cloud Services",
+      description:
+        "Scalable AWS, Azure, and GCP architectures engineered for high-availability.",
+      link: "/cloud-services",
+      gradient: "from-pacific-cyan to-sky-blue",
     },
     {
       icon: Code,
-      title: 'Full Stack Development',
-      description: 'Modern web, mobile, and desktop applications built with cutting-edge frameworks.',
-      link: '/full-stack',
-      gradient: 'from-sky-blue to-pale-azure',
+      title: "Full Stack Development",
+      description:
+        "Modern web, mobile, and desktop applications built with cutting-edge frameworks.",
+      link: "/full-stack",
+      gradient: "from-sky-blue to-pale-azure",
     },
     {
       icon: Layers,
-      title: 'DevOps Solutions',
-      description: 'CI/CD pipelines, containerization, and infrastructure automation for velocity.',
-      link: '/devops',
-      gradient: 'from-blue-green to-pacific-cyan',
+      title: "DevOps Solutions",
+      description:
+        "CI/CD pipelines, containerization, and infrastructure automation for velocity.",
+      link: "/devops",
+      gradient: "from-blue-green to-pacific-cyan",
     },
     {
       icon: Palette,
-      title: 'UI/UX Design',
-      description: 'User-centric interfaces crafted for intuitive experiences and conversion.',
-      link: '/ui-ux',
-      gradient: 'from-star-blue to-blue-green',
+      title: "UI/UX Design",
+      description:
+        "User-centric interfaces crafted for intuitive experiences and conversion.",
+      link: "/ui-ux",
+      gradient: "from-star-blue to-blue-green",
     },
   ];
 
   const partners = [
-    'AWS', 'Azure', 'Google Cloud', 'Docker', 'Kubernetes', 'React', 'Node.js', 'TypeScript'
+    "AWS",
+    "Azure",
+    "Google Cloud",
+    "Docker",
+    "Kubernetes",
+    "React",
+    "Node.js",
+    "TypeScript",
   ];
 
   const benefits = [
-    'Scalable architecture from day one',
-    'Security-first implementation',
-    'Real-time performance monitoring',
-    'Comprehensive documentation',
+    "Scalable architecture from day one",
+    "Security-first implementation",
+    "Real-time performance monitoring",
+    "Comprehensive documentation",
   ];
 
   return (
@@ -75,8 +93,9 @@ const Home = () => {
               Ecosystems
             </h1>
             <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Transform your vision into production-grade solutions with modern architectures,
-              seamless integrations, and enterprise-level security.
+              Transform your vision into production-grade solutions with modern
+              architectures, seamless integrations, and enterprise-level
+              security.
             </p>
           </motion.div>
 
@@ -87,10 +106,15 @@ const Home = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
             <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/contact"
               className="group px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg flex items-center space-x-2 hover:shadow-2xl hover:shadow-pacific-cyan/40 transition-all duration-300 transform hover:-translate-y-1"
             >
-              <span>Start Your Project</span>
+              <span
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Start Your Project
+              </span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
@@ -153,7 +177,8 @@ const Home = () => {
               Our Core <span className="text-pacific-cyan">Services</span>
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              End-to-end solutions designed for performance, scalability, and maintainability.
+              End-to-end solutions designed for performance, scalability, and
+              maintainability.
             </p>
           </motion.div>
 
@@ -170,13 +195,17 @@ const Home = () => {
                   to={service.link}
                   className="group block h-full p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-pacific-cyan/50 transition-all duration-300 hover:shadow-2xl hover:shadow-pacific-cyan/20 hover:-translate-y-2"
                 >
-                  <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${service.gradient} mb-6`}>
+                  <div
+                    className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${service.gradient} mb-6`}
+                  >
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="font-heading font-bold text-2xl text-white mb-4 group-hover:text-pacific-cyan transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-white/70 leading-relaxed mb-6">{service.description}</p>
+                  <p className="text-white/70 leading-relaxed mb-6">
+                    {service.description}
+                  </p>
                   <div className="flex items-center text-pacific-cyan font-medium group-hover:translate-x-2 transition-transform">
                     Learn more
                     <ArrowRight className="w-5 h-5 ml-2" />
@@ -200,9 +229,11 @@ const Home = () => {
               Ready to Transform Your Vision?
             </h2>
             <p className="text-xl text-white/70 mb-12 max-w-2xl mx-auto">
-              Let's discuss how we can architect a solution tailored to your business objectives.
+              Let's discuss how we can architect a solution tailored to your
+              business objectives.
             </p>
             <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/contact"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg hover:shadow-2xl hover:shadow-pacific-cyan/40 transition-all duration-300 transform hover:-translate-y-1"
             >

@@ -77,6 +77,7 @@ const Navbar = () => {
 
           <div className="hidden md:block">
             <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/contact"
               className="relative px-6 py-2.5 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-medium rounded-lg overflow-hidden group"
             >
@@ -117,6 +118,7 @@ const Navbar = () => {
                 </Link>
               ))}
               <Link
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 to="/contact"
                 className="block px-4 py-3 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-medium rounded-lg text-center"
               >

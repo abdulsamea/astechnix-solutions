@@ -1,77 +1,135 @@
-import { motion } from 'framer-motion';
-import { GitBranch, Rocket, Container, Gauge, Shield, Repeat, Clock, TrendingUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
+import {
+  GitBranch,
+  Rocket,
+  Container,
+  Gauge,
+  Shield,
+  Repeat,
+  Clock,
+  TrendingUp,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const DevOps = () => {
   const services = [
     {
       icon: GitBranch,
-      title: 'CI/CD Pipelines',
-      description: 'Automated build, test, and deployment workflows for rapid iteration.',
-      features: ['GitHub Actions', 'GitLab CI', 'Jenkins', 'CircleCI', 'Azure DevOps'],
+      title: "CI/CD Pipelines",
+      description:
+        "Automated build, test, and deployment workflows for rapid iteration.",
+      features: [
+        "GitHub Actions",
+        "GitLab CI",
+        "Jenkins",
+        "CircleCI",
+        "Azure DevOps",
+      ],
     },
     {
       icon: Container,
-      title: 'Containerization',
-      description: 'Consistent environments from development to production.',
-      features: ['Docker', 'Kubernetes', 'Docker Compose', 'Helm Charts', 'Container Registry'],
+      title: "Containerization",
+      description: "Consistent environments from development to production.",
+      features: [
+        "Docker",
+        "Kubernetes",
+        "Docker Compose",
+        "Helm Charts",
+        "Container Registry",
+      ],
     },
     {
       icon: Gauge,
-      title: 'Monitoring & Observability',
-      description: 'Real-time insights into system health and performance metrics.',
-      features: ['Prometheus', 'Grafana', 'ELK Stack', 'DataDog', 'New Relic'],
+      title: "Monitoring & Observability",
+      description:
+        "Real-time insights into system health and performance metrics.",
+      features: ["Prometheus", "Grafana", "ELK Stack", "DataDog", "New Relic"],
     },
     {
       icon: Shield,
-      title: 'Security & Compliance',
-      description: 'Automated security scanning and compliance enforcement.',
-      features: ['SAST/DAST', 'Dependency Scanning', 'Secret Management', 'Policy as Code'],
+      title: "Security & Compliance",
+      description: "Automated security scanning and compliance enforcement.",
+      features: [
+        "SAST/DAST",
+        "Dependency Scanning",
+        "Secret Management",
+        "Policy as Code",
+      ],
     },
     {
       icon: Repeat,
-      title: 'Infrastructure as Code',
-      description: 'Version-controlled, reproducible infrastructure provisioning.',
-      features: ['Terraform', 'CloudFormation', 'Ansible', 'Pulumi', 'CDK'],
+      title: "Infrastructure as Code",
+      description:
+        "Version-controlled, reproducible infrastructure provisioning.",
+      features: ["Terraform", "CloudFormation", "Ansible", "Pulumi", "CDK"],
     },
     {
       icon: TrendingUp,
-      title: 'Performance Optimization',
-      description: 'Continuous performance tuning and resource optimization.',
-      features: ['Auto-scaling', 'Load Balancing', 'Caching Strategies', 'CDN Integration'],
+      title: "Performance Optimization",
+      description: "Continuous performance tuning and resource optimization.",
+      features: [
+        "Auto-scaling",
+        "Load Balancing",
+        "Caching Strategies",
+        "CDN Integration",
+      ],
     },
   ];
 
   const benefits = [
     {
-      metric: '10x',
-      label: 'Faster Deployments',
-      description: 'Ship features from commit to production in minutes',
+      metric: "10x",
+      label: "Faster Deployments",
+      description: "Ship features from commit to production in minutes",
     },
     {
-      metric: '99.9%',
-      label: 'Uptime SLA',
-      description: 'Automated failover and self-healing infrastructure',
+      metric: "99.9%",
+      label: "Uptime SLA",
+      description: "Automated failover and self-healing infrastructure",
     },
     {
-      metric: '80%',
-      label: 'Cost Reduction',
-      description: 'Optimized resource utilization and auto-scaling',
+      metric: "80%",
+      label: "Cost Reduction",
+      description: "Optimized resource utilization and auto-scaling",
     },
     {
-      metric: '24/7',
-      label: 'Automated Monitoring',
-      description: 'Proactive issue detection and alerting',
+      metric: "24/7",
+      label: "Automated Monitoring",
+      description: "Proactive issue detection and alerting",
     },
   ];
 
   const workflow = [
-    { step: '1', title: 'Code Commit', description: 'Developers push code to repository' },
-    { step: '2', title: 'Automated Testing', description: 'Unit, integration, and E2E tests run' },
-    { step: '3', title: 'Security Scanning', description: 'Vulnerability and compliance checks' },
-    { step: '4', title: 'Build & Package', description: 'Container images built and tagged' },
-    { step: '5', title: 'Deploy', description: 'Automated deployment to staging/production' },
-    { step: '6', title: 'Monitor', description: 'Real-time metrics and alerting' },
+    {
+      step: "1",
+      title: "Code Commit",
+      description: "Developers push code to repository",
+    },
+    {
+      step: "2",
+      title: "Automated Testing",
+      description: "Unit, integration, and E2E tests run",
+    },
+    {
+      step: "3",
+      title: "Security Scanning",
+      description: "Vulnerability and compliance checks",
+    },
+    {
+      step: "4",
+      title: "Build & Package",
+      description: "Container images built and tagged",
+    },
+    {
+      step: "5",
+      title: "Deploy",
+      description: "Automated deployment to staging/production",
+    },
+    {
+      step: "6",
+      title: "Monitor",
+      description: "Real-time metrics and alerting",
+    },
   ];
 
   return (
@@ -90,7 +148,9 @@ const DevOps = () => {
           >
             <div className="inline-flex items-center space-x-2 mb-6 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-pacific-cyan/30">
               <Rocket className="w-4 h-4 text-pacific-cyan" />
-              <span className="text-pacific-cyan text-sm font-medium">DevOps Excellence</span>
+              <span className="text-pacific-cyan text-sm font-medium">
+                DevOps Excellence
+              </span>
             </div>
             <h1 className="font-heading font-bold text-5xl md:text-7xl text-white mb-6 leading-tight">
               Accelerate Your
@@ -100,10 +160,11 @@ const DevOps = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Transform your deployment pipeline with automated workflows, containerization, and
-              continuous delivery for maximum velocity.
+              Transform your deployment pipeline with automated workflows,
+              containerization, and continuous delivery for maximum velocity.
             </p>
             <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/contact"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg hover:shadow-2xl hover:shadow-pacific-cyan/40 transition-all duration-300 transform hover:-translate-y-1"
             >
@@ -153,7 +214,8 @@ const DevOps = () => {
               DevOps <span className="text-pacific-cyan">Capabilities</span>
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              Comprehensive solutions to streamline your development and operations workflows.
+              Comprehensive solutions to streamline your development and
+              operations workflows.
             </p>
           </motion.div>
 
@@ -173,7 +235,9 @@ const DevOps = () => {
                 <h3 className="font-heading font-bold text-xl text-white mb-3">
                   {service.title}
                 </h3>
-                <p className="text-white/70 text-sm mb-4 leading-relaxed">{service.description}</p>
+                <p className="text-white/70 text-sm mb-4 leading-relaxed">
+                  {service.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {service.features.map((feature, featureIndex) => (
                     <span
@@ -202,7 +266,8 @@ const DevOps = () => {
               Deployment <span className="text-pacific-cyan">Workflow</span>
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              From code commit to production deployment in minutes with automated quality gates.
+              From code commit to production deployment in minutes with
+              automated quality gates.
             </p>
           </motion.div>
 
@@ -222,7 +287,9 @@ const DevOps = () => {
                 <h3 className="font-heading font-bold text-xl text-white mb-2 mt-4">
                   {item.title}
                 </h3>
-                <p className="text-white/70 text-sm leading-relaxed">{item.description}</p>
+                <p className="text-white/70 text-sm leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -237,9 +304,10 @@ const DevOps = () => {
                 Why DevOps <span className="text-pacific-cyan">Matters</span>
               </h2>
               <p className="text-xl text-white/80 mb-8 leading-relaxed">
-                In today's fast-paced market, the ability to iterate quickly while maintaining
-                quality is crucial. Our DevOps solutions enable your team to deliver features
-                faster, reduce deployment risks, and respond to market demands with agility.
+                In today's fast-paced market, the ability to iterate quickly
+                while maintaining quality is crucial. Our DevOps solutions
+                enable your team to deliver features faster, reduce deployment
+                risks, and respond to market demands with agility.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
                 <div className="p-4 rounded-xl bg-white/10 backdrop-blur-sm">
@@ -283,9 +351,11 @@ const DevOps = () => {
               Ready to Accelerate Your Deployments?
             </h2>
             <p className="text-xl text-white/70 mb-12 max-w-2xl mx-auto">
-              Let's build a DevOps pipeline that delivers speed, reliability, and scalability.
+              Let's build a DevOps pipeline that delivers speed, reliability,
+              and scalability.
             </p>
             <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/contact"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg hover:shadow-2xl hover:shadow-pacific-cyan/40 transition-all duration-300 transform hover:-translate-y-1"
             >

@@ -1,97 +1,172 @@
-import { motion } from 'framer-motion';
-import { Code, Smartphone, Monitor, Layers, Package, Rocket } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
+import {
+  Code,
+  Smartphone,
+  Monitor,
+  Layers,
+  Package,
+  Rocket,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FullStack = () => {
   const platforms = [
     {
       icon: Monitor,
-      title: 'Web Applications',
-      description: 'Modern, responsive web experiences built for performance and scalability.',
+      title: "Web Applications",
+      description:
+        "Modern, responsive web experiences built for performance and scalability.",
       technologies: [
-        { name: 'React', category: 'Frontend', color: 'from-sky-blue to-pale-azure' },
-        { name: 'Next.js', category: 'Framework', color: 'from-pacific-cyan to-sky-blue' },
-        { name: 'Vue.js', category: 'Frontend', color: 'from-blue-green to-pacific-cyan' },
-        { name: 'TypeScript', category: 'Language', color: 'from-star-blue to-blue-green' },
-        { name: 'Node.js', category: 'Backend', color: 'from-pacific-cyan to-sky-blue' },
-        { name: 'Express', category: 'Backend', color: 'from-sky-blue to-pale-azure' },
+        {
+          name: "React",
+          category: "Frontend",
+          color: "from-sky-blue to-pale-azure",
+        },
+        {
+          name: "Next.js",
+          category: "Framework",
+          color: "from-pacific-cyan to-sky-blue",
+        },
+        {
+          name: "Vue.js",
+          category: "Frontend",
+          color: "from-blue-green to-pacific-cyan",
+        },
+        {
+          name: "TypeScript",
+          category: "Language",
+          color: "from-star-blue to-blue-green",
+        },
+        {
+          name: "Node.js",
+          category: "Backend",
+          color: "from-pacific-cyan to-sky-blue",
+        },
+        {
+          name: "Express",
+          category: "Backend",
+          color: "from-sky-blue to-pale-azure",
+        },
       ],
     },
     {
       icon: Smartphone,
-      title: 'Mobile Applications',
-      description: 'Cross-platform and native mobile apps for iOS and Android.',
+      title: "Mobile Applications",
+      description: "Cross-platform and native mobile apps for iOS and Android.",
       technologies: [
-        { name: 'React Native', category: 'Cross-Platform', color: 'from-sky-blue to-pale-azure' },
-        { name: 'Flutter', category: 'Cross-Platform', color: 'from-pacific-cyan to-sky-blue' },
-        { name: 'Swift', category: 'iOS Native', color: 'from-blue-green to-pacific-cyan' },
-        { name: 'Kotlin', category: 'Android Native', color: 'from-star-blue to-blue-green' },
-        { name: 'Expo', category: 'Framework', color: 'from-pacific-cyan to-sky-blue' },
-        { name: 'Firebase', category: 'Backend', color: 'from-sky-blue to-pale-azure' },
+        {
+          name: "React Native",
+          category: "Cross-Platform",
+          color: "from-sky-blue to-pale-azure",
+        },
+        {
+          name: "Flutter",
+          category: "Cross-Platform",
+          color: "from-pacific-cyan to-sky-blue",
+        },
+        {
+          name: "Swift",
+          category: "iOS Native",
+          color: "from-blue-green to-pacific-cyan",
+        },
+        {
+          name: "Kotlin",
+          category: "Android Native",
+          color: "from-star-blue to-blue-green",
+        },
+        {
+          name: "Expo",
+          category: "Framework",
+          color: "from-pacific-cyan to-sky-blue",
+        },
+        {
+          name: "Firebase",
+          category: "Backend",
+          color: "from-sky-blue to-pale-azure",
+        },
       ],
     },
     {
       icon: Package,
-      title: 'Desktop Applications',
-      description: 'High-performance desktop applications for Windows, macOS, and Linux.',
+      title: "Desktop Applications",
+      description:
+        "High-performance desktop applications for Windows, macOS, and Linux.",
       technologies: [
-        { name: 'Electron', category: 'Cross-Platform', color: 'from-sky-blue to-pale-azure' },
-        { name: 'Tauri', category: 'Cross-Platform', color: 'from-pacific-cyan to-sky-blue' },
-        { name: '.NET', category: 'Framework', color: 'from-blue-green to-pacific-cyan' },
-        { name: 'Qt', category: 'Framework', color: 'from-star-blue to-blue-green' },
+        {
+          name: "Electron",
+          category: "Cross-Platform",
+          color: "from-sky-blue to-pale-azure",
+        },
+        {
+          name: "Tauri",
+          category: "Cross-Platform",
+          color: "from-pacific-cyan to-sky-blue",
+        },
+        {
+          name: ".NET",
+          category: "Framework",
+          color: "from-blue-green to-pacific-cyan",
+        },
+        {
+          name: "Qt",
+          category: "Framework",
+          color: "from-star-blue to-blue-green",
+        },
       ],
     },
   ];
 
   const backends = [
     {
-      name: 'Node.js',
-      description: 'Event-driven JavaScript runtime for scalable network applications',
-      icon: '🟢',
+      name: "Node.js",
+      description:
+        "Event-driven JavaScript runtime for scalable network applications",
+      icon: "🟢",
     },
     {
-      name: 'Python',
-      description: 'Versatile language for APIs, ML, and data-intensive applications',
-      icon: '🐍',
+      name: "Python",
+      description:
+        "Versatile language for APIs, ML, and data-intensive applications",
+      icon: "🐍",
     },
     {
-      name: 'Go',
-      description: 'High-performance concurrent systems for microservices',
-      icon: '🔷',
+      name: "Go",
+      description: "High-performance concurrent systems for microservices",
+      icon: "🔷",
     },
     {
-      name: 'Rust',
-      description: 'Memory-safe systems programming for maximum performance',
-      icon: '🦀',
+      name: "Rust",
+      description: "Memory-safe systems programming for maximum performance",
+      icon: "🦀",
     },
     {
-      name: 'Java/Kotlin',
-      description: 'Enterprise-grade applications with robust ecosystem',
-      icon: '☕',
+      name: "Java/Kotlin",
+      description: "Enterprise-grade applications with robust ecosystem",
+      icon: "☕",
     },
     {
-      name: '.NET',
-      description: 'Cross-platform framework for modern cloud applications',
-      icon: '💜',
+      name: ".NET",
+      description: "Cross-platform framework for modern cloud applications",
+      icon: "💜",
     },
   ];
 
   const databases = [
-    { name: 'PostgreSQL', type: 'Relational' },
-    { name: 'MySQL', type: 'Relational' },
-    { name: 'MongoDB', type: 'NoSQL' },
-    { name: 'Redis', type: 'Cache' },
-    { name: 'Elasticsearch', type: 'Search' },
-    { name: 'DynamoDB', type: 'NoSQL' },
+    { name: "PostgreSQL", type: "Relational" },
+    { name: "MySQL", type: "Relational" },
+    { name: "MongoDB", type: "NoSQL" },
+    { name: "Redis", type: "Cache" },
+    { name: "Elasticsearch", type: "Search" },
+    { name: "DynamoDB", type: "NoSQL" },
   ];
 
   const features = [
-    'RESTful & GraphQL API design',
-    'Real-time capabilities with WebSockets',
-    'Microservices architecture',
-    'Authentication & authorization',
-    'Payment gateway integration',
-    'Third-party API integrations',
+    "RESTful & GraphQL API design",
+    "Real-time capabilities with WebSockets",
+    "Microservices architecture",
+    "Authentication & authorization",
+    "Payment gateway integration",
+    "Third-party API integrations",
   ];
 
   return (
@@ -110,7 +185,9 @@ const FullStack = () => {
           >
             <div className="inline-flex items-center space-x-2 mb-6 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-pacific-cyan/30">
               <Code className="w-4 h-4 text-pacific-cyan" />
-              <span className="text-pacific-cyan text-sm font-medium">Full Stack Development</span>
+              <span className="text-pacific-cyan text-sm font-medium">
+                Full Stack Development
+              </span>
             </div>
             <h1 className="font-heading font-bold text-5xl md:text-7xl text-white mb-6 leading-tight">
               Modern Applications
@@ -120,10 +197,11 @@ const FullStack = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed">
-              From web to mobile to desktop, we craft production-ready applications with modern
-              frameworks and industry best practices.
+              From web to mobile to desktop, we craft production-ready
+              applications with modern frameworks and industry best practices.
             </p>
             <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/contact"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg hover:shadow-2xl hover:shadow-pacific-cyan/40 transition-all duration-300 transform hover:-translate-y-1"
             >
@@ -145,7 +223,8 @@ const FullStack = () => {
               Platform <span className="text-pacific-cyan">Expertise</span>
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              We build applications that work seamlessly across all platforms and devices.
+              We build applications that work seamlessly across all platforms
+              and devices.
             </p>
           </motion.div>
 
@@ -181,7 +260,9 @@ const FullStack = () => {
                       >
                         <Layers className="w-6 h-6 text-white" />
                       </div>
-                      <h4 className="font-heading font-semibold text-white mb-1">{tech.name}</h4>
+                      <h4 className="font-heading font-semibold text-white mb-1">
+                        {tech.name}
+                      </h4>
                       <p className="text-white/50 text-xs">{tech.category}</p>
                     </div>
                   ))}
@@ -204,7 +285,8 @@ const FullStack = () => {
               Backend <span className="text-pacific-cyan">Powerhouse</span>
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              High-performance backends engineered with the right tool for the right job.
+              High-performance backends engineered with the right tool for the
+              right job.
             </p>
           </motion.div>
 
@@ -219,8 +301,12 @@ const FullStack = () => {
                 className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-pacific-cyan/50 transition-all duration-300"
               >
                 <div className="text-4xl mb-4">{backend.icon}</div>
-                <h3 className="font-heading font-bold text-xl text-white mb-3">{backend.name}</h3>
-                <p className="text-white/70 text-sm leading-relaxed">{backend.description}</p>
+                <h3 className="font-heading font-bold text-xl text-white mb-3">
+                  {backend.name}
+                </h3>
+                <p className="text-white/70 text-sm leading-relaxed">
+                  {backend.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -239,7 +325,8 @@ const FullStack = () => {
                 Database <span className="text-pacific-cyan">Architecture</span>
               </h2>
               <p className="text-xl text-white/70 mb-8">
-                Strategic data modeling and optimization for performance at scale.
+                Strategic data modeling and optimization for performance at
+                scale.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {databases.map((db, index) => (
@@ -247,7 +334,9 @@ const FullStack = () => {
                     key={index}
                     className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-pacific-cyan/50 transition-all duration-300"
                   >
-                    <h4 className="font-heading font-semibold text-white mb-1">{db.name}</h4>
+                    <h4 className="font-heading font-semibold text-white mb-1">
+                      {db.name}
+                    </h4>
                     <p className="text-white/50 text-sm">{db.type}</p>
                   </div>
                 ))}
@@ -292,9 +381,11 @@ const FullStack = () => {
               Ready to Build Something Exceptional?
             </h2>
             <p className="text-xl text-white/70 mb-12 max-w-2xl mx-auto">
-              Let's transform your idea into a production-ready application with modern tech stack.
+              Let's transform your idea into a production-ready application with
+              modern tech stack.
             </p>
             <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/contact"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg hover:shadow-2xl hover:shadow-pacific-cyan/40 transition-all duration-300 transform hover:-translate-y-1"
             >

@@ -1,46 +1,109 @@
-import { motion } from 'framer-motion';
-import { Cloud, Server, Database, Shield, Zap, Globe, Check } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
+import {
+  Cloud,
+  Server,
+  Database,
+  Shield,
+  Zap,
+  Globe,
+  Check,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CloudServices = () => {
   const providers = [
     {
-      name: 'Amazon Web Services',
-      icon: '🟠',
-      description: 'Industry-leading cloud infrastructure with unmatched service breadth.',
+      name: "Amazon Web Services",
+      icon: "🟠",
+      description:
+        "Industry-leading cloud infrastructure with unmatched service breadth.",
       services: [
-        { name: 'Lambda', description: 'Serverless compute for event-driven applications' },
-        { name: 'S3', description: 'Scalable object storage with 99.999999999% durability' },
-        { name: 'EC2', description: 'Flexible virtual servers with auto-scaling capabilities' },
-        { name: 'RDS', description: 'Managed relational databases with automated backups' },
-        { name: 'CloudFront', description: 'Global CDN for low-latency content delivery' },
-        { name: 'EKS', description: 'Managed Kubernetes for container orchestration' },
+        {
+          name: "Lambda",
+          description: "Serverless compute for event-driven applications",
+        },
+        {
+          name: "S3",
+          description: "Scalable object storage with 99.999999999% durability",
+        },
+        {
+          name: "EC2",
+          description:
+            "Flexible virtual servers with auto-scaling capabilities",
+        },
+        {
+          name: "RDS",
+          description: "Managed relational databases with automated backups",
+        },
+        {
+          name: "CloudFront",
+          description: "Global CDN for low-latency content delivery",
+        },
+        {
+          name: "EKS",
+          description: "Managed Kubernetes for container orchestration",
+        },
       ],
     },
     {
-      name: 'Microsoft Azure',
-      icon: '🔵',
-      description: 'Enterprise-grade cloud platform with seamless Microsoft integration.',
+      name: "Microsoft Azure",
+      icon: "🔵",
+      description:
+        "Enterprise-grade cloud platform with seamless Microsoft integration.",
       services: [
-        { name: 'Functions', description: 'Serverless compute with multi-language support' },
-        { name: 'Blob Storage', description: 'Massively scalable object storage solution' },
-        { name: 'Azure DevOps', description: 'Complete CI/CD pipeline automation platform' },
-        { name: 'Cosmos DB', description: 'Globally distributed multi-model database' },
-        { name: 'AKS', description: 'Managed Kubernetes with integrated monitoring' },
-        { name: 'App Service', description: 'Fully managed platform for web applications' },
+        {
+          name: "Functions",
+          description: "Serverless compute with multi-language support",
+        },
+        {
+          name: "Blob Storage",
+          description: "Massively scalable object storage solution",
+        },
+        {
+          name: "Azure DevOps",
+          description: "Complete CI/CD pipeline automation platform",
+        },
+        {
+          name: "Cosmos DB",
+          description: "Globally distributed multi-model database",
+        },
+        {
+          name: "AKS",
+          description: "Managed Kubernetes with integrated monitoring",
+        },
+        {
+          name: "App Service",
+          description: "Fully managed platform for web applications",
+        },
       ],
     },
     {
-      name: 'Google Cloud Platform',
-      icon: '🔴',
-      description: 'Advanced analytics and ML capabilities with Google-scale infrastructure.',
+      name: "Google Cloud Platform",
+      icon: "🔴",
+      description:
+        "Advanced analytics and ML capabilities with Google-scale infrastructure.",
       services: [
-        { name: 'Cloud Functions', description: 'Event-driven serverless functions' },
-        { name: 'Cloud Storage', description: 'Unified object storage for any data type' },
-        { name: 'App Engine', description: 'Fully managed serverless application platform' },
-        { name: 'BigQuery', description: 'Serverless data warehouse for analytics at scale' },
-        { name: 'GKE', description: 'Automated Kubernetes with Google SRE expertise' },
-        { name: 'Cloud Run', description: 'Fully managed container platform' },
+        {
+          name: "Cloud Functions",
+          description: "Event-driven serverless functions",
+        },
+        {
+          name: "Cloud Storage",
+          description: "Unified object storage for any data type",
+        },
+        {
+          name: "App Engine",
+          description: "Fully managed serverless application platform",
+        },
+        {
+          name: "BigQuery",
+          description: "Serverless data warehouse for analytics at scale",
+        },
+        {
+          name: "GKE",
+          description: "Automated Kubernetes with Google SRE expertise",
+        },
+        { name: "Cloud Run", description: "Fully managed container platform" },
       ],
     },
   ];
@@ -48,33 +111,37 @@ const CloudServices = () => {
   const benefits = [
     {
       icon: Zap,
-      title: 'High Performance',
-      description: 'Optimized architectures delivering sub-second response times globally.',
+      title: "High Performance",
+      description:
+        "Optimized architectures delivering sub-second response times globally.",
     },
     {
       icon: Shield,
-      title: 'Enterprise Security',
-      description: 'Multi-layered security with encryption, IAM, and compliance certifications.',
+      title: "Enterprise Security",
+      description:
+        "Multi-layered security with encryption, IAM, and compliance certifications.",
     },
     {
       icon: Globe,
-      title: 'Global Scale',
-      description: 'Deploy across multiple regions with automatic failover and load balancing.',
+      title: "Global Scale",
+      description:
+        "Deploy across multiple regions with automatic failover and load balancing.",
     },
     {
       icon: Server,
-      title: 'Cost Optimization',
-      description: 'Right-sized infrastructure with reserved instances and spot pricing strategies.',
+      title: "Cost Optimization",
+      description:
+        "Right-sized infrastructure with reserved instances and spot pricing strategies.",
     },
   ];
 
   const features = [
-    'Infrastructure as Code (Terraform, CloudFormation)',
-    'Multi-cloud and hybrid cloud strategies',
-    'Automated backup and disaster recovery',
-    'Real-time monitoring and alerting',
-    'Auto-scaling and load balancing',
-    '24/7 managed services and support',
+    "Infrastructure as Code (Terraform, CloudFormation)",
+    "Multi-cloud and hybrid cloud strategies",
+    "Automated backup and disaster recovery",
+    "Real-time monitoring and alerting",
+    "Auto-scaling and load balancing",
+    "24/7 managed services and support",
   ];
 
   return (
@@ -93,7 +160,9 @@ const CloudServices = () => {
           >
             <div className="inline-flex items-center space-x-2 mb-6 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-pacific-cyan/30">
               <Cloud className="w-4 h-4 text-pacific-cyan" />
-              <span className="text-pacific-cyan text-sm font-medium">Cloud Infrastructure</span>
+              <span className="text-pacific-cyan text-sm font-medium">
+                Cloud Infrastructure
+              </span>
             </div>
             <h1 className="font-heading font-bold text-5xl md:text-7xl text-white mb-6 leading-tight">
               Cloud-Native
@@ -103,10 +172,11 @@ const CloudServices = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Build resilient, scalable infrastructure on AWS, Azure, and GCP with enterprise-grade
-              security and performance optimization.
+              Build resilient, scalable infrastructure on AWS, Azure, and GCP
+              with enterprise-grade security and performance optimization.
             </p>
             <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/contact"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg hover:shadow-2xl hover:shadow-pacific-cyan/40 transition-all duration-300 transform hover:-translate-y-1"
             >
@@ -128,8 +198,8 @@ const CloudServices = () => {
               Why Choose <span className="text-pacific-cyan">Cloud-Native</span>
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              Leverage the power of modern cloud platforms to accelerate innovation and reduce
-              operational overhead.
+              Leverage the power of modern cloud platforms to accelerate
+              innovation and reduce operational overhead.
             </p>
           </motion.div>
 
@@ -149,7 +219,9 @@ const CloudServices = () => {
                 <h3 className="font-heading font-semibold text-xl text-white mb-3">
                   {benefit.title}
                 </h3>
-                <p className="text-white/70 text-sm leading-relaxed">{benefit.description}</p>
+                <p className="text-white/70 text-sm leading-relaxed">
+                  {benefit.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -182,7 +254,9 @@ const CloudServices = () => {
                       <h4 className="font-heading font-semibold text-lg text-white mb-2">
                         {service.name}
                       </h4>
-                      <p className="text-white/60 text-sm">{service.description}</p>
+                      <p className="text-white/60 text-sm">
+                        {service.description}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -234,10 +308,11 @@ const CloudServices = () => {
               Ready to Migrate to the Cloud?
             </h2>
             <p className="text-xl text-white/70 mb-12 max-w-2xl mx-auto">
-              Let's architect a cloud solution that scales with your business and optimizes your
-              infrastructure costs.
+              Let's architect a cloud solution that scales with your business
+              and optimizes your infrastructure costs.
             </p>
             <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/contact"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg hover:shadow-2xl hover:shadow-pacific-cyan/40 transition-all duration-300 transform hover:-translate-y-1"
             >
