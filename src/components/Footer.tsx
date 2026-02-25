@@ -71,9 +71,12 @@ const Footer = () => {
                 "DevOps Solutions",
                 "UI/UX Design",
               ].map((service) => (
-                <li key={service}>
+                <li key={service as keyof typeof serviceMap}>
                   <Link
                     to={`/${serviceMap[service]}`}
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
                     className="text-white/70 hover:text-pacific-cyan text-sm transition-colors duration-300"
                   >
                     {service}
@@ -83,7 +86,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          {/* <div>
             <h3 className="font-heading font-semibold text-white text-lg mb-6">
               Company
             </h3>
@@ -99,7 +102,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           <div>
             <h3 className="font-heading font-semibold text-white text-lg mb-6">
@@ -108,15 +111,15 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3 text-white/70 text-sm">
                 <Mail className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-0.5" />
-                <span>hello@astechnix.com</span>
+                <span>contact@astechnixsolutions.com</span>
               </li>
               <li className="flex items-start space-x-3 text-white/70 text-sm">
                 <Phone className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-0.5" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 90045 75425</span>
               </li>
               <li className="flex items-start space-x-3 text-white/70 text-sm">
                 <MapPin className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-0.5" />
-                <span>San Francisco, CA</span>
+                <span>Mumbai, India</span>
               </li>
             </ul>
           </div>
@@ -127,25 +130,13 @@ const Footer = () => {
             <p className="text-white/50 text-sm">
               &copy; {new Date().getFullYear()} AStechnix. All rights reserved.
             </p>
-            <div className="flex space-x-6">
-              <a
-                href="#"
-                className="text-white/50 hover:text-pacific-cyan text-sm transition-colors duration-300"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-white/50 hover:text-pacific-cyan text-sm transition-colors duration-300"
-              >
-                Terms of Service
-              </a>
-            </div>
+            <div className="flex space-x-6"></div>
           </div>
         </div>
 
         <div className="mt-12 text-center">
           <Link
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             to="/contact"
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg hover:shadow-lg hover:shadow-pacific-cyan/30 transition-all duration-300 transform hover:-translate-y-1"
           >

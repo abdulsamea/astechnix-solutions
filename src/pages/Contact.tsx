@@ -1,34 +1,41 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowLeft, CheckCircle2, Mail, Phone, MapPin } from 'lucide-react';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowRight,
+  ArrowLeft,
+  CheckCircle2,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
 const Contact = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    serviceType: '',
-    budgetRange: '',
-    projectDetails: '',
+    name: "",
+    email: "",
+    serviceType: "",
+    budgetRange: "",
+    projectDetails: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
   const totalSteps = 5;
 
   const serviceTypes = [
-    'Cloud Services',
-    'Full Stack Development',
-    'DevOps Solutions',
-    'UI/UX Design',
-    'Complete Digital Transformation',
+    "Cloud Services",
+    "Full Stack Development",
+    "DevOps Solutions",
+    "UI/UX Design",
+    "Complete Digital Transformation",
   ];
 
   const budgetRanges = [
-    'Under $25k',
-    '$25k - $50k',
-    '$50k - $100k',
-    '$100k - $250k',
-    '$250k+',
+    "Under $25k",
+    "$25k - $50k",
+    "$50k - $100k",
+    "$100k - $250k",
+    "$250k+",
   ];
 
   const handleInputChange = (field: string, value: string) => {
@@ -53,7 +60,7 @@ const Contact = () => {
   };
 
   const handleSubmit = () => {
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     setSubmitted(true);
   };
 
@@ -63,11 +70,13 @@ const Contact = () => {
         return (
           <div className="space-y-4">
             <label className="block">
-              <span className="text-white/70 text-sm font-medium mb-2 block">Your Name</span>
+              <span className="text-white/70 text-sm font-medium mb-2 block">
+                Your Name
+              </span>
               <input
                 type="text"
                 value={formData.name}
-                onChange={(e) => handleInputChange('name', e.target.value)}
+                onChange={(e) => handleInputChange("name", e.target.value)}
                 placeholder="John Doe"
                 className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-pacific-cyan focus:outline-none transition-colors"
               />
@@ -78,11 +87,13 @@ const Contact = () => {
         return (
           <div className="space-y-4">
             <label className="block">
-              <span className="text-white/70 text-sm font-medium mb-2 block">Email Address</span>
+              <span className="text-white/70 text-sm font-medium mb-2 block">
+                Email Address
+              </span>
               <input
                 type="email"
                 value={formData.email}
-                onChange={(e) => handleInputChange('email', e.target.value)}
+                onChange={(e) => handleInputChange("email", e.target.value)}
                 placeholder="john@company.com"
                 className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-pacific-cyan focus:outline-none transition-colors"
               />
@@ -99,11 +110,11 @@ const Contact = () => {
               {serviceTypes.map((service) => (
                 <button
                   key={service}
-                  onClick={() => handleInputChange('serviceType', service)}
+                  onClick={() => handleInputChange("serviceType", service)}
                   className={`p-4 rounded-lg border-2 transition-all text-left ${
                     formData.serviceType === service
-                      ? 'border-pacific-cyan bg-pacific-cyan/20 text-white'
-                      : 'border-white/10 bg-white/5 text-white/70 hover:border-white/20'
+                      ? "border-pacific-cyan bg-pacific-cyan/20 text-white"
+                      : "border-white/10 bg-white/5 text-white/70 hover:border-white/20"
                   }`}
                 >
                   {service}
@@ -122,11 +133,11 @@ const Contact = () => {
               {budgetRanges.map((range) => (
                 <button
                   key={range}
-                  onClick={() => handleInputChange('budgetRange', range)}
+                  onClick={() => handleInputChange("budgetRange", range)}
                   className={`p-4 rounded-lg border-2 transition-all text-left ${
                     formData.budgetRange === range
-                      ? 'border-pacific-cyan bg-pacific-cyan/20 text-white'
-                      : 'border-white/10 bg-white/5 text-white/70 hover:border-white/20'
+                      ? "border-pacific-cyan bg-pacific-cyan/20 text-white"
+                      : "border-white/10 bg-white/5 text-white/70 hover:border-white/20"
                   }`}
                 >
                   {range}
@@ -144,7 +155,9 @@ const Contact = () => {
               </span>
               <textarea
                 value={formData.projectDetails}
-                onChange={(e) => handleInputChange('projectDetails', e.target.value)}
+                onChange={(e) =>
+                  handleInputChange("projectDetails", e.target.value)
+                }
                 placeholder="Describe your project goals, timeline, and any specific requirements..."
                 rows={6}
                 className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-pacific-cyan focus:outline-none transition-colors resize-none"
@@ -172,19 +185,19 @@ const Contact = () => {
             Thank You!
           </h1>
           <p className="text-xl text-white/70 mb-8">
-            We've received your request and will get back to you within 24 hours to schedule your
-            discovery call.
+            We've received your request and will get back to you within 24 hours
+            to schedule your discovery call.
           </p>
           <button
             onClick={() => {
               setSubmitted(false);
               setCurrentStep(1);
               setFormData({
-                name: '',
-                email: '',
-                serviceType: '',
-                budgetRange: '',
-                projectDetails: '',
+                name: "",
+                email: "",
+                serviceType: "",
+                budgetRange: "",
+                projectDetails: "",
               });
             }}
             className="px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg hover:shadow-2xl hover:shadow-pacific-cyan/40 transition-all duration-300"
@@ -212,8 +225,8 @@ const Contact = () => {
             </span>
           </h1>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Share your vision with us and we'll schedule a discovery call to discuss how we can
-            bring it to life.
+            Share your vision with us and we'll schedule a discovery call to
+            discuss how we can bring it to life.
           </p>
         </motion.div>
 
@@ -253,7 +266,9 @@ const Contact = () => {
 
               <div className="flex items-center justify-between mt-8 pt-8 border-t border-white/10">
                 <button
-                  onClick={() => setCurrentStep((prev) => Math.max(1, prev - 1))}
+                  onClick={() =>
+                    setCurrentStep((prev) => Math.max(1, prev - 1))
+                  }
                   disabled={currentStep === 1}
                   className="flex items-center space-x-2 px-6 py-3 rounded-lg bg-white/5 text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-white/10 transition-colors"
                 >
@@ -290,35 +305,40 @@ const Contact = () => {
                 Get In Touch
               </h3>
               <div className="space-y-4">
-                <div className="flex items-start space-x-3">
+                {/* Email Section - Fixed for Overflow */}
+                <div className="flex items-start space-x-3 overflow-hidden">
                   <Mail className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-1" />
-                  <div>
+                  <div className="min-w-0 flex-1">
+                    {" "}
+                    {/* min-w-0 is key for flex-item wrapping */}
                     <p className="text-white/50 text-xs mb-1">Email</p>
                     <a
-                      href="mailto:hello@astechnix.com"
-                      className="text-white hover:text-pacific-cyan transition-colors"
+                      href="mailto:contact@astechnixsolutions.com"
+                      className="text-white hover:text-pacific-cyan transition-colors block break-words sm:break-all md:break-words"
                     >
-                      hello@astechnix.com
+                      <span>contact@astechnixsolutions.com</span>
                     </a>
                   </div>
                 </div>
+
                 <div className="flex items-start space-x-3">
                   <Phone className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-white/50 text-xs mb-1">Phone</p>
                     <a
-                      href="tel:+15551234567"
+                      href="tel:+919004575425"
                       className="text-white hover:text-pacific-cyan transition-colors"
                     >
-                      +1 (555) 123-4567
+                      +91 90045 75425
                     </a>
                   </div>
                 </div>
+
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-1" />
                   <div>
                     <p className="text-white/50 text-xs mb-1">Location</p>
-                    <p className="text-white">San Francisco, CA</p>
+                    <p className="text-white">Mumbai, India</p>
                   </div>
                 </div>
               </div>
