@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -59,9 +60,27 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = () => {
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
+  const handleSubmit = async () => {
+    try {
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          serviceType: formData.serviceType,
+          budgetRange: formData.budgetRange,
+          projectDetails: formData.projectDetails,
+        },
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY,
+      );
+
+      console.log("Email sent:", result.text);
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Email failed:", error);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   const renderStep = () => {
