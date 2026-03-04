@@ -5,8 +5,8 @@ import {
   Phone,
   MapPin,
   Linkedin,
-  Github,
-  Twitter,
+  Facebook,
+  Instagram,
 } from "lucide-react";
 
 const serviceMap = {
@@ -41,22 +41,22 @@ const Footer = () => {
               >
                 <Linkedin className="w-5 h-5" />
               </a>
-              {/* <a
-                href="https://github.com"
+              <a
+                href="https://www.facebook.com/people/AStechnix/61571877568172/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-white/5 hover:bg-pacific-cyan/20 flex items-center justify-center text-white/70 hover:text-pacific-cyan transition-all duration-300"
               >
-                <Github className="w-5 h-5" />
-              </a> */}
-              {/* <a
-                href="https://twitter.com"
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/astechnix_/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-white/5 hover:bg-pacific-cyan/20 flex items-center justify-center text-white/70 hover:text-pacific-cyan transition-all duration-300"
               >
-                <Twitter className="w-5 h-5" />
-              </a> */}
+                <Instagram className="w-5 h-5" />
+              </a>
             </div>
           </div>
 

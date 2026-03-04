@@ -1,15 +1,20 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import CloudServices from './pages/CloudServices';
-import FullStack from './pages/FullStack';
-import DevOps from './pages/DevOps';
-import UIUX from './pages/UIUX';
-import Contact from './pages/Contact';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Layout from "./components/Layout";
+import PixelTracker from "./components/PixelTracker";
+
+import Home from "./pages/Home";
+import CloudServices from "./pages/CloudServices";
+import FullStack from "./pages/FullStack";
+import DevOps from "./pages/DevOps";
+import UIUX from "./pages/UIUX";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
     <Router>
+      <PixelTracker />
+
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
