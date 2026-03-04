@@ -9,6 +9,7 @@ import FullStack from "./pages/FullStack";
 import DevOps from "./pages/DevOps";
 import UIUX from "./pages/UIUX";
 import Contact from "./pages/Contact";
+import CloudConsultation from "./pages/CloudConsultation";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="devops" element={<DevOps />} />
           <Route path="ui-ux" element={<UIUX />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="cloud-consultation" element={<CloudConsultation />} />
         </Route>
       </Routes>
     </Router>
