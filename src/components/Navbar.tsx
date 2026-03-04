@@ -27,7 +27,6 @@ const Navbar = () => {
     { name: "DevOps", path: "/devops" },
     { name: "UI/UX", path: "/ui-ux" },
     { name: "Contact", path: "/contact" },
-    { name: "Cloud Consultation", path: "/cloud-consultation" },
   ];
 
   return (

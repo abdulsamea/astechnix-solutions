@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -6,6 +6,7 @@ import {
   ArrowLeft,
   CheckCircle2,
   Cloud,
+  Command,
   Shield,
   Zap,
   TrendingUp,
@@ -13,8 +14,12 @@ import {
   Lock,
   RefreshCw,
   DollarSign,
-  Clock,
 } from "lucide-react";
+import { FaAws } from "react-icons/fa";
+import { VscAzure } from "react-icons/vsc";
+import { SiGooglecloud } from "react-icons/si";
+import { HiOutlineGlobeAlt } from "react-icons/hi";
+import { VscQuestion } from "react-icons/vsc";
 
 const CloudConsultation = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -36,15 +41,36 @@ const CloudConsultation = () => {
   const totalSteps = 4;
 
   const cloudProviders = [
-    { name: "AWS", icon: "🟠", description: "Amazon Web Services" },
-    { name: "Azure", icon: "🔵", description: "Microsoft Azure" },
-    { name: "GCP", icon: "🔴", description: "Google Cloud Platform" },
-    { name: "Multi-Cloud", icon: "🌐", description: "Multiple Providers" },
-    { name: "Others", icon: "❓", description: "Other Solutions" },
+    {
+      name: "AWS",
+      icon: <FaAws className="text-[#FF9900]" />,
+      description: "Amazon Web Services",
+    },
+    {
+      name: "Azure",
+      icon: <VscAzure className="text-[#0078D4]" />,
+      description: "Microsoft Azure",
+    },
+    {
+      name: "GCP",
+      icon: <SiGooglecloud className="text-[#4285F4]" />,
+      description: "Google Cloud Platform",
+    },
+    {
+      name: "Multi-Cloud",
+      icon: <HiOutlineGlobeAlt className="text-pacific-cyan" />,
+      description: "Multiple Providers",
+    },
+    {
+      name: "Others",
+      icon: <VscQuestion className="text-white/50" />,
+      description: "Other Solutions",
+    },
   ];
 
   const serviceExpertiseOptions = [
     { name: "Cloud Architecture", icon: Cloud },
+    { name: "Cloud Administration", icon: Command },
     { name: "Security & Compliance", icon: Shield },
     { name: "Scalability", icon: TrendingUp },
     { name: "DevOps Automation", icon: Cpu },
@@ -55,7 +81,11 @@ const CloudConsultation = () => {
 
   const budgetRanges = ["<$5k", "$5k–$20k", "$20k–$50k", "$50k+"];
   const projectTypes = ["Hourly-based", "Fixed-price"];
-  const urgencies = ["Within this week", "Within a month", "Flexible/Exploring"];
+  const urgencies = [
+    "Within this week",
+    "Within a month",
+    "Flexible/Exploring",
+  ];
 
   const handleInputChange = (field: string, value: string | string[]) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -98,29 +128,32 @@ const CloudConsultation = () => {
   const handleSubmit = async () => {
     setLoading(true);
     try {
+      // Create a template object that maps EXACTLY to your EmailJS Template variables
+      const templateParams = {
+        user_name: formData.fullName,
+        user_email: formData.businessEmail,
+        user_phone: formData.phoneNumber,
+        company_name: formData.companyName,
+        cloud_provider: formData.cloudProvider,
+        service_expertise: formData.serviceExpertise.join(", "),
+        budget_range: formData.budgetRange,
+        project_type: formData.projectType,
+        urgency_level: formData.urgency,
+        project_brief: formData.projectBrief,
+        service_type: "Cloud Consultation",
+      };
+
       const result = await emailjs.send(
         import.meta.env.VITE_EMAIL_SERVICE_ID,
-        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
-        {
-          name: formData.fullName,
-          email: formData.businessEmail,
-          phone: formData.phoneNumber,
-          company: formData.companyName,
-          cloudProvider: formData.cloudProvider,
-          serviceExpertise: formData.serviceExpertise.join(", "),
-          budgetRange: formData.budgetRange,
-          projectType: formData.projectType,
-          urgency: formData.urgency,
-          projectBrief: formData.projectBrief,
-          serviceType: "Cloud Consultation",
-        },
-        import.meta.env.VITE_EMAIL_PUBLIC_KEY
+        import.meta.env.VITE_CLOUD_CONSULTATION_EMAIL_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY,
       );
 
-      console.log("Email sent:", result.text);
+      console.log("Email sent successfully:", result.text);
       setSubmitted(true);
     } catch (error) {
-      console.error("Email failed:", error);
+      console.error("Email failed to send:", error);
       alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
@@ -132,7 +165,7 @@ const CloudConsultation = () => {
       case 1:
         return (
           <div className="space-y-4">
-            <p className="text-white/70 text-sm font-medium mb-6">
+            <p className="text-white/70 text-sm font-medium mb-6 text-center md:text-left">
               Which cloud provider are you primarily working with?
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -142,17 +175,21 @@ const CloudConsultation = () => {
                   onClick={() =>
                     handleInputChange("cloudProvider", provider.name)
                   }
-                  className={`p-4 rounded-xl border-2 transition-all text-center ${
+                  // Added 'flex flex-col items-center justify-center'
+                  className={`p-6 rounded-xl border-2 transition-all flex flex-col items-center justify-center text-center ${
                     formData.cloudProvider === provider.name
                       ? "border-pacific-cyan bg-pacific-cyan/20 text-white"
                       : "border-white/10 bg-white/5 text-white/70 hover:border-white/20"
                   }`}
                 >
-                  <div className="text-3xl mb-2">{provider.icon}</div>
-                  <div className="font-heading font-semibold">
-                    {provider.name}
+                  {/* Added 'flex justify-center' to ensure the icon container is centered */}
+                  <div className="text-4xl mb-3 flex items-center justify-center">
+                    {provider.icon}
                   </div>
-                  <div className="text-xs text-white/50 mt-1">
+                  <div className="font-heading font-semibold text-lg">
+                    {/* {provider.name} */}
+                  </div>
+                  <div className="text-xs text-white/50 mt-1 max-w-[150px]">
                     {provider.description}
                   </div>
                 </button>
@@ -160,7 +197,6 @@ const CloudConsultation = () => {
             </div>
           </div>
         );
-
       case 2:
         return (
           <div className="space-y-4">
@@ -171,7 +207,7 @@ const CloudConsultation = () => {
               {serviceExpertiseOptions.map((service) => {
                 const IconComponent = service.icon;
                 const isSelected = formData.serviceExpertise.includes(
-                  service.name
+                  service.name,
                 );
                 return (
                   <button
@@ -360,6 +396,24 @@ const CloudConsultation = () => {
     }
   };
 
+  useEffect(() => {
+    if (submitted) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [submitted]);
+
+  // useEffect(() => {
+  //   // We use a small timeout to ensure the DOM has updated with the new step content
+  //   const timer = setTimeout(() => {
+  //     window.scrollTo({
+  //       top: 10,
+  //       behavior: "smooth",
+  //     });
+  //   }, 100);
+
+  //   return () => clearTimeout(timer);
+  // }, [currentStep]); // Fires every time the step changes
+
   if (submitted) {
     return (
       <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -380,7 +434,7 @@ const CloudConsultation = () => {
           <p className="text-lg text-white/60 mb-8">
             Our cloud experts will reach out to you{" "}
             <span className="text-pacific-cyan font-semibold">
-              {formData.urgency}
+              {`within 24 hours`}
             </span>{" "}
             to discuss your requirements.
           </p>
@@ -391,9 +445,7 @@ const CloudConsultation = () => {
             <ul className="text-left space-y-3 text-white/80 text-sm">
               <li className="flex items-start space-x-3">
                 <CheckCircle2 className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-0.5" />
-                <span>
-                  Our cloud specialists will review your requirements
-                </span>
+                <span>Our cloud specialists will review your requirements</span>
               </li>
               <li className="flex items-start space-x-3">
                 <CheckCircle2 className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-0.5" />
@@ -461,7 +513,8 @@ const CloudConsultation = () => {
                     Step {currentStep} of {totalSteps}
                   </span>
                   <span className="text-pacific-cyan text-sm font-medium">
-                    {Math.round((currentStep / totalSteps) * 100)}% Complete
+                    {Math.round(((currentStep - 1) / totalSteps) * 100)}%
+                    Complete
                   </span>
                 </div>
                 <div className="h-2 bg-white/10 rounded-full overflow-hidden">
@@ -469,7 +522,7 @@ const CloudConsultation = () => {
                     className="h-full bg-gradient-to-r from-pacific-cyan to-sky-blue"
                     initial={{ width: 0 }}
                     animate={{
-                      width: `${(currentStep / totalSteps) * 100}%`,
+                      width: `${((currentStep - 1) / totalSteps) * 100}%`,
                     }}
                     transition={{ duration: 0.5 }}
                   />
