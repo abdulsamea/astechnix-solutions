@@ -10,6 +10,7 @@ import DevOps from "./pages/DevOps";
 import UIUX from "./pages/UIUX";
 import Contact from "./pages/Contact";
 import CloudConsultation from "./pages/CloudConsultation";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="ui-ux" element={<UIUX />} />
           <Route path="contact" element={<Contact />} />
           <Route path="cloud-consultation" element={<CloudConsultation />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Router>
