@@ -332,10 +332,10 @@ const Contact = () => {
                     {/* min-w-0 is key for flex-item wrapping */}
                     <p className="text-white/50 text-xs mb-1">Email</p>
                     <a
-                      href="mailto:contact@astechnixsolutions.com"
+                      href="mailto:contact@astechnix.com"
                       className="text-white hover:text-pacific-cyan transition-colors block break-words sm:break-all md:break-words"
                     >
-                      <span>contact@astechnixsolutions.com</span>
+                      <span>contact@astechnix.com</span>
                     </a>
                   </div>
                 </div>

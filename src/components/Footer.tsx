@@ -16,6 +16,13 @@ const serviceMap = {
   "UI/UX Design": "ui-ux",
 };
 
+const services: (keyof typeof serviceMap)[] = [
+  "Cloud Services",
+  "Full Stack Development",
+  "DevOps Solutions",
+  "UI/UX Design",
+];
+
 const Footer = () => {
   return (
     <footer className="bg-deep-navy border-t border-royal-blue/30">
@@ -65,13 +72,8 @@ const Footer = () => {
               Services
             </h3>
             <ul className="space-y-3">
-              {[
-                "Cloud Services",
-                "Full Stack Development",
-                "DevOps Solutions",
-                "UI/UX Design",
-              ].map((service) => (
-                <li key={service as keyof typeof serviceMap}>
+              {services.map((service) => (
+                <li key={service}>
                   <Link
                     to={`/${serviceMap[service]}`}
                     onClick={() =>
@@ -112,10 +114,10 @@ const Footer = () => {
               <li className="flex items-start space-x-3 text-white/70 text-sm">
                 <Mail className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-0.5" />
                 <a
-                  href="mailto:contact@astechnixsolutions.com"
+                  href="mailto:contact@astechnix.com"
                   className="text-white hover:text-pacific-cyan transition-colors block break-words sm:break-all md:break-words"
                 >
-                  <span>contact@astechnixsolutions.com</span>
+                  <span>contact@astechnix.com</span>
                 </a>
               </li>
               <li className="flex items-start space-x-3 text-white/70 text-sm">
