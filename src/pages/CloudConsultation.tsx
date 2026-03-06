@@ -22,6 +22,14 @@ import { SiGooglecloud } from "react-icons/si";
 import { HiOutlineGlobeAlt } from "react-icons/hi";
 import { VscQuestion } from "react-icons/vsc";
 
+// 1. Define the fbq function for TypeScript to prevent linting errors
+declare global {
+  interface Window {
+    fbq: any;
+    _fbq: any;
+  }
+}
+
 const CloudConsultation = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -41,6 +49,41 @@ const CloudConsultation = () => {
   const [loading, setLoading] = useState(false);
 
   const totalSteps = 5;
+
+  // 2. Initialize Meta Pixel on Component Mount
+  useEffect(() => {
+    const PIXEL_ID = "906045182134570";
+
+    if (!window.fbq) {
+      /* eslint-disable */
+      (function (f: any, b: any, e: any, v: any, n?: any, t?: any, s?: any) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
+      /* eslint-enable */
+      window.fbq("init", PIXEL_ID);
+    }
+    window.fbq("track", "PageView");
+  }, []);
 
   const cloudProviders = [
     {
@@ -157,6 +200,17 @@ const CloudConsultation = () => {
       );
 
       console.log("Email sent successfully:", result.text);
+
+      // 3. Trigger Facebook Lead Event upon successful submission
+      if (window.fbq) {
+        window.fbq("track", "Lead", {
+          content_name: "Cloud Consultation Assessment",
+          status: "Form Submitted",
+          value: 0, // You can assign a monetary value here if known
+          currency: "USD",
+        });
+      }
+
       setSubmitted(true);
     } catch (error) {
       console.error("Email failed to send:", error);
