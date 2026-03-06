@@ -88,24 +88,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* <div>
-            <h3 className="font-heading font-semibold text-white text-lg mb-6">
-              Company
-            </h3>
-            <ul className="space-y-3">
-              {["About Us", "Our Work", "Careers", "Blog"].map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
-                    className="text-white/70 hover:text-pacific-cyan text-sm transition-colors duration-300"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div> */}
-
           <div>
             <h3 className="font-heading font-semibold text-white text-lg mb-6">
               Contact
@@ -143,7 +125,11 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} AStechnix Solutions. All rights
               reserved.
             </p>
-            <div className="flex space-x-6"></div>
+            <div className="flex space-x-6">
+              <Link to="/privacy-policy" className="text-white/50 hover:text-pacific-cyan text-xs transition-colors">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="text-white/50 hover:text-pacific-cyan text-xs transition-colors">Terms of Service</Link>
+              <Link to="/data-request" className="text-white/50 hover:text-pacific-cyan text-xs transition-colors">Data Request</Link>
+            </div>
           </div>
         </div>
 

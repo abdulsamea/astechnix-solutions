@@ -1,6 +1,7 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   ArrowRight,
   ArrowLeft,
@@ -18,10 +19,11 @@ const Contact = () => {
     serviceType: "",
     budgetRange: "",
     projectDetails: "",
+    privacyAccepted: false,
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const totalSteps = 5;
+  const totalSteps = 6;
 
   const serviceTypes = [
     "Cloud Services",
@@ -55,6 +57,8 @@ const Contact = () => {
         return formData.budgetRange.length > 0;
       case 5:
         return formData.projectDetails.trim().length > 0;
+      case 6:
+        return formData.privacyAccepted;
       default:
         return false;
     }
@@ -182,6 +186,33 @@ const Contact = () => {
                 className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-pacific-cyan focus:outline-none transition-colors resize-none"
               />
             </label>
+          </div>
+        );
+      case 6:
+        return (
+          <div className="space-y-6">
+            <div className="p-6 rounded-xl bg-white/5 border border-white/10">
+              <h3 className="text-white font-heading font-bold mb-4">Privacy Agreement</h3>
+              <p className="text-white/60 text-sm mb-6 leading-relaxed">
+                We value your privacy. By submitting this form, you acknowledge that you have read and agree to our <Link to="/privacy-policy" className="text-pacific-cyan hover:underline">Privacy Policy</Link> regarding the collection and processing of your personal data.
+              </p>
+              <label className="flex items-center gap-3 cursor-pointer group">
+                <div className="relative flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={formData.privacyAccepted}
+                    onChange={(e) => handleInputChange("privacyAccepted", e.target.checked)}
+                    className="w-6 h-6 rounded border-2 border-white/20 bg-transparent appearance-none checked:bg-pacific-cyan checked:border-pacific-cyan transition-all cursor-pointer"
+                  />
+                  {formData.privacyAccepted && (
+                    <CheckCircle2 className="w-4 h-4 text-white absolute left-1 pointer-events-none" />
+                  )}
+                </div>
+                <span className="text-white/80 text-sm font-medium group-hover:text-white transition-colors">
+                  I agree to the privacy policy and data processing
+                </span>
+              </label>
+            </div>
           </div>
         );
       default:
