@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Trash2, AlertCircle, Mail } from "lucide-react";
-import { supabase } from "../lib/supabaseClient";
+// import { supabase } from "../lib/supabaseClient";
 import { Link } from "react-router-dom";
 
 const DataRequest = () => {
@@ -26,19 +26,20 @@ const DataRequest = () => {
     setError("");
 
     try {
-      const { error: insertError } = await supabase
-        .from("data_deletion_requests")
-        .insert({
-          email: formData.email,
-          first_name: formData.firstName,
-          request_type: formData.requestType,
-          request_reason: formData.reason,
-          status: "pending",
-        });
+      //TODO: re-add this on fixing supabase connection
+      // const { error: insertError } = await supabase
+      //   .from("data_deletion_requests")
+      //   .insert({
+      //     email: formData.email,
+      //     first_name: formData.firstName,
+      //     request_type: formData.requestType,
+      //     request_reason: formData.reason,
+      //     status: "pending",
+      //   });
 
-      if (insertError) {
-        throw insertError;
-      }
+      // if (insertError) {
+      //   throw insertError;
+      // }
 
       setSubmitted(true);
     } catch (err: any) {
