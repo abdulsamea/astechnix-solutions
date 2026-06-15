@@ -37,6 +37,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 // ─── TypeScript Interfaces ───────────────────────────────────────────────────
 
@@ -82,12 +83,11 @@ const COMPANY_SIZE_OPTIONS = [
   "500+ employees",
 ];
 
-const CLOUD_PLATFORM_OPTIONS = [
-  "Amazon Web Services (AWS)",
-  "Microsoft Azure",
-  "Google Cloud Platform (GCP)",
-  "Hybrid / Multi-Cloud",
-  "On-Premises Migration",
+const DEVOPS_PLATFORM_OPTIONS = [
+  "Single Cloud (AWS, Azure, or GCP)",
+  "Multi-Cloud (Using multiple cloud vendors)",
+  "Hybrid Cloud (Private Data Center + Public Cloud)",
+  "On-Premises"
 ];
 
 const ENGAGEMENT_MODEL_OPTIONS = [
@@ -223,14 +223,42 @@ const RemoteDevOps = () => {
     }
   };
 
-  const handleSubmit = async () => {
-    if (!validateStep2()) return;
+const handleSubmit = async () => {
+  if (!validateStep2()) return;
 
-    setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setLoading(false);
+  setLoading(true);
+
+  try {
+    const templateParams = {
+      user_name: formData.step1.fullName,
+      user_email: formData.step1.corporateEmail,
+      company_name: formData.step1.companyName,
+      company_size: formData.step1.companySize,
+
+      cloud_platform: formData.step2.cloudPlatform,
+      engagement_model: formData.step2.engagementModel,
+      project_timeline: formData.step2.projectTimeline,
+
+      service_type: "Remote DevOps Contracting",
+    };
+
+    const result = await emailjs.send(
+      import.meta.env.VITE_EMAIL_SERVICE_ID,
+      import.meta.env.VITE_DEVOPS_CONSULTATION_EMAIL_TEMPLATE_ID,
+      templateParams,
+      import.meta.env.VITE_EMAIL_PUBLIC_KEY,
+    );
+
+    console.log("Email sent successfully:", result.text);
+
     setSubmitted(true);
-  };
+  } catch (error) {
+    console.error("Email failed to send:", error);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleReset = () => {
     setFormData(initialFormData);
@@ -274,62 +302,18 @@ const RemoteDevOps = () => {
               >
                 <CheckCircle2 className="w-12 h-12 text-white" />
               </motion.div>
-              <h1 className="font-heading font-bold text-4xl md:text-5xl text-white mb-6">
-                Corporate Gateway Authenticated
-              </h1>
-              <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-                Thank you. Your business domain has been verified. To bypass
-                back-and-forth emails, please lock in a direct technical
-                discovery slot with our Solutions Architect below.
-              </p>
+                <h1 className="font-heading font-bold text-4xl md:text-5xl text-white mb-6">
+                  Consultation Request Received
+                </h1>
+                <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+                  Thank you. Your request for a professional DevOps consultation has been recorded. 
+                  A designated technical representative will be in touch with you shortly to evaluate your requirements.
+                </p>
             </div>
 
             {/* Scheduler Card */}
             <div className="max-w-2xl mx-auto">
-              <div className="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl shadow-black/20">
-                <div className="flex items-center space-x-3 mb-6">
-                  <Calendar className="w-6 h-6 text-pacific-cyan" />
-                  <h2 className="font-heading font-bold text-2xl text-white">
-                    Schedule Your Architecture Sync
-                  </h2>
-                </div>
-                <p className="text-white/60 text-sm mb-8">
-                  Select an available time slot for your complimentary 15-minute infrastructure assessment.
-                </p>
 
-                <div className="space-y-4 mb-8">
-                  {SCHEDULER_SLOTS.map((slot) => (
-                    <div
-                      key={slot.day}
-                      className="p-4 rounded-xl bg-white/5 border border-white/10"
-                    >
-                      <div className="flex items-center space-x-2 mb-3">
-                        <span className="font-heading font-semibold text-white text-sm">
-                          {slot.day}
-                        </span>
-                        <span className="text-white/50 text-xs">
-                          {slot.date}
-                        </span>
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {slot.times.map((time) => (
-                          <button
-                            key={time}
-                            className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white/80 text-sm font-medium hover:border-pacific-cyan hover:bg-pacific-cyan/10 hover:text-pacific-cyan transition-all duration-200"
-                          >
-                            {time}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <button className="w-full px-6 py-4 rounded-lg bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold hover:shadow-lg hover:shadow-pacific-cyan/40 transition-all duration-300 flex items-center justify-center space-x-2">
-                  <span>Confirm 15-Min Architecture Sync</span>
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </div>
 
               <div className="mt-8 text-center">
                 <button
@@ -361,14 +345,6 @@ const RemoteDevOps = () => {
             <li className="text-pacific-cyan">Remote DevOps Contracting</li>
           </ol>
         </nav>
-
-        {/* Simulated Address Bar */}
-        <div className="mb-12 p-3 rounded-lg bg-white/5 border border-white/10 flex items-center space-x-3 max-w-2xl">
-          <Globe className="w-4 h-4 text-pacific-cyan flex-shrink-0" aria-label="URL indicator" />
-          <span className="text-white/50 text-sm font-mono truncate">
-            https://astechnix.com/services/remote-devops-contracting
-          </span>
-        </div>
 
         {/* Hero Section */}
         <section className="mb-16">
@@ -496,7 +472,7 @@ const RemoteDevOps = () => {
                 >
                   {currentStep === 1 && (
                     <div>
-                      <h2 className="font-heading font-bold text-2xl text-white mb-2">
+                      <h2 className=" font-heading font-bold text-2xl text-white mb-2">
                         Corporate Identity &amp; Project Fit
                       </h2>
                       <p className="text-white/60 text-sm mb-8">
@@ -673,7 +649,7 @@ const RemoteDevOps = () => {
                         Infrastructure &amp; Engagement Scope
                       </h2>
                       <p className="text-white/60 text-sm mb-8">
-                        Define your cloud environment and how you'd like to
+                        Define your DevOps environment and how you'd like to
                         engage with our engineers.
                       </p>
 
@@ -682,7 +658,7 @@ const RemoteDevOps = () => {
                         <div>
                           <label className="block" htmlFor="cloudPlatform">
                             <span className="text-white/70 text-sm font-medium mb-2 block">
-                              Primary Cloud Platform *
+                              Primary DevOps Platform *
                             </span>
                             <div className="relative">
                               <Cloud
@@ -704,9 +680,9 @@ const RemoteDevOps = () => {
                                 aria-invalid={!!errors.cloudPlatform}
                               >
                                 <option value="" disabled className="bg-deep-navy">
-                                  Select cloud platform
+                                  Select DevOps platform
                                 </option>
-                                {CLOUD_PLATFORM_OPTIONS.map((opt) => (
+                                {DEVOPS_PLATFORM_OPTIONS.map((opt) => (
                                   <option
                                     key={opt}
                                     value={opt}
@@ -866,7 +842,7 @@ const RemoteDevOps = () => {
                     {loading ? (
                       <>
                         <Loader2 className="w-5 h-5 animate-spin" />
-                        <span>Securing infrastructure gateway...</span>
+                        <span>Porcessing request...</span>
                       </>
                     ) : (
                       <>
