@@ -13,6 +13,7 @@ import CloudConsultation from "./pages/CloudConsultation";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import DataRequest from "./pages/DataRequest";
+import RemoteDevOps from "./pages/RemoteDevOps";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-of-service" element={<TermsOfService />} />
           <Route path="data-request" element={<DataRequest />} />
+          <Route path="services/remote-devops-contracting" element={<RemoteDevOps />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
