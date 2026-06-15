@@ -2,8 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
 import PixelTracker from "./components/PixelTracker";
-import CookieConsent from "./components/CookieConsent";
-import ScrollToTop from "./components/ScrollToTop";
 
 import Home from "./pages/Home";
 import CloudServices from "./pages/CloudServices";
@@ -20,9 +18,7 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <Router>
-      <ScrollToTop />
       <PixelTracker />
-      <CookieConsent />
 
       <Routes>
         <Route path="/" element={<Layout />}>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
 import {
   ArrowRight,
   ArrowLeft,
@@ -9,26 +8,18 @@ import {
   Cloud,
   Command,
   Shield,
+  Zap,
   TrendingUp,
   Cpu,
   Lock,
   RefreshCw,
   DollarSign,
-  Zap,
 } from "lucide-react";
 import { FaAws } from "react-icons/fa";
 import { VscAzure } from "react-icons/vsc";
 import { SiGooglecloud } from "react-icons/si";
 import { HiOutlineGlobeAlt } from "react-icons/hi";
 import { VscQuestion } from "react-icons/vsc";
-
-// 1. Define the fbq function for TypeScript to prevent linting errors
-declare global {
-  interface Window {
-    fbq: any;
-    _fbq: any;
-  }
-}
 
 const CloudConsultation = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -43,47 +34,11 @@ const CloudConsultation = () => {
     phoneNumber: "",
     companyName: "",
     projectBrief: "",
-    privacyAccepted: false,
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const totalSteps = 5;
-
-  // 2. Initialize Meta Pixel on Component Mount
-  useEffect(() => {
-    const PIXEL_ID = "906045182134570";
-
-    if (!window.fbq) {
-      /* eslint-disable */
-      (function (f: any, b: any, e: any, v: any, n?: any, t?: any, s?: any) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js",
-      );
-      /* eslint-enable */
-      window.fbq("init", PIXEL_ID);
-    }
-    window.fbq("track", "PageView");
-  }, []);
+  const totalSteps = 4;
 
   const cloudProviders = [
     {
@@ -132,10 +87,7 @@ const CloudConsultation = () => {
     "Flexible/Exploring",
   ];
 
-  const handleInputChange = (
-    field: string,
-    value: string | string[] | boolean,
-  ) => {
+  const handleInputChange = (field: string, value: string | string[]) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -168,8 +120,6 @@ const CloudConsultation = () => {
           formData.companyName.trim().length > 0 &&
           formData.projectBrief.trim().length > 0
         );
-      case 5:
-        return formData.privacyAccepted;
       default:
         return false;
     }
@@ -178,6 +128,7 @@ const CloudConsultation = () => {
   const handleSubmit = async () => {
     setLoading(true);
     try {
+      // Create a template object that maps EXACTLY to your EmailJS Template variables
       const templateParams = {
         user_name: formData.fullName,
         user_email: formData.businessEmail,
@@ -200,17 +151,6 @@ const CloudConsultation = () => {
       );
 
       console.log("Email sent successfully:", result.text);
-
-      // 3. Trigger Facebook Lead Event upon successful submission
-      if (window.fbq) {
-        window.fbq("track", "Lead", {
-          content_name: "Cloud Consultation Assessment",
-          status: "Form Submitted",
-          value: 0, // You can assign a monetary value here if known
-          currency: "USD",
-        });
-      }
-
       setSubmitted(true);
     } catch (error) {
       console.error("Email failed to send:", error);
@@ -235,14 +175,19 @@ const CloudConsultation = () => {
                   onClick={() =>
                     handleInputChange("cloudProvider", provider.name)
                   }
+                  // Added 'flex flex-col items-center justify-center'
                   className={`p-6 rounded-xl border-2 transition-all flex flex-col items-center justify-center text-center ${
                     formData.cloudProvider === provider.name
                       ? "border-pacific-cyan bg-pacific-cyan/20 text-white"
                       : "border-white/10 bg-white/5 text-white/70 hover:border-white/20"
                   }`}
                 >
+                  {/* Added 'flex justify-center' to ensure the icon container is centered */}
                   <div className="text-4xl mb-3 flex items-center justify-center">
                     {provider.icon}
+                  </div>
+                  <div className="font-heading font-semibold text-lg">
+                    {/* {provider.name} */}
                   </div>
                   <div className="text-xs text-white/50 mt-1 max-w-[150px]">
                     {provider.description}
@@ -446,46 +391,6 @@ const CloudConsultation = () => {
           </div>
         );
 
-      case 5:
-        return (
-          <div className="space-y-6">
-            <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-              <h3 className="text-white font-heading font-bold mb-4">
-                Privacy Agreement
-              </h3>
-              <p className="text-white/60 text-sm mb-6 leading-relaxed">
-                We value your privacy. By submitting this form, you acknowledge
-                that you have read and agree to our{" "}
-                <Link
-                  to="/privacy-policy"
-                  className="text-pacific-cyan hover:underline"
-                >
-                  Privacy Policy
-                </Link>{" "}
-                regarding the collection and processing of your personal data.
-              </p>
-              <label className="flex items-center gap-3 cursor-pointer group">
-                <div className="relative flex items-center">
-                  <input
-                    type="checkbox"
-                    checked={formData.privacyAccepted}
-                    onChange={(e) =>
-                      handleInputChange("privacyAccepted", e.target.checked)
-                    }
-                    className="w-6 h-6 rounded border-2 border-white/20 bg-transparent appearance-none checked:bg-pacific-cyan checked:border-pacific-cyan transition-all cursor-pointer"
-                  />
-                  {formData.privacyAccepted && (
-                    <CheckCircle2 className="w-4 h-4 text-white absolute left-1 pointer-events-none" />
-                  )}
-                </div>
-                <span className="text-white/80 text-sm font-medium group-hover:text-white transition-colors">
-                  I agree to the privacy policy and data processing
-                </span>
-              </label>
-            </div>
-          </div>
-        );
-
       default:
         return null;
     }
@@ -496,6 +401,18 @@ const CloudConsultation = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [submitted]);
+
+  // useEffect(() => {
+  //   // We use a small timeout to ensure the DOM has updated with the new step content
+  //   const timer = setTimeout(() => {
+  //     window.scrollTo({
+  //       top: 10,
+  //       behavior: "smooth",
+  //     });
+  //   }, 100);
+
+  //   return () => clearTimeout(timer);
+  // }, [currentStep]); // Fires every time the step changes
 
   if (submitted) {
     return (
@@ -555,7 +472,6 @@ const CloudConsultation = () => {
                 phoneNumber: "",
                 companyName: "",
                 projectBrief: "",
-                privacyAccepted: false,
               });
             }}
             className="px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg hover:shadow-2xl hover:shadow-pacific-cyan/40 transition-all duration-300"
@@ -619,7 +535,6 @@ const CloudConsultation = () => {
                   {currentStep === 2 && "Choose Your Service Needs"}
                   {currentStep === 3 && "Project Details"}
                   {currentStep === 4 && "Contact Information"}
-                  {currentStep === 5 && "Privacy Agreement"}
                 </h2>
                 <p className="text-white/60 text-sm">
                   {currentStep === 1 &&
@@ -629,8 +544,6 @@ const CloudConsultation = () => {
                   {currentStep === 3 && "Help us understand your project scope"}
                   {currentStep === 4 &&
                     "How can our team reach you with the consultation?"}
-                  {currentStep === 5 &&
-                    "Please review and accept our privacy terms."}
                 </p>
               </div>
 
@@ -674,7 +587,7 @@ const CloudConsultation = () => {
                     disabled={!canProceed() || loading}
                     className="flex items-center space-x-2 px-6 py-3 rounded-lg bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-pacific-cyan/40 transition-all"
                   >
-                    <span>Submit</span>
+                    <span>{loading ? "Sending..." : "Submit"}</span>
                     <CheckCircle2 className="w-5 h-5" />
                   </button>
                 )}
