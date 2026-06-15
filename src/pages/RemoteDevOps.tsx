@@ -1,18 +1,4 @@
-/**
- * SEO Metadata - Remote DevOps Contracting Landing Page
- *
- * Title: "On-Demand DevOps Contracting & Cloud Architecture Services | AStechnix"
- * Description: "Scale your US tech infrastructure with premium, highly qualified remote DevOps engineers. Flexible hourly contracting specializing in AWS, Kubernetes, and CI/CD automation."
- * Keywords: "remote devops engineer, cloud consulting, US devops contracting, hourly devops agency"
- * Canonical: "https://astechnix.com/services/remote-devops-contracting"
- * OpenGraph:
- *   og:title: "On-Demand DevOps Contracting & Cloud Architecture Services | AStechnix"
- *   og:description: "Scale your US tech infrastructure with premium, highly qualified remote DevOps engineers."
- *   og:url: "https://astechnix.com/services/remote-devops-contracting"
- *   og:type: "website"
- */
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -31,15 +17,11 @@ import {
   Activity,
   AlertTriangle,
   ChevronRight,
-  Globe,
   Loader2,
-  Calendar,
   MapPin,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-
-// ─── TypeScript Interfaces ───────────────────────────────────────────────────
 
 interface Step1Data {
   fullName: string;
@@ -87,7 +69,7 @@ const DEVOPS_PLATFORM_OPTIONS = [
   "Single Cloud (AWS, Azure, or GCP)",
   "Multi-Cloud (Using multiple cloud vendors)",
   "Hybrid Cloud (Private Data Center + Public Cloud)",
-  "On-Premises"
+  "On-Premises",
 ];
 
 const ENGAGEMENT_MODEL_OPTIONS = [
@@ -98,10 +80,26 @@ const ENGAGEMENT_MODEL_OPTIONS = [
 ];
 
 const TRUST_METRICS = [
-  { icon: Shield, label: "SOC 2 Compliant", detail: "Enterprise-grade security" },
-  { icon: Server, label: "500+ Deployments", detail: "Production infrastructure" },
-  { icon: Container, label: "K8s Certified", detail: "CNCF-recognized expertise" },
-  { icon: GitBranch, label: "99.9% Uptime SLA", detail: "Reliability guaranteed" },
+  {
+    icon: Shield,
+    label: "SOC 2 Compliant",
+    detail: "Enterprise-grade security",
+  },
+  {
+    icon: Server,
+    label: "500+ Deployments",
+    detail: "Production infrastructure",
+  },
+  {
+    icon: Container,
+    label: "K8s Certified",
+    detail: "CNCF-recognized expertise",
+  },
+  {
+    icon: GitBranch,
+    label: "99.9% Uptime SLA",
+    detail: "Reliability guaranteed",
+  },
 ];
 
 const SERVICE_CAPABILITIES = [
@@ -112,14 +110,6 @@ const SERVICE_CAPABILITIES = [
   "Monitoring & Observability",
   "Security Hardening",
 ];
-
-const SCHEDULER_SLOTS = [
-  { day: "Mon", date: "Jun 16", times: ["9:00 AM", "11:30 AM", "2:00 PM"] },
-  { day: "Tue", date: "Jun 17", times: ["10:00 AM", "1:00 PM", "3:30 PM"] },
-  { day: "Wed", date: "Jun 18", times: ["9:30 AM", "12:00 PM", "4:00 PM"] },
-];
-
-// ─── Helpers ─────────────────────────────────────────────────────────────────
 
 const isFreeEmailDomain = (email: string): boolean => {
   const domain = email.split("@")[1]?.toLowerCase();
@@ -141,9 +131,8 @@ const initialFormData: FormData = {
   privacyConsent: false,
 };
 
-// ─── Component ───────────────────────────────────────────────────────────────
-
 const RemoteDevOps = () => {
+  const formContainerRef = useRef<HTMLDivElement>(null);
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [errors, setErrors] = useState<ValidationErrors>({});
@@ -151,8 +140,13 @@ const RemoteDevOps = () => {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [currentStep, submitted]);
+    if (submitted) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [submitted]);
 
   // ─── Validation ──────────────────────────────────────────────────────────
 
@@ -169,7 +163,8 @@ const RemoteDevOps = () => {
       newErrors.corporateEmail =
         "Please enter your corporate/work email address to verify your business identity.";
     }
-    if (!s1.companyName.trim()) newErrors.companyName = "Company name is required";
+    if (!s1.companyName.trim())
+      newErrors.companyName = "Company name is required";
     if (!s1.companySize) newErrors.companySize = "Company size is required";
 
     setErrors(newErrors);
@@ -180,8 +175,10 @@ const RemoteDevOps = () => {
     const newErrors: ValidationErrors = {};
     const s2 = formData.step2;
 
-    if (!s2.cloudPlatform) newErrors.cloudPlatform = "Cloud platform is required";
-    if (!s2.engagementModel) newErrors.engagementModel = "Engagement model is required";
+    if (!s2.cloudPlatform)
+      newErrors.cloudPlatform = "Cloud platform is required";
+    if (!s2.engagementModel)
+      newErrors.engagementModel = "Engagement model is required";
 
     if (!formData.privacyConsent) {
       newErrors.privacyConsent =
@@ -210,9 +207,27 @@ const RemoteDevOps = () => {
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: "" }));
   };
 
+  const scrollToForm = () => {
+    if (!formContainerRef.current) return;
+
+    const y =
+      formContainerRef.current.getBoundingClientRect().top +
+      window.pageYOffset -
+      100;
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
+  };
+
   const handleNext = () => {
     if (currentStep === 1 && validateStep1()) {
       setCurrentStep(2);
+
+      setTimeout(() => {
+        scrollToForm();
+      }, 50);
     }
   };
 
@@ -220,45 +235,49 @@ const RemoteDevOps = () => {
     if (currentStep === 2) {
       setErrors({});
       setCurrentStep(1);
+
+      setTimeout(() => {
+        scrollToForm();
+      }, 50);
     }
   };
 
-const handleSubmit = async () => {
-  if (!validateStep2()) return;
+  const handleSubmit = async () => {
+    if (!validateStep2()) return;
 
-  setLoading(true);
+    setLoading(true);
 
-  try {
-    const templateParams = {
-      user_name: formData.step1.fullName,
-      user_email: formData.step1.corporateEmail,
-      company_name: formData.step1.companyName,
-      company_size: formData.step1.companySize,
+    try {
+      const templateParams = {
+        user_name: formData.step1.fullName,
+        user_email: formData.step1.corporateEmail,
+        company_name: formData.step1.companyName,
+        company_size: formData.step1.companySize,
 
-      cloud_platform: formData.step2.cloudPlatform,
-      engagement_model: formData.step2.engagementModel,
-      project_timeline: formData.step2.projectTimeline,
+        cloud_platform: formData.step2.cloudPlatform,
+        engagement_model: formData.step2.engagementModel,
+        project_timeline: formData.step2.projectTimeline,
 
-      service_type: "Remote DevOps Contracting",
-    };
+        service_type: "Remote DevOps Contracting",
+      };
 
-    const result = await emailjs.send(
-      import.meta.env.VITE_EMAIL_SERVICE_ID,
-      import.meta.env.VITE_DEVOPS_CONSULTATION_EMAIL_TEMPLATE_ID,
-      templateParams,
-      import.meta.env.VITE_EMAIL_PUBLIC_KEY,
-    );
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_DEVOPS_CONSULTATION_EMAIL_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY,
+      );
 
-    console.log("Email sent successfully:", result.text);
+      console.log("Email sent successfully:", result.text);
 
-    setSubmitted(true);
-  } catch (error) {
-    console.error("Email failed to send:", error);
-    alert("Something went wrong. Please try again.");
-  } finally {
-    setLoading(false);
-  }
-};
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Email failed to send:", error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleReset = () => {
     setFormData(initialFormData);
@@ -285,10 +304,28 @@ const handleSubmit = async () => {
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="mb-8">
               <ol className="flex items-center space-x-2 text-sm text-white/50">
-                <li><Link to="/" className="hover:text-pacific-cyan transition-colors">Home</Link></li>
-                <li><ChevronRight className="w-4 h-4" /></li>
-                <li><Link to="/devops" className="hover:text-pacific-cyan transition-colors">Services</Link></li>
-                <li><ChevronRight className="w-4 h-4" /></li>
+                <li>
+                  <Link
+                    to="/"
+                    className="hover:text-pacific-cyan transition-colors"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <ChevronRight className="w-4 h-4" />
+                </li>
+                <li>
+                  <Link
+                    to="/devops"
+                    className="hover:text-pacific-cyan transition-colors"
+                  >
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <ChevronRight className="w-4 h-4" />
+                </li>
                 <li className="text-pacific-cyan">Remote DevOps</li>
               </ol>
             </nav>
@@ -302,19 +339,18 @@ const handleSubmit = async () => {
               >
                 <CheckCircle2 className="w-12 h-12 text-white" />
               </motion.div>
-                <h1 className="font-heading font-bold text-4xl md:text-5xl text-white mb-6">
-                  Consultation Request Received
-                </h1>
-                <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-                  Thank you. Your request for a professional DevOps consultation has been recorded. 
-                  A designated technical representative will be in touch with you shortly to evaluate your requirements.
-                </p>
+              <h1 className="font-heading font-bold text-4xl md:text-5xl text-white mb-6">
+                Consultation Request Received
+              </h1>
+              <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+                Thank you. Your request for a professional DevOps consultation
+                has been recorded. A designated technical representative will be
+                in touch with you shortly to evaluate your requirements.
+              </p>
             </div>
 
             {/* Scheduler Card */}
             <div className="max-w-2xl mx-auto">
-
-
               <div className="mt-8 text-center">
                 <button
                   onClick={handleReset}
@@ -333,15 +369,33 @@ const handleSubmit = async () => {
   // ─── Render: Form State ─────────────────────────────────────────────────
 
   return (
-    <main className="min-h-screen px-4 sm:px-6 lg:px-8 py-16">
+    <main className="min-h-screen px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16">
       <div className="max-w-7xl mx-auto">
         {/* Breadcrumb / Simulated URL Route */}
         <nav aria-label="Breadcrumb" className="mb-8">
           <ol className="flex items-center space-x-2 text-sm text-white/50">
-            <li><Link to="/" className="hover:text-pacific-cyan transition-colors">Home</Link></li>
-            <li><ChevronRight className="w-4 h-4" /></li>
-            <li><Link to="/devops" className="hover:text-pacific-cyan transition-colors">Services</Link></li>
-            <li><ChevronRight className="w-4 h-4" /></li>
+            <li>
+              <Link
+                to="/"
+                className="hover:text-pacific-cyan transition-colors"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <ChevronRight className="w-4 h-4" />
+            </li>
+            <li>
+              <Link
+                to="/devops"
+                className="hover:text-pacific-cyan transition-colors"
+              >
+                Services
+              </Link>
+            </li>
+            <li>
+              <ChevronRight className="w-4 h-4" />
+            </li>
             <li className="text-pacific-cyan">Remote DevOps Contracting</li>
           </ol>
         </nav>
@@ -361,7 +415,8 @@ const handleSubmit = async () => {
             </h1>
             <p className="text-xl text-white/70 max-w-3xl leading-relaxed mb-10">
               US-based tech executives trust AStechnix for senior-level DevOps
-              contracting. AWS, Kubernetes, CI/CD — deployed within days, not months.
+              contracting. AWS, Kubernetes, CI/CD — deployed within days, not
+              months.
             </p>
 
             {/* Trust Metrics */}
@@ -389,7 +444,10 @@ const handleSubmit = async () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Form Card */}
           <section className="lg:col-span-2" aria-label="Lead generation form">
-            <div className="p-6 sm:p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+            <div
+              ref={formContainerRef}
+              className="p-6 sm:p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10"
+            >
               {/* Progress Indicator */}
               <div className="mb-8">
                 <div className="flex items-center justify-between mb-4">
@@ -617,7 +675,11 @@ const handleSubmit = async () => {
                                 aria-required="true"
                                 aria-invalid={!!errors.companySize}
                               >
-                                <option value="" disabled className="bg-deep-navy">
+                                <option
+                                  value=""
+                                  disabled
+                                  className="bg-deep-navy"
+                                >
                                   Select company size
                                 </option>
                                 {COMPANY_SIZE_OPTIONS.map((opt) => (
@@ -679,7 +741,11 @@ const handleSubmit = async () => {
                                 aria-required="true"
                                 aria-invalid={!!errors.cloudPlatform}
                               >
-                                <option value="" disabled className="bg-deep-navy">
+                                <option
+                                  value=""
+                                  disabled
+                                  className="bg-deep-navy"
+                                >
                                   Select DevOps platform
                                 </option>
                                 {DEVOPS_PLATFORM_OPTIONS.map((opt) => (
@@ -727,7 +793,11 @@ const handleSubmit = async () => {
                                 aria-required="true"
                                 aria-invalid={!!errors.engagementModel}
                               >
-                                <option value="" disabled className="bg-deep-navy">
+                                <option
+                                  value=""
+                                  disabled
+                                  className="bg-deep-navy"
+                                >
                                   Select engagement model
                                 </option>
                                 {ENGAGEMENT_MODEL_OPTIONS.map((opt) => (
@@ -842,7 +912,7 @@ const handleSubmit = async () => {
                     {loading ? (
                       <>
                         <Loader2 className="w-5 h-5 animate-spin" />
-                        <span>Porcessing request...</span>
+                        <span>Processing request...</span>
                       </>
                     ) : (
                       <>
