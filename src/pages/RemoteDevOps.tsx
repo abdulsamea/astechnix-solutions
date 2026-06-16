@@ -322,7 +322,7 @@ const RemoteDevOps = () => {
         requirements: formData.step2.engagementPriorities.join(", "),
         project_details: formData.step2.projectDetails,
 
-        service_type: "Remote DevOps COnsultation",
+        service_type: "Remote DevOps Consultation",
       };
 
       const result = await emailjs.send(
