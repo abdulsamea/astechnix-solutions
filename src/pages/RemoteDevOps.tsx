@@ -19,6 +19,8 @@ import {
   ChevronRight,
   Loader2,
   MapPin,
+  Phone,
+  ChevronDown,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
@@ -29,6 +31,8 @@ interface Step1Data {
   companyName: string;
   companySize: string;
   jobType: string;
+  phoneCountry: string;
+  phoneNumber: string;
 }
 
 interface Step2Data {
@@ -89,6 +93,29 @@ const ENGAGEMENT_MODEL_OPTIONS = [
   "Unsure / Need Consulting",
 ];
 
+const COUNTRY_DIAL_CODES: { code: string; flag: string; dial: string }[] = [
+  { code: "US", flag: "🇺🇸", dial: "+1" },
+  { code: "GB", flag: "🇬🇧", dial: "+44" },
+  { code: "CA", flag: "🇨🇦", dial: "+1" },
+  { code: "AU", flag: "🇦🇺", dial: "+61" },
+  { code: "DE", flag: "🇩🇪", dial: "+49" },
+  { code: "FR", flag: "🇫🇷", dial: "+33" },
+  { code: "NL", flag: "🇳🇱", dial: "+31" },
+  { code: "SE", flag: "🇸🇪", dial: "+46" },
+  { code: "NO", flag: "🇳🇴", dial: "+47" },
+  { code: "DK", flag: "🇩🇰", dial: "+45" },
+  { code: "CH", flag: "🇨🇭", dial: "+41" },
+  { code: "SG", flag: "🇸🇬", dial: "+65" },
+  { code: "IN", flag: "🇮🇳", dial: "+91" },
+  { code: "JP", flag: "🇯🇵", dial: "+81" },
+  { code: "KR", flag: "🇰🇷", dial: "+82" },
+  { code: "AE", flag: "🇦🇪", dial: "+971" },
+  { code: "IL", flag: "🇮🇱", dial: "+972" },
+  { code: "BR", flag: "🇧🇷", dial: "+55" },
+  { code: "MX", flag: "🇲🇽", dial: "+52" },
+  { code: "ZA", flag: "🇿🇦", dial: "+27" },
+];
+
 const TRUST_METRICS = [
   {
     icon: Shield,
@@ -133,6 +160,8 @@ const initialFormData: FormData = {
     companyName: "",
     companySize: "",
     jobType: "",
+    phoneCountry: "US",
+    phoneNumber: "",
   },
   step2: {
     cloudPlatform: "",
@@ -267,6 +296,9 @@ const RemoteDevOps = () => {
         company_name: formData.step1.companyName,
         job_type: formData.step1.jobType,
         company_size: formData.step1.companySize,
+        phone_number: formData.step1.phoneNumber
+          ? `${COUNTRY_DIAL_CODES.find((c) => c.code === formData.step1.phoneCountry)?.dial ?? ""} ${formData.step1.phoneNumber}`
+          : "Not provided",
 
         cloud_platform: formData.step2.cloudPlatform,
         engagement_model: formData.step2.engagementModel,
@@ -714,6 +746,62 @@ const RemoteDevOps = () => {
                               <span>{errors.jobType}</span>
                             </p>
                           )}
+                        </div>
+
+                        {/* Mobile Number */}
+                        <div>
+                          <label className="block" htmlFor="phoneNumber">
+                            <span className="text-white/70 text-sm font-medium mb-2 block">
+                              Mobile Number{" "}
+                              <span className="text-white/40 font-normal">
+                                (Optional — for urgent 6-hour response)
+                              </span>
+                            </span>
+                            <div className="flex gap-2">
+                              {/* Country dial-code picker */}
+                              <div className="relative flex-shrink-0">
+                                <select
+                                  value={formData.step1.phoneCountry}
+                                  onChange={(e) =>
+                                    updateStep1("phoneCountry", e.target.value)
+                                  }
+                                  aria-label="Country dial code"
+                                  className="h-full pl-3 pr-8 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:border-pacific-cyan focus:outline-none transition-colors appearance-none text-sm cursor-pointer"
+                                >
+                                  {COUNTRY_DIAL_CODES.map((c) => (
+                                    <option
+                                      key={c.code}
+                                      value={c.code}
+                                      className="bg-deep-navy"
+                                    >
+                                      {c.flag} {c.dial}
+                                    </option>
+                                  ))}
+                                </select>
+                                <ChevronDown
+                                  className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/40"
+                                  aria-hidden="true"
+                                />
+                              </div>
+                              {/* Phone number input */}
+                              <div className="relative flex-1">
+                                <Phone
+                                  className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40"
+                                  aria-hidden="true"
+                                />
+                                <input
+                                  id="phoneNumber"
+                                  type="tel"
+                                  value={formData.step1.phoneNumber}
+                                  onChange={(e) =>
+                                    updateStep1("phoneNumber", e.target.value)
+                                  }
+                                  placeholder="555 012 3456"
+                                  className="w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-pacific-cyan focus:outline-none transition-colors"
+                                />
+                              </div>
+                            </div>
+                          </label>
                         </div>
 
                         {/* Company Size */}
