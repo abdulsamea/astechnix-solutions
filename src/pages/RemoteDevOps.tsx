@@ -221,7 +221,7 @@ const RemoteDevOps = () => {
     const s2 = formData.step2;
 
     if (!s2.cloudPlatform)
-      newErrors.cloudPlatform = "Cloud platform is required";
+      newErrors.cloudPlatform = "DevOps platform is required";
     if (s2.engagementPriorities.length === 0)
       newErrors.engagementPriorities = "Please select at least one priority";
 
