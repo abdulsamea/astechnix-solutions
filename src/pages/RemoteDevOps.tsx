@@ -21,6 +21,7 @@ import {
   Phone,
   ChevronDown,
   Target,
+  Clock,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
@@ -257,7 +258,10 @@ const RemoteDevOps = () => {
       const updated = current.includes(option)
         ? current.filter((o) => o !== option)
         : [...current, option];
-      return { ...prev, step2: { ...prev.step2, engagementPriorities: updated } };
+      return {
+        ...prev,
+        step2: { ...prev.step2, engagementPriorities: updated },
+      };
     });
     if (errors.engagementPriorities)
       setErrors((prev) => ({ ...prev, engagementPriorities: "" }));
@@ -955,28 +959,6 @@ const RemoteDevOps = () => {
                             </span>
                           </span>
 
-                          {/* Selected tags preview */}
-                          {formData.step2.engagementPriorities.length > 0 && (
-                            <div className="flex flex-wrap gap-2 mb-3">
-                              {formData.step2.engagementPriorities.map((p) => (
-                                <span
-                                  key={p}
-                                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pacific-cyan/20 border border-pacific-cyan/40 text-pacific-cyan text-xs font-medium"
-                                >
-                                  {p}
-                                  <button
-                                    type="button"
-                                    onClick={() => toggleEngagementPriority(p)}
-                                    aria-label={`Remove ${p}`}
-                                    className="w-3.5 h-3.5 rounded-full hover:bg-pacific-cyan/30 flex items-center justify-center transition-colors text-pacific-cyan/70 hover:text-pacific-cyan"
-                                  >
-                                    ×
-                                  </button>
-                                </span>
-                              ))}
-                            </div>
-                          )}
-
                           {/* Checkbox option list */}
                           <div
                             className={`rounded-lg border overflow-hidden ${
@@ -990,7 +972,7 @@ const RemoteDevOps = () => {
                             {ENGAGEMENT_PRIORITY_OPTIONS.map((option, idx) => {
                               const checked =
                                 formData.step2.engagementPriorities.includes(
-                                  option
+                                  option,
                                 );
                               return (
                                 <button
