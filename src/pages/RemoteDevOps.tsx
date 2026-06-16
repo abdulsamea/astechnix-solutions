@@ -726,7 +726,7 @@ const RemoteDevOps = () => {
                                   disabled
                                   className="bg-deep-navy"
                                 >
-                                  Select company size
+                                  Select job title
                                 </option>
                                 {JOB_TYPE_OPTIONS.map((opt) => (
                                   <option
@@ -794,7 +794,10 @@ const RemoteDevOps = () => {
                                   type="tel"
                                   value={formData.step1.phoneNumber}
                                   onChange={(e) =>
-                                    updateStep1("phoneNumber", e.target.value.replace(/\D/g, ""))
+                                    updateStep1(
+                                      "phoneNumber",
+                                      e.target.value.replace(/\D/g, ""),
+                                    )
                                   }
                                   inputMode="numeric"
                                   placeholder="555 012 3456"
@@ -979,7 +982,10 @@ const RemoteDevOps = () => {
                         <div>
                           <label className="block" htmlFor="projectTimeline">
                             <span className="text-white/70 text-sm font-medium mb-2 block">
-                              Project Timeline &amp; Urgent Needs
+                              Project Timeline &amp; Urgent Needs{" "}
+                              <span className="text-white/40 font-normal">
+                                (Optional)
+                              </span>
                             </span>
                             <textarea
                               id="projectTimeline"
@@ -987,7 +993,7 @@ const RemoteDevOps = () => {
                               onChange={(e) =>
                                 updateStep2("projectTimeline", e.target.value)
                               }
-                              placeholder="Briefly describe your current CI/CD pipeline, Kubernetes, or infrastructure bottlenecks..."
+                              placeholder="Briefly describe your current CI/CD pipeline, Kubernetes, DevOps requirements or infrastructure bottlenecks..."
                               rows={4}
                               className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-pacific-cyan focus:outline-none transition-colors resize-none"
                             />
@@ -1071,7 +1077,7 @@ const RemoteDevOps = () => {
                       </>
                     ) : (
                       <>
-                        <span>Submit Request</span>
+                        <span>Submit</span>
                         <CheckCircle2 className="w-5 h-5" />
                       </>
                     )}
