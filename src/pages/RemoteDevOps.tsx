@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -21,6 +21,7 @@ import {
   Phone,
   ChevronDown,
   Target,
+  Clock,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
@@ -38,7 +39,7 @@ interface Step1Data {
 interface Step2Data {
   cloudPlatform: string;
   engagementPriorities: string[];
-  projectTimeline: string;
+  projectDetails: string;
 }
 
 interface FormData {
@@ -168,7 +169,7 @@ const initialFormData: FormData = {
   step2: {
     cloudPlatform: "",
     engagementPriorities: [],
-    projectTimeline: "",
+    projectDetails: "",
   },
   privacyConsent: false,
 };
@@ -248,7 +249,10 @@ const RemoteDevOps = () => {
       const updated = current.includes(option)
         ? current.filter((o) => o !== option)
         : [...current, option];
-      return { ...prev, step2: { ...prev.step2, engagementPriorities: updated } };
+      return {
+        ...prev,
+        step2: { ...prev.step2, engagementPriorities: updated },
+      };
     });
     if (errors.engagementPriorities)
       setErrors((prev) => ({ ...prev, engagementPriorities: "" }));
@@ -306,10 +310,10 @@ const RemoteDevOps = () => {
           : "Not provided",
 
         cloud_platform: formData.step2.cloudPlatform,
-        engagement_model: formData.step2.engagementPriorities.join(", "),
-        project_timeline: formData.step2.projectTimeline,
+        requirements: formData.step2.engagementPriorities.join(", "),
+        project_details: formData.step2.projectDetails,
 
-        service_type: "Remote DevOps COnsultation",
+        service_type: "Remote DevOps Consultation",
       };
 
       const result = await emailjs.send(
@@ -502,8 +506,8 @@ const RemoteDevOps = () => {
                         Corporate Identity &amp; Project Fit
                       </h2>
                       <p className="text-white/60 text-sm mb-8">
-                        Tell us about your company to see if you qualify for an
-                        expedited DevOps deployment.
+                        Tell us a bit about your organization so we can tailor
+                        the perfect DevOps team for your needs.
                       </p>
 
                       <div className="space-y-5">
@@ -863,28 +867,6 @@ const RemoteDevOps = () => {
                             </span>
                           </span>
 
-                          {/* Selected tags preview */}
-                          {formData.step2.engagementPriorities.length > 0 && (
-                            <div className="flex flex-wrap gap-2 mb-3">
-                              {formData.step2.engagementPriorities.map((p) => (
-                                <span
-                                  key={p}
-                                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pacific-cyan/20 border border-pacific-cyan/40 text-pacific-cyan text-xs font-medium"
-                                >
-                                  {p}
-                                  <button
-                                    type="button"
-                                    onClick={() => toggleEngagementPriority(p)}
-                                    aria-label={`Remove ${p}`}
-                                    className="w-3.5 h-3.5 rounded-full hover:bg-pacific-cyan/30 flex items-center justify-center transition-colors text-pacific-cyan/70 hover:text-pacific-cyan"
-                                  >
-                                    ×
-                                  </button>
-                                </span>
-                              ))}
-                            </div>
-                          )}
-
                           {/* Checkbox option list */}
                           <div
                             className={`rounded-lg border overflow-hidden ${
@@ -898,7 +880,7 @@ const RemoteDevOps = () => {
                             {ENGAGEMENT_PRIORITY_OPTIONS.map((option, idx) => {
                               const checked =
                                 formData.step2.engagementPriorities.includes(
-                                  option
+                                  option,
                                 );
                               return (
                                 <button
@@ -963,20 +945,20 @@ const RemoteDevOps = () => {
 
                         {/* Project Timeline */}
                         <div>
-                          <label className="block" htmlFor="projectTimeline">
+                          <label className="block" htmlFor="projectDetails">
                             <span className="text-white/70 text-sm font-medium mb-2 block">
-                              Project Timeline &amp; Urgent Needs{" "}
+                              Any specific goals or context you'd like to share?{" "}
                               <span className="text-white/40 font-normal">
                                 (Optional)
                               </span>
                             </span>
                             <textarea
-                              id="projectTimeline"
-                              value={formData.step2.projectTimeline}
+                              id="projectDetails"
+                              value={formData.step2.projectDetails}
                               onChange={(e) =>
-                                updateStep2("projectTimeline", e.target.value)
+                                updateStep2("projectDetails", e.target.value)
                               }
-                              placeholder="Briefly describe your current CI/CD pipeline, Kubernetes, DevOps requirements or infrastructure bottlenecks..."
+                              placeholder="e.g., Looking to optimize AWS costs, transition to Kubernetes, or migrate infrastructure to IaC (Terraform). Feel free to leave blank!"
                               rows={4}
                               className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-pacific-cyan focus:outline-none transition-colors resize-none"
                             />

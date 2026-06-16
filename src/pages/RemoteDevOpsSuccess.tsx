@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import {
   CheckCircle2,
   ChevronRight,
@@ -9,6 +10,10 @@ import {
 import { Link } from "react-router-dom";
 
 const RemoteDevOpsSuccess = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="min-h-screen px-4 sm:px-6 lg:px-8 py-16">
       <div className="max-w-3xl mx-auto">
@@ -106,7 +111,7 @@ const RemoteDevOpsSuccess = () => {
                   href="https://wa.me/919004575425"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#25D366]/15 border border-[#25D366]/30 text-[#25D366] text-sm font-medium hover:bg-[#25D366]/25 transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#25D366]/15 border border-[#25D366]/30 text-[#25D366] text-sm font-medium hover:bg-[#25D366]/25 transition-colors whitespace-nowrap"
                 >
                   <MessageCircle className="w-4 h-4" />
                   +91 90045 75425
