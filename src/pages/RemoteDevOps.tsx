@@ -368,7 +368,7 @@ const RemoteDevOps = () => {
             <li>
               <ChevronRight className="w-4 h-4" />
             </li>
-            <li className="text-pacific-cyan">Remote DevOps Contracting</li>
+            <li className="text-pacific-cyan">DevOps Consultation</li>
           </ol>
         </nav>
 
