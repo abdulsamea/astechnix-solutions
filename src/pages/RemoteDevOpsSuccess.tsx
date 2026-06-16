@@ -92,7 +92,7 @@ const RemoteDevOpsSuccess = () => {
               className="text-white/70 text-lg leading-relaxed max-w-xl mx-auto mb-8"
             >
               We're already looking over your setup. You can expect a
-              personalized response from one of our cloud engineers within the
+              personalized response from one of our DevOps engineers within the
               next few business hours.
             </motion.p>
 
