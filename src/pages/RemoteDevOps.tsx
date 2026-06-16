@@ -28,6 +28,7 @@ interface Step1Data {
   corporateEmail: string;
   companyName: string;
   companySize: string;
+  jobType: string;
 }
 
 interface Step2Data {
@@ -55,6 +56,15 @@ const FREE_EMAIL_DOMAINS = [
   "hotmail.com",
   "icloud.com",
   "aol.com",
+];
+
+const JOB_TYPE_OPTIONS = [
+  "CTO / CIO / C-Suite",
+  "VP / Director of Engineering",
+  "Engineering Manager / Team Lead",
+  "Product Manager / Owner",
+  "Procurement / HR / Recruiter",
+  "Other",
 ];
 
 const COMPANY_SIZE_OPTIONS = [
@@ -122,6 +132,7 @@ const initialFormData: FormData = {
     corporateEmail: "",
     companyName: "",
     companySize: "",
+    jobType: "",
   },
   step2: {
     cloudPlatform: "",
@@ -165,6 +176,8 @@ const RemoteDevOps = () => {
     }
     if (!s1.companyName.trim())
       newErrors.companyName = "Company name is required";
+
+    if (!s1.jobType) newErrors.jobType = "Job title is required";
     if (!s1.companySize) newErrors.companySize = "Company size is required";
 
     setErrors(newErrors);
@@ -252,13 +265,14 @@ const RemoteDevOps = () => {
         user_name: formData.step1.fullName,
         user_email: formData.step1.corporateEmail,
         company_name: formData.step1.companyName,
+        job_type: formData.step1.jobType,
         company_size: formData.step1.companySize,
 
         cloud_platform: formData.step2.cloudPlatform,
         engagement_model: formData.step2.engagementModel,
         project_timeline: formData.step2.projectTimeline,
 
-        service_type: "Remote DevOps Contracting",
+        service_type: "Remote DevOps COnsultation",
       };
 
       const result = await emailjs.send(
@@ -534,8 +548,8 @@ const RemoteDevOps = () => {
                         Corporate Identity &amp; Project Fit
                       </h2>
                       <p className="text-white/60 text-sm mb-8">
-                        Tell us about your organization so we can tailor our
-                        engagement to your needs.
+                        Tell us about your company to see if you qualify for an
+                        expedited DevOps deployment.
                       </p>
 
                       <div className="space-y-5">
@@ -557,7 +571,7 @@ const RemoteDevOps = () => {
                                 onChange={(e) =>
                                   updateStep1("fullName", e.target.value)
                                 }
-                                placeholder="John Doe"
+                                placeholder="Your name"
                                 className={`w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border text-white placeholder-white/40 focus:outline-none transition-colors ${
                                   errors.fullName
                                     ? "border-red-400 focus:border-red-400"
@@ -631,7 +645,7 @@ const RemoteDevOps = () => {
                                 onChange={(e) =>
                                   updateStep1("companyName", e.target.value)
                                 }
-                                placeholder="Acme Corp"
+                                placeholder="Your company name"
                                 className={`w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border text-white placeholder-white/40 focus:outline-none transition-colors ${
                                   errors.companyName
                                     ? "border-red-400 focus:border-red-400"
@@ -646,6 +660,58 @@ const RemoteDevOps = () => {
                             <p className="text-red-400 text-xs mt-1.5 flex items-center space-x-1">
                               <AlertTriangle className="w-3 h-3 flex-shrink-0" />
                               <span>{errors.companyName}</span>
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Job Title / Role */}
+                        <div>
+                          <label className="block" htmlFor="jobType">
+                            <span className="text-white/70 text-sm font-medium mb-2 block">
+                              Job Title / Role *
+                            </span>
+                            <div className="relative">
+                              <Users
+                                className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40"
+                                aria-hidden="true"
+                              />
+                              <select
+                                id="jobType"
+                                value={formData.step1.jobType}
+                                onChange={(e) =>
+                                  updateStep1("jobType", e.target.value)
+                                }
+                                className={`w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border text-white focus:outline-none transition-colors appearance-none ${
+                                  errors.jobType
+                                    ? "border-red-400 focus:border-red-400"
+                                    : "border-white/10 focus:border-pacific-cyan"
+                                }`}
+                                aria-required="true"
+                                aria-invalid={!!errors.jobType}
+                              >
+                                <option
+                                  value=""
+                                  disabled
+                                  className="bg-deep-navy"
+                                >
+                                  Select company size
+                                </option>
+                                {JOB_TYPE_OPTIONS.map((opt) => (
+                                  <option
+                                    key={opt}
+                                    value={opt}
+                                    className="bg-deep-navy"
+                                  >
+                                    {opt}
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
+                          </label>
+                          {errors.jobType && (
+                            <p className="text-red-400 text-xs mt-1.5 flex items-center space-x-1">
+                              <AlertTriangle className="w-3 h-3 flex-shrink-0" />
+                              <span>{errors.jobType}</span>
                             </p>
                           )}
                         </div>
