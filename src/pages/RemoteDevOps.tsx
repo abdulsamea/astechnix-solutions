@@ -319,7 +319,7 @@ const RemoteDevOps = () => {
           : "Not provided",
 
         cloud_platform: formData.step2.cloudPlatform,
-        engagement_model: formData.step2.engagementPriorities.join(", "),
+        requirements: formData.step2.engagementPriorities.join(", "),
         project_timeline: formData.step2.projectTimeline,
 
         service_type: "Remote DevOps COnsultation",
