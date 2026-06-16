@@ -794,8 +794,9 @@ const RemoteDevOps = () => {
                                   type="tel"
                                   value={formData.step1.phoneNumber}
                                   onChange={(e) =>
-                                    updateStep1("phoneNumber", e.target.value)
+                                    updateStep1("phoneNumber", e.target.value.replace(/\D/g, ""))
                                   }
+                                  inputMode="numeric"
                                   placeholder="555 012 3456"
                                   className="w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-pacific-cyan focus:outline-none transition-colors"
                                 />
