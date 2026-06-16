@@ -14,6 +14,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import DataRequest from "./pages/DataRequest";
 import RemoteDevOps from "./pages/RemoteDevOps";
+import RemoteDevOpsSuccess from "./pages/RemoteDevOpsSuccess";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -36,6 +37,10 @@ function App() {
           <Route
             path="services/devops-consultation"
             element={<RemoteDevOps />}
+          />
+          <Route
+            path="services/devops-consultation/success"
+            element={<RemoteDevOpsSuccess />}
           />
           <Route path="*" element={<NotFound />} />
         </Route>

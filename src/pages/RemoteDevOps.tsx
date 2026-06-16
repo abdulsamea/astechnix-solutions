@@ -22,7 +22,7 @@ import {
   ChevronDown,
   Target,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 
 interface Step1Data {
@@ -174,21 +174,12 @@ const initialFormData: FormData = {
 };
 
 const RemoteDevOps = () => {
+  const navigate = useNavigate();
   const formContainerRef = useRef<HTMLDivElement>(null);
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    if (submitted) {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }
-  }, [submitted]);
 
   // ─── Validation ──────────────────────────────────────────────────────────
 
@@ -330,7 +321,7 @@ const RemoteDevOps = () => {
 
       console.log("Email sent successfully:", result.text);
 
-      setSubmitted(true);
+      navigate("/services/devops-consultation/success");
     } catch (error) {
       console.error("Email failed to send:", error);
       alert("Something went wrong. Please try again.");
@@ -339,92 +330,9 @@ const RemoteDevOps = () => {
     }
   };
 
-  const handleReset = () => {
-    setFormData(initialFormData);
-    setErrors({});
-    setCurrentStep(1);
-    setSubmitted(false);
-  };
-
   // ─── Progress Bar ───────────────────────────────────────────────────────
 
   const progressPercent = currentStep === 1 ? 0 : 50;
-
-  // ─── Render: Success State ──────────────────────────────────────────────
-
-  if (submitted) {
-    return (
-      <main className="min-h-screen px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="mb-8">
-              <ol className="flex items-center space-x-2 text-sm text-white/50">
-                <li>
-                  <Link
-                    to="/"
-                    className="hover:text-pacific-cyan transition-colors"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <ChevronRight className="w-4 h-4" />
-                </li>
-                <li>
-                  <Link
-                    to="/devops"
-                    className="hover:text-pacific-cyan transition-colors"
-                  >
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <ChevronRight className="w-4 h-4" />
-                </li>
-                <li className="text-pacific-cyan">Remote DevOps</li>
-              </ol>
-            </nav>
-
-            <div className="text-center mb-12">
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-                className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 mb-8 shadow-lg shadow-emerald-500/30"
-              >
-                <CheckCircle2 className="w-12 h-12 text-white" />
-              </motion.div>
-              <h1 className="font-heading font-bold text-4xl md:text-5xl text-white mb-6">
-                Consultation Request Received
-              </h1>
-              <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-                Thank you. Your request for a professional DevOps consultation
-                has been recorded. A designated technical representative will be
-                in touch with you shortly to evaluate your requirements.
-              </p>
-            </div>
-
-            {/* Scheduler Card */}
-            <div className="max-w-2xl mx-auto">
-              <div className="mt-8 text-center">
-                <button
-                  onClick={handleReset}
-                  className="text-white/50 hover:text-pacific-cyan text-sm font-medium transition-colors"
-                >
-                  Submit another request
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </main>
-    );
-  }
 
   // ─── Render: Form State ─────────────────────────────────────────────────
 
