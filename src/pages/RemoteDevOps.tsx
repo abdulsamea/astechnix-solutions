@@ -39,7 +39,7 @@ interface Step1Data {
 interface Step2Data {
   cloudPlatform: string;
   engagementPriorities: string[];
-  projectTimeline: string;
+  projectDetails: string;
 }
 
 interface FormData {
@@ -169,7 +169,7 @@ const initialFormData: FormData = {
   step2: {
     cloudPlatform: "",
     engagementPriorities: [],
-    projectTimeline: "",
+    projectDetails: "",
   },
   privacyConsent: false,
 };
@@ -320,7 +320,7 @@ const RemoteDevOps = () => {
 
         cloud_platform: formData.step2.cloudPlatform,
         requirements: formData.step2.engagementPriorities.join(", "),
-        project_timeline: formData.step2.projectTimeline,
+        project_details: formData.step2.projectDetails,
 
         service_type: "Remote DevOps COnsultation",
       };
@@ -1037,20 +1037,20 @@ const RemoteDevOps = () => {
 
                         {/* Project Timeline */}
                         <div>
-                          <label className="block" htmlFor="projectTimeline">
+                          <label className="block" htmlFor="projectDetails">
                             <span className="text-white/70 text-sm font-medium mb-2 block">
-                              Project Timeline &amp; Urgent Needs{" "}
+                              Any specific goals or context you'd like to share?{" "}
                               <span className="text-white/40 font-normal">
                                 (Optional)
                               </span>
                             </span>
                             <textarea
-                              id="projectTimeline"
-                              value={formData.step2.projectTimeline}
+                              id="projectDetails"
+                              value={formData.step2.projectDetails}
                               onChange={(e) =>
-                                updateStep2("projectTimeline", e.target.value)
+                                updateStep2("projectDetails", e.target.value)
                               }
-                              placeholder="Briefly describe your current CI/CD pipeline, Kubernetes, DevOps requirements or infrastructure bottlenecks..."
+                              placeholder="e.g., Looking to optimize AWS costs, transition to Kubernetes, or migrate infrastructure to IaC (Terraform). Feel free to leave blank!"
                               rows={4}
                               className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-pacific-cyan focus:outline-none transition-colors resize-none"
                             />
