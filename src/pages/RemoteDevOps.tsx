@@ -580,8 +580,8 @@ const RemoteDevOps = () => {
                         Corporate Identity &amp; Project Fit
                       </h2>
                       <p className="text-white/60 text-sm mb-8">
-                        Tell us about your company to see if you qualify for an
-                        expedited DevOps deployment.
+                        Tell us a bit about your organization so we can tailor
+                        the perfect DevOps team for your needs..
                       </p>
 
                       <div className="space-y-5">
