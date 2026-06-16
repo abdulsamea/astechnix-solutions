@@ -9,7 +9,6 @@ import {
   Building2,
   Users,
   Cloud,
-  Clock,
   Shield,
   Server,
   Container,
@@ -21,6 +20,7 @@ import {
   MapPin,
   Phone,
   ChevronDown,
+  Target,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
@@ -37,7 +37,7 @@ interface Step1Data {
 
 interface Step2Data {
   cloudPlatform: string;
-  engagementModel: string;
+  engagementPriorities: string[];
   projectTimeline: string;
 }
 
@@ -86,11 +86,13 @@ const DEVOPS_PLATFORM_OPTIONS = [
   "On-Premises",
 ];
 
-const ENGAGEMENT_MODEL_OPTIONS = [
-  "Dedicated Hourly Contracting",
-  "Monthly Dedicated Pod / Team",
-  "Fixed-Scope Project Retainer",
-  "Unsure / Need Consulting",
+const ENGAGEMENT_PRIORITY_OPTIONS = [
+  "Accelerate CI/CD & Deployment Speed",
+  "Infrastructure Scaling & Kubernetes",
+  "Cloud Cost Optimization",
+  "Security Hardening & Compliance (SOC2)",
+  "Ongoing DevOps & Infrastructure Management",
+  "Not sure yet / Let's discuss on a call",
 ];
 
 const COUNTRY_DIAL_CODES: { code: string; flag: string; dial: string }[] = [
@@ -165,7 +167,7 @@ const initialFormData: FormData = {
   },
   step2: {
     cloudPlatform: "",
-    engagementModel: "",
+    engagementPriorities: [],
     projectTimeline: "",
   },
   privacyConsent: false,
@@ -219,8 +221,8 @@ const RemoteDevOps = () => {
 
     if (!s2.cloudPlatform)
       newErrors.cloudPlatform = "Cloud platform is required";
-    if (!s2.engagementModel)
-      newErrors.engagementModel = "Engagement model is required";
+    if (s2.engagementPriorities.length === 0)
+      newErrors.engagementPriorities = "Please select at least one priority";
 
     if (!formData.privacyConsent) {
       newErrors.privacyConsent =
@@ -247,6 +249,18 @@ const RemoteDevOps = () => {
       step2: { ...prev.step2, [field]: value },
     }));
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: "" }));
+  };
+
+  const toggleEngagementPriority = (option: string) => {
+    setFormData((prev) => {
+      const current = prev.step2.engagementPriorities;
+      const updated = current.includes(option)
+        ? current.filter((o) => o !== option)
+        : [...current, option];
+      return { ...prev, step2: { ...prev.step2, engagementPriorities: updated } };
+    });
+    if (errors.engagementPriorities)
+      setErrors((prev) => ({ ...prev, engagementPriorities: "" }));
   };
 
   const scrollToForm = () => {
@@ -301,7 +315,7 @@ const RemoteDevOps = () => {
           : "Not provided",
 
         cloud_platform: formData.step2.cloudPlatform,
-        engagement_model: formData.step2.engagementModel,
+        engagement_model: formData.step2.engagementPriorities.join(", "),
         project_timeline: formData.step2.projectTimeline,
 
         service_type: "Remote DevOps COnsultation",
@@ -926,54 +940,115 @@ const RemoteDevOps = () => {
                           )}
                         </div>
 
-                        {/* Engagement Model */}
+                        {/* Engagement Priorities Multiselect */}
                         <div>
-                          <label className="block" htmlFor="engagementModel">
-                            <span className="text-white/70 text-sm font-medium mb-2 block">
-                              Preferred Engagement Model *
-                            </span>
-                            <div className="relative">
-                              <Clock
-                                className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40"
+                          <span className="text-white/70 text-sm font-medium mb-2 block">
+                            <span className="flex items-center gap-2">
+                              <Target
+                                className="w-4 h-4 text-white/40 flex-shrink-0"
                                 aria-hidden="true"
                               />
-                              <select
-                                id="engagementModel"
-                                value={formData.step2.engagementModel}
-                                onChange={(e) =>
-                                  updateStep2("engagementModel", e.target.value)
-                                }
-                                className={`w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border text-white focus:outline-none transition-colors appearance-none ${
-                                  errors.engagementModel
-                                    ? "border-red-400 focus:border-red-400"
-                                    : "border-white/10 focus:border-pacific-cyan"
-                                }`}
-                                aria-required="true"
-                                aria-invalid={!!errors.engagementModel}
-                              >
-                                <option
-                                  value=""
-                                  disabled
-                                  className="bg-deep-navy"
+                              How can our engineers best support you?{" "}
+                              <span className="text-white/40 font-normal">
+                                (Select all that apply) *
+                              </span>
+                            </span>
+                          </span>
+
+                          {/* Selected tags preview */}
+                          {formData.step2.engagementPriorities.length > 0 && (
+                            <div className="flex flex-wrap gap-2 mb-3">
+                              {formData.step2.engagementPriorities.map((p) => (
+                                <span
+                                  key={p}
+                                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pacific-cyan/20 border border-pacific-cyan/40 text-pacific-cyan text-xs font-medium"
                                 >
-                                  Select engagement model
-                                </option>
-                                {ENGAGEMENT_MODEL_OPTIONS.map((opt) => (
-                                  <option
-                                    key={opt}
-                                    value={opt}
-                                    className="bg-deep-navy"
+                                  {p}
+                                  <button
+                                    type="button"
+                                    onClick={() => toggleEngagementPriority(p)}
+                                    aria-label={`Remove ${p}`}
+                                    className="w-3.5 h-3.5 rounded-full hover:bg-pacific-cyan/30 flex items-center justify-center transition-colors text-pacific-cyan/70 hover:text-pacific-cyan"
                                   >
-                                    {opt}
-                                  </option>
-                                ))}
-                              </select>
+                                    ×
+                                  </button>
+                                </span>
+                              ))}
                             </div>
-                          </label>
-                          {errors.engagementModel && (
+                          )}
+
+                          {/* Checkbox option list */}
+                          <div
+                            className={`rounded-lg border overflow-hidden ${
+                              errors.engagementPriorities
+                                ? "border-red-400"
+                                : "border-white/10"
+                            }`}
+                            role="group"
+                            aria-label="Engagement priorities"
+                          >
+                            {ENGAGEMENT_PRIORITY_OPTIONS.map((option, idx) => {
+                              const checked =
+                                formData.step2.engagementPriorities.includes(
+                                  option
+                                );
+                              return (
+                                <button
+                                  key={option}
+                                  type="button"
+                                  onClick={() =>
+                                    toggleEngagementPriority(option)
+                                  }
+                                  aria-pressed={checked}
+                                  className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
+                                    idx !== 0 ? "border-t border-white/8" : ""
+                                  } ${
+                                    checked
+                                      ? "bg-pacific-cyan/10"
+                                      : "bg-white/5 hover:bg-white/8"
+                                  }`}
+                                >
+                                  {/* Custom checkbox */}
+                                  <span
+                                    className={`flex-shrink-0 w-4 h-4 rounded border transition-all flex items-center justify-center ${
+                                      checked
+                                        ? "bg-pacific-cyan border-pacific-cyan"
+                                        : "border-white/20 bg-transparent"
+                                    }`}
+                                  >
+                                    {checked && (
+                                      <svg
+                                        className="w-2.5 h-2.5 text-white"
+                                        viewBox="0 0 10 8"
+                                        fill="none"
+                                        aria-hidden="true"
+                                      >
+                                        <path
+                                          d="M1 4l2.5 2.5L9 1"
+                                          stroke="currentColor"
+                                          strokeWidth="1.8"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    )}
+                                  </span>
+                                  <span
+                                    className={`text-sm font-medium leading-snug ${
+                                      checked ? "text-white" : "text-white/70"
+                                    }`}
+                                  >
+                                    {option}
+                                  </span>
+                                </button>
+                              );
+                            })}
+                          </div>
+
+                          {errors.engagementPriorities && (
                             <p className="text-red-400 text-xs mt-1.5 flex items-center space-x-1">
                               <AlertTriangle className="w-3 h-3 flex-shrink-0" />
-                              <span>{errors.engagementModel}</span>
+                              <span>{errors.engagementPriorities}</span>
                             </p>
                           )}
                         </div>
