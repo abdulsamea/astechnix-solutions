@@ -34,12 +34,9 @@ function App() {
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms-of-service" element={<TermsOfService />} />
           <Route path="data-request" element={<DataRequest />} />
+          <Route path="services/devops" element={<RemoteDevOps />} />
           <Route
-            path="services/devops-consultation"
-            element={<RemoteDevOps />}
-          />
-          <Route
-            path="services/devops-consultation/success"
+            path="services/devops/success"
             element={<RemoteDevOpsSuccess />}
           />
           <Route path="*" element={<NotFound />} />
