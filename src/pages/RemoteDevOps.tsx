@@ -26,6 +26,12 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 interface Step1Data {
   fullName: string;
   corporateEmail: string;
@@ -172,6 +178,14 @@ const initialFormData: FormData = {
     projectDetails: "",
   },
   privacyConsent: false,
+};
+
+const reportGoogleConversion = () => {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", "conversion", {
+      send_to: "AW-18247449976/9pVzCMq16cAcEPj6h_1D",
+    });
+  }
 };
 
 const RemoteDevOps = () => {
@@ -324,8 +338,9 @@ const RemoteDevOps = () => {
       );
 
       console.log("Email sent successfully:", result.text);
+      reportGoogleConversion();
 
-      navigate("/services/devops-consultation/success");
+      navigate("/services/devops/success");
     } catch (error) {
       console.error("Email failed to send:", error);
       alert("Something went wrong. Please try again.");

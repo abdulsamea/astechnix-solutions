@@ -49,7 +49,7 @@ const RemoteDevOpsSuccess = () => {
               </li>
               <li>
                 <Link
-                  to="/services/devops-consultation"
+                  to="/services/devops"
                   className="hover:text-pacific-cyan transition-colors"
                 >
                   DevOps Consultation
@@ -135,7 +135,7 @@ const RemoteDevOpsSuccess = () => {
               className="mt-10 pt-8 border-t border-white/10"
             >
               <Link
-                to="/services/devops-consultation"
+                to="/services/devops"
                 className="inline-flex items-center gap-2 text-white/50 hover:text-pacific-cyan text-sm font-medium transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
