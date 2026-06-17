@@ -74,16 +74,6 @@ const RemoteDevOpsSuccess = () => {
               <CheckCircle2 className="w-10 h-10 text-white" />
             </motion.div>
 
-            {/* Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35 }}
-              className="font-heading font-bold text-3xl sm:text-4xl text-white mb-6"
-            >
-              Awesome! We've received your details
-            </motion.h1>
-
             {/* Body copy */}
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -91,9 +81,9 @@ const RemoteDevOpsSuccess = () => {
               transition={{ delay: 0.45 }}
               className="text-white/70 text-lg leading-relaxed max-w-xl mx-auto mb-8"
             >
-              We're already looking over your setup. You can expect a
-              personalized response from one of our DevOps engineers within the
-              next few business hours.
+              We've received your details and we're already looking over your
+              setup. You can expect a personalized response from one of our
+              DevOps engineers within the next few business hours.
             </motion.p>
 
             {/* Quick-contact strip */}
@@ -104,7 +94,9 @@ const RemoteDevOpsSuccess = () => {
               className="rounded-xl bg-white/5 border border-white/10 p-6 max-w-md mx-auto mb-8"
             >
               <p className="text-white/60 text-sm mb-4">
-                In a rush or want to skip the wait?
+                For your convenience, our channels are always open. Feel free to
+                reach out directly via WhatsApp or email if you'd like to
+                connect with our engineering team right away.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
