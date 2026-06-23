@@ -172,7 +172,7 @@ const CloudServices = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Build resilient, scalable infrastructure on AWS, Azure, and GCP
+              Build resilient, scalable infrastructure on AWS, Azure and GCP
               with enterprise-grade security and performance optimization.
             </p>
             <Link

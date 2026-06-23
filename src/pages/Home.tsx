@@ -15,7 +15,7 @@ const Home = () => {
       icon: Cloud,
       title: "Cloud Services",
       description:
-        "Scalable AWS, Azure, and GCP architectures engineered for high-availability.",
+        "Scalable AWS, Azure and GCP architectures engineered for high-availability.",
       link: "/cloud-services",
       gradient: "from-pacific-cyan to-sky-blue",
     },
