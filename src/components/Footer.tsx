@@ -145,18 +145,21 @@ const Footer = () => {
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-6 text-sm">
               <Link
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 to="/privacy-policy"
                 className="text-white/50 hover:text-pacific-cyan transition-colors duration-300"
               >
                 Privacy Policy
               </Link>
               <Link
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 to="/terms-of-service"
                 className="text-white/50 hover:text-pacific-cyan transition-colors duration-300"
               >
                 Terms of Service
               </Link>
               <Link
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 to="/data-request"
                 className="text-white/50 hover:text-pacific-cyan transition-colors duration-300"
               >
