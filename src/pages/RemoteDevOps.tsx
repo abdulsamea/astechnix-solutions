@@ -404,7 +404,7 @@ const RemoteDevOps = () => {
             <p className="text-xl text-white/70 max-w-3xl leading-relaxed mb-10">
               Trusted by US tech leaders for senior DevOps expertise. Cloud,
               Kubernetes, and CI/CD engineers integrated into your team within
-              days—{" "}
+              days —{" "}
               <span className="bg-gradient-to-r from-pacific-cyan via-sky-blue to-pale-azure bg-clip-text text-transparent font-extrabold">
                 while we handle HR, payroll, and employee benefits.
               </span>
@@ -437,7 +437,7 @@ const RemoteDevOps = () => {
           <section className="lg:col-span-2" aria-label="Lead generation form">
             <div
               ref={formContainerRef}
-              className="p-6 sm:p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10"
+              className="p-6 sm:p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 animate-border-glow"
             >
               {/* Progress Indicator */}
               <div className="mb-8">
@@ -522,7 +522,7 @@ const RemoteDevOps = () => {
                   {currentStep === 1 && (
                     <div>
                       <h2 className=" font-heading font-bold text-2xl text-white mb-2">
-                        Corporate Identity &amp; Project Fit
+                        Your Corporate Identity
                       </h2>
                       <p className="text-white/60 text-sm mb-8">
                         Tell us a bit about your organization so we can tailor
