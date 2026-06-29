@@ -22,6 +22,7 @@ import {
   ChevronDown,
   Target,
   Clock,
+  Briefcase,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
@@ -395,15 +396,18 @@ const RemoteDevOps = () => {
             transition={{ duration: 0.6 }}
           >
             <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-tight">
-              Scale Your Infrastructure with{" "}
+              Hire On-Demand DevOps Engineers{" "}
               <span className="bg-gradient-to-r from-pacific-cyan via-sky-blue to-pale-azure bg-clip-text text-transparent">
-                On-Demand Remote DevOps Engineers
+                With HR & Benefits Handled.
               </span>
             </h1>
             <p className="text-xl text-white/70 max-w-3xl leading-relaxed mb-10">
-              US-based tech executives trust AStechnix for senior-level DevOps
-              contracting. AWS, Kubernetes, CI/CD — deployed within days, not
-              months.
+              Trusted by US tech leaders for senior DevOps expertise. Cloud,
+              Kubernetes, and CI/CD engineers integrated into your team within
+              days—{" "}
+              <span className="bg-gradient-to-r from-pacific-cyan via-sky-blue to-pale-azure bg-clip-text text-transparent font-extrabold">
+                while we handle HR, payroll, and employee benefits.
+              </span>
             </p>
 
             {/* Trust Metrics */}
@@ -695,7 +699,7 @@ const RemoteDevOps = () => {
                             <span className="text-white/70 text-sm font-medium mb-2 block">
                               Mobile Number{" "}
                               <span className="text-white/40 font-normal">
-                                (Optional — for urgent 6-hour response)
+                                (Optional — for urgent 2-hour response)
                               </span>
                             </span>
                             <div className="flex gap-2">
@@ -1100,6 +1104,10 @@ const RemoteDevOps = () => {
                 <li className="flex items-start space-x-2">
                   <MapPin className="w-4 h-4 text-pacific-cyan flex-shrink-0 mt-0.5" />
                   <span>US-timezone aligned engineering teams</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <Briefcase className="w-4 h-4 text-pacific-cyan flex-shrink-0 mt-0.5" />
+                  <span>HR Overhead and Employee Benefits handled by us</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <Clock className="w-4 h-4 text-pacific-cyan flex-shrink-0 mt-0.5" />
