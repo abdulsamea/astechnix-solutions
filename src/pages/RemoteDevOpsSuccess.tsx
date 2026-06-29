@@ -81,9 +81,11 @@ const RemoteDevOpsSuccess = () => {
               transition={{ delay: 0.45 }}
               className="text-white/70 text-lg leading-relaxed max-w-xl mx-auto mb-8"
             >
-              We've received your details and we're already looking over your
-              setup. You can expect a personalized response from one of our
-              DevOps engineers within the next few business hours.
+              We've received your details and are reviewing your requirements. A
+              member of our solutions team will contact you within the next few
+              business hours to discuss your requirements, walk you through the
+              engagement process, and recommend the right DevOps engineers for
+              your project.
             </motion.p>
 
             {/* Quick-contact strip */}
