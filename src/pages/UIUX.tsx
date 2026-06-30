@@ -82,22 +82,22 @@ const UIUX = () => {
     {
       phase: "Discover",
       description: "Research, competitive analysis, and user personas",
-      duration: "Week 1-2",
+      duration: "Phase 1",
     },
     {
       phase: "Define",
       description: "Information architecture and user flow mapping",
-      duration: "Week 2-3",
+      duration: "Phase 2",
     },
     {
       phase: "Design",
       description: "Wireframes, prototypes, and high-fidelity mockups",
-      duration: "Week 3-5",
+      duration: "Phase 3",
     },
     {
       phase: "Deliver",
       description: "Design handoff, component library, and documentation",
-      duration: "Week 5-6",
+      duration: "Phase 4",
     },
   ];
 
