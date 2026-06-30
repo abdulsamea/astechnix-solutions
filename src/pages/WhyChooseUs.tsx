@@ -31,6 +31,7 @@ const WhyChooseUs = () => {
         "Cloud-certified architects",
         "Kubernetes & DevOps specialists",
         "Full-stack generalists when needed",
+        "Full handled HR, payroll and benefits for every engineer / developer",
       ],
       gradient: "from-pacific-cyan to-sky-blue",
     },
@@ -184,8 +185,12 @@ const WhyChooseUs = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Senior talent. US/UK timezone alignment. Compliance-first security.
-              We are the remote engineering partner tech executives rely on.
+              Senior talent. US/UK timezone alignment. Compliance-first security
+              along with{" "}
+              <span className="bg-gradient-to-r from-pacific-cyan via-sky-blue to-pale-azure bg-clip-text text-transparent font-extrabold">
+                HR, Payroll and Benefits Handled
+              </span>
+              . We are the remote engineering partner tech executives rely on.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
@@ -379,7 +384,8 @@ const WhyChooseUs = () => {
               Who We <span className="text-pacific-cyan">Serve</span>
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              We are built for leaders who need senior talent without the overhead.
+              We are built for leaders who need senior talent without the
+              overhead.
             </p>
           </motion.div>
 

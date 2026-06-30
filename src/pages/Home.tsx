@@ -117,12 +117,12 @@ const Home = () => {
               </span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <a
+            {/* <a
               href="#services"
               className="px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-heading font-semibold rounded-lg border border-white/20 hover:bg-white/10 hover:border-pacific-cyan/50 transition-all duration-300"
             >
               View Our Work
-            </a>
+            </a> */}
           </motion.div>
 
           <motion.div
@@ -192,6 +192,9 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <Link
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                   to={service.link}
                   className="group block h-full p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-pacific-cyan/50 transition-all duration-300 hover:shadow-2xl hover:shadow-pacific-cyan/20 hover:-translate-y-2"
                 >
