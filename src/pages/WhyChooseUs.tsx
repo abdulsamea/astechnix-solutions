@@ -28,10 +28,10 @@ const WhyChooseUs = () => {
         "Every engineer we deploy has 8+ years of production experience. No juniors, no trainees. You work directly with architects who have built systems at scale.",
       highlights: [
         "8+ years average experience",
+        "Full handled HR, payroll and benefits for every engineer / developer",
         "Cloud-certified architects",
         "Kubernetes & DevOps specialists",
         "Full-stack generalists when needed",
-        "Full handled HR, payroll and benefits for every engineer / developer",
       ],
       gradient: "from-pacific-cyan to-sky-blue",
     },
