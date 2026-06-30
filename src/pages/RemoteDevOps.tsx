@@ -404,7 +404,7 @@ const RemoteDevOps = () => {
             <p className="text-xl text-white/70 max-w-3xl leading-relaxed mb-10">
               Trusted by US tech leaders for senior DevOps expertise. Cloud,
               Kubernetes, and CI/CD engineers integrated into your team within
-              days —{" "}
+              days,{" "}
               <span className="bg-gradient-to-r from-pacific-cyan via-sky-blue to-pale-azure bg-clip-text text-transparent font-extrabold">
                 while we handle HR, payroll, and employee benefits.
               </span>
