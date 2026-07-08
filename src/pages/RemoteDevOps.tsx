@@ -1016,7 +1016,7 @@ const RemoteDevOps = () => {
                                 updateStep1("fullName", e.target.value)
                               }
                               placeholder="Your name"
-                              className={`w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border text-white placeholder-white/40 focus:outline-none transition-colors ${
+                              className={`w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border text-white placeholder-white/40 focus:outline-none caret-white transition-colors ${
                                 errors.fullName
                                   ? "border-red-400 focus:border-red-400"
                                   : "border-white/10 focus:border-pacific-cyan"
@@ -1053,7 +1053,7 @@ const RemoteDevOps = () => {
                                 updateStep1("corporateEmail", e.target.value)
                               }
                               placeholder="you@company.com"
-                              className={`w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border text-white placeholder-white/40 focus:outline-none transition-colors ${
+                              className={`w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border text-white placeholder-white/40 focus:outline-none caret-white transition-colors ${
                                 errors.corporateEmail
                                   ? "border-red-400 focus:border-red-400"
                                   : "border-white/10 focus:border-pacific-cyan"
@@ -1090,7 +1090,7 @@ const RemoteDevOps = () => {
                                 updateStep1("companyName", e.target.value)
                               }
                               placeholder="Your company name"
-                              className={`w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border text-white placeholder-white/40 focus:outline-none transition-colors ${
+                              className={`w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border text-white placeholder-white/40 focus:outline-none caret-white transition-colors ${
                                 errors.companyName
                                   ? "border-red-400 focus:border-red-400"
                                   : "border-white/10 focus:border-pacific-cyan"
@@ -1211,7 +1211,7 @@ const RemoteDevOps = () => {
                                 }
                                 inputMode="numeric"
                                 placeholder="555 012 3456"
-                                className="w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-pacific-cyan focus:outline-none transition-colors"
+                                className="w-full pl-11 pr-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-pacific-cyan focus:outline-none caret-white transition-colors"
                               />
                             </div>
                           </div>
@@ -1440,7 +1440,7 @@ const RemoteDevOps = () => {
                             }
                             placeholder="e.g., Looking to optimize AWS costs, transition to Kubernetes, or migrate infrastructure to IaC (Terraform). Feel free to leave blank!"
                             rows={4}
-                            className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-pacific-cyan focus:outline-none transition-colors resize-none"
+                            className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-pacific-cyan focus:outline-none caret-white transition-colors resize-none"
                           />
                         </label>
                       </div>
