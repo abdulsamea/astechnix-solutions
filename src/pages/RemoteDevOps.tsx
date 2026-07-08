@@ -286,7 +286,7 @@ const InfrastructureVisual = () => {
   };
 
   return (
-    <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent rounded-2xl border border-white/10 overflow-hidden">
+    <div className="relative w-full aspect-square md:aspect-[4/3] bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent rounded-2xl border border-white/10 overflow-hidden">
       {/* Grid Background */}
       <div
         className="absolute inset-0 opacity-20"
