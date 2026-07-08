@@ -719,7 +719,7 @@ const RemoteDevOps = () => {
               {/* Primary CTA */}
               <motion.button
                 onClick={scrollToForm}
-                className="group flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold text-lg hover:shadow-2xl hover:shadow-pacific-cyan/50 transition-all duration-300"
+                className="group w-full sm:w-auto flex items-center justify-center gap-3 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold text-base sm:text-lg hover:shadow-2xl hover:shadow-pacific-cyan/50 transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
