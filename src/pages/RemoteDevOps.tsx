@@ -170,7 +170,8 @@ const BENEFITS_DATA = [
     icon: HeartHandshake,
     headline: "Zero HR Headaches",
     benefit: "Focus 100% on product delivery",
-    feature: "Regional compliance, healthcare, and local payroll entirely managed on our end",
+    feature:
+      "Regional compliance, healthcare, and local payroll entirely managed on our end",
   },
 ];
 
@@ -179,21 +180,24 @@ const TESTIMONIALS_DATA = [
     avatar: "JW",
     name: "James Whitfield",
     title: "CTO, Series A FinTech SaaS",
-    review: "Honestly, I was skeptical about the 48-hour timeline. But we had a Kubernetes engineer actively working on our production clusters by Wednesday. It just worked — they slotted right into our standups like they'd been there for months.",
+    review:
+      "Hiring usually drags on for weeks, so I was prepared to wait. But they moved incredibly fast. We had an expert handling our cloud setup before the week was even out. They skipped the usual awkward ramp-up phase and just started delivering value on day one.",
     rating: 5,
   },
   {
     avatar: "SC",
     name: "Sandra Chen",
     title: "VP of Engineering, Healthcare Startup",
-    review: "We've tried offshore teams before and the timezone gap was brutal. These folks are actually awake when we are. No more 2 AM Slack messages or waiting 24 hours for a simple answer. It's been a huge relief.",
+    review:
+      "Our internal developers were constantly blocked waiting for infrastructure updates. Within days of joining, their DevOps engineer completely refactored our deployment pipelines and migrated us to Terraform. They didn't just take tasks off our plate, they actually accelerated our entire release cycle and made our release process completely predictable.",
     rating: 5,
   },
   {
     avatar: "MR",
     name: "Marcus Rodriguez",
     title: "Director of Platform, E-Commerce Platform",
-    review: "First call to production-ready in under a week. Our AWS spend dropped by a third in the first quarter alone. I was genuinely surprised at how quickly they found savings we'd been missing.",
+    review:
+      "First call to production-ready in under a week. Our AWS spend dropped by a third in the first quarter alone. I was genuinely surprised at how quickly they found savings we'd been missing.",
     rating: 5,
   },
 ];
@@ -210,7 +214,8 @@ const FAQ_DATA = [
       "AStechnix acts as the Employer of Record (EOR). We manage all regional labor laws, tax distributions, local payroll, and medical benefits, leaving you with zero legal or administrative liabilities.",
   },
   {
-    question: "What happens if an engineer isn't a perfect cultural or technical fit?",
+    question:
+      "What happens if an engineer isn't a perfect cultural or technical fit?",
     answer:
       "Every engagement includes a flexible trial alignment phase. If an engineer doesn't meet your operational standards, we cycle in a replacement within 5 business days at no extra onboarding cost.",
   },
@@ -312,12 +317,21 @@ const InfrastructureVisual = () => {
           y: [0, 50, 0],
           opacity: [0.2, 0.4, 0.2],
         }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
         style={{ right: "20%", bottom: "20%" }}
       />
 
       {/* Connection Lines */}
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <svg
+        className="absolute inset-0 w-full h-full"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
         {connections.map(([from, to], idx) => {
           const fromNode = getNodePosition(from);
           const toNode = getNodePosition(to);
@@ -350,7 +364,11 @@ const InfrastructureVisual = () => {
         <motion.div
           key={node.id}
           className="absolute flex items-center justify-center"
-          style={{ left: node.x, top: node.y, transform: "translate(-50%, -50%)" }}
+          style={{
+            left: node.x,
+            top: node.y,
+            transform: "translate(-50%, -50%)",
+          }}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.4, delay: idx * 0.1 }}
@@ -365,7 +383,12 @@ const InfrastructureVisual = () => {
                 "0 0 0 rgba(6, 182, 212, 0.3)",
               ],
             }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: idx * 0.3 }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: idx * 0.3,
+            }}
           >
             <span className="text-[10px] sm:text-xs font-semibold text-white font-mono">
               {node.label}
@@ -386,7 +409,9 @@ const InfrastructureVisual = () => {
           animate={{ opacity: [1, 0.5, 1] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         />
-        <span className="text-xs text-green-300 font-medium">All Systems Operational</span>
+        <span className="text-xs text-green-300 font-medium">
+          All Systems Operational
+        </span>
       </motion.div>
 
       {/* Pipeline Flow Animation */}
@@ -397,7 +422,9 @@ const InfrastructureVisual = () => {
         transition={{ delay: 1.8 }}
       >
         <Play className="w-3 h-3 text-pacific-cyan" />
-        <span className="text-xs text-pacific-cyan font-medium">Pipeline Active</span>
+        <span className="text-xs text-pacific-cyan font-medium">
+          Pipeline Active
+        </span>
       </motion.div>
     </div>
   );
@@ -438,7 +465,9 @@ const FAQItem = ({
           transition={{ duration: 0.3 }}
           className="flex-shrink-0"
         >
-          <ChevronDown className={`w-5 h-5 ${isOpen ? "text-pacific-cyan" : "text-white/40"}`} />
+          <ChevronDown
+            className={`w-5 h-5 ${isOpen ? "text-pacific-cyan" : "text-white/40"}`}
+          />
         </motion.div>
       </button>
       <AnimatePresence>
@@ -674,13 +703,17 @@ const RemoteDevOps = () => {
               transition={{ duration: 0.6 }}
             >
               <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-white mb-6 leading-[1.15] tracking-tight">
-                Scale Your Infrastructure Without the Scaling Overhead.{" "}
+                Scale Your Infrastructure.{" "}
                 <span className="bg-gradient-to-r from-pacific-cyan via-sky-blue to-pale-azure bg-clip-text text-transparent">
-                  Senior DevOps Engineers, Integrated in 48 Hours.
+                  Minus the Overhead.
                 </span>
               </h1>
               <p className="text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed mb-10">
-                We embed battle-tested cloud and Kubernetes experts directly into your US-based tech team, while completely handling international HR, payroll, compliance, and employee benefits.
+                We provide expert offshore DevOps teams for your business, while{" "}
+                <span className="bg-gradient-to-r from-pacific-cyan via-sky-blue to-pale-azure bg-clip-text text-transparent font-bold">
+                  completely handling international HR, payroll, compliance, and
+                  employee benefits at fractional cost.
+                </span>
               </p>
 
               {/* Primary CTA */}
@@ -690,7 +723,7 @@ const RemoteDevOps = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span>Check Availability & Get Pricing</span>
+                <span>Deploy Expert DevOps Talent</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
             </motion.div>
@@ -748,7 +781,8 @@ const RemoteDevOps = () => {
             className="text-center mb-12"
           >
             <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-4">
-              Why Engineering Leaders Choose <span className="text-pacific-cyan">AStechnix</span>
+              Why Engineering Leaders Choose{" "}
+              <span className="text-pacific-cyan">AStechnix</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
               Real business outcomes powered by expert implementation.
@@ -792,7 +826,8 @@ const RemoteDevOps = () => {
             className="text-center mb-12"
           >
             <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-4">
-              Trusted by <span className="text-pacific-cyan">US Engineering Leaders</span>
+              Trusted by{" "}
+              <span className="text-pacific-cyan">US Engineering Leaders</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
               See what executives are saying about their experience.
@@ -815,7 +850,9 @@ const RemoteDevOps = () => {
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <p className="font-heading font-semibold text-white">{testimonial.name}</p>
+                    <p className="font-heading font-semibold text-white">
+                      {testimonial.name}
+                    </p>
                     <p className="text-white/50 text-sm">{testimonial.title}</p>
                   </div>
                 </div>
@@ -855,10 +892,13 @@ const RemoteDevOps = () => {
             className="text-center mb-10"
           >
             <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-4">
-              Let's Find the Right <span className="text-pacific-cyan">DevOps Engineers</span> for Your Team
+              Let's Find the Right{" "}
+              <span className="text-pacific-cyan">DevOps Engineers</span> for
+              Your Team
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
-              Tell us a bit about your infrastructure needs and we'll match you with senior engineers within 48 hours.
+              Tell us a bit about your infrastructure needs and we'll match you
+              with senior engineers within 48 hours.
             </p>
           </motion.div>
 
@@ -952,8 +992,8 @@ const RemoteDevOps = () => {
                       Your Corporate Identity
                     </h3>
                     <p className="text-white/60 text-sm mb-8">
-                      Tell us a bit about your organization so we can tailor
-                      the perfect DevOps team for your needs.
+                      Tell us a bit about your organization so we can tailor the
+                      perfect DevOps team for your needs.
                     </p>
 
                     <div className="space-y-5">
@@ -1329,9 +1369,7 @@ const RemoteDevOps = () => {
                               <button
                                 key={option}
                                 type="button"
-                                onClick={() =>
-                                  toggleEngagementPriority(option)
-                                }
+                                onClick={() => toggleEngagementPriority(option)}
                                 aria-pressed={checked}
                                 className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
                                   idx !== 0 ? "border-t border-white/8" : ""
@@ -1508,7 +1546,8 @@ const RemoteDevOps = () => {
                   Data Minimization Commitment
                 </h4>
                 <p className="text-white/50 text-xs leading-relaxed">
-                  We only collect information essential to process your inquiry. No marketing lists, no third-party sharing. Read our{" "}
+                  We only collect information essential to process your inquiry.
+                  No marketing lists, no third-party sharing. Read our{" "}
                   <Link
                     to="/privacy-policy"
                     className="text-pacific-cyan hover:text-sky-blue transition-colors"
@@ -1534,7 +1573,8 @@ const RemoteDevOps = () => {
             className="text-center mb-10"
           >
             <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-4">
-              Frequently Asked <span className="text-pacific-cyan">Questions</span>
+              Frequently Asked{" "}
+              <span className="text-pacific-cyan">Questions</span>
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
               Clear answers to common concerns from engineering leaders.
@@ -1554,7 +1594,9 @@ const RemoteDevOps = () => {
                 question={faq.question}
                 answer={faq.answer}
                 isOpen={openFAQIndex === idx}
-                onToggle={() => setOpenFAQIndex(openFAQIndex === idx ? null : idx)}
+                onToggle={() =>
+                  setOpenFAQIndex(openFAQIndex === idx ? null : idx)
+                }
                 index={idx}
               />
             ))}
@@ -1578,10 +1620,12 @@ const RemoteDevOps = () => {
 
             <div className="relative z-10">
               <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-4">
-                Ready to stop fighting server downtime and focus on building features?
+                Ready to stop fighting server downtime and focus on building
+                features?
               </h2>
               <p className="text-white/70 max-w-xl mx-auto mb-8">
-                Get matched with senior DevOps engineers in 48 hours. Zero HR overhead. 100% US-timezone aligned.
+                Get matched with senior DevOps engineers in 48 hours. Zero HR
+                overhead. 100% US-timezone aligned.
               </p>
               <motion.button
                 onClick={scrollToForm}
@@ -1601,7 +1645,9 @@ const RemoteDevOps = () => {
         ═══════════════════════════════════════════════════════════════════ */}
         <footer className="pt-8 border-t border-white/10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/50">
-            <p>&copy; {new Date().getFullYear()} AStechnix. All rights reserved.</p>
+            <p>
+              &copy; {new Date().getFullYear()} AStechnix. All rights reserved.
+            </p>
             <div className="flex items-center gap-6">
               <Link
                 to="/privacy-policy"
@@ -1618,7 +1664,9 @@ const RemoteDevOps = () => {
             </div>
           </div>
           <p className="text-white/40 text-xs mt-4 text-center sm:text-left">
-            We practice strict data minimization. Your information is used solely to process your inquiry and is never sold or shared with third parties for marketing purposes.
+            We practice strict data minimization. Your information is used
+            solely to process your inquiry and is never sold or shared with
+            third parties for marketing purposes.
           </p>
         </footer>
       </div>
