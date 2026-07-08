@@ -666,7 +666,7 @@ const RemoteDevOps = () => {
             SECTION 1: HERO (Above the Fold)
         ═══════════════════════════════════════════════════════════════════ */}
         <section className="mb-20">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Left Column: Text Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -686,56 +686,53 @@ const RemoteDevOps = () => {
               {/* Primary CTA */}
               <motion.button
                 onClick={scrollToForm}
-                className="group flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold text-lg hover:shadow-2xl hover:shadow-pacific-cyan/50 transition-all duration-300 mb-8"
+                className="group flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold text-lg hover:shadow-2xl hover:shadow-pacific-cyan/50 transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span>Check Availability & Get Pricing</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.button>
-
-              {/* Trust Metrics - Positioned Below CTA */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {TRUST_METRICS.map((metric, idx) => (
-                  <motion.div
-                    key={metric.label}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
-                    className="p-3 rounded-xl bg-white/5 border border-white/10 hover:border-pacific-cyan/40 transition-colors"
-                  >
-                    <metric.icon
-                      className="w-5 h-5 text-pacific-cyan mb-1.5"
-                      aria-label={metric.label}
-                    />
-                    <p className="font-heading font-semibold text-white text-xs sm:text-sm">
-                      {metric.label}
-                    </p>
-                    <p className="text-white/40 text-[10px] sm:text-xs mt-0.5">{metric.detail}</p>
-                  </motion.div>
-                ))}
-              </div>
             </motion.div>
 
-            {/* Right Column: Visual Placeholder */}
+            {/* Right Column: Visual Placeholder - Same Level as Title */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="hidden lg:block"
+              className="w-full"
             >
               <InfrastructureVisual />
             </motion.div>
           </div>
 
-          {/* Mobile Visual */}
+          {/* Trust Metrics - Centered Full Width Below Both Columns */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="lg:hidden mt-10"
+            className="mt-12 flex justify-center"
           >
-            <InfrastructureVisual />
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-6 max-w-3xl w-full">
+              {TRUST_METRICS.map((metric, idx) => (
+                <motion.div
+                  key={metric.label}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 + idx * 0.1 }}
+                  className="p-4 lg:p-5 rounded-xl bg-white/5 border border-white/10 hover:border-pacific-cyan/40 transition-colors text-center"
+                >
+                  <metric.icon
+                    className="w-6 h-6 text-pacific-cyan mb-2 mx-auto"
+                    aria-label={metric.label}
+                  />
+                  <p className="font-heading font-semibold text-white text-sm lg:text-base">
+                    {metric.label}
+                  </p>
+                  <p className="text-white/40 text-xs mt-1">{metric.detail}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </section>
 
