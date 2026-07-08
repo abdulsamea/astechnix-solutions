@@ -179,21 +179,21 @@ const TESTIMONIALS_DATA = [
     avatar: "JW",
     name: "James Whitfield",
     title: "CTO, Series A FinTech SaaS",
-    review: "The 48-hour onboarding promise isn't marketing fluff. We had a senior K8s engineer standing up production clusters before the week was out. Seamless integration with our standups and Slack.",
+    review: "Honestly, I was skeptical about the 48-hour timeline. But we had a Kubernetes engineer actively working on our production clusters by Wednesday. It just worked — they slotted right into our standups like they'd been there for months.",
     rating: 5,
   },
   {
     avatar: "SC",
     name: "Sandra Chen",
     title: "VP of Engineering, Healthcare Startup",
-    review: "US-timezone alignment was the deciding factor. No more 2 AM debugging sessions with offshore teams. Plus, they handle all the compliance paperwork we didn't want to touch.",
+    review: "We've tried offshore teams before and the timezone gap was brutal. These folks are actually awake when we are. No more 2 AM Slack messages or waiting 24 hours for a simple answer. It's been a huge relief.",
     rating: 5,
   },
   {
     avatar: "MR",
     name: "Marcus Rodriguez",
     title: "Director of Platform, E-Commerce Platform",
-    review: "From first inquiry to full production readiness took under a week. Our AWS bill dropped 37% in the first quarter. The ROI was immediate and measurable.",
+    review: "First call to production-ready in under a week. Our AWS spend dropped by a third in the first quarter alone. I was genuinely surprised at how quickly they found savings we'd been missing.",
     rating: 5,
   },
 ];
@@ -855,10 +855,10 @@ const RemoteDevOps = () => {
             className="text-center mb-10"
           >
             <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-4">
-              Configure Your <span className="text-pacific-cyan">Dedicated DevOps Squad</span>
+              Let's Find the Right <span className="text-pacific-cyan">DevOps Engineers</span> for Your Team
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
-              Tell us about your infrastructure needs and we'll match you with senior engineers within 48 hours.
+              Tell us a bit about your infrastructure needs and we'll match you with senior engineers within 48 hours.
             </p>
           </motion.div>
 
