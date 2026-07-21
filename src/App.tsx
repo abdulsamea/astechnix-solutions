@@ -18,6 +18,7 @@ import RemoteDevOpsSuccess from "./pages/RemoteDevOpsSuccess";
 import EngagementModels from "./pages/EngagementModels";
 import CostOptimization from "./pages/CostOptimization";
 import WhyChooseUs from "./pages/WhyChooseUs";
+import ITStaffing from "./pages/it-staffing";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <Route path="engagement-models" element={<EngagementModels />} />
           <Route path="services/cost-optimization" element={<CostOptimization />} />
           <Route path="why-choose-us" element={<WhyChooseUs />} />
+          <Route path="it-staffing" element={<ITStaffing />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

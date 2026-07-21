@@ -26,6 +26,7 @@ const Navbar = () => {
     { name: "Full Stack", path: "/full-stack" },
     { name: "DevOps", path: "/devops" },
     { name: "UI/UX", path: "/ui-ux" },
+    { name: "IT Staffing", path: "/it-staffing" },
     { name: "Contact", path: "/contact" },
   ];
 
