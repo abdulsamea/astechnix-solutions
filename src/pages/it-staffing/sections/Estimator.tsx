@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { ROLE_CATEGORIES } from "../data";
 import { isFreeEmailDomain } from "../../../data";
+import { reportLeadConversion } from "../../../utils/googleAds";
 
 const TEAM_SIZES = ["1–2 Specialists", "3–5 Team", "5+ Pod"];
 const OVERLAPS = ["US EST", "US PST", "UK GMT", "AEST", "Gulf GST"];
@@ -75,6 +76,7 @@ export default function Estimator() {
         import.meta.env.VITE_EMAIL_PUBLIC_KEY,
       );
 
+      reportLeadConversion();
       setSubmitted(true);
     } catch (err) {
       console.error(err);
