@@ -1,9 +1,9 @@
-import { ShieldCheck, Clock, ShieldOff } from 'lucide-react';
+import { ShieldCheck, Clock, ShieldOff } from "lucide-react";
 
 const TAGS = [
-  { icon: ShieldCheck, label: 'Pre-Vetted Tech Experts' },
-  { icon: Clock, label: '48-Hour Onboarding' },
-  { icon: ShieldOff, label: 'Zero Upfront Risk' },
+  { icon: ShieldCheck, label: "Pre-Vetted Tech Experts" },
+  { icon: Clock, label: "48-Hour Onboarding" },
+  { icon: ShieldOff, label: "Zero Upfront Risk" },
 ];
 
 type Props = {
@@ -37,15 +37,22 @@ export default function Hero({ onFindSpecialists, onBrowseRoles }: Props) {
 
             <h1
               className="mt-5 font-heading font-bold text-white text-balance"
-              style={{ fontSize: 'clamp(2rem, 6vw, 3.75rem)', lineHeight: 1.05, letterSpacing: '-0.02em' }}
+              style={{
+                fontSize: "clamp(2rem, 6vw, 3.75rem)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.02em",
+              }}
             >
-              Deploy Vetted IT, Cloud, CRM, &amp; Cybersecurity Talent in 48 Hours.
+              Deploy Vetted IT, Cloud, CRM, &amp; Cybersecurity Talent in 48
+              Hours.
             </h1>
 
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
-              Stop letting talent shortages stall your operational roadmap. Scale with experienced
-              Indian IT professionals—from Cloud Architects and Salesforce Admins to SOC Engineers
-              and DevOps Leads—with guaranteed timezone overlap and 100% legal IP protection.
+              Stop letting talent shortages stall your operational roadmap.
+              Scale with experienced Indian IT professionals—from Cloud
+              Architects and Salesforce Admins to SOC Engineers and DevOps
+              Leads—with guaranteed timezone overlap and 100% legal IP
+              protection.
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -64,14 +71,16 @@ export default function Hero({ onFindSpecialists, onBrowseRoles }: Props) {
             </div>
 
             <p className="mt-5 text-sm text-white/50">
-              Trusted by 100+ enterprise clients across US, UK, EU &amp; Gulf.{' '}
-              <span className="font-semibold text-white/80">ISO 27001 &amp; SOC 2 Certified.</span>
+              Trusted by 60+ enterprise clients across US, UK, EU &amp; Gulf.{" "}
+              <span className="font-semibold text-white/80">
+                ISO 27001 &amp; SOC 2 Certified.
+              </span>
             </p>
           </div>
 
           {/* Right column: live profile card */}
           <div className="lg:col-span-5">
-            <LiveProfileCard />
+            <LiveProfileCard onFindSpecialists={onFindSpecialists} />
           </div>
         </div>
       </div>
@@ -79,7 +88,7 @@ export default function Hero({ onFindSpecialists, onBrowseRoles }: Props) {
   );
 }
 
-function LiveProfileCard() {
+function LiveProfileCard({ onFindSpecialists }: Omit<Props, "onBrowseRoles">) {
   return (
     <div className="relative mx-auto max-w-md lg:mx-0">
       <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-pacific-cyan/20 to-emerald-400/10 blur-xl" />
@@ -101,8 +110,12 @@ function LiveProfileCard() {
             A
           </div>
           <div>
-            <p className="text-base font-heading font-bold text-white">Anonymized Specialist</p>
-            <p className="text-sm text-white/60">Senior Salesforce / HubSpot CRM Architect</p>
+            <p className="text-base font-heading font-bold text-white">
+              Anonymized Specialist
+            </p>
+            <p className="text-sm text-white/60">
+              Senior Salesforce / HubSpot CRM Architect
+            </p>
           </div>
         </div>
 
@@ -117,24 +130,33 @@ function LiveProfileCard() {
             Certifications
           </p>
           <div className="mt-2 flex flex-wrap gap-1.5">
-            {['Salesforce ADV-ADM', 'HubSpot Solutions', 'ServiceNow CSA'].map((c) => (
-              <span
-                key={c}
-                className="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-xs font-medium text-white/80"
-              >
-                {c}
-              </span>
-            ))}
+            {["Salesforce ADV-ADM", "HubSpot Solutions", "ServiceNow CSA"].map(
+              (c) => (
+                <span
+                  key={c}
+                  className="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-xs font-medium text-white/80"
+                >
+                  {c}
+                </span>
+              ),
+            )}
           </div>
         </div>
 
         <div className="mt-4 flex items-center justify-between rounded-lg bg-emerald-500/10 px-3 py-2.5">
-          <span className="text-sm font-semibold text-emerald-400">Available Immediately</span>
-          <span className="text-xs font-medium text-emerald-400/70">Verified this week</span>
+          <span className="text-sm font-semibold text-emerald-400">
+            Available Immediately
+          </span>
+          <span className="text-xs font-medium text-emerald-400/70">
+            Verified this week
+          </span>
         </div>
 
-        <button className="mt-4 w-full rounded-xl bg-gradient-to-r from-pacific-cyan to-sky-blue px-4 py-3.5 text-sm font-heading font-semibold text-white transition-all hover:shadow-lg hover:shadow-pacific-cyan/30">
-          Request Full Anonymized Resume
+        <button
+          onClick={onFindSpecialists}
+          className="mt-4 w-full rounded-xl bg-gradient-to-r from-pacific-cyan to-sky-blue px-4 py-3.5 text-sm font-heading font-semibold text-white transition-all hover:shadow-lg hover:shadow-pacific-cyan/30"
+        >
+          Request Full Details
         </button>
       </div>
     </div>
@@ -145,7 +167,9 @@ function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-lg bg-white/5 px-2 py-2.5 text-center">
       <p className="text-sm font-bold text-white">{value}</p>
-      <p className="mt-0.5 text-[11px] uppercase tracking-wide text-white/40">{label}</p>
+      <p className="mt-0.5 text-[11px] uppercase tracking-wide text-white/40">
+        {label}
+      </p>
     </div>
   );
 }

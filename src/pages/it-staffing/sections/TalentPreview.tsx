@@ -1,7 +1,9 @@
-import { TALENT_CARDS } from '../data';
-import { Clock, Globe2, BadgeCheck, FileText } from 'lucide-react';
+import { TALENT_CARDS, TalentCategoriesProps } from "../data";
+import { Clock, Globe2, BadgeCheck, FileText } from "lucide-react";
 
-export default function TalentPreview() {
+export default function TalentPreview({
+  onFindSpecialists,
+}: TalentCategoriesProps) {
   return (
     <section className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -11,12 +13,17 @@ export default function TalentPreview() {
           </p>
           <h2
             className="mt-2 font-heading font-bold text-white text-balance"
-            style={{ fontSize: 'clamp(1.75rem, 4.5vw, 2.75rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}
+            style={{
+              fontSize: "clamp(1.75rem, 4.5vw, 2.75rem)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.02em",
+            }}
           >
             Anonymized Talent Preview Cards
           </h2>
           <p className="mt-3 text-base text-white/70 sm:text-lg">
-            Real bench samples. Names are masked until you request a full resume under NDA.
+            Real bench samples. Names are masked until you request a full resume
+            under NDA.
           </p>
         </div>
 
@@ -38,10 +45,12 @@ export default function TalentPreview() {
 
               <div className="mt-4 flex items-center gap-3">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-pacific-cyan to-sky-blue text-base font-bold text-white">
-                  {t.id.replace('#', '')}
+                  {t.id.replace("#", "")}
                 </div>
                 <div className="min-w-0">
-                  <p className="text-base font-heading font-bold text-white">{t.role}</p>
+                  <p className="text-base font-heading font-bold text-white">
+                    {t.role}
+                  </p>
                   <p className="text-sm text-white/60">{t.category}</p>
                 </div>
               </div>
@@ -87,11 +96,16 @@ export default function TalentPreview() {
               <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4">
                 <div>
                   <p className="text-xs text-white/40">Starting rate</p>
-                  <p className="text-lg font-heading font-bold text-white">{t.rate}</p>
+                  <p className="text-lg font-heading font-bold text-white">
+                    {t.rate}
+                  </p>
                 </div>
-                <button className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-pacific-cyan to-sky-blue px-4 py-3 text-sm font-heading font-semibold text-white transition-all hover:shadow-lg hover:shadow-pacific-cyan/30">
+                <button
+                  onClick={onFindSpecialists}
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-pacific-cyan to-sky-blue px-4 py-3 text-sm font-heading font-semibold text-white transition-all hover:shadow-lg hover:shadow-pacific-cyan/30"
+                >
                   <FileText className="h-4 w-4" />
-                  Request Resume
+                  Request Profile
                 </button>
               </div>
             </article>

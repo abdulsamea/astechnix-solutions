@@ -190,8 +190,8 @@ const EngagementModels = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Built for US and UK tech executives who need senior engineers
-              on their terms — hourly, monthly, or project-based.
+              Built for US and UK tech executives who need senior engineers on
+              their terms — hourly, monthly, or project-based.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
@@ -483,9 +483,7 @@ const EngagementModels = () => {
                   <Calendar className="w-4 h-4 text-pacific-cyan flex-shrink-0 mt-1" />
                   {faq.q}
                 </h4>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  {faq.a}
-                </p>
+                <p className="text-white/70 text-sm leading-relaxed">{faq.a}</p>
               </motion.div>
             ))}
           </div>

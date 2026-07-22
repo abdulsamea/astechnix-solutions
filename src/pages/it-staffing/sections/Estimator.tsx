@@ -1,31 +1,46 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Check, ChevronRight, Calendar, ShieldCheck } from 'lucide-react';
-import { ROLE_CATEGORIES } from '../data';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Check,
+  ChevronRight,
+  Calendar,
+  ShieldCheck,
+  MessageCircle,
+  Mail,
+} from "lucide-react";
+import { ROLE_CATEGORIES } from "../data";
+import { isFreeEmailDomain } from "../../../data";
 
-const TEAM_SIZES = ['1–2 Specialists', '3–5 Team', '5+ Pod'];
-const OVERLAPS = ['US EST', 'US PST', 'UK GMT', 'AEST', 'Gulf GST'];
+const TEAM_SIZES = ["1–2 Specialists", "3–5 Team", "5+ Pod"];
+const OVERLAPS = ["US EST", "US PST", "UK GMT", "AEST", "Gulf GST"];
 
 export default function Estimator() {
   const [step, setStep] = useState(0);
-  const [roleFamily, setRoleFamily] = useState('');
-  const [teamSize, setTeamSize] = useState('');
-  const [overlap, setOverlap] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [timeline, setTimeline] = useState('');
+  const [roleFamily, setRoleFamily] = useState("");
+  const [teamSize, setTeamSize] = useState("");
+  const [overlap, setOverlap] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [timeline, setTimeline] = useState("");
+  const [details, setDetails] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
 
   const validateStep = (): boolean => {
     const e: Record<string, string> = {};
-    if (step === 0 && !roleFamily) e.roleFamily = 'Select a role family to continue.';
-    if (step === 1 && !teamSize) e.teamSize = 'Select a team size.';
-    if (step === 1 && !overlap) e.overlap = 'Select your timezone overlap.';
+    if (step === 0 && !roleFamily)
+      e.roleFamily = "Select a role family to continue.";
+    if (step === 1 && !teamSize) e.teamSize = "Select a team size.";
+    if (step === 1 && !overlap) e.overlap = "Select your timezone overlap.";
     if (step === 2) {
-      if (!name.trim()) e.name = 'Name is required.';
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) e.email = 'Enter a valid business email.';
-      if (!timeline) e.timeline = 'Select a timeline.';
+      if (!name.trim()) e.name = "Name is required.";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+        e.email = "Enter a valid business email.";
+      if (isFreeEmailDomain(email)) {
+        e.email =
+          "Please enter your corporate/work email address to verify your business identity.";
+      }
+      if (!timeline) e.timeline = "Select a timeline.";
     }
     setErrors(e);
     return Object.keys(e).length === 0;
@@ -46,17 +61,20 @@ export default function Estimator() {
   const reset = () => {
     setSubmitted(false);
     setStep(0);
-    setRoleFamily('');
-    setTeamSize('');
-    setOverlap('');
-    setName('');
-    setEmail('');
-    setTimeline('');
+    setRoleFamily("");
+    setTeamSize("");
+    setOverlap("");
+    setName("");
+    setEmail("");
+    setTimeline("");
     setErrors({});
   };
 
   return (
-    <section id="estimator" className="scroll-mt-24 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white/5 backdrop-blur-sm">
+    <section
+      id="estimator"
+      className="scroll-mt-24 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 bg-white/5 backdrop-blur-sm"
+    >
       <div className="mx-auto max-w-5xl">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-pacific-cyan">
@@ -64,12 +82,17 @@ export default function Estimator() {
           </p>
           <h2
             className="mt-2 font-heading font-bold text-white text-balance"
-            style={{ fontSize: 'clamp(1.75rem, 4.5vw, 2.75rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}
+            style={{
+              fontSize: "clamp(1.75rem, 4.5vw, 2.75rem)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.02em",
+            }}
           >
             Calculate Hiring Velocity &amp; Get Profile Matches
           </h2>
           <p className="mt-3 text-base text-white/70">
-            Three quick inputs. We will send 3–5 matched, anonymized resumes within 24 hours.
+            Three quick inputs. We will send 3–5 matched, anonymized profiles
+            within 24 hours.
           </p>
         </div>
 
@@ -89,16 +112,44 @@ export default function Estimator() {
                   Request Received
                 </h3>
                 <p className="mx-auto mt-2 max-w-md text-sm text-white/70">
-                  We are matching your requirements now. Expect 3–5 anonymized resumes within 24
-                  hours. Book a 15-minute discovery call to accelerate the process.
+                  We've received your details and are reviewing your
+                  requirements. A member of our technical team will contact you
+                  within the next few business hours to discuss your
+                  requirements, walk you through the engagement process, and
+                  recommend the right talent for your project.
                 </p>
-                <a
-                  href="#final-cta"
-                  className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-pacific-cyan to-sky-blue px-6 py-3.5 text-sm font-heading font-semibold text-white transition-all hover:shadow-lg hover:shadow-pacific-cyan/30"
+                <br />
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.55 }}
+                  className="rounded-xl bg-white/5 border border-white/10 p-6 max-w-md mx-auto mb-8"
                 >
-                  <Calendar className="h-4 w-4" />
-                  Schedule 15-Min Discovery Call
-                </a>
+                  <p className="text-white/60 text-sm mb-4">
+                    For your convenience, our channels are always open. Feel
+                    free to reach out directly via WhatsApp or email if you'd
+                    like to connect with our engineering team right away.
+                  </p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a
+                      href="https://wa.me/919004575425"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#25D366]/15 border border-[#25D366]/30 text-[#25D366] text-sm font-medium hover:bg-[#25D366]/25 transition-colors whitespace-nowrap"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      +91 90045 75425
+                    </a>
+                    <a
+                      href="mailto:contact@astechnix.com"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-pacific-cyan/15 border border-pacific-cyan/30 text-pacific-cyan text-sm font-medium hover:bg-pacific-cyan/25 transition-colors"
+                    >
+                      <Mail className="w-4 h-4" />
+                      contact@astechnix.com
+                    </a>
+                  </div>
+                </motion.div>
+
                 <button
                   onClick={reset}
                   className="mt-3 block w-full text-sm font-medium text-white/50 hover:text-white"
@@ -118,7 +169,7 @@ export default function Estimator() {
                     <div
                       key={i}
                       className={`h-1.5 flex-1 rounded-full transition-colors ${
-                        i <= step ? 'bg-pacific-cyan' : 'bg-white/15'
+                        i <= step ? "bg-pacific-cyan" : "bg-white/15"
                       }`}
                     />
                   ))}
@@ -147,12 +198,12 @@ export default function Estimator() {
                               key={c.id}
                               onClick={() => {
                                 setRoleFamily(c.label);
-                                setErrors((e) => ({ ...e, roleFamily: '' }));
+                                setErrors((e) => ({ ...e, roleFamily: "" }));
                               }}
                               className={`flex items-center gap-3 rounded-xl border p-3 text-left transition-all ${
                                 roleFamily === c.label
-                                  ? 'border-pacific-cyan bg-pacific-cyan/10 ring-1 ring-pacific-cyan'
-                                  : 'border-white/15 hover:border-pacific-cyan/50 hover:bg-white/5'
+                                  ? "border-pacific-cyan bg-pacific-cyan/10 ring-1 ring-pacific-cyan"
+                                  : "border-white/15 hover:border-pacific-cyan/50 hover:bg-white/5"
                               }`}
                             >
                               <c.icon className="h-5 w-5 shrink-0 text-pacific-cyan" />
@@ -163,7 +214,9 @@ export default function Estimator() {
                           ))}
                         </div>
                         {errors.roleFamily && (
-                          <p className="mt-2 text-sm text-red-400">{errors.roleFamily}</p>
+                          <p className="mt-2 text-sm text-red-400">
+                            {errors.roleFamily}
+                          </p>
                         )}
                       </div>
                     )}
@@ -180,12 +233,12 @@ export default function Estimator() {
                                 key={t}
                                 onClick={() => {
                                   setTeamSize(t);
-                                  setErrors((e) => ({ ...e, teamSize: '' }));
+                                  setErrors((e) => ({ ...e, teamSize: "" }));
                                 }}
                                 className={`rounded-lg px-4 py-2.5 text-sm font-heading font-semibold transition-all ${
                                   teamSize === t
-                                    ? 'bg-gradient-to-r from-pacific-cyan to-sky-blue text-white'
-                                    : 'border border-white/15 text-white/80 hover:bg-white/5'
+                                    ? "bg-gradient-to-r from-pacific-cyan to-sky-blue text-white"
+                                    : "border border-white/15 text-white/80 hover:bg-white/5"
                                 }`}
                               >
                                 {t}
@@ -193,7 +246,9 @@ export default function Estimator() {
                             ))}
                           </div>
                           {errors.teamSize && (
-                            <p className="mt-2 text-sm text-red-400">{errors.teamSize}</p>
+                            <p className="mt-2 text-sm text-red-400">
+                              {errors.teamSize}
+                            </p>
                           )}
                         </div>
                         <div>
@@ -206,12 +261,12 @@ export default function Estimator() {
                                 key={o}
                                 onClick={() => {
                                   setOverlap(o);
-                                  setErrors((e) => ({ ...e, overlap: '' }));
+                                  setErrors((e) => ({ ...e, overlap: "" }));
                                 }}
                                 className={`rounded-lg px-4 py-2.5 text-sm font-heading font-semibold transition-all ${
                                   overlap === o
-                                    ? 'bg-gradient-to-r from-pacific-cyan to-sky-blue text-white'
-                                    : 'border border-white/15 text-white/80 hover:bg-white/5'
+                                    ? "bg-gradient-to-r from-pacific-cyan to-sky-blue text-white"
+                                    : "border border-white/15 text-white/80 hover:bg-white/5"
                                 }`}
                               >
                                 {o}
@@ -219,7 +274,9 @@ export default function Estimator() {
                             ))}
                           </div>
                           {errors.overlap && (
-                            <p className="mt-2 text-sm text-red-400">{errors.overlap}</p>
+                            <p className="mt-2 text-sm text-red-400">
+                              {errors.overlap}
+                            </p>
                           )}
                         </div>
                       </div>
@@ -251,16 +308,33 @@ export default function Estimator() {
                             onChange={(e) => setTimeline(e.target.value)}
                             className="mt-2 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white outline-none transition-all focus:border-pacific-cyan focus:ring-2 focus:ring-pacific-cyan/30"
                           >
-                            <option value="" className="bg-deep-navy">Select timeline</option>
-                            <option className="bg-deep-navy">Immediate (this week)</option>
+                            <option value="" className="bg-deep-navy">
+                              Select timeline
+                            </option>
+                            <option className="bg-deep-navy">
+                              Immediate (this week)
+                            </option>
                             <option className="bg-deep-navy">1–2 weeks</option>
                             <option className="bg-deep-navy">3–4 weeks</option>
-                            <option className="bg-deep-navy">Exploring options</option>
+                            <option className="bg-deep-navy">
+                              Exploring options
+                            </option>
                           </select>
                           {errors.timeline && (
-                            <p className="mt-1 text-sm text-red-400">{errors.timeline}</p>
+                            <p className="mt-1 text-sm text-red-400">
+                              {errors.timeline}
+                            </p>
                           )}
                         </div>
+
+                        <Field
+                          label="Additional Details"
+                          type="text"
+                          value={details}
+                          onChange={setDetails}
+                          placeholder="You can share details about your project, IT requirements or current challenges"
+                          error={errors.details}
+                        />
                       </div>
                     )}
                   </motion.div>
@@ -309,7 +383,7 @@ function Field({
   value,
   onChange,
   placeholder,
-  type = 'text',
+  type = "text",
   error,
 }: {
   label: string;
@@ -321,10 +395,12 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-sm font-heading font-semibold text-white">{label}</label>
+      <label className="block text-sm font-heading font-semibold text-white">
+        {label}
+      </label>
       <input
         type={type}
-        inputMode={type === 'email' ? 'email' : undefined}
+        inputMode={type === "email" ? "email" : undefined}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}

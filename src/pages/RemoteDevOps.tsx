@@ -13,16 +13,12 @@ import {
   Server,
   Container,
   GitBranch,
-  Activity,
   AlertTriangle,
   ChevronRight,
   Loader2,
-  MapPin,
   Phone,
   ChevronDown,
   Target,
-  Clock,
-  Briefcase,
   Zap,
   DollarSign,
   HeartHandshake,
@@ -30,6 +26,7 @@ import {
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+import { isFreeEmailDomain } from "../data";
 
 declare global {
   interface Window {
@@ -64,15 +61,6 @@ interface ValidationErrors {
 }
 
 // ─── Constants ───────────────────────────────────────────────────────────────
-
-const FREE_EMAIL_DOMAINS = [
-  "gmail.com",
-  "yahoo.com",
-  "outlook.com",
-  "hotmail.com",
-  "icloud.com",
-  "aol.com",
-];
 
 const JOB_TYPE_OPTIONS = [
   "CTO / CIO / C-Suite",
@@ -225,11 +213,6 @@ const FAQ_DATA = [
       "Absolutely. Our operations are fully SOC 2 Type II compliant. Engineers strictly adhere to your internal access management controls, IAM protocols, and data minimization practices.",
   },
 ];
-
-const isFreeEmailDomain = (email: string): boolean => {
-  const domain = email.split("@")[1]?.toLowerCase();
-  return FREE_EMAIL_DOMAINS.includes(domain);
-};
 
 const initialFormData: FormData = {
   step1: {

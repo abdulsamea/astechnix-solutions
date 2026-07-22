@@ -168,16 +168,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
-        <div className="mt-12 text-center">
-          <Link
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            to="/contact"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg hover:shadow-lg hover:shadow-pacific-cyan/30 transition-all duration-300 transform hover:-translate-y-1"
-          >
-            Book a Discovery Call
-          </Link>
-        </div>
       </div>
     </footer>
   );
