@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import {
   Check,
   ChevronRight,
-  Calendar,
   ShieldCheck,
   MessageCircle,
   Mail,
@@ -25,6 +25,7 @@ export default function Estimator() {
   const [details, setDetails] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const validateStep = (): boolean => {
     const e: Record<string, string> = {};
@@ -53,9 +54,34 @@ export default function Estimator() {
 
   const back = () => setStep((s) => Math.max(s - 1, 0));
 
-  const submit = () => {
+  const submit = async () => {
     if (!validateStep()) return;
-    setSubmitted(true);
+
+    setLoading(true);
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_IT_STAFFING_EMAIL_TEMPLATE_ID,
+        {
+          name,
+          email,
+          role_family: roleFamily,
+          team_size: teamSize,
+          timezone: overlap,
+          timeline,
+          details,
+        },
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY,
+      );
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      alert("Failed to send request.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const reset = () => {
@@ -361,11 +387,12 @@ export default function Estimator() {
                     </button>
                   ) : (
                     <button
+                      disabled={loading}
                       onClick={submit}
                       className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-500 px-6 py-3.5 text-sm font-heading font-semibold text-white transition-all hover:bg-emerald-600"
                     >
                       <ShieldCheck className="h-4 w-4" />
-                      Get Profile Matches
+                      {loading ? "Submitting..." : "Get Profile Matches"}
                     </button>
                   )}
                 </div>

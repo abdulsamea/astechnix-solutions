@@ -1658,3 +1658,24 @@ const RemoteDevOps = () => {
 };
 
 export default RemoteDevOps;
+
+/**
+ * EMAIL JS TEMPLATE
+ */
+
+// Name: {{user_name}}
+// Coorporate Email: {{user_email}}
+// Company name: {{company_name}}
+// Company Size: {{company_size}}
+// Job Type: {{job_type}}
+// Phone Number: {{phone_number}}
+
+// DevOps Platforms: {{cloud_platform}}
+// DevOps Requirements List: {{requirements}}
+// Project Details: {{project_details}}
+
+// Service Type: {{service_type}}
+
+// Thanks,
+
+// AStechnix
