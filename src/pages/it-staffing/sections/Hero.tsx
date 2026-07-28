@@ -43,13 +43,13 @@ export default function Hero({ onFindSpecialists, onBrowseRoles }: Props) {
                 letterSpacing: "-0.02em",
               }}
             >
-              Deploy Vetted IT, Cloud, CRM, &amp; Cybersecurity Talent in 48
-              Hours.
+              Deploy Vetted Offshore IT, Cloud, CRM, &amp; Cybersecurity Talent
+              in 48 Hours.
             </h1>
 
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
               Stop letting talent shortages stall your operational roadmap.
-              Scale with experienced Indian IT professionals—from Cloud
+              Scale with experienced offshore Indian IT professionals—from Cloud
               Architects and Salesforce Admins to SOC Engineers and DevOps
               Leads—with guaranteed timezone overlap and 100% legal IP
               protection.
