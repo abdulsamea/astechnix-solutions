@@ -25,9 +25,9 @@ const Navbar = () => {
     { name: "Cloud Services", path: "/cloud-services" },
     { name: "Full Stack", path: "/full-stack" },
     { name: "DevOps", path: "/devops" },
-    { name: "UI/UX", path: "/ui-ux" },
+    // { name: "UI/UX", path: "/ui-ux" },
     { name: "IT Staffing", path: "/it-staffing" },
-    { name: "Contact", path: "/contact" },
+    // { name: "Contact", path: "/contact" },
   ];
 
   return (
@@ -82,7 +82,7 @@ const Navbar = () => {
               className="inline-flex items-center gap-2 rounded-full border border-cyan-400 px-4 py-2 text-sm font-semibold text-cyan-400 transition-all duration-200 hover:bg-cyan-500/10 hover:scale-105 hover:shadow-[0_0_15px_rgba(34,211,238,0.4)]"
             >
               <Phone className="h-4 w-4" />
-              Call Us: +91 90044 26754
+              Call Us Now
             </a>
             <Link
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -132,10 +132,14 @@ const Navbar = () => {
                   className="inline-flex items-center justify-center rounded-full border border-cyan-400 px-4 py-3 text-sm font-semibold text-cyan-400 transition-all duration-200 hover:bg-cyan-500/10"
                 >
                   <Phone className="h-4 w-4 sm:mr-2" />
-                  <span className="hidden sm:inline">Call Us: +91 90044 26754</span>
+                  <span className="hidden sm:inline">
+                    Call Us: +91 90044 26754
+                  </span>
                 </a>
                 <Link
-                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                   to="/contact"
                   className="flex-1 block px-4 py-3 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-medium rounded-lg text-center"
                 >
