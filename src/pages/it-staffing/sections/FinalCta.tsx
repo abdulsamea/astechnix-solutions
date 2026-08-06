@@ -1,5 +1,4 @@
 import { Calendar, ShieldCheck, Clock, Star } from "lucide-react";
-import { Link } from "react-router-dom";
 import { TalentCategoriesProps } from "../data";
 
 export default function FinalCta({ onFindSpecialists }: TalentCategoriesProps) {

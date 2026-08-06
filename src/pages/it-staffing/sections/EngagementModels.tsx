@@ -4,7 +4,6 @@ import {
   TalentCategoriesProps,
 } from "../data";
 import { Check, X, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
 export default function EngagementModels({
   onFindSpecialists,
