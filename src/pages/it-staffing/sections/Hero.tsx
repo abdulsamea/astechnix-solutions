@@ -72,7 +72,7 @@ export default function Hero({ onFindSpecialists, onBrowseRoles }: Props) {
 
               {/* Mobile Only: Call Us Now */}
               <a
-                href="tel:+919004426754"
+                href="tel:+919004575425"
                 className="inline-flex md:hidden items-center justify-center gap-2 rounded-lg border border-pacific-cyan/50 bg-pacific-cyan/10 px-6 py-4 text-base font-heading font-semibold text-pacific-cyan backdrop-blur-sm transition-all hover:bg-pacific-cyan/20 active:scale-95"
               >
                 <svg
