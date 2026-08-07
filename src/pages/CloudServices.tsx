@@ -1,13 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  Cloud,
-  Server,
-  Database,
-  Shield,
-  Zap,
-  Globe,
-  Check,
-} from "lucide-react";
+import { Cloud, Server, Shield, Zap, Globe, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const CloudServices = () => {
