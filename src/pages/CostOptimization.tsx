@@ -2,16 +2,13 @@ import { motion } from "framer-motion";
 import {
   DollarSign,
   TrendingDown,
-  Cloud,
   BarChart3,
   Search,
   Zap,
   ArrowRight,
   CheckCircle2,
-  Server,
   Shield,
   Activity,
-  Cpu,
   Wallet,
   AlertTriangle,
   MessageCircle,
@@ -228,7 +225,9 @@ const CostOptimization = () => {
                 <div className="font-heading font-semibold text-white text-sm mb-1">
                   {result.label}
                 </div>
-                <div className="text-white/50 text-xs">{result.description}</div>
+                <div className="text-white/50 text-xs">
+                  {result.description}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -347,11 +346,11 @@ const CostOptimization = () => {
             className="text-center mb-16"
           >
             <h2 className="font-heading font-bold text-4xl md:text-5xl text-white mb-6">
-              Common <span className="text-pacific-cyan">Red Flags</span>{" "}
-              We Fix
+              Common <span className="text-pacific-cyan">Red Flags</span> We Fix
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              If any of these sound familiar, you are likely overpaying by 30–50%.
+              If any of these sound familiar, you are likely overpaying by
+              30–50%.
             </p>
           </motion.div>
 

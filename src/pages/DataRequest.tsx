@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Trash2, AlertCircle, Mail } from "lucide-react";
-// import { supabase } from "../lib/supabaseClient";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Trash2,
+  AlertCircle,
+  Mail,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const DataRequest = () => {
@@ -15,7 +20,11 @@ const DataRequest = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -43,9 +52,7 @@ const DataRequest = () => {
 
       setSubmitted(true);
     } catch (err: any) {
-      setError(
-        err.message || "Failed to submit request. Please try again."
-      );
+      setError(err.message || "Failed to submit request. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -82,11 +89,16 @@ const DataRequest = () => {
               </li>
               <li className="flex items-start space-x-3">
                 <CheckCircle2 className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-0.5" />
-                <span>A confirmation email will be sent to {formData.email}</span>
+                <span>
+                  A confirmation email will be sent to {formData.email}
+                </span>
               </li>
               <li className="flex items-start space-x-3">
                 <CheckCircle2 className="w-5 h-5 text-pacific-cyan flex-shrink-0 mt-0.5" />
-                <span>Your {formData.requestType} request will be processed within 30 days</span>
+                <span>
+                  Your {formData.requestType} request will be processed within
+                  30 days
+                </span>
               </li>
             </ul>
           </div>
@@ -125,7 +137,8 @@ const DataRequest = () => {
             </h1>
           </div>
           <p className="text-xl text-white/70">
-            Exercise your GDPR rights by requesting access to, correction of, or deletion of your personal data.
+            Exercise your GDPR rights by requesting access to, correction of, or
+            deletion of your personal data.
           </p>
         </motion.div>
 
@@ -142,15 +155,24 @@ const DataRequest = () => {
             <div className="space-y-3 text-white/80 text-sm">
               <p className="flex items-start space-x-3">
                 <span className="text-pacific-cyan font-bold">•</span>
-                <span><strong>Right to Access:</strong> Request all personal data we hold about you</span>
+                <span>
+                  <strong>Right to Access:</strong> Request all personal data we
+                  hold about you
+                </span>
               </p>
               <p className="flex items-start space-x-3">
                 <span className="text-pacific-cyan font-bold">•</span>
-                <span><strong>Right to be Forgotten:</strong> Request deletion of all your personal data</span>
+                <span>
+                  <strong>Right to be Forgotten:</strong> Request deletion of
+                  all your personal data
+                </span>
               </p>
               <p className="flex items-start space-x-3">
                 <span className="text-pacific-cyan font-bold">•</span>
-                <span><strong>Right to Rectification:</strong> Update inaccurate information we hold</span>
+                <span>
+                  <strong>Right to Rectification:</strong> Update inaccurate
+                  information we hold
+                </span>
               </p>
             </div>
           </div>
@@ -204,7 +226,9 @@ const DataRequest = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:border-pacific-cyan focus:outline-none transition-colors"
                 >
-                  <option value="deletion">Delete All My Data (Right to be Forgotten)</option>
+                  <option value="deletion">
+                    Delete All My Data (Right to be Forgotten)
+                  </option>
                   <option value="access">Access My Data</option>
                   <option value="rectification">Correct My Data</option>
                   <option value="export">Export My Data</option>
@@ -237,7 +261,9 @@ const DataRequest = () => {
 
             <div className="bg-white/5 border border-white/10 rounded-lg p-4">
               <p className="text-xs text-white/60">
-                By submitting this request, you confirm that you are the person whose data is being requested and that the email provided is current and accurate.
+                By submitting this request, you confirm that you are the person
+                whose data is being requested and that the email provided is
+                current and accurate.
               </p>
             </div>
 
@@ -256,7 +282,8 @@ const DataRequest = () => {
               Questions?
             </h4>
             <p className="text-white/70 text-sm mb-4">
-              For any questions about our privacy practices, please contact our privacy team:
+              For any questions about our privacy practices, please contact our
+              privacy team:
             </p>
             <a
               href="mailto:privacy@astechnix.com"
