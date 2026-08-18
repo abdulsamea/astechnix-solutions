@@ -63,17 +63,17 @@ export default function Hero({ onFindSpecialists, onBrowseRoles }: Props) {
                 Find Available Specialists
               </button>
               {/* Desktop Only: Browse Talent by Role */}
-              <button
+              {/* <button
                 onClick={onBrowseRoles}
                 className="hidden md:inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/5 px-6 py-4 text-base font-heading font-semibold text-white backdrop-blur-sm transition-all hover:border-pacific-cyan/50 hover:bg-white/10"
               >
                 Browse Talent by Role
-              </button>
+              </button> */}
 
               {/* Mobile Only: Call Us Now */}
               <a
                 href="tel:+919004575425"
-                className="inline-flex md:hidden items-center justify-center gap-2 rounded-lg border border-pacific-cyan/50 bg-pacific-cyan/10 px-6 py-4 text-base font-heading font-semibold text-pacific-cyan backdrop-blur-sm transition-all hover:bg-pacific-cyan/20 active:scale-95"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-pacific-cyan/50 bg-pacific-cyan/10 px-6 py-4 text-base font-heading font-semibold text-pacific-cyan backdrop-blur-sm transition-all hover:bg-pacific-cyan/20 active:scale-95"
               >
                 <svg
                   className="h-5 w-5 text-pacific-cyan"
