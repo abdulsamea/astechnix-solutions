@@ -82,7 +82,7 @@ const Navbar = () => {
               className="inline-flex items-center gap-2 rounded-full border border-cyan-400 px-4 py-2 text-sm font-semibold text-cyan-400 transition-all duration-200 hover:bg-cyan-500/10 hover:scale-105 hover:shadow-[0_0_15px_rgba(34,211,238,0.4)]"
             >
               <Phone className="h-4 w-4" />
-              Call Us Now
+              +91 90045 75425
             </a>
             <Link
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
