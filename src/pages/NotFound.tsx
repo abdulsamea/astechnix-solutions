@@ -1,21 +1,22 @@
-import { Link } from "react-router-dom";
+import { Seo } from "../components/Seo";
+import { Button } from "../components/Button";
+import { ctaConfig } from "../config/cta";
 
-const NotFound = () => {
+export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
-      <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed">
-        The page you're looking for doesn't exist or has been moved. Let's get
-        you back to the right orbit.
-      </p>
-      <Link
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        to="/"
-        className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg hover:shadow-2xl hover:shadow-pacific-cyan/40 transition-all duration-300 transform hover:-translate-y-1"
-      >
-        Back to Home
-      </Link>
-    </div>
+    <>
+      <Seo meta={{ title: "Page Not Found | ASTechnix", description: "The page you are looking for could not be found." }} />
+      <section className="flex min-h-[70vh] items-center justify-center bg-canvas px-6 py-20">
+        <div className="text-center">
+          <p className="font-heading text-7xl font-extrabold text-brand-accent md:text-8xl">404</p>
+          <h1 className="heading-2 text-ink mt-4">Page not found</h1>
+          <p className="text-lead mt-3 max-w-md mx-auto">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row justify-center">
+            <Button to="/" variant="primary" size="lg">Back to Home</Button>
+            <Button to={ctaConfig.primary.path} variant="secondary" size="lg">{ctaConfig.primary.label}</Button>
+          </div>
+        </div>
+      </section>
+    </>
   );
-};
-
-export default NotFound;
+}

@@ -1,162 +1,154 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import {
-  Cloud,
-  Code,
-  Layers,
-  Palette,
-  ArrowRight,
-  CheckCircle2,
-} from "lucide-react";
+import { Seo } from "../components/Seo";
+import { HeroSection } from "../components/HeroSection";
+import { SectionHeader } from "../components/SectionHeader";
+import { ServiceCard } from "../components/ServiceCard";
+import { TrustStrip } from "../components/TrustStrip";
+import { CTASection } from "../components/CTASection";
+import { Button } from "../components/Button";
+import { SLAComparison, type ComparisonRow } from "../components/SLAComparison";
+import { ProcessTimeline, type TimelineStep } from "../components/ProcessTimeline";
+import { FAQAccordion, type FaqItem } from "../components/FAQAccordion";
+import { SLAFeature } from "../components/SLAFeature";
+import { services, proofPoints, caseStudies } from "../data/content";
+import { ctaConfig } from "../config/cta";
+import { ArrowRight, ShieldCheck, FileText, Settings, BarChart3 } from "lucide-react";
 
-const Home = () => {
-  const services = [
-    {
-      icon: Cloud,
-      title: "Cloud Services",
-      description:
-        "Scalable AWS, Azure and GCP architectures engineered for high-availability.",
-      link: "/cloud-services",
-      gradient: "from-pacific-cyan to-sky-blue",
-    },
-    {
-      icon: Code,
-      title: "Full Stack Development",
-      description:
-        "Modern web, mobile, and desktop applications built with cutting-edge frameworks.",
-      link: "/full-stack",
-      gradient: "from-sky-blue to-pale-azure",
-    },
-    {
-      icon: Layers,
-      title: "DevOps Solutions",
-      description:
-        "CI/CD pipelines, containerization, and infrastructure automation for velocity.",
-      link: "/devops",
-      gradient: "from-blue-green to-pacific-cyan",
-    },
-    {
-      icon: Palette,
-      title: "UI/UX Design",
-      description:
-        "User-centric interfaces crafted for intuitive experiences and conversion.",
-      link: "/ui-ux",
-      gradient: "from-star-blue to-blue-green",
-    },
-  ];
+const staffingVsManaged: ComparisonRow[] = [
+  { metric: "Responsibility", internal: "You manage the individuals", outsourced: "We own the service outcome" },
+  { metric: "Service Ownership", internal: "No single accountable party", outsourced: "ASTechnix is the single accountable party" },
+  { metric: "Delivery", internal: "You coordinate and direct", outsourced: "We plan, execute, and report" },
+  { metric: "Governance", internal: "You build and enforce", outsourced: "SLA framework is included" },
+  { metric: "SLAs", internal: "Not defined", outsourced: "Contractually defined per service" },
+  { metric: "Reporting", internal: "You extract from tools", outsourced: "Monthly governance reports included" },
+];
 
-  const partners = [
-    "AWS",
-    "Azure",
-    "Google Cloud",
-    "Docker",
-    "Kubernetes",
-    "React",
-    "Node.js",
-    "TypeScript",
-  ];
+const deliveryProcess: TimelineStep[] = [
+  { step: "01", title: "Discovery", description: "Joint scoping of requirements, success criteria, current environment, and constraints." },
+  { step: "02", title: "Transition", description: "Knowledge transfer, documentation, access provisioning, and runbook creation." },
+  { step: "03", title: "Operate", description: "Day-to-day delivery under defined SLAs with monitoring, ticketing, and incident management." },
+  { step: "04", title: "Govern", description: "Monthly SLA reviews with performance metrics, incident analysis, and action items." },
+  { step: "05", title: "Improve", description: "Quarterly improvement plans with measurable targets and corrective action tracking." },
+];
 
-  const benefits = [
-    "Scalable architecture from day one",
-    "Security-first implementation",
-    "Real-time performance monitoring",
-    "Comprehensive documentation",
-  ];
+const techCapabilities = [
+  { group: "Languages & Frameworks", items: ["React / TypeScript", "Node.js", "Python", "Java", ".NET", "Go"] },
+  { group: "Cloud & Infrastructure", items: ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform"] },
+  { group: "Data & Analytics", items: ["Snowflake", "BigQuery", "dbt", "Power BI", "Tableau", "Airflow"] },
+  { group: "QA & Testing", items: ["Cypress", "Playwright", "Selenium", "Jest", "Postman", "k6"] },
+];
 
+const homeFaqs: FaqItem[] = [
+  { question: "How is managed IT outsourcing different from staff augmentation?", answer: "Staff augmentation places individuals under your management — you coordinate, direct, and are responsible for outcomes. Managed outsourcing means ASTechnix contracts for service outcomes, governs delivery against SLAs, and reports transparently. We own the result, not just the headcount." },
+  { question: "What SLA accountability do you provide?", answer: "Every engagement includes contractually defined service levels — response times, resolution targets, quality metrics, and uptime commitments. Performance is reviewed monthly with documented metrics. If targets are missed, corrective actions are tracked to completion." },
+  { question: "How does the transition process work?", answer: "Transition follows a structured phase: discovery of your current environment, knowledge transfer sessions, documentation of procedures, access provisioning under least-privilege principles, and runbook creation. The transition timeline is defined per engagement based on complexity." },
+  { question: "How do you handle security and IP protection?", answer: "All intellectual property is contractually transferred to you. Team members sign enforceable NDAs. Access is granted on a least-privilege basis and reviewed regularly. Data handling follows defined protocols. Specific security measures are aligned to your requirements." },
+  { question: "What does governance and reporting look like?", answer: "Monthly SLA reviews with operational dashboards, performance metrics, incident analysis, and tracked action items. Quarterly improvement plans with measurable targets. You always have visibility into how the service is performing." },
+  { question: "How is pricing structured?", answer: "We offer three engagement models: managed service (fixed monthly), dedicated team (monthly), and project-based (fixed scope). Pricing is defined per engagement based on scope, complexity, and SLA requirements. No hidden costs — everything is documented in the contract." },
+  { question: "Who owns the code and deliverables?", answer: "You do. 100% IP ownership transfer is contractually guaranteed. All code, documentation, designs, and data produced during the engagement belong to your organization." },
+  { question: "Can we scale the engagement up or down?", answer: "Yes. Engagement terms include flexible scaling clauses. You can adjust scope or team size with defined notice periods based on changing business needs." },
+];
+
+export default function Home() {
   return (
-    <div className="overflow-hidden">
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 -left-48 w-96 h-96 bg-pacific-cyan/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-sky-blue/20 rounded-full blur-3xl animate-pulse delay-700" />
-        </div>
+    <>
+      <Seo meta={{ title: "ASTechnix — Managed IT Outsourcing & Technology Delivery", description: "End-to-end managed IT outsourcing: software engineering, managed infrastructure, QA, data engineering, and helpdesk support with SLA governance and operational accountability." }} />
 
-        <div className="relative max-w-7xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-8"
-          >
-            <div className="inline-block mb-6 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-pacific-cyan/30">
-              <span className="text-pacific-cyan text-sm font-medium">
-                Trusted by Forward-Thinking Enterprises
-              </span>
-            </div>
-            <h1 className="font-heading font-bold text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-tight">
-              We Engineer
-              <br />
-              <span className="bg-gradient-to-r from-pacific-cyan via-sky-blue to-pale-azure bg-clip-text text-transparent">
-                Scalable Digital
-              </span>
-              <br />
-              Ecosystems
-            </h1>
-            <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Transform your vision into production-grade solutions with modern
-              architectures, seamless integrations, and enterprise-level
-              security.
-            </p>
-          </motion.div>
+      <HeroSection
+        eyebrow="Managed IT Outsourcing"
+        title={<>We own your technology operations,<br /><span className="text-brand-accent">end to end.</span></>}
+        description={<>ASTechnix delivers managed software engineering, infrastructure, QA, data, and support under SLA governance — not staff augmentation, not recruitment, not body-shopping. We take operational accountability for outcomes.</>}
+      >
+        <Button to={ctaConfig.primary.path} size="lg">{ctaConfig.primary.label}<ArrowRight className="h-4 w-4" /></Button>
+        <Button to={ctaConfig.contextual.exploreServices.path} variant="secondary" size="lg">{ctaConfig.contextual.exploreServices.label}</Button>
+      </HeroSection>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-          >
-            <Link
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              to="/contact"
-              className="group px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg flex items-center space-x-2 hover:shadow-2xl hover:shadow-pacific-cyan/40 transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <span
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Start Your Project
-              </span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            {/* <a
-              href="#services"
-              className="px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-heading font-semibold rounded-lg border border-white/20 hover:bg-white/10 hover:border-pacific-cyan/50 transition-all duration-300"
-            >
-              View Our Work
-            </a> */}
-          </motion.div>
+      <TrustStrip points={proofPoints} />
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
-          >
-            {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="flex items-center space-x-2 text-white/80 text-sm justify-center"
-              >
-                <CheckCircle2 className="w-5 h-5 text-pacific-cyan flex-shrink-0" />
-                <span className="text-left">{benefit}</span>
-              </div>
-            ))}
-          </motion.div>
+      <section className="section-padding bg-canvas">
+        <div className="container-content">
+          <SectionHeader eyebrow="What We Do" title="Five managed service lines, one delivery framework." description="Every engagement operates under the same SLA governance, security protocols, and reporting discipline — regardless of which service line you engage." className="mb-10" />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, i) => <ServiceCard key={service.slug} service={service} index={i} />)}
+          </div>
         </div>
       </section>
 
-      <section className="py-16 border-y border-white/10 bg-white/5 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-white/50 text-sm font-medium mb-8">
-            POWERED BY INDUSTRY-LEADING TECHNOLOGIES
-          </p>
-          <div className="relative overflow-hidden">
-            <div className="flex animate-marquee space-x-16">
-              {[...partners, ...partners].map((partner, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 text-2xl font-heading font-bold text-white/30 hover:text-pacific-cyan transition-colors duration-300"
-                >
-                  {partner}
+      <section className="section-padding bg-white border-y border-ink/10">
+        <div className="container-content">
+          <SectionHeader eyebrow="The Difference" title="Managed outsourcing vs. staff augmentation" description="The distinction is accountability. Staff augmentation gives you people to manage. Managed outsourcing gives you a service outcome with governance." className="mb-10" />
+          <SLAComparison rows={staffingVsManaged} leftHeader="Staff Augmentation" rightHeader="Managed Outsourcing" />
+        </div>
+      </section>
+
+      <section className="section-padding bg-canvas">
+        <div className="container-content">
+          <SectionHeader eyebrow="Why ASTechnix" title="What differentiates our delivery model" className="mb-10" />
+          <div className="grid gap-6 sm:grid-cols-2">
+            <SLAFeature icon={<ShieldCheck className="h-5 w-5" />} title="Contractual accountability" description="Service levels are defined in the contract, not informally agreed. Performance is measured and reviewed monthly." />
+            <SLAFeature icon={<FileText className="h-5 w-5" />} title="Defined scope" description="Every engagement starts with a documented scope statement. Deliverables, boundaries, and responsibilities are explicit." />
+            <SLAFeature icon={<Settings className="h-5 w-5" />} title="Transition management" description="Structured transition phases — discovery, knowledge transfer, documentation, and go-live — minimize disruption to ongoing operations." />
+            <SLAFeature icon={<BarChart3 className="h-5 w-5" />} title="Governance and reporting" description="Monthly SLA reviews with operational dashboards, incident analysis, and tracked improvement actions." />
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-white border-y border-ink/10">
+        <div className="container-content">
+          <SectionHeader eyebrow="Delivery Process" title="How we engage, from discovery to continuous improvement" className="mb-10" />
+          <ProcessTimeline steps={deliveryProcess} />
+        </div>
+      </section>
+
+      <section className="section-padding bg-canvas">
+        <div className="container-content">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <SectionHeader eyebrow="SLA Governance" title="Service levels are contractual, not aspirational." description="Every engagement defines response times, resolution targets, quality metrics, and uptime commitments. These are reviewed monthly with documented metrics — not informal check-ins." />
+              <div className="mt-6"><Button to="/delivery-model/sla-governance-reporting" variant="secondary">SLA Governance Framework</Button></div>
+            </div>
+            <div className="rounded-lg border border-ink/10 bg-white p-6 md:p-8">
+              <h3 className="heading-3 text-ink mb-4">Governance cadence</h3>
+              <div className="space-y-4">
+                {[{ label: "Monthly", desc: "SLA review with performance metrics, incident analysis, and action items" }, { label: "Quarterly", desc: "Improvement plan with measurable targets and corrective actions" }, { label: "Annually", desc: "Service review and contract renewal assessment" }].map((item) => (
+                  <div key={item.label} className="flex gap-4">
+                    <div className="shrink-0"><span className="badge bg-brand-accent/10 text-brand-accent">{item.label}</span></div>
+                    <p className="text-sm text-ink-soft leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-white border-y border-ink/10">
+        <div className="container-content">
+          <SectionHeader eyebrow="Technology" title="Capability areas we work across" description="We adapt to your existing technology stack. These are the primary areas we operate in — we are not limited to this list." className="mb-10" />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {techCapabilities.map((group) => (
+              <div key={group.group} className="rounded-lg border border-ink/10 bg-canvas p-5">
+                <h3 className="text-sm font-heading font-bold text-ink">{group.group}</h3>
+                <ul className="mt-3 space-y-2">
+                  {group.items.map((item) => <li key={item} className="flex items-center gap-2 text-sm text-ink-soft"><span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" />{item}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-padding bg-canvas">
+        <div className="container-content">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <SectionHeader eyebrow="Security" title="Operational security built into the delivery model." description="Security is not a bolt-on. It's embedded in how we structure engagements, manage access, and handle data." />
+              <div className="mt-6"><Button to="/delivery-model/security-compliance-ip-protection" variant="secondary">Security & IP Framework</Button></div>
+            </div>
+            <div className="space-y-4">
+              {[{ title: "Least-privilege access", desc: "Access to your systems is granted on a need-to-know basis and reviewed regularly." }, { title: "IP ownership transfer", desc: "All intellectual property is contractually transferred to you — code, documentation, designs." }, { title: "Confidentiality", desc: "Enforceable NDAs signed by every team member assigned to your engagement." }, { title: "Data handling protocols", desc: "Defined procedures for data access, storage, and transmission aligned to your requirements." }].map((item) => (
+                <div key={item.title} className="rounded-lg border border-ink/10 bg-white p-4">
+                  <h3 className="text-sm font-heading font-semibold text-ink">{item.title}</h3>
+                  <p className="mt-1 text-sm text-ink-soft">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -164,90 +156,36 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="services" className="py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-heading font-bold text-4xl md:text-5xl text-white mb-6">
-              Our Core <span className="text-pacific-cyan">Services</span>
-            </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
-              End-to-end solutions designed for performance, scalability, and
-              maintainability.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Link
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  to={service.link}
-                  className="group block h-full p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-pacific-cyan/50 transition-all duration-300 hover:shadow-2xl hover:shadow-pacific-cyan/20 hover:-translate-y-2"
-                >
-                  <div
-                    className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${service.gradient} mb-6`}
-                  >
-                    <service.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="font-heading font-bold text-2xl text-white mb-4 group-hover:text-pacific-cyan transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-white/70 leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-                  <div className="flex items-center text-pacific-cyan font-medium group-hover:translate-x-2 transition-transform">
-                    Learn more
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+      <section className="section-padding bg-white border-y border-ink/10">
+        <div className="container-content">
+          <SectionHeader eyebrow="Engagement Outcomes" title="Case studies" description="Detailed engagement summaries with documented outcomes will be published here as they become available." className="mb-8" />
+          {caseStudies.length > 0 ? (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {caseStudies.map((study) => (
+                <div key={study.slug} className="rounded-lg border border-ink/10 bg-canvas p-6">
+                  <p className="text-sm font-semibold text-brand-accent">{study.sector}</p>
+                  <h3 className="mt-2 text-lg font-heading font-bold text-ink">{study.title}</h3>
+                  <p className="mt-2 text-sm text-ink-soft">{study.summary}</p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-lg border border-dashed border-ink/20 bg-canvas/50 p-12 text-center">
+              <p className="text-body text-ink-muted">Case studies with verified outcomes will be published here.</p>
+              <Button to="/contact" variant="secondary" className="mt-4">Request engagement references</Button>
+            </div>
+          )}
         </div>
       </section>
 
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white/5 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="font-heading font-bold text-4xl md:text-5xl text-white mb-6">
-              Ready to Transform Your Vision?
-            </h2>
-            <p className="text-xl text-white/70 mb-12 max-w-2xl mx-auto">
-              Let's discuss how we can architect a solution tailored to your
-              business objectives.
-            </p>
-            <Link
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              to="/contact"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pacific-cyan to-sky-blue text-white font-heading font-semibold rounded-lg hover:shadow-2xl hover:shadow-pacific-cyan/40 transition-all duration-300 transform hover:-translate-y-1"
-            >
-              Schedule a Consultation
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-          </motion.div>
+      <section className="section-padding bg-canvas">
+        <div className="container-content max-w-3xl">
+          <SectionHeader eyebrow="FAQ" title="Questions we hear from executives" className="mb-8" />
+          <FAQAccordion items={homeFaqs} />
         </div>
       </section>
-    </div>
+
+      <CTASection />
+    </>
   );
-};
-
-export default Home;
+}

@@ -4,49 +4,37 @@ export default {
   theme: {
     extend: {
       colors: {
-        "deep-navy": "#03045E",
-        "royal-blue": "#023E8A",
-        "star-blue": "#0077B6",
-        "blue-green": "#0096C7",
-        "pacific-cyan": "#00B4D8",
-        "sky-blue": "#48CAE4",
-        "pale-azure": "#90E0EF",
-        "non-photo-blue": "#ADE8F4",
-        "powder-blue": "#CAF0F8",
+        "brand-dark": "#23374D",
+        "brand-accent": "#1089FF",
+        "surface": "#E5E5E5",
+        "canvas": "#EEEEEE",
+        "ink": {
+          DEFAULT: "#1A2332",
+          soft: "#3D4F63",
+          muted: "#6B7B8C",
+        },
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
-        heading: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
+        heading: ["'Plus Jakarta Sans'", "system-ui", "sans-serif"],
       },
-      animation: {
-        marquee: "marquee 30s linear infinite",
-        glow: "glow 2s ease-in-out infinite alternate",
-        "border-glow": "borderGlow 2s ease-in-out infinite",
+      maxWidth: {
+        content: "1200px",
+        prose: "680px",
       },
-      keyframes: {
-        borderGlow: {
-          "0%,100%": {
-            boxShadow: "0 0 0 rgba(0,207,232,0)",
-          },
-          "50%": {
-            boxShadow:
-              "0 0 10px rgba(0,207,232,.40), 0 0 24px rgba(0,207,232,.22), 0 0 40px rgba(0,207,232,.12)",
-          },
-        },
-        marquee: {
-          "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
-        glow: {
-          "0%": {
-            boxShadow:
-              "0 0 5px rgba(0, 180, 216, 0.5), 0 0 10px rgba(0, 180, 216, 0.3)",
-          },
-          "100%": {
-            boxShadow:
-              "0 0 20px rgba(0, 180, 216, 0.8), 0 0 30px rgba(0, 180, 216, 0.5)",
-          },
-        },
+      borderRadius: {
+        DEFAULT: "6px",
+        sm: "4px",
+        md: "6px",
+        lg: "8px",
+        xl: "12px",
+      },
+      spacing: {
+        section: "5rem",
+        "section-sm": "3rem",
+      },
+      transitionTimingFunction: {
+        enterprise: "cubic-bezier(0.22, 1, 0.36, 1)",
       },
     },
   },
