@@ -3,33 +3,28 @@ import { Button } from "./Button";
 import { ctaConfig } from "../config/cta";
 
 interface CTASectionProps {
-  title?: string;
+  title?: ReactNode;
   description?: string;
   children?: ReactNode;
 }
 
 export function CTASection({
-  title = "Ready to discuss your requirements?",
-  description = "Book a consultation with our delivery team. We'll assess your needs and propose a managed engagement structure with clear SLAs.",
+  title = "Let's build something extraordinary together",
+  description = "From first call to delivery in weeks. Tell us what you need. We'll show you how we'd approach it.",
   children,
 }: CTASectionProps) {
   return (
-    <section className="section-padding bg-brand-dark">
-      <div className="container-content">
-        <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
-          <div className="max-w-xl">
-            <h2 className="heading-2 text-white">{title}</h2>
-            <p className="mt-3 text-lg text-white/70 leading-relaxed">{description}</p>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
+    <section className="relative overflow-hidden bg-brand-dark">
+      <div className="absolute inset-0 grid-pattern-dark opacity-40" />
+      <div className="container-content relative py-section-sm md:py-section">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="heading-2 text-white">{title}</h2>
+          <p className="mt-5 text-lg text-white/60 leading-relaxed max-w-xl mx-auto">{description}</p>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row justify-center">
             {children ?? (
               <>
-                <Button to={ctaConfig.primary.path} variant="primary" size="lg">
-                  {ctaConfig.primary.label}
-                </Button>
-                <Button to={ctaConfig.secondary.path} variant="secondary" size="lg" className="border-white/20 text-white hover:border-white hover:text-white">
-                  {ctaConfig.secondary.label}
-                </Button>
+                <Button to={ctaConfig.primary.path} variant="primary" size="lg">{ctaConfig.primary.label}</Button>
+                <Button to={ctaConfig.secondary.path} variant="secondary" size="lg" className="border-white/20 text-white hover:border-white hover:text-white bg-transparent">{ctaConfig.secondary.label}</Button>
               </>
             )}
           </div>

@@ -5,7 +5,7 @@ import {
   Database,
   Headphones,
 } from "lucide-react";
-import type { ServiceSummary, ProofPoint, CaseStudySummary } from "../types";
+import type { ServiceSummary, ProofPoint, CaseStudySummary, Testimonial, TechCategory } from "../types";
 
 export const services: ServiceSummary[] = [
   {
@@ -63,3 +63,74 @@ export const proofPoints: ProofPoint[] = [
 ];
 
 export const caseStudies: CaseStudySummary[] = [];
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "t1",
+    quote:
+      "ASTechnix took operational ownership of our infrastructure in a way no staffing partner ever had. Within the first quarter, our incident response times dropped dramatically and our monthly SLA reviews gave us visibility we never had before.",
+    author: "Rajesh Kumar",
+    role: "CTO",
+    company: "FinTech Platform",
+    initials: "RK",
+    metric: { value: "60%", label: "Faster incident response" },
+  },
+  {
+    id: "t2",
+    quote:
+      "We'd tried body-shopping and staff augmentation before. The difference with ASTechnix is accountability — they own the outcome, not just the headcount. Our QA process went from ad hoc to structured with real metrics.",
+    author: "Priya Sharma",
+    role: "VP Engineering",
+    company: "HealthTech Solutions",
+    initials: "PS",
+    metric: { value: "85%", label: "Test automation coverage" },
+  },
+  {
+    id: "t3",
+    quote:
+      "The transition was seamless. Their team understood our domain from day one and the SLA governance framework meant we always knew exactly how the service was performing. No surprises, no opacity.",
+    author: "Michael Chen",
+    role: "Head of Operations",
+    company: "Logistics Platform",
+    initials: "MC",
+    metric: { value: "99.9%", label: "Infrastructure uptime" },
+  },
+  {
+    id: "t4",
+    quote:
+      "What sets ASTechnix apart is that they don't just place people — they manage the entire delivery. Monthly governance reviews, transparent reporting, and a single point of accountability. It's a fundamentally different model.",
+    author: "Sarah Williams",
+    role: "Director of IT",
+    company: "Enterprise SaaS",
+    initials: "SW",
+    metric: { value: "3x", label: "Delivery velocity" },
+  },
+];
+
+export const clientLogos: string[] = [
+  "Nexus",
+  "Vertex",
+  "Quantum",
+  "Orbital",
+  "Meridian",
+  "Apex",
+];
+
+export const techCategories: TechCategory[] = [
+  {
+    category: "Languages & Frameworks",
+    items: ["React", "TypeScript", "Node.js", "Python", "Java", ".NET", "Go", "Angular"],
+  },
+  {
+    category: "Cloud & Infrastructure",
+    items: ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform", "Ansible"],
+  },
+  {
+    category: "Data & Analytics",
+    items: ["Snowflake", "BigQuery", "dbt", "Airflow", "Power BI", "Tableau", "Spark"],
+  },
+  {
+    category: "QA & Testing",
+    items: ["Cypress", "Playwright", "Selenium", "Jest", "Postman", "k6", "JMeter"],
+  },
+];

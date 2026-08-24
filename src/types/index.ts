@@ -23,3 +23,18 @@ export interface CaseStudySummary {
   summary: string;
   metrics: { value: string; label: string }[];
 }
+
+export interface Testimonial {
+  id: string;
+  quote: string;
+  author: string;
+  role: string;
+  company: string;
+  initials: string;
+  metric: { value: string; label: string };
+}
+
+export interface TechCategory {
+  category: string;
+  items: string[];
+}

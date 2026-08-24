@@ -28,7 +28,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
               aria-expanded={isOpen}
             >
               <span className="text-base font-heading font-semibold text-ink">{item.question}</span>
-              <ChevronDown className={`h-5 w-5 shrink-0 text-ink-muted transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+              <ChevronDown className={`h-5 w-5 shrink-0 text-ink-muted transition-transform duration-300 ${isOpen ? "rotate-180 text-brand-accent" : ""}`} />
             </button>
             <AnimatePresence initial={false}>
               {isOpen && (
@@ -36,10 +36,10 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
                   initial={reducedMotion ? false : { height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={reducedMotion ? undefined : { height: 0, opacity: 0 }}
-                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="pb-5 text-base text-ink-soft leading-relaxed">{item.answer}</p>
+                  <p className="pb-5 text-base text-ink-soft leading-[1.7]">{item.answer}</p>
                 </motion.div>
               )}
             </AnimatePresence>

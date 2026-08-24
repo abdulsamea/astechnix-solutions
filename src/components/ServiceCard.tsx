@@ -15,23 +15,23 @@ export function ServiceCard({ service, index = 0 }: ServiceCardProps) {
 
   return (
     <motion.div
-      initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+      initial={reducedMotion ? false : { opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.4, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
     >
       <Link
         to={service.path}
-        className="group block h-full rounded-lg border border-ink/10 bg-white p-6 transition-all duration-200 hover:border-brand-accent/30 hover:shadow-md"
+        className="group block h-full rounded-lg border border-ink/10 bg-white p-7 shadow-card transition-all duration-300 hover:shadow-card-hover hover:border-ink/15"
       >
-        <div className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-accent/10 text-brand-accent">
-          <Icon className="h-5 w-5" />
+        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-accent/10 text-brand-accent transition-colors duration-300 group-hover:bg-brand-accent group-hover:text-white">
+          <Icon className="h-6 w-6" />
         </div>
-        <h3 className="mt-4 text-lg font-heading font-bold text-ink">{service.title}</h3>
-        <p className="mt-2 text-sm text-ink-soft leading-relaxed">{service.description}</p>
-        <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-accent">
+        <h3 className="mt-5 text-lg font-heading font-bold text-ink">{service.title}</h3>
+        <p className="mt-3 text-sm text-ink-soft leading-[1.7]">{service.description}</p>
+        <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-accent">
           Learn more
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </span>
       </Link>
     </motion.div>
