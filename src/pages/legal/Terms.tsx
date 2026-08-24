@@ -7,8 +7,8 @@ const crumbs: Crumb[] = [{ label: "Home", path: "/" }, { label: "Terms" }];
 export default function Terms() {
   return (
     <>
-      <Seo meta={{ title: "Terms of Service | ASTechnix", description: "ASTechnix terms of service governing the use of this website and engagement of services." }} />
-      <PageHeader breadcrumbs={crumbs} title="Terms of Service" description="The terms governing use of this website and engagement of ASTechnix services." />
+      <Seo meta={{ title: "Terms of Service | AStechnix", description: "AStechnix terms of service governing the use of this website and engagement of services." }} />
+      <PageHeader breadcrumbs={crumbs} title="Terms of Service" description="The terms governing use of this website and engagement of AStechnix services." />
 
       <section className="section-padding bg-canvas">
         <div className="container-content max-w-prose">

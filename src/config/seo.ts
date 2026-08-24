@@ -7,16 +7,16 @@ export interface SeoMeta {
 
 export const siteConfig = {
   url: "https://astechnix.com",
-  defaultTitle: "ASTechnix — Managed IT Outsourcing & Technology Delivery",
+  defaultTitle: "AStechnix — Managed IT Outsourcing & Technology Delivery",
   defaultDescription:
-    "ASTechnix is an end-to-end managed IT outsourcing and technology delivery company. Software engineering, managed infrastructure, QA, data engineering, and helpdesk support.",
+    "AStechnix is an end-to-end managed IT outsourcing and technology delivery company. Software engineering, managed infrastructure, QA, data engineering, and helpdesk support.",
   twitterHandle: "@astechnix",
 } as const;
 
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "ASTechnix",
+  name: "AStechnix",
   url: "https://astechnix.com",
   email: "contact@astechnix.com",
   telephone: "+91 90045 75425",

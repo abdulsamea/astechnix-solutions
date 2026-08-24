@@ -68,7 +68,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "t1",
     quote:
-      "ASTechnix took operational ownership of our infrastructure in a way no staffing partner ever had. Within the first quarter, our incident response times dropped dramatically and our monthly SLA reviews gave us visibility we never had before.",
+      "AStechnix took operational ownership of our infrastructure in a way no staffing partner ever had. Within the first quarter, our incident response times dropped dramatically and our monthly SLA reviews gave us visibility we never had before.",
     author: "Rajesh Kumar",
     role: "CTO",
     company: "FinTech Platform",
@@ -78,7 +78,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "t2",
     quote:
-      "We'd tried body-shopping and staff augmentation before. The difference with ASTechnix is accountability — they own the outcome, not just the headcount. Our QA process went from ad hoc to structured with real metrics.",
+      "We'd tried body-shopping and staff augmentation before. The difference with AStechnix is accountability — they own the outcome, not just the headcount. Our QA process went from ad hoc to structured with real metrics.",
     author: "Priya Sharma",
     role: "VP Engineering",
     company: "HealthTech Solutions",
@@ -98,7 +98,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "t4",
     quote:
-      "What sets ASTechnix apart is that they don't just place people — they manage the entire delivery. Monthly governance reviews, transparent reporting, and a single point of accountability. It's a fundamentally different model.",
+      "What sets AStechnix apart is that they don't just place people — they manage the entire delivery. Monthly governance reviews, transparent reporting, and a single point of accountability. It's a fundamentally different model.",
     author: "Sarah Williams",
     role: "Director of IT",
     company: "Enterprise SaaS",

@@ -11,7 +11,7 @@ const crumbs: Crumb[] = [{ label: "Home", path: "/" }, { label: "Company", path:
 export default function CaseStudies() {
   return (
     <>
-      <Seo meta={{ title: "Case Studies | ASTechnix", description: "Engagement summaries with verified outcomes from ASTechnix managed IT outsourcing engagements." }} />
+      <Seo meta={{ title: "Case Studies | AStechnix", description: "Engagement summaries with verified outcomes from AStechnix managed IT outsourcing engagements." }} />
       <PageHeader breadcrumbs={crumbs} title="Case Studies" description="Documented engagement outcomes with verified metrics. We publish case studies only when results have been confirmed — not as marketing material." />
 
       <section className="section-padding bg-canvas">
@@ -48,7 +48,7 @@ export default function CaseStudies() {
 
       <CTASection title="Want to discuss references relevant to your context?" description="Book a consultation. We'll share what we can within confidentiality constraints and explore whether our delivery model fits your needs.">
         <Button to={ctaConfig.primary.path} variant="primary" size="lg">{ctaConfig.primary.label}</Button>
-        <Button to={ctaConfig.secondary.path} variant="secondary" size="lg" className="border-white/20 text-white hover:border-white hover:text-white">{ctaConfig.secondary.label}</Button>
+        <Button to={ctaConfig.secondary.path} variant="secondary" size="lg" className="border-white/20 text-white hover:border-white hover:text-white bg-transparent">{ctaConfig.secondary.label}</Button>
       </CTASection>
     </>
   );

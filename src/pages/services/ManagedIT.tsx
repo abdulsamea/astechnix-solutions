@@ -1,4 +1,5 @@
 import { ServicePageTemplate } from "./ServicePageTemplate";
+import { heroImages, sectionImages } from "../../config/images";
 
 export default function ManagedIT() {
   return (
@@ -7,6 +8,9 @@ export default function ManagedIT() {
       title="Managed IT Infrastructure"
       shortTitle="Managed Infrastructure"
       heroDescription="We assume operational ownership of your infrastructure — monitoring, administration, incident response, and optimization — under SLA governance with transparent reporting."
+      heroImage={heroImages.managedIT}
+      sectionImage={sectionImages.dataCenter}
+      sectionImageAlt="Server racks in a modern data center"
       businessProblem="Infrastructure requires constant attention — monitoring, patching, capacity planning, incident response, and security hardening. Internal teams struggle with 24/7 coverage, skill gaps across cloud platforms, and the operational overhead of maintaining runbooks and escalation procedures. When incidents happen outside business hours, response is delayed. Staff augmentation adds people but doesn't solve the structural problem: who owns the uptime?"
       whatWeOwn={[
         { title: "Uptime and availability", description: "We contract for infrastructure availability. Uptime targets are defined per engagement and reviewed monthly." },

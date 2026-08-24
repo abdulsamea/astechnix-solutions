@@ -7,8 +7,8 @@ const crumbs: Crumb[] = [{ label: "Home", path: "/" }, { label: "Privacy" }];
 export default function Privacy() {
   return (
     <>
-      <Seo meta={{ title: "Privacy Policy | ASTechnix", description: "ASTechnix privacy policy describing how we collect, use, and protect personal data." }} />
-      <PageHeader breadcrumbs={crumbs} title="Privacy Policy" description="How ASTechnix collects, uses, and protects your personal data." />
+      <Seo meta={{ title: "Privacy Policy | AStechnix", description: "AStechnix privacy policy describing how we collect, use, and protect personal data." }} />
+      <PageHeader breadcrumbs={crumbs} title="Privacy Policy" description="How AStechnix collects, uses, and protects your personal data." />
 
       <section className="section-padding bg-canvas">
         <div className="container-content max-w-prose">

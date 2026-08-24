@@ -1,4 +1,5 @@
 import { ServicePageTemplate } from "./ServicePageTemplate";
+import { heroImages, sectionImages } from "../../config/images";
 
 export default function SoftwareEngineering() {
   return (
@@ -7,6 +8,9 @@ export default function SoftwareEngineering() {
       title="Software Engineering Outsourcing"
       shortTitle="Software Engineering"
       heroDescription="Managed software delivery — from architecture and development to maintenance and modernization. We own the engineering outcome under SLA governance, not the headcount."
+      heroImage={heroImages.softwareEngineering}
+      sectionImage={sectionImages.codeEditor}
+      sectionImageAlt="Developer writing code in a modern IDE"
       businessProblem="Building and maintaining software requires more than developers. It requires architecture discipline, code quality standards, deployment pipelines, documentation, and accountability for delivery timelines. Internal teams face hiring bottlenecks, knowledge concentration risks, and the overhead of managing engineering processes. Staff augmentation adds people but not structure — you still own the coordination, quality, and delivery risk."
       whatWeOwn={[
         { title: "Delivery ownership", description: "We contract for working software delivered on agreed cadence — not hours billed. Sprint commitments, release quality, and timeline accountability are ours." },

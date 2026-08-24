@@ -7,8 +7,8 @@ const crumbs: Crumb[] = [{ label: "Home", path: "/" }, { label: "Cookies" }];
 export default function Cookies() {
   return (
     <>
-      <Seo meta={{ title: "Cookie Policy | ASTechnix", description: "ASTechnix cookie policy describing how cookies are used on this website." }} />
-      <PageHeader breadcrumbs={crumbs} title="Cookie Policy" description="How ASTechnix uses cookies on this website." />
+      <Seo meta={{ title: "Cookie Policy | AStechnix", description: "AStechnix cookie policy describing how cookies are used on this website." }} />
+      <PageHeader breadcrumbs={crumbs} title="Cookie Policy" description="How AStechnix uses cookies on this website." />
 
       <section className="section-padding bg-canvas">
         <div className="container-content max-w-prose">

@@ -14,15 +14,15 @@ const crumbs: Crumb[] = [{ label: "Home", path: "/" }, { label: "Company", path:
 export default function About() {
   return (
     <>
-      <Seo meta={{ title: "About ASTechnix | Managed IT Outsourcing Company", description: "ASTechnix is an end-to-end managed IT outsourcing and technology delivery company headquartered in Mumbai, India." }} />
-      <PageHeader breadcrumbs={crumbs} title="About ASTechnix" description={`${company.name} is an end-to-end managed IT outsourcing and technology delivery company. We are not a staffing agency, not a recruitment consultancy, and not a freelancer marketplace. We own service outcomes.`} />
+      <Seo meta={{ title: "About AStechnix | Managed IT Outsourcing Company", description: "AStechnix is an end-to-end managed IT outsourcing and technology delivery company headquartered in Mumbai, India." }} />
+      <PageHeader breadcrumbs={crumbs} title="About AStechnix" description={`${company.name} is an end-to-end managed IT outsourcing and technology delivery company. We are not a staffing agency, not a recruitment consultancy, and not a freelancer marketplace. We own service outcomes.`} />
 
       <TrustStrip points={proofPoints} />
 
       <section className="section-padding bg-canvas">
         <div className="container-content max-w-3xl">
           <SectionHeader eyebrow="Who We Are" title="Operational accountability, not headcount." className="mb-6" />
-          <p className="text-body">ASTechnix was founded in {company.founded} with a clear thesis: organizations need managed technology delivery with operational accountability, not more people to manage. Staff augmentation places individuals under your direction. Recruitment consultancies fill seats. Freelancer marketplaces offer transactional access to talent. None of these models own the outcome.</p>
+          <p className="text-body">AStechnix was founded in {company.founded} with a clear thesis: organizations need managed technology delivery with operational accountability, not more people to manage. Staff augmentation places individuals under your direction. Recruitment consultancies fill seats. Freelancer marketplaces offer transactional access to talent. None of these models own the outcome.</p>
           <p className="text-body mt-4">We do. Every engagement is structured as a managed service with defined scope, contractually committed SLAs, transparent reporting, and a single point of accountability. You review performance metrics with our service lead — you don't manage our team's daily tasks.</p>
           <p className="text-body mt-4">Headquartered in {company.headquarters}, we deliver across global time zones with 24/7 operational coverage for infrastructure and support engagements.</p>
         </div>
@@ -66,7 +66,7 @@ export default function About() {
 
       <CTASection title="Want to learn more about working with us?" description="Book a consultation to discuss your requirements and explore whether a managed engagement is the right fit.">
         <Button to={ctaConfig.primary.path} variant="primary" size="lg">{ctaConfig.primary.label}</Button>
-        <Button to={ctaConfig.secondary.path} variant="secondary" size="lg" className="border-white/20 text-white hover:border-white hover:text-white">{ctaConfig.secondary.label}</Button>
+        <Button to={ctaConfig.secondary.path} variant="secondary" size="lg" className="border-white/20 text-white hover:border-white hover:text-white bg-transparent">{ctaConfig.secondary.label}</Button>
       </CTASection>
     </>
   );

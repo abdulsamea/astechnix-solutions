@@ -12,7 +12,7 @@ interface SLAComparisonProps {
   rightHeader?: string;
 }
 
-export function SLAComparison({ rows, leftHeader = "In-House Team", rightHeader = "ASTechnix Managed" }: SLAComparisonProps) {
+export function SLAComparison({ rows, leftHeader = "In-House Team", rightHeader = "AStechnix Managed" }: SLAComparisonProps) {
   return (
     <>
       <div className="hidden overflow-hidden rounded-lg border border-ink/10 md:block">

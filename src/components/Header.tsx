@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, type KeyboardEvent } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight, Phone } from "lucide-react";
 import { navigation } from "../config/navigation";
 import { ctaConfig } from "../config/cta";
 import { company } from "../config/company";
@@ -48,7 +48,7 @@ export function Header() {
       <header className={`sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b transition-all duration-300 ${scrolled ? "border-ink/10 shadow-sm" : "border-transparent"}`}>
         <div className="container-content">
           <div className="flex h-16 items-center justify-between md:h-[72px]">
-            <Link to="/" className="flex items-center" aria-label="ASTechnix home">
+            <Link to="/" className="flex items-center" aria-label="AStechnix home">
               <Logo className="h-8 w-auto md:h-9" />
             </Link>
             <DesktopNavigation openMenu={openMenu} setOpenMenu={setOpenMenu} currentPath={location.pathname} reducedMotion={reducedMotion} />
@@ -56,12 +56,13 @@ export function Header() {
               <Link to={ctaConfig.primary.path} className="text-sm font-semibold text-brand-dark hover:text-brand-accent transition-colors">
                 Contact Us
               </Link>
-              <Link
-                to={ctaConfig.primary.path}
-                className="btn-primary"
+              <a
+                href={company.phoneHref}
+                className="btn-primary inline-flex items-center gap-2"
               >
-                {ctaConfig.primary.label}
-              </Link>
+                <Phone className="h-4 w-4" />
+                {company.phoneDisplay}
+              </a>
             </div>
             <button onClick={() => setMobileOpen(true)} className="flex h-10 w-10 items-center justify-center rounded-md text-ink hover:bg-surface md:hidden" aria-label="Open menu" aria-expanded={mobileOpen}>
               <Menu className="h-5 w-5" />

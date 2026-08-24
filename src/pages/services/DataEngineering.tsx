@@ -1,4 +1,5 @@
 import { ServicePageTemplate } from "./ServicePageTemplate";
+import { heroImages, sectionImages } from "../../config/images";
 
 export default function DataEngineering() {
   return (
@@ -7,6 +8,9 @@ export default function DataEngineering() {
       title="Data Engineering & Analytics"
       shortTitle="Data & Analytics"
       heroDescription="We build and operate data infrastructure that delivers reliable, timely intelligence — from pipeline architecture and ETL to analytics dashboards and data quality governance."
+      heroImage={heroImages.dataEngineering}
+      sectionImage={sectionImages.analyticsLaptop}
+      sectionImageAlt="Laptop displaying data analytics and charts"
       businessProblem="Data initiatives stall because the plumbing is hard. Pipelines break, data quality is inconsistent, reports take days to generate, and every new dashboard request becomes a custom project. Internal teams struggle with the overlap of engineering, operations, and analytics skills required to keep data flowing reliably. Staff augmentation can't solve this — it requires someone to own the data outcome end to end, from ingestion to dashboard."
       whatWeOwn={[
         { title: "Pipeline reliability", description: "We contract for pipeline uptime and data freshness — data arrives on schedule, every schedule." },

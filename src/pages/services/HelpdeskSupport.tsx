@@ -1,4 +1,5 @@
 import { ServicePageTemplate } from "./ServicePageTemplate";
+import { heroImages, sectionImages } from "../../config/images";
 
 export default function HelpdeskSupport() {
   return (
@@ -7,6 +8,9 @@ export default function HelpdeskSupport() {
       title="Helpdesk & End-User Support"
       shortTitle="Helpdesk & Support"
       heroDescription="A managed helpdesk operation that handles end-user issues with tiered support, resolution SLAs, and satisfaction tracking — available across global time zones."
+      heroImage={heroImages.helpdesk}
+      sectionImage={sectionImages.callCenter}
+      sectionImageAlt="Customer support representative with a headset"
       businessProblem="End-user support is operationally demanding — it requires consistent ticket handling, knowledge base maintenance, escalation discipline, and coverage across time zones. Internal helpdesks struggle with peak load spikes, knowledge gaps at L1, and the overhead of maintaining documentation. Staff augmentation places agents but doesn't provide the governance structure — escalation matrix, resolution SLAs, or satisfaction measurement — that makes support reliable."
       whatWeOwn={[
         { title: "Resolution SLAs", description: "We contract for response and resolution times per severity tier. Performance is measured and reviewed monthly." },

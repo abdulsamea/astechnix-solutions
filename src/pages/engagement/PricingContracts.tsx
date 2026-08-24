@@ -29,7 +29,7 @@ const contractTerms: string[][] = [
 export default function PricingContracts() {
   return (
     <>
-      <Seo meta={{ title: "Pricing & Contracts | ASTechnix", description: "ASTechnix engagement models: managed service, dedicated team, and project-based pricing with transparent contract terms and SLA governance." }} />
+      <Seo meta={{ title: "Pricing & Contracts | AStechnix", description: "AStechnix engagement models: managed service, dedicated team, and project-based pricing with transparent contract terms and SLA governance." }} />
       <PageHeader breadcrumbs={crumbs} title="Pricing & Contracts" description="Three engagement models with flexible contract terms. Every model includes SLA governance, IP ownership transfer, and transparent reporting. Pricing is defined per engagement based on scope and complexity." />
 
       <section className="section-padding bg-canvas">
@@ -70,7 +70,7 @@ export default function PricingContracts() {
 
       <CTASection title="Need a custom pricing structure?" description="Book a consultation to discuss your scope. We'll propose an engagement model with transparent pricing — no obligation.">
         <Button to={ctaConfig.primary.path} variant="primary" size="lg">{ctaConfig.primary.label}</Button>
-        <Button to={ctaConfig.secondary.path} variant="secondary" size="lg" className="border-white/20 text-white hover:border-white hover:text-white">{ctaConfig.secondary.label}</Button>
+        <Button to={ctaConfig.secondary.path} variant="secondary" size="lg" className="border-white/20 text-white hover:border-white hover:text-white bg-transparent">{ctaConfig.secondary.label}</Button>
       </CTASection>
     </>
   );

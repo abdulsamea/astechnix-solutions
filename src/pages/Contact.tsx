@@ -11,7 +11,7 @@ const crumbs: Crumb[] = [{ label: "Home", path: "/" }, { label: "Contact" }];
 export default function Contact() {
   return (
     <>
-      <Seo meta={{ title: "Contact ASTechnix | Request a Consultation", description: "Contact ASTechnix to discuss managed IT outsourcing, SLA governance, and engagement models. Email, phone, and inquiry form." }} />
+      <Seo meta={{ title: "Contact AStechnix | Request a Consultation", description: "Contact AStechnix to discuss managed IT outsourcing, SLA governance, and engagement models. Email, phone, and inquiry form." }} />
       <PageHeader breadcrumbs={crumbs} title="Request a Consultation" description="Tell us about your requirements. We'll respond within one business day to schedule a consultation with our delivery team." />
 
       <section className="section-padding bg-canvas">

@@ -1,4 +1,5 @@
 import { ServicePageTemplate } from "./ServicePageTemplate";
+import { heroImages, sectionImages } from "../../config/images";
 
 export default function QATesting() {
   return (
@@ -7,6 +8,9 @@ export default function QATesting() {
       title="QA & Testing"
       shortTitle="QA & Testing"
       heroDescription="A managed QA service that owns quality end to end — test strategy, automation, regression management, and release certification — integrated directly into your delivery pipeline."
+      heroImage={heroImages.qaTesting}
+      sectionImage={sectionImages.codeEditor}
+      sectionImageAlt="Code and test structure in a development environment"
       businessProblem="Quality is often treated as a checkpoint rather than a discipline. Testing happens late, automation is patchy, and regression cycles grow with each release. Internal teams struggle to maintain test coverage while keeping up with development velocity. The result is defect leakage to production, delayed releases, and quality that depends on individual heroics rather than a structured process. Adding testers doesn't solve this — owning the quality outcome does."
       whatWeOwn={[
         { title: "Quality outcomes", description: "We contract for defect leakage rates, automation coverage, and release quality — not test execution counts." },

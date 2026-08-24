@@ -11,7 +11,7 @@ const crumbs: Crumb[] = [{ label: "Home", path: "/" }, { label: "Delivery Model"
 export default function SecurityCompliance() {
   return (
     <>
-      <Seo meta={{ title: "Security, Compliance & IP Protection | ASTechnix", description: "ASTechnix security framework: access controls, least-privilege principles, IP ownership transfer, data handling protocols, and contractual confidentiality controls." }} />
+      <Seo meta={{ title: "Security, Compliance & IP Protection | AStechnix", description: "AStechnix security framework: access controls, least-privilege principles, IP ownership transfer, data handling protocols, and contractual confidentiality controls." }} />
       <PageHeader breadcrumbs={crumbs} title="Security, Compliance & IP Protection" description="Security is not a feature — it's the baseline. Every engagement includes IP ownership transfer, access controls, and defined data handling protocols." />
 
       <section className="section-padding bg-canvas">
@@ -65,7 +65,7 @@ export default function SecurityCompliance() {
 
       <CTASection title="Have specific security or compliance requirements?" description="Book a consultation to discuss your security needs. We'll confirm what we can support and how our practices align to your requirements.">
         <Button to={ctaConfig.primary.path} variant="primary" size="lg">{ctaConfig.primary.label}</Button>
-        <Button to={ctaConfig.secondary.path} variant="secondary" size="lg" className="border-white/20 text-white hover:border-white hover:text-white">{ctaConfig.secondary.label}</Button>
+        <Button to={ctaConfig.secondary.path} variant="secondary" size="lg" className="border-white/20 text-white hover:border-white hover:text-white bg-transparent">{ctaConfig.secondary.label}</Button>
       </CTASection>
     </>
   );

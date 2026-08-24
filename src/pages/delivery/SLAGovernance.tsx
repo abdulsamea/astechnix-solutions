@@ -20,7 +20,7 @@ const priorityFramework: string[][] = [
 const reportingCadence: string[][] = [
   ["Monthly SLA Review", "Performance metrics, incident summary, action items", "Service lead + client stakeholder"],
   ["Quarterly Improvement Review", "Trend analysis, improvement targets, corrective actions", "Service lead + client management"],
-  ["Annual Service Review", "Overall service assessment, contract renewal discussion", "ASTechnix management + client management"],
+  ["Annual Service Review", "Overall service assessment, contract renewal discussion", "AStechnix management + client management"],
   ["Real-time Dashboards", "Live operational metrics, ticket status, system health", "Available on-demand"],
 ];
 
@@ -36,7 +36,7 @@ const comparisonRows: ComparisonRow[] = [
 export default function SLAGovernance() {
   return (
     <>
-      <Seo meta={{ title: "SLA Governance & Reporting | ASTechnix", description: "How ASTechnix governs managed service delivery through SLA frameworks, incident priority, escalation, reporting, and continuous improvement." }} />
+      <Seo meta={{ title: "SLA Governance & Reporting | AStechnix", description: "How AStechnix governs managed service delivery through SLA frameworks, incident priority, escalation, reporting, and continuous improvement." }} />
       <PageHeader breadcrumbs={crumbs} title="SLA Governance & Reporting" description="SLA governance is the mechanism that converts a service contract into operational accountability. It's what differentiates managed delivery from staff augmentation." />
 
       <section className="section-padding bg-canvas">
@@ -48,7 +48,7 @@ export default function SLAGovernance() {
             <SLAFeature title="Transparent reporting" description="Operational dashboards and monthly reports provide full visibility into performance against targets. No hidden metrics, no selective reporting." />
             <SLAFeature title="Continuous improvement" description="Quarterly improvement plans with measurable targets. If metrics slip, corrective actions are documented and tracked to completion." />
             <SLAFeature title="Defined escalation matrix" description="Incident escalation follows a defined matrix based on severity — not ad hoc phone calls. Each level has a defined response timeframe." />
-            <SLAFeature title="Single point of accountability" description="ASTechnix is the single accountable party for service performance. You don't chase individuals — you review metrics with our service lead." />
+            <SLAFeature title="Single point of accountability" description="AStechnix is the single accountable party for service performance. You don't chase individuals — you review metrics with our service lead." />
           </div>
         </div>
       </section>
@@ -84,14 +84,14 @@ export default function SLAGovernance() {
 
       <section className="section-padding bg-canvas">
         <div className="container-content">
-          <SectionHeader eyebrow="Comparison" title="In-house operations vs. ASTechnix governed delivery" className="mb-8" />
-          <SLAComparison rows={comparisonRows} leftHeader="In-House Team" rightHeader="ASTechnix Governed" />
+          <SectionHeader eyebrow="Comparison" title="In-house operations vs. AStechnix governed delivery" className="mb-8" />
+          <SLAComparison rows={comparisonRows} leftHeader="In-House Team" rightHeader="AStechnix Governed" />
         </div>
       </section>
 
       <CTASection title="Want to understand how SLAs would work for your environment?" description="Book a consultation to discuss your requirements. We'll walk through the governance framework and how it applies to your specific context.">
         <Button to={ctaConfig.primary.path} variant="primary" size="lg">{ctaConfig.contextual.slaAssessment.label}</Button>
-        <Button to={ctaConfig.secondary.path} variant="secondary" size="lg" className="border-white/20 text-white hover:border-white hover:text-white">{ctaConfig.secondary.label}</Button>
+        <Button to={ctaConfig.secondary.path} variant="secondary" size="lg" className="border-white/20 text-white hover:border-white hover:text-white bg-transparent">{ctaConfig.secondary.label}</Button>
       </CTASection>
     </>
   );
