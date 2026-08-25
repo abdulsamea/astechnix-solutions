@@ -1,4 +1,5 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import { commonEmailProviders } from "../data/constants";
 
 interface ContactFormState {
   name: string;
@@ -15,25 +16,6 @@ const initialState: ContactFormState = {
   company: "",
   message: "",
 };
-
-const commonEmailProviders = [
-  "gmail.com",
-  "googlemail.com",
-  "yahoo.com",
-  "yahoo.co.in",
-  "hotmail.com",
-  "outlook.com",
-  "live.com",
-  "msn.com",
-  "aol.com",
-  "icloud.com",
-  "me.com",
-  "protonmail.com",
-  "proton.me",
-  "zoho.com",
-  "yandex.com",
-  "gmx.com",
-];
 
 export function ContactForm() {
   const [form, setForm] = useState<ContactFormState>(initialState);

@@ -8,7 +8,7 @@ export function DashboardGraphic() {
   const bars = [68, 82, 74, 90, 78, 95];
 
   return (
-    <div className="relative w-full rounded-2xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-md md:p-8">
+    <div className="relative w-full rounded-2xl border border-white/10 bg-brand-dark/80 p-6 shadow-2xl backdrop-blur-md md:p-8">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-accent-light">
@@ -31,7 +31,7 @@ export function DashboardGraphic() {
         </div>
       </div>
 
-      <div className="mt-6 grid grid-cols-3 gap-3 md:gap-4">
+      <div className="mt-6  grid grid-cols-3 gap-3 md:gap-4">
         <StatCard
           icon={<Activity className="h-4 w-4" />}
           label="System Availability (SLA)"

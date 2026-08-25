@@ -46,6 +46,7 @@ const clientLogos = [
   "Vertex Financial",
   "NovaHealth",
   "Apex Logistics",
+  "INCYT",
   "Meridian Retail",
   "Orbit Telecom",
   "Sterling Mfg",
@@ -280,16 +281,37 @@ export default function ItOutsourcing() {
               }}
             >
               <div className="rounded-2xl bg-white p-6 shadow-2xl md:p-8">
-                <h2 className="heading-3 text-ink">Get Your Free SLA Audit</h2>
+                <h2 className="heading-3 text-ink">
+                  Request an Outsourcing Estimate
+                </h2>
                 <p className="mt-2 text-sm text-ink-soft">
-                  Tell us about your IT environment. We&apos;ll send a tailored
-                  SLA assessment within one business hour.
+                  Share your IT requirements. We will review your project scope
+                  and deliver a custom managed outsourcing proposal within 1-3
+                  business hours.
                 </p>
                 <div className="mt-6">
                   <LeadForm />
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-canvas py-10 md:py-12">
+        <div className="container-content">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted mb-6">
+            Trusted by enterprise teams across industries
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-16">
+            {clientLogos.map((logo) => (
+              <span
+                key={logo}
+                className="font-heading text-lg font-bold tracking-tight text-ink-muted/50 transition-colors duration-300 hover:text-ink"
+              >
+                {logo}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -329,24 +351,6 @@ export default function ItOutsourcing() {
           >
             <DashboardGraphic />
           </motion.div>
-        </div>
-      </section>
-
-      <section className="bg-canvas py-10 md:py-12">
-        <div className="container-content">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted mb-6">
-            Trusted by enterprise teams across industries
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-16">
-            {clientLogos.map((logo) => (
-              <span
-                key={logo}
-                className="font-heading text-lg font-bold tracking-tight text-ink-muted/50 transition-colors duration-300 hover:text-ink"
-              >
-                {logo}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
 
