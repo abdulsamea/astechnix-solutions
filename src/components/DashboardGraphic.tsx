@@ -81,5 +81,4 @@ function IncidentRow({ label, value, subtext }: { label: string; value: string; 
   );
 }
 
-
 export { DashboardGraphic }
