@@ -5,7 +5,13 @@ import {
   Database,
   Headphones,
 } from "lucide-react";
-import type { ServiceSummary, ProofPoint, CaseStudySummary, Testimonial, TechCategory } from "../types";
+import type {
+  ServiceSummary,
+  ProofPoint,
+  CaseStudySummary,
+  Testimonial,
+  TechCategory,
+} from "../types";
 
 export const services: ServiceSummary[] = [
   {
@@ -69,7 +75,7 @@ export const testimonials: Testimonial[] = [
     id: "t1",
     quote:
       "AStechnix took operational ownership of our infrastructure in a way no staffing partner ever had. Within the first quarter, our incident response times dropped dramatically and our monthly SLA reviews gave us visibility we never had before.",
-    author: "Rajesh Kumar",
+    author: "Chris Green",
     role: "CTO",
     company: "FinTech Platform",
     initials: "RK",
@@ -114,23 +120,57 @@ export const clientLogos: string[] = [
   "Orbital",
   "Meridian",
   "Apex",
+  "INCYT",
 ];
 
 export const techCategories: TechCategory[] = [
   {
     category: "Languages & Frameworks",
-    items: ["React", "TypeScript", "Node.js", "Python", "Java", ".NET", "Go", "Angular"],
+    items: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Python",
+      "Java",
+      ".NET",
+      "Go",
+      "Angular",
+    ],
   },
   {
     category: "Cloud & Infrastructure",
-    items: ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform", "Ansible"],
+    items: [
+      "AWS",
+      "Azure",
+      "GCP",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "Ansible",
+    ],
   },
   {
     category: "Data & Analytics",
-    items: ["Snowflake", "BigQuery", "dbt", "Airflow", "Power BI", "Tableau", "Spark"],
+    items: [
+      "Snowflake",
+      "BigQuery",
+      "dbt",
+      "Airflow",
+      "Power BI",
+      "Tableau",
+      "Spark",
+    ],
   },
   {
     category: "QA & Testing",
-    items: ["Cypress", "Playwright", "Selenium", "Jest", "Postman", "k6", "JMeter"],
+    items: [
+      "Cypress",
+      "Playwright",
+      "Selenium",
+      "Jest",
+      "Postman",
+      "k6",
+      "JMeter",
+    ],
   },
 ];

@@ -19,12 +19,15 @@ export function CTASection({
       <div className="container-content relative py-section-sm md:py-section">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="heading-2 text-white">{title}</h2>
-          <p className="mt-5 text-lg text-white/60 leading-relaxed max-w-xl mx-auto">{description}</p>
+          <p className="mt-5 text-lg text-white/60 leading-relaxed max-w-xl mx-auto">
+            {description}
+          </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row justify-center">
             {children ?? (
               <>
-                <Button to={ctaConfig.primary.path} variant="primary" size="lg">{ctaConfig.primary.label}</Button>
-                <Button to={ctaConfig.secondary.path} variant="secondary" size="lg" className="border-white/20 text-white hover:border-white hover:text-white bg-transparent">{ctaConfig.secondary.label}</Button>
+                <Button to={ctaConfig.primary.path} variant="primary" size="lg">
+                  {ctaConfig.primary.label}
+                </Button>
               </>
             )}
           </div>

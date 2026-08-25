@@ -29,7 +29,9 @@ export function Header() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileOpen]);
 
   useEffect(() => {
@@ -45,15 +47,29 @@ export function Header() {
 
   return (
     <>
-      <header className={`sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b transition-all duration-300 ${scrolled ? "border-ink/10 shadow-sm" : "border-transparent"}`}>
+      <header
+        className={`sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b transition-all duration-300 ${scrolled ? "border-ink/10 shadow-sm" : "border-transparent"}`}
+      >
         <div className="container-content">
           <div className="flex h-16 items-center justify-between md:h-[72px]">
-            <Link to="/" className="flex items-center" aria-label="AStechnix home">
+            <Link
+              to="/"
+              className="flex items-center"
+              aria-label="AStechnix home"
+            >
               <Logo className="h-8 w-auto md:h-9" />
             </Link>
-            <DesktopNavigation openMenu={openMenu} setOpenMenu={setOpenMenu} currentPath={location.pathname} reducedMotion={reducedMotion} />
+            <DesktopNavigation
+              openMenu={openMenu}
+              setOpenMenu={setOpenMenu}
+              currentPath={location.pathname}
+              reducedMotion={reducedMotion}
+            />
             <div className="hidden md:flex items-center gap-3">
-              <Link to={ctaConfig.primary.path} className="text-sm font-semibold text-brand-dark hover:text-brand-accent transition-colors">
+              <Link
+                to={ctaConfig.primary.path}
+                className="text-sm font-semibold text-brand-dark hover:text-brand-accent transition-colors"
+              >
                 Contact Us
               </Link>
               <a
@@ -64,13 +80,23 @@ export function Header() {
                 {company.phoneDisplay}
               </a>
             </div>
-            <button onClick={() => setMobileOpen(true)} className="flex h-10 w-10 items-center justify-center rounded-md text-ink hover:bg-surface md:hidden" aria-label="Open menu" aria-expanded={mobileOpen}>
+            <button
+              onClick={() => setMobileOpen(true)}
+              className="flex h-10 w-10 items-center justify-center rounded-md text-ink hover:bg-surface md:hidden"
+              aria-label="Open menu"
+              aria-expanded={mobileOpen}
+            >
               <Menu className="h-5 w-5" />
             </button>
           </div>
         </div>
       </header>
-      <MobileNavigation open={mobileOpen} onClose={() => setMobileOpen(false)} currentPath={location.pathname} reducedMotion={reducedMotion} />
+      <MobileNavigation
+        open={mobileOpen}
+        onClose={() => setMobileOpen(false)}
+        currentPath={location.pathname}
+        reducedMotion={reducedMotion}
+      />
     </>
   );
 }
@@ -82,16 +108,31 @@ interface DesktopNavProps {
   reducedMotion: boolean;
 }
 
-function DesktopNavigation({ openMenu, setOpenMenu, currentPath, reducedMotion }: DesktopNavProps) {
+function DesktopNavigation({
+  openMenu,
+  setOpenMenu,
+  currentPath,
+  reducedMotion,
+}: DesktopNavProps) {
   return (
-    <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
+    <nav
+      className="hidden md:flex items-center gap-1"
+      aria-label="Main navigation"
+    >
       {navigation.map((group) => {
         const hasChildren = !!group.children?.length;
         const isOpen = openMenu === group.label;
-        const isActive = currentPath === group.path || (hasChildren && group.children!.some((c) => currentPath === c.path));
+        const isActive =
+          currentPath === group.path ||
+          (hasChildren && group.children!.some((c) => currentPath === c.path));
 
         return (
-          <div key={group.label} className="relative" onMouseEnter={() => hasChildren && setOpenMenu(group.label)} onMouseLeave={() => hasChildren && setOpenMenu(null)}>
+          <div
+            key={group.label}
+            className="relative"
+            onMouseEnter={() => hasChildren && setOpenMenu(group.label)}
+            onMouseLeave={() => hasChildren && setOpenMenu(null)}
+          >
             {hasChildren ? (
               <button
                 onClick={() => setOpenMenu(isOpen ? null : group.label)}
@@ -100,10 +141,17 @@ function DesktopNavigation({ openMenu, setOpenMenu, currentPath, reducedMotion }
                 aria-haspopup="true"
               >
                 {group.label}
-                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                />
               </button>
             ) : (
-              <Link to={group.path} className={`px-3.5 py-2 text-sm font-medium transition-colors duration-200 ${isActive ? "text-brand-accent" : "text-ink-soft hover:text-brand-dark"}`}>{group.label}</Link>
+              <Link
+                to={group.path}
+                className={`px-3.5 py-2 text-sm font-medium transition-colors duration-200 ${isActive ? "text-brand-accent" : "text-ink-soft hover:text-brand-dark"}`}
+              >
+                {group.label}
+              </Link>
             )}
             <AnimatePresence>
               {hasChildren && isOpen && (
@@ -146,12 +194,19 @@ interface MobileNavProps {
   reducedMotion: boolean;
 }
 
-function MobileNavigation({ open, onClose, currentPath, reducedMotion }: MobileNavProps) {
+function MobileNavigation({
+  open,
+  onClose,
+  currentPath,
+  reducedMotion,
+}: MobileNavProps) {
   const drawerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (open && drawerRef.current) {
-      const focusable = drawerRef.current.querySelector<HTMLElement>("a, button, [tabindex]:not([tabindex='-1'])");
+      const focusable = drawerRef.current.querySelector<HTMLElement>(
+        "a, button, [tabindex]:not([tabindex='-1'])",
+      );
       focusable?.focus();
     }
   }, [open]);
@@ -187,14 +242,20 @@ function MobileNavigation({ open, onClose, currentPath, reducedMotion }: MobileN
           >
             <div className="flex items-center justify-between border-b border-ink/10 px-5 py-4">
               <Logo className="h-7 w-auto" />
-              <button onClick={onClose} className="flex h-10 w-10 items-center justify-center rounded-md text-ink hover:bg-surface" aria-label="Close menu">
+              <button
+                onClick={onClose}
+                className="flex h-10 w-10 items-center justify-center rounded-md text-ink hover:bg-surface"
+                aria-label="Close menu"
+              >
                 <X className="h-5 w-5" />
               </button>
             </div>
             <div className="px-3 py-4">
               {navigation.map((group) => (
                 <div key={group.label} className="mb-4">
-                  <p className="px-3 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-ink-muted">{group.label}</p>
+                  <p className="px-3 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-ink-muted">
+                    {group.label}
+                  </p>
                   {group.children ? (
                     <div className="space-y-0.5">
                       {group.children.map((child) => (
@@ -208,17 +269,35 @@ function MobileNavigation({ open, onClose, currentPath, reducedMotion }: MobileN
                       ))}
                     </div>
                   ) : (
-                    <Link to={group.path} className={`block rounded-md px-3 py-2.5 text-sm transition-colors ${currentPath === group.path ? "bg-brand-accent/10 font-semibold text-brand-accent" : "text-ink-soft hover:bg-canvas/60"}`}>
+                    <Link
+                      to={group.path}
+                      className={`block rounded-md px-3 py-2.5 text-sm transition-colors ${currentPath === group.path ? "bg-brand-accent/10 font-semibold text-brand-accent" : "text-ink-soft hover:bg-canvas/60"}`}
+                    >
                       {group.label}
                     </Link>
                   )}
                 </div>
               ))}
               <div className="mt-6 border-t border-ink/10 pt-4">
-                <Link to={ctaConfig.primary.path} className="btn-primary w-full">{ctaConfig.primary.label}</Link>
+                <Link
+                  to={ctaConfig.primary.path}
+                  className="btn-primary w-full"
+                >
+                  {ctaConfig.primary.label}
+                </Link>
                 <div className="mt-4 space-y-2 text-sm">
-                  <a href={company.phoneHref} className="block text-ink-soft hover:text-brand-accent transition-colors">{company.phoneDisplay}</a>
-                  <a href={company.emailHref} className="block text-ink-soft hover:text-brand-accent transition-colors">{company.email}</a>
+                  <a
+                    href={company.phoneHref}
+                    className="block text-ink-soft hover:text-brand-accent transition-colors"
+                  >
+                    {company.phoneDisplay}
+                  </a>
+                  <a
+                    href={company.emailHref}
+                    className="block text-ink-soft hover:text-brand-accent transition-colors"
+                  >
+                    {company.email}
+                  </a>
                 </div>
               </div>
             </div>
