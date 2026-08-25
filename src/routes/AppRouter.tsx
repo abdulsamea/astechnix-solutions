@@ -89,7 +89,6 @@ export function AppRouter() {
                     <Route path="/privacy" element={<Privacy />} />
                     <Route path="/cookies" element={<Cookies />} />
                     <Route path="/terms" element={<Terms />} />
-                    <Route path="*" element={<NotFound />} />
                     <Route
                       path="/it-outsourcing"
                       element={
@@ -98,6 +97,7 @@ export function AppRouter() {
                         // </AdLayout>
                       }
                     />
+                    <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
               </Layout>
