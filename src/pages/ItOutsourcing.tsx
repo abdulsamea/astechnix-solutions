@@ -211,59 +211,65 @@ export default function ItOutsourcing() {
 
   return (
     <>
-      {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-brand-dark">
+      {/* 1. HERO SECTION — Dark bg, two columns: content left, lead form right */}
+      <section
+        id="lead-form"
+        className="relative scroll-mt-20 overflow-hidden bg-brand-dark"
+      >
         <div className="absolute inset-0 grid-pattern-dark opacity-40" />
         <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-brand-accent/10 blur-3xl" />
         <div className="container-content relative py-14 md:py-20 lg:py-24">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
-              <motion.div
-                initial={reducedMotion ? false : { opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <span className="badge bg-brand-accent/15 text-brand-accent-light">
-                  <ShieldCheck className="h-3.5 w-3.5" />
-                  Enterprise IT Outsourcing
-                </span>
-                <h1 className="heading-display mt-5 text-white">
-                  Turnkey Enterprise IT Outsourcing &amp; Managed Services
-                </h1>
-                <p className="text-lead mt-6 text-white/70">
-                  Contract-backed SLAs, 15-minute guaranteed response times, and
-                  100% IP ownership from Day 1. Eliminate operational overhead
-                  with fully managed IT delivery.
-                </p>
-                <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                  <button
-                    onClick={scrollToForm}
-                    className="btn-primary !px-7 !py-3.5 !text-base"
-                  >
-                    Get My Free SLA Audit
-                  </button>
-                  <a
-                    href={company.phoneHref}
-                    className="btn !px-7 !py-3.5 !text-base border border-white/25 text-white hover:bg-white/10 hover:border-white/50"
-                  >
-                    <Phone className="h-4 w-4" />
-                    {company.phoneDisplay}
-                  </a>
-                </div>
-                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-                  {trustBadges.map((badge) => (
-                    <div
-                      key={badge.label}
-                      className="flex items-center gap-2 text-sm text-white/60"
-                    >
-                      <badge.icon className="h-4 w-4 text-brand-accent-light" />
-                      {badge.label}
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            {/* Left column: headline, subheadline, trust badges, phone, email */}
+            <motion.div
+              initial={reducedMotion ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <span className="badge bg-brand-accent/15 text-brand-accent-light">
+                <ShieldCheck className="h-3.5 w-3.5" />
+                Enterprise IT Outsourcing
+              </span>
+              <h1 className="heading-display mt-5 text-white">
+                Turnkey Enterprise IT Outsourcing &amp; Managed Services
+              </h1>
+              <p className="text-lead mt-6 text-white/70">
+                Contract-backed SLAs, 15-minute guaranteed response times, and
+                100% IP ownership from Day 1. Eliminate operational overhead
+                with fully managed IT delivery.
+              </p>
 
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+                {trustBadges.map((badge) => (
+                  <div
+                    key={badge.label}
+                    className="flex items-center gap-2 text-sm text-white/60"
+                  >
+                    <badge.icon className="h-4 w-4 text-brand-accent-light" />
+                    {badge.label}
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                  href={company.phoneHref}
+                  className="btn !px-6 !py-3 !text-base border border-white/25 text-white hover:bg-white/10 hover:border-white/50"
+                >
+                  <Phone className="h-4 w-4 text-brand-accent" />
+                  {company.phoneDisplay}
+                </a>
+                <a
+                  href={company.emailHref}
+                  className="btn !px-6 !py-3 !text-base border border-white/25 text-white hover:bg-white/10 hover:border-white/50"
+                >
+                  <Mail className="h-4 w-4 text-brand-accent" />
+                  {company.email}
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right column: embedded lead form card above the fold */}
             <motion.div
               initial={reducedMotion ? false : { opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
@@ -272,23 +278,8 @@ export default function ItOutsourcing() {
                 delay: 0.15,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="hidden lg:block"
             >
-              <DashboardGraphic />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Lead form anchor — mobile/tablet inline form */}
-      <section id="lead-form" className="scroll-mt-20 bg-canvas py-14 md:py-20">
-        <div className="container-content">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="hidden lg:block">
-              <DashboardGraphic />
-            </div>
-            <div className="mx-auto w-full max-w-md lg:max-w-none">
-              <div className="card p-6 md:p-8">
+              <div className="rounded-2xl bg-white p-6 shadow-2xl md:p-8">
                 <h2 className="heading-3 text-ink">Get Your Free SLA Audit</h2>
                 <p className="mt-2 text-sm text-ink-soft">
                   Tell us about your IT environment. We&apos;ll send a tailored
@@ -298,15 +289,15 @@ export default function ItOutsourcing() {
                   <LeadForm />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* 2. QUANTITATIVE PROOF & CLIENT LOGOS */}
-      <section className="border-y border-ink/10 bg-white py-14 md:py-20">
+      {/* 2. QUANTITATIVE PROOF, DASHBOARD GRAPHIC & CLIENT LOGOS — White bg */}
+      <section className="border-y border-surface bg-white py-14 md:py-20">
         <div className="container-content">
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -318,7 +309,7 @@ export default function ItOutsourcing() {
                   delay: i * 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="rounded-lg border border-ink/10 bg-white p-6 text-center shadow-card md:text-left"
+                className="rounded-lg border border-surface bg-white p-6 text-center shadow-card md:text-left"
               >
                 <p className="font-heading text-4xl font-extrabold text-brand-dark md:text-5xl">
                   {stat.value}
@@ -328,6 +319,16 @@ export default function ItOutsourcing() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={reducedMotion ? false : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-10"
+          >
+            <DashboardGraphic />
+          </motion.div>
         </div>
       </section>
 
@@ -349,7 +350,7 @@ export default function ItOutsourcing() {
         </div>
       </section>
 
-      {/* 3. PROBLEM VS. SOLUTION MATRIX */}
+      {/* 3. PROBLEM VS. SOLUTION MATRIX — White bg */}
       <section className="bg-white py-14 md:py-20">
         <div className="container-content">
           <SectionHeader
@@ -369,7 +370,7 @@ export default function ItOutsourcing() {
         </div>
       </section>
 
-      {/* 4. SERVICE CAPABILITIES GRID */}
+      {/* 4. SERVICE CAPABILITIES GRID — Canvas bg */}
       <section className="bg-canvas py-14 md:py-20">
         <div className="container-content">
           <SectionHeader
@@ -391,7 +392,7 @@ export default function ItOutsourcing() {
                   delay: i * 0.08,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="group rounded-lg border border-ink/10 bg-white p-7 shadow-card transition-all duration-300 hover:shadow-card-hover hover:border-ink/15"
+                className="group rounded-lg border border-surface bg-white p-7 shadow-card transition-all duration-300 hover:shadow-card-hover hover:border-ink/15"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-accent/10 text-brand-accent transition-colors duration-300 group-hover:bg-brand-accent group-hover:text-white">
                   <cap.icon className="h-6 w-6" />
@@ -413,7 +414,7 @@ export default function ItOutsourcing() {
             <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted mb-6">
               Technology Stack &amp; Tooling
             </p>
-            <div className="rounded-lg border border-ink/10 bg-white p-6 md:p-8">
+            <div className="rounded-lg border border-surface bg-white p-6 md:p-8">
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {techStack.map((cat) => (
                   <div key={cat.category}>
@@ -424,7 +425,7 @@ export default function ItOutsourcing() {
                       {cat.items.map((item) => (
                         <span
                           key={item}
-                          className="rounded-md border border-ink/10 bg-white px-3 py-1.5 text-sm font-medium text-ink-soft"
+                          className="rounded-md border border-surface bg-white px-3 py-1.5 text-sm font-medium text-ink-soft"
                         >
                           {item}
                         </span>
@@ -438,7 +439,7 @@ export default function ItOutsourcing() {
         </div>
       </section>
 
-      {/* 5. DELIVERY FRAMEWORK & TRANSITION TIMELINE */}
+      {/* 5. DELIVERY FRAMEWORK & TRANSITION TIMELINE — White bg */}
       <section className="bg-white py-14 md:py-20">
         <div className="container-content">
           <SectionHeader
@@ -454,7 +455,7 @@ export default function ItOutsourcing() {
         </div>
       </section>
 
-      {/* 6. RISK REVERSAL & LEGAL GUARANTEES */}
+      {/* 6. RISK REVERSAL & LEGAL GUARANTEES — Dark bg */}
       <section className="relative overflow-hidden bg-brand-dark py-14 md:py-20">
         <div className="absolute inset-0 grid-pattern-dark opacity-40" />
         <div className="container-content relative">
@@ -510,7 +511,7 @@ export default function ItOutsourcing() {
         </div>
       </section>
 
-      {/* 7. FEATURED CASE STUDY SNIPPET */}
+      {/* 7. FEATURED CASE STUDY SNIPPET — White bg */}
       <section className="bg-white py-14 md:py-20">
         <div className="container-content">
           <motion.div
@@ -518,7 +519,7 @@ export default function ItOutsourcing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden rounded-2xl border border-ink/10 bg-canvas shadow-card"
+            className="overflow-hidden rounded-2xl border border-surface bg-canvas shadow-card"
           >
             <div className="grid lg:grid-cols-5">
               <div className="bg-brand-dark p-8 md:p-10 lg:col-span-2">
@@ -563,7 +564,7 @@ export default function ItOutsourcing() {
         </div>
       </section>
 
-      {/* 8. EXECUTIVE FAQ ACCORDION */}
+      {/* 8. EXECUTIVE FAQ ACCORDION — Canvas bg */}
       <section className="bg-canvas py-14 md:py-20">
         <div className="container-content">
           <SectionHeader
@@ -579,7 +580,7 @@ export default function ItOutsourcing() {
         </div>
       </section>
 
-      {/* 9. TERMINAL STICKY CTA BANNER */}
+      {/* 9. TERMINAL STICKY CTA BANNER — Dark bg */}
       <section className="relative overflow-hidden bg-brand-dark py-14 md:py-20">
         <div className="absolute inset-0 grid-pattern-dark opacity-40" />
         <div className="absolute -left-40 -bottom-40 h-96 w-96 rounded-full bg-brand-accent/10 blur-3xl" />
@@ -616,7 +617,6 @@ export default function ItOutsourcing() {
         </div>
       </section>
 
-      {/* Floating scroll-to-form button */}
       <FloatingAuditButton />
     </>
   );
@@ -643,12 +643,6 @@ function CaseStudyMetric({
 }
 
 function FloatingAuditButton() {
-  const scrollToForm = () => {
-    document
-      .getElementById("lead-form")
-      ?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <motion.button
       onClick={scrollToForm}
