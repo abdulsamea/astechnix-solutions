@@ -1,6 +1,25 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script type="text/javascript">
+      // Decodes the URL parameter and restores browser history
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash,
+          );
+        }
+      })(window.location);
+    </script>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
