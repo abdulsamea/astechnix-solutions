@@ -232,12 +232,12 @@ export default function ItOutsourcing() {
                 Enterprise IT Outsourcing
               </span>
               <h1 className="heading-display mt-5 text-white">
-                Turnkey Enterprise IT Outsourcing &amp; Managed Services
+                Outsource With Confidence: Cut IT Costs by 45%
               </h1>
               <p className="text-lead mt-6 text-white/70">
-                Contract-backed SLAs, 15-minute guaranteed response times, and
-                100% IP ownership from Day 1. Eliminate operational overhead
-                with fully managed IT delivery.
+                Stop overpaying for domestic software development without
+                compromising on quality. We deliver custom IT outsourcing
+                solutions backed by real-time US shift overlap.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">

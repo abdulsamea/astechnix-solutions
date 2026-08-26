@@ -174,7 +174,7 @@ export function LeadForm({
           value={form.phone}
           onChange={(e) => setForm({ ...form, phone: e.target.value })}
           className="input-field"
-          placeholder="+91 90000 00000"
+          placeholder="+1 555 123 4567"
         />
       </div>
 
