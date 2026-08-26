@@ -1,6 +1,17 @@
 import { useState, type FormEvent } from "react";
 import { commonEmailProviders } from "../data/constants";
 
+// Declare global gtag function for TypeScript
+declare global {
+  interface Window {
+    gtag?: (
+      command: string,
+      target: string,
+      config?: Record<string, unknown>,
+    ) => void;
+  }
+}
+
 interface LeadFormState {
   name: string;
   email: string;
@@ -89,6 +100,16 @@ export function LeadForm({
       } else {
         await new Promise((r) => setTimeout(r, 800));
       }
+
+      // Fire Google Ads Conversion Snippet on verified successful form submission
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "conversion", {
+          send_to: "AW-18247449976/ru9CCNK_n-gcEPj6h_1D",
+          value: 1.0,
+          currency: "INR",
+        });
+      }
+
       setStatus("success");
       setForm(initialState);
     } catch {
