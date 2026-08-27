@@ -48,41 +48,50 @@ export function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b transition-all duration-300 ${scrolled ? "border-ink/10 shadow-sm" : "border-transparent"}`}
+        className={`sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b transition-all duration-300 ${
+          scrolled ? "border-ink/10 shadow-sm" : "border-transparent"
+        }`}
       >
         <div className="container-content">
-          <div className="flex h-16 items-center justify-between md:h-[72px]">
+          <div className="flex h-16 items-center justify-between lg:h-[72px]">
+            {/* Logo with flex-shrink prevention */}
             <Link
               to="/"
-              className="flex items-center"
+              className="flex items-center shrink-0"
               aria-label="AStechnix home"
             >
-              <Logo className="h-8 w-auto md:h-9" />
+              <Logo className="h-8 w-auto lg:h-9" />
             </Link>
+
+            {/* Desktop Navigation */}
             <DesktopNavigation
               openMenu={openMenu}
               setOpenMenu={setOpenMenu}
               currentPath={location.pathname}
               reducedMotion={reducedMotion}
             />
-            <div className="hidden md:flex items-center gap-3">
+
+            {/* Actions: Prevents wrapping & forces shrink protection */}
+            <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0">
               <Link
                 to={ctaConfig.primary.path}
-                className="text-sm font-semibold text-brand-dark hover:text-brand-accent transition-colors"
+                className="text-sm font-semibold text-brand-dark hover:text-brand-accent transition-colors whitespace-nowrap"
               >
                 Contact Us
               </Link>
               <a
                 href={company.phoneHref}
-                className="btn-primary inline-flex items-center gap-2"
+                className="btn-primary inline-flex items-center gap-2 whitespace-nowrap text-xs xl:text-sm px-3 py-2 xl:px-4 xl:py-2.5 shrink-0"
               >
-                <Phone className="h-4 w-4" />
-                {company.phoneDisplay}
+                <Phone className="h-4 w-4 shrink-0" />
+                <span>{company.phoneDisplay}</span>
               </a>
             </div>
+
+            {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="flex h-10 w-10 items-center justify-center rounded-md text-ink hover:bg-surface md:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-md text-ink hover:bg-surface lg:hidden"
               aria-label="Open menu"
               aria-expanded={mobileOpen}
             >
@@ -116,7 +125,7 @@ function DesktopNavigation({
 }: DesktopNavProps) {
   return (
     <nav
-      className="hidden md:flex items-center gap-1"
+      className="hidden lg:flex items-center gap-0.5 xl:gap-1"
       aria-label="Main navigation"
     >
       {navigation.map((group) => {
@@ -136,19 +145,29 @@ function DesktopNavigation({
             {hasChildren ? (
               <button
                 onClick={() => setOpenMenu(isOpen ? null : group.label)}
-                className={`flex items-center gap-1 px-3.5 py-2 text-sm font-medium transition-colors duration-200 ${isActive ? "text-brand-accent" : "text-ink-soft hover:text-brand-dark"}`}
+                className={`flex items-center gap-1 px-2.5 xl:px-3.5 py-2 text-xs xl:text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
+                  isActive
+                    ? "text-brand-accent"
+                    : "text-ink-soft hover:text-brand-dark"
+                }`}
                 aria-expanded={isOpen}
                 aria-haspopup="true"
               >
                 {group.label}
                 <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                  className={`h-3.5 w-3.5 xl:h-4 xl:w-4 transition-transform duration-300 ${
+                    isOpen ? "rotate-180" : ""
+                  }`}
                 />
               </button>
             ) : (
               <Link
                 to={group.path}
-                className={`px-3.5 py-2 text-sm font-medium transition-colors duration-200 ${isActive ? "text-brand-accent" : "text-ink-soft hover:text-brand-dark"}`}
+                className={`px-2.5 xl:px-3.5 py-2 text-xs xl:text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
+                  isActive
+                    ? "text-brand-accent"
+                    : "text-ink-soft hover:text-brand-dark"
+                }`}
               >
                 {group.label}
               </Link>
@@ -160,7 +179,7 @@ function DesktopNavigation({
                   animate={{ opacity: 1, y: 0 }}
                   exit={reducedMotion ? undefined : { opacity: 0, y: 8 }}
                   transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute left-0 top-full z-50 min-w-[300px] pt-3"
+                  className="absolute left-0 top-full z-50 min-w-[280px] xl:min-w-[300px] pt-3"
                   role="menu"
                 >
                   <div className="overflow-hidden rounded-lg border border-ink/10 bg-white shadow-card-hover">
@@ -168,7 +187,11 @@ function DesktopNavigation({
                       <Link
                         key={child.path}
                         to={child.path}
-                        className={`group flex items-center justify-between px-4 py-3 text-sm transition-colors hover:bg-canvas/60 ${currentPath === child.path ? "font-semibold text-brand-accent" : "text-ink-soft"}`}
+                        className={`group flex items-center justify-between px-4 py-3 text-sm transition-colors hover:bg-canvas/60 ${
+                          currentPath === child.path
+                            ? "font-semibold text-brand-accent"
+                            : "text-ink-soft"
+                        }`}
                         role="menuitem"
                         onClick={() => setOpenMenu(null)}
                       >
@@ -224,7 +247,7 @@ function MobileNavigation({
             animate={{ opacity: 1 }}
             exit={reducedMotion ? undefined : { opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 bg-brand-dark/50 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-50 bg-brand-dark/50 backdrop-blur-sm lg:hidden"
             onClick={onClose}
             aria-hidden="true"
           />
@@ -234,7 +257,7 @@ function MobileNavigation({
             animate={{ x: 0 }}
             exit={reducedMotion ? undefined : { x: "100%" }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed right-0 top-0 z-50 h-full w-[340px] max-w-[88vw] overflow-y-auto bg-white shadow-2xl md:hidden"
+            className="fixed right-0 top-0 z-50 h-full w-[340px] max-w-[88vw] overflow-y-auto bg-white shadow-2xl lg:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
@@ -262,7 +285,11 @@ function MobileNavigation({
                         <Link
                           key={child.path}
                           to={child.path}
-                          className={`block rounded-md px-3 py-2.5 text-sm transition-colors ${currentPath === child.path ? "bg-brand-accent/10 font-semibold text-brand-accent" : "text-ink-soft hover:bg-canvas/60"}`}
+                          className={`block rounded-md px-3 py-2.5 text-sm transition-colors ${
+                            currentPath === child.path
+                              ? "bg-brand-accent/10 font-semibold text-brand-accent"
+                              : "text-ink-soft hover:bg-canvas/60"
+                          }`}
                         >
                           {child.label}
                         </Link>
@@ -271,7 +298,11 @@ function MobileNavigation({
                   ) : (
                     <Link
                       to={group.path}
-                      className={`block rounded-md px-3 py-2.5 text-sm transition-colors ${currentPath === group.path ? "bg-brand-accent/10 font-semibold text-brand-accent" : "text-ink-soft hover:bg-canvas/60"}`}
+                      className={`block rounded-md px-3 py-2.5 text-sm transition-colors ${
+                        currentPath === group.path
+                          ? "bg-brand-accent/10 font-semibold text-brand-accent"
+                          : "text-ink-soft hover:bg-canvas/60"
+                      }`}
                     >
                       {group.label}
                     </Link>
