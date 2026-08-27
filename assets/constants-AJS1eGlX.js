@@ -1,1 +1,0 @@
-const o=["gmail.com","googlemail.com","yahoo.com","yahoo.co.in","hotmail.com","outlook.com","live.com","msn.com","aol.com","icloud.com","me.com","protonmail.com","proton.me","zoho.com","yandex.com","gmx.com"];export{o as c};
