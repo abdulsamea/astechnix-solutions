@@ -10,13 +10,13 @@ export function TechShowcase({ categories, variant = "light" }: TechShowcaseProp
 
   return (
     <div className={`rounded-lg border p-8 md:p-10 ${isDark ? "border-white/10 bg-white/5" : "border-ink/10 bg-canvas/50"}`}>
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="flex flex-wrap justify-center gap-8 sm:gap-10 lg:gap-14">
         {categories.map((cat) => (
-          <div key={cat.category}>
+          <div key={cat.category} className="text-center">
             <h4 className={`text-sm font-heading font-bold mb-4 ${isDark ? "text-white" : "text-ink"}`}>
               {cat.category}
             </h4>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap justify-center gap-2">
               {cat.items.map((item) => (
                 <span
                   key={item}

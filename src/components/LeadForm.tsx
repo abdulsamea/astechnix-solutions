@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, type FormEvent } from "react";
-import { CheckCircle2, Mail, MessageSquare, Phone } from "lucide-react";
+
 import { commonEmailProviders } from "../data/constants";
 import { FormSuccessState } from "./FormSuccessState";
 

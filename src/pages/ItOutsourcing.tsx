@@ -414,13 +414,13 @@ export default function ItOutsourcing() {
               Technology Stack &amp; Tooling
             </p>
             <div className="rounded-lg border border-surface bg-white p-6 md:p-8">
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="flex flex-wrap justify-center gap-6 sm:gap-8 lg:gap-12">
                 {techStack.map((cat) => (
-                  <div key={cat.category}>
+                  <div key={cat.category} className="text-center">
                     <h4 className="mb-3 text-sm font-heading font-bold text-ink">
                       {cat.category}
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap justify-center gap-2">
                       {cat.items.map((item) => (
                         <span
                           key={item}
