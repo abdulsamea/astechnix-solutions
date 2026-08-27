@@ -58,13 +58,12 @@ export function LeadForm({
     } else {
       const domain = emailTrimmed.split("@")[1];
       if (commonEmailProviders.includes(domain)) {
-        e.email =
-          "Please use a corporate email address (e.g., name@company.com)";
+        e.email = "Please use a work email address (e.g., name@company.com)";
       }
     }
 
     if (!form.details.trim()) {
-      e.details = "Please describe your project scope";
+      e.details = "Please describe your outsourcing requirements";
     }
 
     setErrors(e);
@@ -262,7 +261,7 @@ export function LeadForm({
             htmlFor="lead-scope"
             className="block text-xs font-semibold text-ink mb-1"
           >
-            Project Details <span className="text-red-500">*</span>
+            Additional Details <span className="text-red-500">*</span>
           </label>
           <textarea
             id="lead-scope"

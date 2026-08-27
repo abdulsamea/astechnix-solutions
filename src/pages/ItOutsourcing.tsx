@@ -281,7 +281,7 @@ export default function ItOutsourcing() {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              <div className="rounded-2xl bg-white p-6 shadow-2xl md:p-8">
+              <div className="rounded-2xl bg-white p-5 shadow-2xl xl:p-6">
                 <LeadForm />
               </div>
             </motion.div>
