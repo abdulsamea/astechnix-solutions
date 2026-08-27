@@ -31,7 +31,7 @@ export function DashboardGraphic() {
         </div>
       </div>
 
-      <div className="mt-6  grid grid-cols-3 gap-3 md:gap-4">
+      <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3 md:gap-4">
         <StatCard
           icon={<Activity className="h-4 w-4" />}
           label="System Availability (SLA)"
@@ -79,7 +79,7 @@ export function DashboardGraphic() {
         </div>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-3">
+      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
         <IncidentRow
           label="Customer Support SLA"
           value="14 min"
@@ -107,15 +107,17 @@ function StatCard({
   subtext: string;
 }) {
   return (
-    <div className="rounded-xl border border-white/10 bg-brand-dark/40 p-4">
-      <div className="flex items-center gap-2 text-brand-accent-light">
+    <div className="min-w-0 rounded-xl border border-white/10 bg-brand-dark/40 p-3.5 sm:p-4">
+      <div className="flex items-center gap-2 text-brand-accent-light shrink-0">
         {icon}
       </div>
-      <p className="mt-2 font-heading text-2xl font-extrabold text-white">
+      <p className="mt-2 font-heading text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-tight break-words">
         {value}
       </p>
-      <p className="text-xs text-white/50">{label}</p>
-      <p className="mt-0.5 text-[10px] font-medium text-brand-accent-light/70">
+      <p className="mt-1 text-xs text-white/70 leading-normal break-words">
+        {label}
+      </p>
+      <p className="mt-0.5 text-[10px] sm:text-xs font-medium text-brand-accent-light/70 leading-tight break-words">
         {subtext}
       </p>
     </div>
@@ -132,12 +134,24 @@ function IncidentRow({
   subtext: string;
 }) {
   return (
-    <div className="flex items-center justify-between rounded-lg border border-white/10 bg-brand-dark/30 px-4 py-3">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-3 rounded-lg border border-white/10 bg-brand-dark/30 px-3.5 py-3 min-w-0">
       <div className="min-w-0">
-        <p className="text-xs text-white/50">{label}</p>
-        <p className="text-[10px] text-brand-accent-light/60">{subtext}</p>
+        <p
+          className="text-xs text-white/70 leading-snug truncate"
+          title={label}
+        >
+          {label}
+        </p>
+        <p
+          className="text-[10px] text-brand-accent-light/60 truncate"
+          title={subtext}
+        >
+          {subtext}
+        </p>
       </div>
-      <span className="shrink-0 text-sm font-semibold text-white">{value}</span>
+      <span className="shrink-0 text-sm font-semibold text-white sm:text-right">
+        {value}
+      </span>
     </div>
   );
 }

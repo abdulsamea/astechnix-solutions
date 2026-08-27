@@ -229,10 +229,11 @@ export default function ItOutsourcing() {
             >
               <span className="badge bg-brand-accent/15 text-brand-accent-light">
                 <ShieldCheck className="h-3.5 w-3.5" />
-                Enterprise IT Outsourcing
+                Managed IT Outsourcing
               </span>
               <h1 className="heading-display mt-5 text-white">
-                Outsource With Confidence: Cut IT Costs by 45%
+                Outsource With Confidence: Cut IT Costs by{" "}
+                <span className="text-brand-accent">45%</span>
               </h1>
               <p className="text-lead mt-6 text-white/70">
                 Stop overpaying for domestic software development without
@@ -252,20 +253,20 @@ export default function ItOutsourcing() {
                 ))}
               </div>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="mt-8 flex flex-col gap-3 lg:flex-row lg:items-center">
                 <a
                   href={company.phoneHref}
-                  className="btn !px-6 !py-3 !text-base border border-white/25 text-white hover:bg-white/10 hover:border-white/50"
+                  className="btn !px-4 sm:!px-6 !py-3 !text-sm sm:!text-base border border-white/25 text-white hover:bg-white/10 hover:border-white/50 inline-flex items-center justify-center gap-2 whitespace-nowrap shrink-0"
                 >
-                  <Phone className="h-4 w-4 text-brand-accent" />
-                  {company.phoneDisplay}
+                  <Phone className="h-4 w-4 shrink-0 text-brand-accent" />
+                  <span>{company.phoneDisplay}</span>
                 </a>
                 <a
                   href={company.emailHref}
-                  className="btn !px-6 !py-3 !text-base border border-white/25 text-white hover:bg-white/10 hover:border-white/50"
+                  className="btn !px-4 sm:!px-6 !py-3 !text-sm sm:!text-base border border-white/25 text-white hover:bg-white/10 hover:border-white/50 inline-flex items-center justify-center gap-2 whitespace-nowrap shrink-0"
                 >
-                  <Mail className="h-4 w-4 text-brand-accent" />
-                  {company.email}
+                  <Mail className="h-4 w-4 shrink-0 text-brand-accent" />
+                  <span>{company.email}</span>
                 </a>
               </div>
             </motion.div>
@@ -319,7 +320,7 @@ export default function ItOutsourcing() {
       {/* 2. QUANTITATIVE PROOF, DASHBOARD GRAPHIC & CLIENT LOGOS — White bg */}
       <section className="border-y border-surface bg-white py-14 md:py-20">
         <div className="container-content">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -331,13 +332,17 @@ export default function ItOutsourcing() {
                   delay: i * 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="rounded-lg border border-surface bg-white p-6 text-center shadow-card md:text-left"
+                className="rounded-lg border border-surface bg-white p-4 sm:p-6 text-center shadow-card md:text-left min-w-0"
               >
-                <p className="font-heading text-4xl font-extrabold text-brand-dark md:text-5xl">
-                  {stat.value}
-                  <span className="text-brand-accent">{stat.suffix}</span>
+                <p className="font-heading text-3xl sm:text-4xl xl:text-5xl font-extrabold text-brand-dark tracking-tight leading-none break-words">
+                  <span>{stat.value}</span>
+                  <span className="text-brand-accent inline-block">
+                    {stat.suffix}
+                  </span>
                 </p>
-                <p className="mt-2 text-sm text-ink-muted">{stat.label}</p>
+                <p className="mt-2 text-xs sm:text-sm text-ink-muted leading-snug">
+                  {stat.label}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -658,7 +663,7 @@ function FloatingAuditButton() {
     >
       <span className="btn-primary !px-6 !py-3 shadow-card-hover">
         <ArrowUp className="h-4 w-4" />
-        Free SLA Audit
+        Request a Quote
       </span>
     </motion.button>
   );
