@@ -1,7 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { commonEmailProviders } from "../data/constants";
 
-// Declare global gtag function for TypeScript
 declare global {
   interface Window {
     gtag?: (
@@ -101,7 +100,6 @@ export function LeadForm({
         await new Promise((r) => setTimeout(r, 800));
       }
 
-      // Fire Google Ads Conversion Snippet on verified successful form submission
       if (typeof window.gtag === "function") {
         window.gtag("event", "conversion", {
           send_to: "AW-18247449976/ru9CCNK_n-gcEPj6h_1D",
@@ -119,17 +117,17 @@ export function LeadForm({
 
   if (status === "success") {
     return (
-      <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-8 text-center">
+      <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-6 text-center">
         <h3 className="text-lg font-heading font-bold text-ink">
           Request received
         </h3>
-        <p className="mt-2 text-sm text-ink-soft">
+        <p className="mt-2 text-xs sm:text-sm text-ink-soft">
           Thank you. Our team will review your requirements and reach out within
           one business hour with a custom proposal.
         </p>
         <button
           onClick={() => setStatus("idle")}
-          className="mt-4 text-sm font-semibold text-brand-accent hover:underline"
+          className="mt-3 text-xs sm:text-sm font-semibold text-brand-accent hover:underline"
         >
           Submit another request
         </button>
@@ -138,11 +136,11 @@ export function LeadForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+    <form onSubmit={handleSubmit} className="space-y-2.5" noValidate>
       <div>
         <label
           htmlFor="lead-name"
-          className="block text-sm font-medium text-ink mb-1.5"
+          className="block text-xs font-semibold text-ink mb-1"
         >
           Full Name <span className="text-red-500">*</span>
         </label>
@@ -151,19 +149,19 @@ export function LeadForm({
           type="text"
           value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
-          className="input-field"
+          className="input-field !py-2 !text-sm"
           placeholder="Your name"
           aria-invalid={!!errors.name}
         />
         {errors.name && (
-          <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+          <p className="mt-0.5 text-xs text-red-500">{errors.name}</p>
         )}
       </div>
 
       <div>
         <label
           htmlFor="lead-email"
-          className="block text-sm font-medium text-ink mb-1.5"
+          className="block text-xs font-semibold text-ink mb-1"
         >
           Work Email <span className="text-red-500">*</span>
         </label>
@@ -172,29 +170,31 @@ export function LeadForm({
           type="email"
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
-          className="input-field"
+          className="input-field !py-2 !text-sm"
           placeholder="you@company.com"
           aria-invalid={!!errors.email}
         />
         {errors.email && (
-          <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+          <p className="mt-0.5 text-xs text-red-500">{errors.email}</p>
         )}
       </div>
 
       <div>
         <label
           htmlFor="lead-phone"
-          className="block text-sm font-medium text-ink mb-1.5"
+          className="block text-xs font-semibold text-ink mb-1"
         >
           Phone Number{" "}
-          <span className="text-xs text-ink-muted">(Optional)</span>
+          <span className="text-[11px] font-normal text-ink-muted">
+            (Optional)
+          </span>
         </label>
         <input
           id="lead-phone"
           type="tel"
           value={form.phone}
           onChange={(e) => setForm({ ...form, phone: e.target.value })}
-          className="input-field"
+          className="input-field !py-2 !text-sm"
           placeholder="+1 555 123 4567"
         />
       </div>
@@ -202,26 +202,26 @@ export function LeadForm({
       <div>
         <label
           htmlFor="lead-scope"
-          className="block text-sm font-medium text-ink mb-1.5"
+          className="block text-xs font-semibold text-ink mb-1"
         >
           Project Details <span className="text-red-500">*</span>
         </label>
         <textarea
           id="lead-scope"
-          rows={3}
+          rows={2}
           value={form.details}
           onChange={(e) => setForm({ ...form, details: e.target.value })}
-          className="input-field resize-y"
+          className="input-field !py-1.5 !text-sm resize-y"
           placeholder="Briefly describe your IT outsourcing requirements..."
           aria-invalid={!!errors.details}
         />
         {errors.details && (
-          <p className="mt-1 text-sm text-red-500">{errors.details}</p>
+          <p className="mt-0.5 text-xs text-red-500">{errors.details}</p>
         )}
       </div>
 
       {status === "error" && (
-        <p className="text-sm text-red-500">
+        <p className="text-xs text-red-500">
           Something went wrong. Please try again or call us directly.
         </p>
       )}
@@ -229,12 +229,12 @@ export function LeadForm({
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="btn-primary w-full disabled:opacity-60"
+        className="btn-primary w-full !py-2.5 !text-sm font-semibold disabled:opacity-60"
       >
-        {status === "submitting" ? "Sending..." : "Request My Custom Proposal"}
+        {status === "submitting" ? "Sending..." : "Get My Free Estimate"}
       </button>
 
-      <p className="text-center text-xs text-ink-muted">
+      <p className="text-center text-[11px] text-ink-muted">
         No spam. We respond within 1-3 business hours.
       </p>
     </form>
