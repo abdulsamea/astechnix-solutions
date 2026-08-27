@@ -4,6 +4,8 @@ import {
   ShieldCheck,
   Database,
   Headphones,
+  Users,
+  Boxes,
 } from "lucide-react";
 import type {
   ServiceSummary,
@@ -58,6 +60,24 @@ export const services: ServiceSummary[] = [
     description:
       "Tiered support operations with ticketing discipline, resolution SLAs, and end-user experience monitoring across global time zones.",
     path: "/services/helpdesk-end-user-support",
+  },
+  {
+    slug: "crm-solutions",
+    title: "CRM Solutions",
+    shortTitle: "CRM",
+    icon: Users,
+    description:
+      "Customer relationship management platforms that connect sales, marketing, and support teams. We set up, customize, and support CRM systems that fit how your business works.",
+    path: "/services/crm-solutions",
+  },
+  {
+    slug: "erp-solutions",
+    title: "ERP Solutions",
+    shortTitle: "ERP",
+    icon: Boxes,
+    description:
+      "Enterprise resource planning systems that connect finance, inventory, HR, and operations in one place. We implement and customize ERP platforms for your business.",
+    path: "/services/erp-solutions",
   },
 ];
 

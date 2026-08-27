@@ -19,6 +19,8 @@ export const navigation: NavGroup[] = [
       { label: "QA & Testing", path: "/services/quality-assurance-testing" },
       { label: "Data Engineering & Analytics", path: "/services/data-engineering-analytics" },
       { label: "Helpdesk & End-User Support", path: "/services/helpdesk-end-user-support" },
+      { label: "CRM Solutions", path: "/services/crm-solutions" },
+      { label: "ERP Solutions", path: "/services/erp-solutions" },
     ],
   },
   {
@@ -53,6 +55,8 @@ export const footerServices: NavItem[] = [
   { label: "QA & Testing", path: "/services/quality-assurance-testing" },
   { label: "Data Engineering & Analytics", path: "/services/data-engineering-analytics" },
   { label: "Helpdesk & End-User Support", path: "/services/helpdesk-end-user-support" },
+  { label: "CRM Solutions", path: "/services/crm-solutions" },
+  { label: "ERP Solutions", path: "/services/erp-solutions" },
 ];
 
 export const footerDeliveryModel: NavItem[] = [

@@ -12,6 +12,8 @@ const ManagedIT = lazy(() => import("../pages/services/ManagedIT"));
 const QATesting = lazy(() => import("../pages/services/QATesting"));
 const DataEngineering = lazy(() => import("../pages/services/DataEngineering"));
 const HelpdeskSupport = lazy(() => import("../pages/services/HelpdeskSupport"));
+const CRM = lazy(() => import("../pages/services/CRM"));
+const ERP = lazy(() => import("../pages/services/ERP"));
 const SLAGovernance = lazy(() => import("../pages/delivery/SLAGovernance"));
 const SecurityCompliance = lazy(
   () => import("../pages/delivery/SecurityCompliance"),
@@ -67,6 +69,14 @@ export function AppRouter() {
                     <Route
                       path="/services/helpdesk-end-user-support"
                       element={<HelpdeskSupport />}
+                    />
+                    <Route
+                      path="/services/crm-solutions"
+                      element={<CRM />}
+                    />
+                    <Route
+                      path="/services/erp-solutions"
+                      element={<ERP />}
                     />
                     <Route
                       path="/delivery-model/sla-governance-reporting"
