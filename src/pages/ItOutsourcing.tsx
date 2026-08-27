@@ -510,7 +510,6 @@ export default function ItOutsourcing() {
         </div>
       </section>
 
-      {/* 7. FEATURED CASE STUDY SNIPPET — White bg */}
       <section className="bg-white py-14 md:py-20">
         <div className="container-content">
           <motion.div
@@ -524,15 +523,18 @@ export default function ItOutsourcing() {
               <div className="bg-brand-dark p-8 md:p-10 lg:col-span-2">
                 <span className="badge bg-brand-accent/15 text-brand-accent-light">
                   <TrendingDown className="h-3.5 w-3.5" />
-                  Featured Case Study
+                  Guaranteed Cost Reduction
                 </span>
                 <h3 className="heading-3 mt-5 text-white">
-                  38% Reduction in Annual IT Operational Costs
+                  38% Reduction in Annual{" "}
+                  <span className="text-brand-accent">
+                    IT Operational Costs
+                  </span>
                 </h3>
                 <p className="mt-4 text-sm text-white/60 leading-[1.7]">
-                  How AStechnix reduced annual IT operational costs by 38% for
-                  an enterprise financial client while maintaining 99.99% core
-                  system uptime.
+                  AStechnix reduces annual IT operational costs by at least 38%
+                  for enterprise clients while maintaining 99.99% core system
+                  uptime.
                 </p>
                 <button
                   onClick={scrollToForm}
@@ -541,7 +543,7 @@ export default function ItOutsourcing() {
                   Get the same results
                 </button>
               </div>
-              <div className="grid grid-cols-3 gap-6 p-8 md:p-10 lg:col-span-3">
+              <div className="grid grid-cols-3 items-center gap-3 p-4 sm:gap-6 sm:p-6 md:p-10 lg:col-span-3">
                 <CaseStudyMetric
                   value="38%"
                   label="Annual Cost Reduction"
@@ -563,13 +565,13 @@ export default function ItOutsourcing() {
         </div>
       </section>
 
-      {/* 8. EXECUTIVE FAQ ACCORDION — Canvas bg */}
+      {/* 8. FAQ ACCORDION — Canvas bg */}
       <section className="bg-canvas py-14 md:py-20">
         <div className="container-content">
           <SectionHeader
             align="center"
             className="mx-auto"
-            eyebrow="Executive FAQ"
+            eyebrow="FAQ on outsourcing"
             title="Answers to Your Key Questions"
             description="Straight answers on transition speed, SLA enforcement, IP ownership, and global coverage."
           />
@@ -621,6 +623,8 @@ export default function ItOutsourcing() {
   );
 }
 
+import { type LucideIcon } from "lucide-react";
+
 function CaseStudyMetric({
   value,
   label,
@@ -628,15 +632,22 @@ function CaseStudyMetric({
 }: {
   value: string;
   label: string;
-  icon: typeof Server;
+  icon: LucideIcon;
 }) {
   return (
     <div className="flex flex-col items-center text-center md:items-start md:text-left">
-      <Icon className="h-6 w-6 text-brand-accent" />
-      <p className="mt-3 font-heading text-3xl font-extrabold text-brand-dark">
+      {/* Icon: 16px on mobile, 24px on desktop */}
+      <Icon className="h-4 w-4 shrink-0 text-brand-accent md:h-6 md:w-6" />
+
+      {/* Metric Value: 18px on mobile, 30px on desktop */}
+      <p className="mt-1.5 font-heading text-lg font-extrabold tracking-tight text-brand-dark sm:text-2xl md:mt-3 md:text-3xl">
         {value}
       </p>
-      <p className="mt-1 text-xs text-ink-muted">{label}</p>
+
+      {/* Metric Label: 10px tight on mobile, 12px on desktop */}
+      <p className="mt-0.5 text-[10px] leading-tight text-ink-muted sm:text-xs md:mt-1">
+        {label}
+      </p>
     </div>
   );
 }
