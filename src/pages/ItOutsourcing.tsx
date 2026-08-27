@@ -282,17 +282,7 @@ export default function ItOutsourcing() {
               }}
             >
               <div className="rounded-2xl bg-white p-6 shadow-2xl md:p-8">
-                <h2 className="heading-3 text-ink">
-                  Request an Outsourcing Estimate
-                </h2>
-                <p className="mt-2 text-sm text-ink-soft">
-                  Share your IT requirements. We will review your project scope
-                  and deliver a custom managed outsourcing proposal within 1-3
-                  business hours.
-                </p>
-                <div className="mt-6">
-                  <LeadForm />
-                </div>
+                <LeadForm />
               </div>
             </motion.div>
           </div>
