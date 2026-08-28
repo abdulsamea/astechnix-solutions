@@ -7,65 +7,24 @@ export default function ERP() {
       slug="erp-solutions"
       title="ERP Solutions"
       shortTitle="ERP"
-      isAcronym={true}
       heroDescription="Enterprise resource planning software that connects your finance, inventory, HR, and operations in one place. We implement and customize ERP systems that give you a single source of truth across your business."
       heroImage={heroImages.erp}
       sectionImage={sectionImages.warehouseOps}
       sectionImageAlt="Warehouse operations with inventory management systems"
       businessProblem="Your finance team uses one tool, your warehouse team uses another, and HR tracks everything in a third system. Reports take days to compile because someone has to pull numbers from five different places. Orders get delayed because the sales system doesn't talk to the inventory system. ERP promises to solve this by connecting everything, but ERP projects are notorious for going over budget, taking too long, and frustrating teams. The problem isn't the software — it's the implementation. Without experienced people who understand both the technology and your business processes, ERP becomes an expensive mistake."
       whatWeOwn={[
-        {
-          title: "Implementation ownership",
-          description:
-            "We manage the entire ERP project from requirements gathering to go-live — you don't have to coordinate multiple vendors or figure out the setup yourself.",
-        },
-        {
-          title: "Process alignment",
-          description:
-            "We map your real business processes into the ERP, not generic templates. The system fits how your company actually operates.",
-        },
-        {
-          title: "Data migration",
-          description:
-            "We move data from your existing systems — inventory, finance, HR, sales — into the ERP accurately, with validation and reconciliation.",
-        },
-        {
-          title: "Team enablement",
-          description:
-            "We train every department on their specific ERP workflows, so each team knows exactly what to do from day one after launch.",
-        },
+        { title: "Implementation ownership", description: "We manage the entire ERP project from requirements gathering to go-live — you don't have to coordinate multiple vendors or figure out the setup yourself." },
+        { title: "Process alignment", description: "We map your real business processes into the ERP, not generic templates. The system fits how your company actually operates." },
+        { title: "Data migration", description: "We move data from your existing systems — inventory, finance, HR, sales — into the ERP accurately, with validation and reconciliation." },
+        { title: "Team enablement", description: "We train every department on their specific ERP workflows, so each team knows exactly what to do from day one after launch." },
       ]}
       capabilities={[
-        {
-          title: "Financial management",
-          description:
-            "General ledger, accounts payable and receivable, budgeting, and financial reporting — all in one system with real-time visibility.",
-        },
-        {
-          title: "Inventory and warehouse management",
-          description:
-            "Track stock levels, manage purchase orders, and optimize warehouse operations with barcode scanning and real-time updates.",
-        },
-        {
-          title: "HR and payroll",
-          description:
-            "Employee records, attendance, leave management, and payroll processing connected to finance for accurate cost tracking.",
-        },
-        {
-          title: "Sales and order management",
-          description:
-            "From quotes to orders to invoices — track every step and connect it to inventory and finance automatically.",
-        },
-        {
-          title: "Procurement",
-          description:
-            "Vendor management, purchase orders, and supplier tracking so you get the right materials at the right time and price.",
-        },
-        {
-          title: "Business intelligence",
-          description:
-            "Cross-department dashboards that pull data from every module, giving leadership a real-time view of the entire business.",
-        },
+        { title: "Financial management", description: "General ledger, accounts payable and receivable, budgeting, and financial reporting — all in one system with real-time visibility." },
+        { title: "Inventory and warehouse management", description: "Track stock levels, manage purchase orders, and optimize warehouse operations with barcode scanning and real-time updates." },
+        { title: "HR and payroll", description: "Employee records, attendance, leave management, and payroll processing connected to finance for accurate cost tracking." },
+        { title: "Sales and order management", description: "From quotes to orders to invoices — track every step and connect it to inventory and finance automatically." },
+        { title: "Procurement", description: "Vendor management, purchase orders, and supplier tracking so you get the right materials at the right time and price." },
+        { title: "Business intelligence", description: "Cross-department dashboards that pull data from every module, giving leadership a real-time view of the entire business." },
       ]}
       scope={[
         "ERP platform selection and licensing guidance",
@@ -77,99 +36,26 @@ export default function ERP() {
         "Department-level training and documentation",
         "Post-launch support and system improvements",
       ]}
-      technology={[
-        "SAP Business One",
-        "Oracle NetSuite",
-        "Microsoft Dynamics 365",
-        "Odoo",
-        "ERPNext",
-        "Infor",
-        "Epicor",
-        "Tally Prime",
-        "Zoho One",
-        "Power BI",
-        "Tableau",
-      ]}
+      technology={["SAP Business One", "Oracle NetSuite", "Microsoft Dynamics 365", "Odoo", "ERPNext", "Infor", "Epicor", "Tally Prime", "Zoho One", "Power BI", "Tableau"]}
       process={[
-        {
-          step: "01",
-          title: "Discovery",
-          description:
-            "We document your business processes across departments, identify pain points, and define what the ERP needs to solve.",
-        },
-        {
-          step: "02",
-          title: "Design",
-          description:
-            "We design the system configuration, map workflows, and plan data migration from your existing systems.",
-        },
-        {
-          step: "03",
-          title: "Build",
-          description:
-            "We configure modules, set up workflows, migrate data, and connect the ERP with your other tools.",
-        },
-        {
-          step: "04",
-          title: "Train",
-          description:
-            "We train each department on their specific tasks and run test scenarios with real business data.",
-        },
-        {
-          step: "05",
-          title: "Go live",
-          description:
-            "We launch the system, provide on-site support during the transition, and fix issues quickly as they arise.",
-        },
+        { step: "01", title: "Discovery", description: "We document your business processes across departments, identify pain points, and define what the ERP needs to solve." },
+        { step: "02", title: "Design", description: "We design the system configuration, map workflows, and plan data migration from your existing systems." },
+        { step: "03", title: "Build", description: "We configure modules, set up workflows, migrate data, and connect the ERP with your other tools." },
+        { step: "04", title: "Train", description: "We train each department on their specific tasks and run test scenarios with real business data." },
+        { step: "05", title: "Go live", description: "We launch the system, provide on-site support during the transition, and fix issues quickly as they arise." },
       ]}
       securityPrinciples={[
-        {
-          title: "Role-based access control",
-          description:
-            "Each employee sees only the modules and data relevant to their job — finance data stays with finance, HR data stays with HR.",
-        },
-        {
-          title: "Data encryption",
-          description:
-            "Sensitive business data is encrypted in transit and at rest, with regular security reviews.",
-        },
-        {
-          title: "Change logging",
-          description:
-            "Every transaction and system change is logged with user, timestamp, and before/after values for full traceability.",
-        },
-        {
-          title: "Backup and recovery",
-          description:
-            "Automated backups and tested recovery procedures ensure your business data is never lost.",
-        },
+        { title: "Role-based access control", description: "Each employee sees only the modules and data relevant to their job — finance data stays with finance, HR data stays with HR." },
+        { title: "Data encryption", description: "Sensitive business data is encrypted in transit and at rest, with regular security reviews." },
+        { title: "Change logging", description: "Every transaction and system change is logged with user, timestamp, and before/after values for full traceability." },
+        { title: "Backup and recovery", description: "Automated backups and tested recovery procedures ensure your business data is never lost." },
       ]}
       faqs={[
-        {
-          question: "How is this different from just buying ERP software?",
-          answer:
-            "Buying the software is the easy part. Making it work for your business is where most projects fail. We own the implementation — process mapping, configuration, data migration, training, and post-launch support. You get a working system, not just a software license.",
-        },
-        {
-          question: "Which ERP platform is right for us?",
-          answer:
-            "It depends on your company size, industry, budget, and growth plans. We compare options like SAP Business One, NetSuite, Microsoft Dynamics, and Odoo based on your specific needs. We're not tied to any vendor — we recommend what fits your business.",
-        },
-        {
-          question: "How long does an ERP implementation take?",
-          answer:
-            "Small businesses typically take 3–4 months. Mid-size companies take 4–8 months. Large organizations with complex processes can take 6–12 months. We give you a detailed timeline after the discovery phase.",
-        },
-        {
-          question: "Can you migrate data from our old systems?",
-          answer:
-            "Yes. We migrate data from accounting software, spreadsheets, legacy databases, and other tools. We clean and validate data during migration so your ERP starts with accurate, reconciled information.",
-        },
-        {
-          question: "What happens after the ERP goes live?",
-          answer:
-            "Go-live is the start, not the end. We provide post-launch support to fix issues, adjust configurations, and help teams adapt. We also offer ongoing support plans for system updates, new modules, and process improvements as your business grows.",
-        },
+        { question: "How is this different from just buying ERP software?", answer: "Buying the software is the easy part. Making it work for your business is where most projects fail. We own the implementation — process mapping, configuration, data migration, training, and post-launch support. You get a working system, not just a software license." },
+        { question: "Which ERP platform is right for us?", answer: "It depends on your company size, industry, budget, and growth plans. We compare options like SAP Business One, NetSuite, Microsoft Dynamics, and Odoo based on your specific needs. We're not tied to any vendor — we recommend what fits your business." },
+        { question: "How long does an ERP implementation take?", answer: "Small businesses typically take 3–4 months. Mid-size companies take 4–8 months. Large organizations with complex processes can take 6–12 months. We give you a detailed timeline after the discovery phase." },
+        { question: "Can you migrate data from our old systems?", answer: "Yes. We migrate data from accounting software, spreadsheets, legacy databases, and other tools. We clean and validate data during migration so your ERP starts with accurate, reconciled information." },
+        { question: "What happens after the ERP goes live?", answer: "Go-live is the start, not the end. We provide post-launch support to fix issues, adjust configurations, and help teams adapt. We also offer ongoing support plans for system updates, new modules, and process improvements as your business grows." },
       ]}
       seoDescription="ERP solutions: finance, inventory, HR, and operations in one system. We implement and customize ERP platforms that give your business a single source of truth."
       contextualCtaLabel="Discuss ERP Implementation"

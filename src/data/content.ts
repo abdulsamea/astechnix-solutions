@@ -69,7 +69,6 @@ export const services: ServiceSummary[] = [
     description:
       "Customer relationship management platforms that connect sales, marketing, and support teams. We set up, customize, and support CRM systems that fit how your business works.",
     path: "/services/crm-solutions",
-    isAcronym: true,
   },
   {
     slug: "erp-solutions",
@@ -79,7 +78,6 @@ export const services: ServiceSummary[] = [
     description:
       "Enterprise resource planning systems that connect finance, inventory, HR, and operations in one place. We implement and customize ERP platforms for your business.",
     path: "/services/erp-solutions",
-    isAcronym: true,
   },
 ];
 
