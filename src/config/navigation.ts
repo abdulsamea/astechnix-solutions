@@ -21,6 +21,7 @@ export const navigation: NavGroup[] = [
       { label: "Helpdesk & End-User Support", path: "/services/helpdesk-end-user-support" },
       { label: "CRM Solutions", path: "/services/crm-solutions" },
       { label: "ERP Solutions", path: "/services/erp-solutions" },
+      { label: "DevOps & CI/CD", path: "/services/devops" },
     ],
   },
   {
@@ -57,6 +58,7 @@ export const footerServices: NavItem[] = [
   { label: "Helpdesk & End-User Support", path: "/services/helpdesk-end-user-support" },
   { label: "CRM Solutions", path: "/services/crm-solutions" },
   { label: "ERP Solutions", path: "/services/erp-solutions" },
+  { label: "DevOps & CI/CD", path: "/services/devops" },
 ];
 
 export const footerDeliveryModel: NavItem[] = [

@@ -6,6 +6,7 @@ import {
   Headphones,
   Users,
   Boxes,
+  Workflow,
 } from "lucide-react";
 import type {
   ServiceSummary,
@@ -33,6 +34,16 @@ export const services: ServiceSummary[] = [
     description:
       "Round-the-clock monitoring, administration, and optimization of cloud, network, and server infrastructure with proactive incident management.",
     path: "/services/managed-it-infrastructure",
+  },
+  {
+    slug: "devops-ci-cd-automation",
+    title: "DevOps & CI/CD Automation",
+    shortTitle: "DevOps & CI/CD",
+    icon: Workflow,
+    description:
+      "Automated build and release pipelines, infrastructure as code, and zero-downtime deployment strategies that help your software team ship features faster and safely.",
+    path: "/services/devops-ci-cd-automation",
+    isAcronym: true,
   },
   {
     slug: "quality-assurance-testing",
@@ -169,6 +180,19 @@ export const techCategories: TechCategory[] = [
       "Kubernetes",
       "Terraform",
       "Ansible",
+    ],
+  },
+  {
+    category: "DevOps & CI/CD",
+    items: [
+      "GitHub Actions",
+      "GitLab CI",
+      "Jenkins",
+      "ArgoCD",
+      "Prometheus",
+      "Grafana",
+      "Datadog",
+      "HashiCorp Vault",
     ],
   },
   {

@@ -1,0 +1,186 @@
+import { ServicePageTemplate } from "./ServicePageTemplate";
+import { heroImages, sectionImages } from "../../config/images";
+
+export default function DevOps() {
+  return (
+    <ServicePageTemplate
+      slug="devops-ci-cd-automation"
+      title="DevOps & CI/CD Automation"
+      shortTitle="DevOps & CI/CD"
+      isAcronym={true}
+      heroDescription="We take over the setup, speed, and reliability of your software delivery — building clear deployment pipelines, automating cloud setups, and fixing build bottlenecks so your team can ship features safely."
+      heroImage={heroImages.devOps}
+      sectionImage={sectionImages.office}
+      sectionImageAlt="Developer working on automated deployment pipelines and cloud infrastructure"
+      businessProblem="Releasing software shouldn't break things or take all weekend. Too many teams get stuck doing manual deployments, fixing broken environments, and hunting down configuration errors between testing and production. When releases are stressful, engineers deploy less often, bugs escape to users, and feature delivery slows to a crawl. Hiring a single DevOps engineer doesn't fix the core problem if they end up spending all their time fighting fires instead of building reliable system automation."
+      whatWeOwn={[
+        {
+          title: "Pipeline health and deployment speed",
+          description:
+            "We own your build and release pipelines, making sure code passes testing and deploys automatically without manual steps or sudden failures.",
+        },
+        {
+          title: "Environment consistency",
+          description:
+            "We make sure your development, testing, and production environments match exactly, eliminating the 'it works on my machine' headache.",
+        },
+        {
+          title: "Deployment reliability",
+          description:
+            "We build rollbacks and automated safety checks so bad updates are caught before they touch your live users.",
+        },
+        {
+          title: "Infrastructure setup",
+          description:
+            "We write clean, repeatable code to set up your servers and cloud resources, replacing manual setup steps with automated scripts.",
+        },
+      ]}
+      capabilities={[
+        {
+          title: "Automated build & release pipelines",
+          description:
+            "Set up push-button deployments that automatically run tests, build software images, and push changes to live servers.",
+        },
+        {
+          title: "Infrastructure as Code (IaC)",
+          description:
+            "Define your servers, databases, and networks in version-controlled scripts so infrastructure can be created or rebuilt in minutes.",
+        },
+        {
+          title: "Container orchestration & cloud setups",
+          description:
+            "Package applications so they run reliably across cloud environments with automated scaling when traffic picks up.",
+        },
+        {
+          title: "Zero-downtime releases",
+          description:
+            "Implement release methods like blue-green or canary deployments, allowing you to update live applications without taking them offline.",
+        },
+        {
+          title: "Monitoring and alert routing",
+          description:
+            "Hook up tracking tools to catch application errors, performance slowdowns, and server outages before your customers notice.",
+        },
+        {
+          title: "Developer workflow optimization",
+          description:
+            "Speed up slow test runs and build times so your engineering team spends less time waiting for builds and more time writing code.",
+        },
+      ]}
+      scope={[
+        "Audit of existing deployment processes and environment setups",
+        "CI/CD pipeline build and migration (GitHub Actions, GitLab CI, etc.)",
+        "Infrastructure code development for cloud environments",
+        "Containerization of application services",
+        "Zero-downtime deployment setup",
+        "Secrets management and security scanning integration",
+        "Monitoring, logging, and error-alert configuration",
+        "Hands-on handover and documentation for your internal team",
+      ]}
+      technology={[
+        "GitHub Actions",
+        "GitLab CI",
+        "Jenkins",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "AWS",
+        "Azure",
+        "Google Cloud Platform",
+        "ArgoCD",
+        "Prometheus",
+        "Grafana",
+        "Datadog",
+        "HashiCorp Vault",
+      ]}
+      process={[
+        {
+          step: "01",
+          title: "Discovery",
+          description:
+            "We review your current build process, server environments, deployment risks, and developer friction points.",
+        },
+        {
+          step: "02",
+          title: "Design",
+          description:
+            "We map out a simple, secure pipeline architecture and plan how to automate your infrastructure without disturbing live operations.",
+        },
+        {
+          step: "03",
+          title: "Build",
+          description:
+            "We write the deployment scripts, containerize applications, and set up automated testing and release pipelines.",
+        },
+        {
+          step: "04",
+          title: "Test & Launch",
+          description:
+            "We run dry-run deployments, verify automated rollbacks, and launch the new pipeline with your team.",
+        },
+        {
+          step: "05",
+          title: "Handover & Support",
+          description:
+            "We document the setup, walk your engineers through everyday workflows, and provide support to keep deployments smooth.",
+        },
+      ]}
+      securityPrinciples={[
+        {
+          title: "Secrets protection",
+          description:
+            "API keys, passwords, and tokens are stored in secure vaults and never exposed inside code repositories.",
+        },
+        {
+          title: "Automated vulnerability checks",
+          description:
+            "Code and container images are automatically scanned for known security flaws before anything reaches production.",
+        },
+        {
+          title: "Least-privilege access",
+          description:
+            "Deployment pipelines and engineers get only the specific permissions needed to perform their tasks.",
+        },
+        {
+          title: "Audit trail for releases",
+          description:
+            "Every change, approval, and deployment is automatically logged so you always know who changed what and when.",
+        },
+      ]}
+      faqs={[
+        {
+          question:
+            "Will setting up CI/CD disrupt our current deployment schedule?",
+          answer:
+            "No. We build and test the new automated pipelines alongside your existing process. We only switch over once everything is thoroughly tested, causing zero downtime for your active applications.",
+        },
+        {
+          question:
+            "Do we need to switch cloud providers or tools to use your service?",
+          answer:
+            "Not at all. We work with your current stack — whether you use AWS, Azure, Google Cloud, GitHub, or GitLab. We optimize what you already have rather than forcing unnecessary vendor switches.",
+        },
+        {
+          question:
+            "How does automated deployment help our development team day-to-day?",
+          answer:
+            "It removes the manual chore of packaging code and running manual server checks. Developers push their code, tests run automatically, and approved changes go live seamlessly, saving hours every week.",
+        },
+        {
+          question: "What happens if a deployment fails or breaks something?",
+          answer:
+            "We build automated rollback checks into every pipeline. If a deployment fails tests or causes application errors, the system automatically shifts traffic back to the last stable version without manual intervention.",
+        },
+        {
+          question:
+            "Do you train our team to maintain the pipelines after you build them?",
+          answer:
+            "Yes. We write clear documentation, create simple runbooks, and run training sessions so your team can easily update, adjust, and run the pipelines day-to-day.",
+        },
+      ]}
+      seoDescription="DevOps and CI/CD automation services: automated deployment pipelines, infrastructure as code, zero-downtime releases, and cloud environment management."
+      contextualCtaLabel="Discuss DevOps Setup"
+    />
+  );
+}
