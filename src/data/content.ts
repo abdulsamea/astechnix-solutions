@@ -96,7 +96,7 @@ export const services: ServiceSummary[] = [
 
 export const proofPoints: ProofPoint[] = [
   { value: "10", label: "Years of Delivery", suffix: "+" },
-  { value: "5", label: "Managed Service Lines" },
+  { value: "8", label: "Managed Service Lines" },
   { value: "24/7", label: "Operations Coverage" },
   { value: "SLA", label: "Governed Delivery" },
 ];

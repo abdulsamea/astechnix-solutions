@@ -82,6 +82,7 @@ export function ServicePageTemplate({
         image={sectionImage}
         imageAlt={sectionImageAlt}
         eyebrow="The Problem"
+        variant="tinted"
         title="The operational challenge"
       >
         <p className="text-body">{businessProblem}</p>

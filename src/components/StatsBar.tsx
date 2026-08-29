@@ -4,15 +4,16 @@ import { useReducedMotion } from "../hooks/useReducedMotion";
 
 interface StatsBarProps {
   points: ProofPoint[];
-  variant?: "light" | "dark";
+  variant?: "light" | "dark" | "tainted";
 }
 
 export function StatsBar({ points, variant = "light" }: StatsBarProps) {
   const reducedMotion = useReducedMotion();
   const isDark = variant === "dark";
+  const isTainted = variant === "tainted";
 
   return (
-    <section className={`${isDark ? "bg-brand-dark text-white" : "bg-white border-y border-ink/10"}`}>
+    <section className={`${isTainted ? "bg-canvas/50" : isDark ? "bg-brand-dark text-white" : "bg-white border-y border-ink/10"}`}>
       <div className="container-content">
         <div className="grid grid-cols-2 gap-8 py-12 md:grid-cols-4 md:py-16">
           {points.map((point, i) => (

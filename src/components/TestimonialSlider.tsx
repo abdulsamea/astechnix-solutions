@@ -17,7 +17,7 @@ export function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
   const t = testimonials[index];
 
   return (
-    <section className="bg-white py-section-sm md:py-section">
+    <section className="bg-canvas/50 py-section-sm md:py-section">
       <div className="container-content">
         <div className="mx-auto max-w-4xl">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent mb-8">
