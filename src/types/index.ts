@@ -7,6 +7,7 @@ export interface ServiceSummary {
   icon: LucideIcon;
   description: string;
   path: string;
+  isAcronym?: boolean;
 }
 
 export interface ProofPoint {

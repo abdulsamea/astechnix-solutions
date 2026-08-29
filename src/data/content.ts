@@ -80,6 +80,7 @@ export const services: ServiceSummary[] = [
     description:
       "Customer relationship management platforms that connect sales, marketing, and support teams. We set up, customize, and support CRM systems that fit how your business works.",
     path: "/services/crm-solutions",
+    isAcronym: true,
   },
   {
     slug: "erp-solutions",
@@ -89,12 +90,13 @@ export const services: ServiceSummary[] = [
     description:
       "Enterprise resource planning systems that connect finance, inventory, HR, and operations in one place. We implement and customize ERP platforms for your business.",
     path: "/services/erp-solutions",
+    isAcronym: true,
   },
 ];
 
 export const proofPoints: ProofPoint[] = [
   { value: "10", label: "Years of Delivery", suffix: "+" },
-  { value: "8", label: "Managed Service Lines" },
+  { value: "6", label: "Managed Service Lines" },
   { value: "24/7", label: "Operations Coverage" },
   { value: "SLA", label: "Governed Delivery" },
 ];
@@ -109,7 +111,7 @@ export const testimonials: Testimonial[] = [
     author: "Chris Green",
     role: "CTO",
     company: "FinTech Platform",
-    initials: "RK",
+    initials: "CG",
     metric: { value: "60%", label: "Faster incident response" },
   },
   {
@@ -141,6 +143,16 @@ export const testimonials: Testimonial[] = [
     company: "Enterprise SaaS",
     initials: "SW",
     metric: { value: "3x", label: "Delivery velocity" },
+  },
+  {
+    id: "t5",
+    quote:
+      "Before AStechnix automated our deployment pipeline, releases were weekly manual fire drills. Now our team deploys multiple times a day with automated rollbacks if anything breaks.",
+    author: "David Miller",
+    role: "VP of Product",
+    company: "Cloud Operations Software",
+    initials: "DM",
+    metric: { value: "75%", label: "Faster deployment times" },
   },
 ];
 

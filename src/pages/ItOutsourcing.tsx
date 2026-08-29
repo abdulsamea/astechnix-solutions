@@ -582,7 +582,7 @@ export default function ItOutsourcing() {
       </section>
 
       {/* 9. TERMINAL STICKY CTA BANNER — Dark bg */}
-      <section className="relative overflow-hidden bg-brand-dark py-14 md:py-20">
+      <section className="relative overflow-hidden bg-brand-dark/80 py-14 md:py-20">
         <div className="absolute inset-0 grid-pattern-dark opacity-40" />
         <div className="absolute -left-40 -bottom-40 h-96 w-96 rounded-full bg-brand-accent/10 blur-3xl" />
         <div className="container-content relative text-center">
@@ -598,7 +598,7 @@ export default function ItOutsourcing() {
               onClick={scrollToForm}
               className="btn-primary !px-7 !py-3.5 !text-base"
             >
-              Book a 24-Hour SLA Audit
+              Request Outsourcing Details
             </button>
             <a
               href={company.phoneHref}

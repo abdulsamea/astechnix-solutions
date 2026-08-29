@@ -14,7 +14,7 @@ export function CTASection({
   children,
 }: CTASectionProps) {
   return (
-    <section className="relative overflow-hidden bg-brand-dark">
+    <section className="relative overflow-hidden bg-brand-dark/80">
       <div className="absolute inset-0 grid-pattern-dark opacity-40" />
       <div className="container-content relative py-section-sm md:py-section">
         <div className="mx-auto max-w-3xl text-center">

@@ -34,6 +34,7 @@ export interface ServicePageData {
   faqs: FaqItem[];
   seoDescription: string;
   contextualCtaLabel: string;
+  isAcronym?: boolean;
 }
 
 export function ServicePageTemplate({
@@ -54,6 +55,7 @@ export function ServicePageTemplate({
   faqs,
   seoDescription,
   contextualCtaLabel,
+  isAcronym,
 }: ServicePageData) {
   const crumbs: Crumb[] = [
     { label: "Home", path: "/" },
@@ -304,7 +306,7 @@ export function ServicePageTemplate({
       </section>
 
       <CTASection
-        title={`Ready to discuss ${shortTitle.toLowerCase()}?`}
+        title={`Ready to discuss ${isAcronym === true ? shortTitle : shortTitle.toLowerCase()}?`}
         description="Book a consultation with our delivery team to explore how this service can be structured for your environment."
       >
         <Button to={ctaConfig.primary.path} variant="primary" size="lg">
