@@ -293,9 +293,10 @@ export default function Home() {
         </div>
       </section>
 
-      <TestimonialSlider testimonials={testimonials} />
+      {/* <TestimonialSlider testimonials={testimonials} /> */}
 
       <ImageContentSection
+        variant="tinted"
         image={sectionImages.codingWorkstation}
         imageAlt="Developer working on code at a modern workstation"
         eyebrow="Why AStechnix"
@@ -331,7 +332,7 @@ export default function Home() {
         </div>
       </ImageContentSection>
 
-      <section className="section-padding bg-canvas/50 border-y border-ink/10">
+      <section className="section-padding bg-white border-y border-ink/10">
         <div className="container-content">
           <SectionHeader
             eyebrow="Delivery Process"
@@ -344,6 +345,7 @@ export default function Home() {
       </section>
 
       <TabbedContent
+        variant="tinted"
         eyebrow="How We Work"
         heading={
           <>
@@ -363,7 +365,6 @@ export default function Home() {
             <span className="emphasis">the delivery model</span>
           </>
         }
-        variant="tinted"
       >
         <p className="text-body">
           Security is not a bolt-on. It's embedded in how we structure
@@ -393,7 +394,7 @@ export default function Home() {
         </div>
       </ImageContentSection>
 
-      <section className="section-padding bg-white border-y border-ink/10">
+      <section className="section-padding bg-canvas/35 border-y border-ink/10">
         <div className="container-content">
           <SectionHeader
             eyebrow="Technology"
@@ -407,7 +408,7 @@ export default function Home() {
             align="center"
             className="mb-10"
           />
-          <TechShowcase categories={techCategories} />
+          <TechShowcase categories={techCategories} variant="light" />
         </div>
       </section>
 
@@ -438,7 +439,7 @@ export default function Home() {
         </div>
       </section> */}
 
-      <section className="section-padding bg-canvas/50 border-y border-ink/10">
+      <section className="section-padding bg-white border-y border-ink/10">
         <div className="container-content max-w-3xl">
           <SectionHeader
             eyebrow="FAQ"

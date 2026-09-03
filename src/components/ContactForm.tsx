@@ -332,7 +332,7 @@ export function ContactForm() {
             value={form.message}
             onChange={handleChange}
             className="input-field !py-1.5 !text-sm resize-y"
-            placeholder="e.g., Need offshore software developers, DevOps support, or dedicated team scaling..."
+            placeholder="e.g., Need offshore software developers, DevOps support, or dedicated support team..."
             maxLength={5000}
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? "message-error" : undefined}

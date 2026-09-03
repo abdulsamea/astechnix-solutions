@@ -16,15 +16,24 @@ interface TabbedContentProps {
   eyebrow?: string;
   heading: React.ReactNode;
   tabs: TabItem[];
+  variant?: "light" | "tinted";
 }
 
-export function TabbedContent({ eyebrow, heading, tabs }: TabbedContentProps) {
+export function TabbedContent({
+  eyebrow,
+  heading,
+  tabs,
+  variant = "light",
+}: TabbedContentProps) {
   const [active, setActive] = useState(tabs[0].id);
   const reducedMotion = useReducedMotion();
   const activeTab = tabs.find((t) => t.id === active) ?? tabs[0];
+  const color = variant === "light" ? "bg-white" : "bg-canvas/50";
 
   return (
-    <section className="bg-white py-section-sm md:py-section border-y border-ink/10">
+    <section
+      className={`py-section-sm md:py-section border-y border-ink/10 ${color}`}
+    >
       <div className="container-content">
         {eyebrow && (
           <p className="text-sm font-semibold uppercase tracking-[0.15em] text-brand-accent mb-4 text-center">
@@ -59,7 +68,9 @@ export function TabbedContent({ eyebrow, heading, tabs }: TabbedContentProps) {
             className="mx-auto max-w-3xl text-center"
           >
             <h3 className="heading-3 text-ink mb-4">{activeTab.title}</h3>
-            <p className="text-body max-w-2xl mx-auto">{activeTab.description}</p>
+            <p className="text-body max-w-2xl mx-auto">
+              {activeTab.description}
+            </p>
             {activeTab.linkLabel && activeTab.linkHref && (
               <a
                 href={activeTab.linkHref}
