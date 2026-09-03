@@ -293,7 +293,7 @@ export default function Home() {
         </div>
       </section>
 
-      <TestimonialSlider testimonials={testimonials} />
+      {/* <TestimonialSlider testimonials={testimonials} /> */}
 
       <ImageContentSection
         image={sectionImages.codingWorkstation}

@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import {
   ShieldCheck,
-  BadgeCheck,
-  Cloud,
+  Check,
+  Gem,
+  HandshakeIcon,
   Code2,
   Server,
   TestTube,
@@ -30,9 +31,9 @@ import { company } from "../config/company";
 import { useReducedMotion } from "../hooks/useReducedMotion";
 
 const trustBadges = [
-  { label: "ISO 27001 Certified", icon: BadgeCheck },
-  { label: "SOC 2 Type II", icon: ShieldCheck },
-  { label: "AWS & Azure Partner", icon: Cloud },
+  { label: "24/7 Support", icon: Clock },
+  { label: "Total IT Solutions", icon: HandshakeIcon },
+  { label: "6+ Years of Outsourcing Excellence", icon: Gem },
 ];
 
 const stats = [
@@ -42,15 +43,7 @@ const stats = [
   { value: "24/7", suffix: "/365", label: "NOC Coverage" },
 ];
 
-const clientLogos = [
-  "Vertex Financial",
-  "NovaHealth",
-  "Apex Logistics",
-  "INCYT",
-  "Meridian Retail",
-  "Orbit Telecom",
-  "Sterling Mfg",
-];
+const clientLogos = ["INCYT", "Renaissance Investments"];
 
 const comparisonRows: ComparisonRow[] = [
   {
@@ -292,7 +285,7 @@ export default function ItOutsourcing() {
       <section className="bg-canvas py-10 md:py-12">
         <div className="container-content">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted mb-6">
-            Trusted by enterprise teams across industries
+            Trusted by enterprise and startup teams across industries
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-16">
             {clientLogos.map((logo) => (

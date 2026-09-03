@@ -95,7 +95,7 @@ export const services: ServiceSummary[] = [
 ];
 
 export const proofPoints: ProofPoint[] = [
-  { value: "10", label: "Years of Delivery", suffix: "+" },
+  { value: "6", label: "Years of Delivery", suffix: "+" },
   { value: "6", label: "Managed Service Lines" },
   { value: "24/7", label: "Operations Coverage" },
   { value: "SLA", label: "Governed Delivery" },
@@ -156,15 +156,7 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export const clientLogos: string[] = [
-  "Nexus",
-  "Vertex",
-  "Quantum",
-  "Orbital",
-  "Meridian",
-  "Apex",
-  "INCYT",
-];
+export const clientLogos: string[] = ["INCYT", "Renaissance Investments"];
 
 export const techCategories: TechCategory[] = [
   {
