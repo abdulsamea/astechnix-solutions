@@ -229,9 +229,9 @@ export default function ItOutsourcing() {
                 <span className="text-brand-accent">45%</span>
               </h1>
               <p className="text-lead mt-6 text-white/70">
-                Custom IT outsourcing built for scale. Get top-tier software
-                development with zero quality loss and full overlap with French
-                working hours.
+                All-in-one IT outsourcing built for growing companies. Access
+                reliable, full-service tech management and IT support with zero
+                quality loss and full overlap with French working hours.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
