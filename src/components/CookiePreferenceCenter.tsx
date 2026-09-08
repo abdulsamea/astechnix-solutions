@@ -326,7 +326,7 @@ export function CookiePreferenceCenter() {
                               {cat.title}
                             </span>
                             {isLocked && (
-                              <span className="badge bg-brand-accent/10 text-brand-accent !px-2 !py-0.5 !text-[10px]">
+                              <span className="badge bg-brand-accent/10 text-brand-accent !px-2 !py-0.5 !text-[10px] text-center">
                                 Always Active
                               </span>
                             )}
