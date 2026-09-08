@@ -173,10 +173,43 @@ export function CookiePreferenceCenter() {
             aria-modal="false"
             aria-labelledby="cookie-banner-title"
           >
-            <div className="mx-auto max-w-5xl rounded-xl border border-ink/10 bg-white shadow-card-hover">
-              <div className="flex flex-col gap-5 p-5 sm:flex-row sm:items-start sm:gap-6 sm:p-6">
-                <div className="flex items-start gap-3 sm:flex-1">
-                  <div className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-accent/10 text-brand-accent sm:flex">
+            <div className="mx-auto max-w-5xl rounded-xl border border-ink/10 bg-white shadow-card-hover sm:rounded-xl">
+              {/* Mobile: compact layout under 25% screen height */}
+              <div className="flex flex-col gap-3 p-3.5 sm:hidden">
+                <p className="text-xs text-ink-soft leading-snug">
+                  We use essential cookies to run this site. With your
+                  permission, we'd also like optional analytics and marketing
+                  cookies.
+                </p>
+                <div className="grid grid-cols-3 gap-2">
+                  <button
+                    onClick={handleAcceptAll}
+                    className="btn-primary justify-center !py-2 !text-xs"
+                  >
+                    Accept
+                  </button>
+                  <button
+                    onClick={handleRejectAll}
+                    className="btn-secondary justify-center !py-2 !text-xs"
+                  >
+                    Reject
+                  </button>
+                  <button
+                    onClick={() => {
+                      setModalOpen(true);
+                      setBannerVisible(false);
+                    }}
+                    className="btn-ghost justify-center !py-2 !text-xs"
+                  >
+                    Preferences
+                  </button>
+                </div>
+              </div>
+
+              {/* Desktop: spacious layout */}
+              <div className="hidden flex-row items-start gap-6 p-6 sm:flex">
+                <div className="flex items-start gap-3 flex-1">
+                  <div className="h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-accent/10 text-brand-accent flex">
                     <Shield className="h-5 w-5" />
                   </div>
                   <div>
@@ -194,7 +227,7 @@ export function CookiePreferenceCenter() {
                     </p>
                   </div>
                 </div>
-                <div className="flex shrink-0 flex-col gap-2.5 sm:w-auto sm:flex-col sm:items-stretch">
+                <div className="flex shrink-0 flex-col gap-2.5 items-stretch">
                   <button
                     onClick={handleAcceptAll}
                     className="btn-primary w-full justify-center !py-2.5 !text-sm"
