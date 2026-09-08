@@ -40,7 +40,15 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-14 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center">
-          <p className="text-sm text-white/40">© {new Date().getFullYear()} {company.name}. All rights reserved.</p>
+          <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-6">
+            <p className="text-sm text-white/40">© {new Date().getFullYear()} {company.name}. All rights reserved.</p>
+            <button
+              onClick={() => window.dispatchEvent(new Event("opencookiepreferencecenter"))}
+              className="text-sm text-white/40 transition-colors hover:text-white"
+            >
+              Cookie Settings
+            </button>
+          </div>
           <div className="flex items-center gap-3">
             <SocialLink href={company.social.linkedin} label="LinkedIn"><Linkedin className="h-4 w-4" /></SocialLink>
             <SocialLink href={company.social.facebook} label="Facebook"><Facebook className="h-4 w-4" /></SocialLink>
