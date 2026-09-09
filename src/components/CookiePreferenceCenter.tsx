@@ -173,7 +173,7 @@ export function CookiePreferenceCenter() {
             aria-modal="false"
             aria-labelledby="cookie-banner-title"
           >
-            <div className="mx-auto max-w-5xl rounded-xl border border-ink/10 bg-white shadow-card-hover sm:rounded-xl">
+            <div className="mx-auto max-w-3xl rounded-xl border border-ink/10 bg-white shadow-card-hover sm:rounded-xl">
               {/* Mobile: compact layout under 25% screen height */}
               <div className="flex flex-col gap-3 p-3.5 sm:hidden">
                 <p className="text-xs text-ink-soft leading-snug">
@@ -206,11 +206,11 @@ export function CookiePreferenceCenter() {
                 </div>
               </div>
 
-              {/* Desktop: spacious layout */}
-              <div className="hidden flex-row items-start gap-6 p-6 sm:flex">
-                <div className="flex items-start gap-3 flex-1">
-                  <div className="h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-accent/10 text-brand-accent flex">
-                    <Shield className="h-5 w-5" />
+              {/* Desktop: compact stacked layout with actions along the bottom */}
+              <div className="hidden flex-col gap-4 p-5 sm:flex">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-accent/10 text-brand-accent">
+                    <Shield className="h-4.5 w-4.5" />
                   </div>
                   <div>
                     <h2
@@ -219,7 +219,7 @@ export function CookiePreferenceCenter() {
                     >
                       We respect your privacy
                     </h2>
-                    <p className="mt-2 text-sm text-ink-soft leading-relaxed">
+                    <p className="mt-1 text-sm leading-relaxed text-ink-soft">
                       We use essential cookies to keep our site running smoothly.
                       With your permission, we'd also like to use optional cookies
                       to analyze site traffic and help us understand how you
@@ -227,16 +227,16 @@ export function CookiePreferenceCenter() {
                     </p>
                   </div>
                 </div>
-                <div className="flex shrink-0 flex-col gap-2.5 items-stretch">
+                <div className="flex items-center justify-end gap-2 border-t border-ink/10 pt-3">
                   <button
                     onClick={handleAcceptAll}
-                    className="btn-primary w-full justify-center !py-2.5 !text-sm"
+                    className="btn-primary justify-center !px-5 !py-2 !text-sm"
                   >
                     Accept All
                   </button>
                   <button
                     onClick={handleRejectAll}
-                    className="btn-secondary w-full justify-center !py-2.5 !text-sm"
+                    className="btn-secondary justify-center !px-5 !py-2 !text-sm"
                   >
                     Reject Non-Essential
                   </button>
@@ -245,7 +245,7 @@ export function CookiePreferenceCenter() {
                       setModalOpen(true);
                       setBannerVisible(false);
                     }}
-                    className="btn-ghost w-full justify-center !py-2.5 !text-sm"
+                    className="btn-ghost justify-center !px-5 !py-2 !text-sm"
                   >
                     Customize Preferences
                   </button>
