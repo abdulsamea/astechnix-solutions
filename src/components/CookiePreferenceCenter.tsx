@@ -199,7 +199,7 @@ export function CookiePreferenceCenter() {
                       setModalOpen(true);
                       setBannerVisible(false);
                     }}
-                    className="btn-ghost justify-center !py-2 !text-xs"
+                    className="btn-dark justify-center !py-2 !text-xs"
                   >
                     Preferences
                   </button>
@@ -227,7 +227,7 @@ export function CookiePreferenceCenter() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center justify-end gap-2 border-t border-ink/10 pt-3">
+                <div className="flex items-center justify-evenly gap-2 border-t border-ink/10 pt-3">
                   <button
                     onClick={handleAcceptAll}
                     className="btn-primary justify-center !px-5 !py-2 !text-sm"
@@ -245,7 +245,7 @@ export function CookiePreferenceCenter() {
                       setModalOpen(true);
                       setBannerVisible(false);
                     }}
-                    className="btn-ghost justify-center !px-5 !py-2 !text-sm"
+                    className="btn-dark justify-center !px-5 !py-2 !text-sm"
                   >
                     Customize Preferences
                   </button>
