@@ -20,7 +20,63 @@
         }
       })(window.location);
     </script>
-    <!-- Google Tag Manager -->
+
+    <!-- ========================================================== -->
+    <!-- Google Consent Mode v2 — MUST run before any GTM/gtag/Meta  -->
+    <!-- scripts. Default state is DENIED for all non-essential      -->
+    <!-- categories. Consent is updated to GRANTED only after the    -->
+    <!-- user makes a positive choice via the cookie banner.         -->
+    <!-- ========================================================== -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      (function () {
+        var defaultConsent = {
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          analytics_storage: "denied",
+          functionality_storage: "denied",
+          security_storage: "granted",
+          wait_for_update: 500,
+        };
+
+        try {
+          var raw = localStorage.getItem("user_cookie_preferences");
+          if (raw) {
+            var saved = JSON.parse(raw);
+            if (saved && typeof saved.analytics === "boolean") {
+              defaultConsent.analytics_storage = saved.analytics
+                ? "granted"
+                : "denied";
+              defaultConsent.ad_storage = saved.marketing
+                ? "granted"
+                : "denied";
+              defaultConsent.ad_user_data = saved.marketing
+                ? "granted"
+                : "denied";
+              defaultConsent.ad_personalization = saved.marketing
+                ? "granted"
+                : "denied";
+              defaultConsent.functionality_storage = saved.functional
+                ? "granted"
+                : "denied";
+            }
+          }
+        } catch (e) {
+          /* localStorage unavailable — keep all denied */
+        }
+
+        gtag("consent", "default", defaultConsent);
+      })();
+    </script>
+
+    <!-- Google Tag Manager — loaded after consent defaults are set.
+         GTM respects Consent Mode v2 and will not fire tags until the
+         corresponding consent type is updated to "granted". -->
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -34,52 +90,31 @@
       })(window, document, "script", "dataLayer", "GTM-N422H5NK");
     </script>
     <!-- End Google Tag Manager -->
-    <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js",
-      );
-      fbq("init", "1287527836555303");
-      fbq("track", "PageView");
-    </script>
+
+    <!-- Google Ads (gtag.js) — loaded after consent defaults. Tags
+         will fire in consentless / ping mode until consent is granted. -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-18247449976"
     ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
       gtag("js", new Date());
-
       gtag("config", "AW-18247449976");
     </script>
+
     <!-- Google Phone Call Conversion Snippet -->
     <script>
       gtag("config", "AW-18247449976/YBIuCIeayuMcEPj6h_1D", {
         phone_conversion_number: "+91 90045 75425",
       });
     </script>
+
+    <!-- ========================================================== -->
+    <!-- Meta Pixel — NOT loaded here. The React consent utility      -->
+    <!-- injects it dynamically only when marketing consent is        -->
+    <!-- granted. This prevents the pixel from firing before consent.  -->
+    <!-- ========================================================== -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -95,7 +130,10 @@
     />
     <title>AStechnix — Managed IT Outsourcing & Technology Delivery</title>
     <meta name="twitter:card" content="summary_large_image" />
-  </head>
+    <meta property="og:image" content="https://bolt.new/static/og_default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+</head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript
@@ -107,13 +145,8 @@
       ></iframe
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <noscript
-      ><img
-        height="1"
-        width="1"
-        style="display: none"
-        src="https://www.facebook.com/tr?id=1287527836555303&ev=PageView&noscript=1"
-    /></noscript>
+    <!-- Meta Pixel noscript fallback removed: pixel only loads with
+         marketing consent, which requires JavaScript. -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

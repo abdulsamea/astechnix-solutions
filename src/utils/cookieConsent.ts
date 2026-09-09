@@ -85,6 +85,7 @@ export function saveCookieConsent(
     // localStorage may be unavailable in private browsing — consent
     // remains session-only
   }
+  applyConsent(choices);
   window.dispatchEvent(new CustomEvent("cookieconsentchange", { detail: record }));
   return record;
 }
@@ -94,6 +95,87 @@ export function hasConsentFor(
 ): boolean {
   const consent = getCookieConsent();
   return consent[category];
+}
+
+/**
+ * Updates Google Consent Mode v2 signals based on the user's choices.
+ * Must be called every time consent changes (accept, reject, or save).
+ */
+export function updateConsentMode(choices: CookieConsentState): void {
+  if (typeof window === "undefined" || typeof window.gtag !== "function") {
+    return;
+  }
+
+  window.gtag("consent", "update", {
+    analytics_storage: choices.analytics ? "granted" : "denied",
+    ad_storage: choices.marketing ? "granted" : "denied",
+    ad_user_data: choices.marketing ? "granted" : "denied",
+    ad_personalization: choices.marketing ? "granted" : "denied",
+    functionality_storage: choices.functional ? "granted" : "denied",
+    security_storage: "granted",
+  });
+}
+
+/**
+ * Loads the Meta (Facebook) Pixel only when marketing consent is granted.
+ * Prevents the pixel from firing or setting cookies before consent.
+ */
+let metaPixelLoaded = false;
+
+export function loadMetaPixel(): void {
+  if (metaPixelLoaded || typeof window === "undefined") return;
+
+  /* eslint-disable */
+  (function (f: any, b: Document, e: string, v: string) {
+    if (f.fbq) return;
+    const n: any = (f.fbq = function (...args: any[]) {
+      n.callMethod ? n.callMethod.apply(n, args) : n.queue.push(args);
+    });
+    n.push = f.fbq;
+    n.loaded = true;
+    n.version = "2.0";
+    n.queue = [];
+    const t = b.createElement(e) as HTMLScriptElement;
+    t.async = true;
+    t.src = v;
+    const s = b.getElementsByTagName(e)[0];
+    s.parentNode?.insertBefore(t, s);
+  })(
+    window,
+    document,
+    "script",
+    "https://connect.facebook.net/en_US/fbevents.js",
+  );
+  /* eslint-enable */
+
+  const fbq = (window as unknown as { fbq?: (...args: unknown[]) => void })
+    .fbq;
+  if (typeof fbq === "function") {
+    fbq("init", "1287527836555303");
+    fbq("track", "PageView");
+  }
+
+  metaPixelLoaded = true;
+}
+
+/**
+ * Called whenever consent changes. Updates Consent Mode v2 signals
+ * and loads the Meta Pixel if marketing consent is granted.
+ */
+export function applyConsent(choices: CookieConsentState): void {
+  updateConsentMode(choices);
+  if (choices.marketing) {
+    loadMetaPixel();
+  }
+}
+
+/**
+ * On app startup, restore consent state and apply it to Consent Mode v2
+ * and the Meta Pixel. Should be called early in the app lifecycle.
+ */
+export function restoreConsentOnLoad(): void {
+  const stored = getCookieConsent();
+  applyConsent(stored);
 }
 
 export const CONSENT_VERSION_CURRENT = CONSENT_VERSION;

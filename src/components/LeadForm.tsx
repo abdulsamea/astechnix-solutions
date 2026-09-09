@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, type FormEvent } from "react";
 
 import { commonEmailProviders } from "../data/constants";
 import { FormSuccessState } from "./FormSuccessState";
+import { hasConsentFor } from "../utils/cookieConsent";
 
 declare global {
   interface Window {
@@ -111,22 +112,26 @@ export function LeadForm({
         await new Promise((r) => setTimeout(r, 800));
       }
 
-      // Guarantee gtag tracking even if window.gtag isn't defined as a direct function yet
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "conversion", {
-          send_to: "AW-18247449976/ru9CCNK_n-gcEPj6h_1D",
-          value: 1.0,
-          currency: "INR",
-        });
-      } else if (
-        Array.isArray((window as unknown as { dataLayer: unknown[] }).dataLayer)
-      ) {
-        (window as unknown as { dataLayer: unknown[] }).dataLayer.push({
-          event: "conversion",
-          send_to: "AW-18247449976/ru9CCNK_n-gcEPj6h_1D",
-          value: 1.0,
-          currency: "INR",
-        });
+      // Trigger Google Ads conversion tracking — only if marketing
+      // consent has been granted. Without consent, the conversion is
+      // not sent, keeping the site compliant with EU/UK regulations.
+      if (hasConsentFor("marketing")) {
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "conversion", {
+            send_to: "AW-18247449976/ru9CCNK_n-gcEPj6h_1D",
+            value: 1.0,
+            currency: "INR",
+          });
+        } else if (
+          Array.isArray((window as unknown as { dataLayer: unknown[] }).dataLayer)
+        ) {
+          (window as unknown as { dataLayer: unknown[] }).dataLayer.push({
+            event: "conversion",
+            send_to: "AW-18247449976/ru9CCNK_n-gcEPj6h_1D",
+            value: 1.0,
+            currency: "INR",
+          });
+        }
       }
 
       setStatus("success");
