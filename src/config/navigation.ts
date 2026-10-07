@@ -14,14 +14,10 @@ export const navigation: NavGroup[] = [
     label: "Services",
     path: "/services",
     children: [
-      { label: "Software Engineering Outsourcing", path: "/services/software-engineering-outsourcing" },
-      { label: "Managed IT Infrastructure", path: "/services/managed-it-infrastructure" },
-      { label: "QA & Testing", path: "/services/quality-assurance-testing" },
-      { label: "Data Engineering & Analytics", path: "/services/data-engineering-analytics" },
-      { label: "Helpdesk & End-User Support", path: "/services/helpdesk-end-user-support" },
-      { label: "CRM Solutions", path: "/services/crm-solutions" },
-      { label: "ERP Solutions", path: "/services/erp-solutions" },
-      { label: "DevOps & CI/CD", path: "/services/devops" },
+      { label: "Endpoint Management", path: "/services/managed-it-infrastructure" },
+      { label: "Endpoint Security", path: "/delivery-model/security-compliance-ip-protection" },
+      { label: "Vulnerability Checks and Cloud Care", path: "/services/managed-it-infrastructure" },
+      { label: "IT Helpdesk and Support", path: "/services/helpdesk-end-user-support" },
     ],
   },
   {

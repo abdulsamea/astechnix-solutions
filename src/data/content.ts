@@ -1,12 +1,8 @@
 import {
-  Code2,
-  ServerCog,
+  Laptop,
   ShieldCheck,
-  Database,
+  CloudCog,
   Headphones,
-  Users,
-  Boxes,
-  Workflow,
 } from "lucide-react";
 import type {
   ServiceSummary,
@@ -18,87 +14,48 @@ import type {
 
 export const services: ServiceSummary[] = [
   {
-    slug: "software-engineering-outsourcing",
-    title: "Software Engineering Outsourcing",
-    shortTitle: "Software Engineering",
-    icon: Code2,
+    slug: "endpoint-management-patching",
+    title: "Endpoint Management and Patching",
+    shortTitle: "Endpoint Management",
+    icon: Laptop,
     description:
-      "Full-lifecycle application development, maintenance, and modernization with dedicated engineering teams operating under SLA governance.",
-    path: "/services/software-engineering-outsourcing",
-  },
-  {
-    slug: "managed-it-infrastructure",
-    title: "Managed IT Infrastructure",
-    shortTitle: "Managed Infrastructure",
-    icon: ServerCog,
-    description:
-      "Round-the-clock monitoring, administration, and optimization of cloud, network, and server infrastructure with proactive incident management.",
+      "Keeping remote laptops and workstations updated, healthy, and ready for everyday work.",
     path: "/services/managed-it-infrastructure",
   },
   {
-    slug: "devops-ci-cd-automation",
-    title: "DevOps & CI/CD Automation",
-    shortTitle: "DevOps & CI/CD",
-    icon: Workflow,
-    description:
-      "Automated build and release pipelines, infrastructure as code, and zero-downtime deployment strategies that help your software team ship features faster and safely.",
-    path: "/services/devops-ci-cd-automation",
-    isAcronym: true,
-  },
-  {
-    slug: "quality-assurance-testing",
-    title: "QA & Testing",
-    shortTitle: "QA & Testing",
+    slug: "endpoint-security-monitoring",
+    title: "Endpoint Security and Monitoring",
+    shortTitle: "Endpoint Security",
     icon: ShieldCheck,
     description:
-      "Comprehensive quality assurance — automated and manual testing, performance validation, and regression management across the delivery lifecycle.",
-    path: "/services/quality-assurance-testing",
+      "Protecting devices against threats with proactive monitoring and clear response procedures.",
+    path: "/delivery-model/security-compliance-ip-protection",
   },
   {
-    slug: "data-engineering-analytics",
-    title: "Data Engineering & Analytics",
-    shortTitle: "Data & Analytics",
-    icon: Database,
+    slug: "vulnerability-cloud-care",
+    title: "Vulnerability Checks and Cloud Care",
+    shortTitle: "Cloud Care",
+    icon: CloudCog,
     description:
-      "Pipeline architecture, data platform modernization, and analytics enablement for operational intelligence and decision-grade data quality.",
-    path: "/services/data-engineering-analytics",
+      "Finding and fixing security gaps in cloud infrastructure before they become larger problems.",
+    path: "/services/managed-it-infrastructure",
   },
   {
     slug: "helpdesk-end-user-support",
-    title: "Helpdesk & End-User Support",
-    shortTitle: "Helpdesk & Support",
+    title: "IT Helpdesk and Support",
+    shortTitle: "IT Helpdesk",
     icon: Headphones,
     description:
-      "Tiered support operations with ticketing discipline, resolution SLAs, and end-user experience monitoring across global time zones.",
+      "Reliable technical help for your team's day-to-day computer, access, and software needs.",
     path: "/services/helpdesk-end-user-support",
-  },
-  {
-    slug: "crm-solutions",
-    title: "CRM Solutions",
-    shortTitle: "CRM",
-    icon: Users,
-    description:
-      "Customer relationship management platforms that connect sales, marketing, and support teams. We set up, customize, and support CRM systems that fit how your business works.",
-    path: "/services/crm-solutions",
-    isAcronym: true,
-  },
-  {
-    slug: "erp-solutions",
-    title: "ERP Solutions",
-    shortTitle: "ERP",
-    icon: Boxes,
-    description:
-      "Enterprise resource planning systems that connect finance, inventory, HR, and operations in one place. We implement and customize ERP platforms for your business.",
-    path: "/services/erp-solutions",
-    isAcronym: true,
   },
 ];
 
 export const proofPoints: ProofPoint[] = [
-  { value: "6", label: "Years of Delivery", suffix: "+" },
-  { value: "6", label: "Managed Service Lines" },
-  { value: "24/7", label: "Operations Coverage" },
-  { value: "SLA", label: "Governed Delivery" },
+  { value: "6", label: "Years Supporting Teams", suffix: "+" },
+  { value: "24/7", label: "Support Coverage" },
+  { value: "4", label: "Core Service Areas" },
+  { value: "1", label: "Clear Support Partner" },
 ];
 
 export const caseStudies: CaseStudySummary[] = [];
@@ -160,65 +117,15 @@ export const clientLogos: string[] = ["INCYT", "Renaissance Investments"];
 
 export const techCategories: TechCategory[] = [
   {
-    category: "Languages & Frameworks",
-    items: [
-      "React",
-      "TypeScript",
-      "Node.js",
-      "Python",
-      "Java",
-      ".NET",
-      "Go",
-      "Angular",
-    ],
+    category: "Endpoint Management",
+    items: ["Microsoft Intune", "Microsoft 365", "Azure AD", "Windows"] ,
   },
   {
-    category: "Cloud & Infrastructure",
-    items: [
-      "AWS",
-      "Azure",
-      "GCP",
-      "Docker",
-      "Kubernetes",
-      "Terraform",
-      "Ansible",
-    ],
+    category: "Security and Monitoring",
+    items: ["CrowdStrike", "Tenable", "Qualys", "ServiceNow"],
   },
   {
-    category: "DevOps & CI/CD",
-    items: [
-      "GitHub Actions",
-      "GitLab CI",
-      "Jenkins",
-      "ArgoCD",
-      "Prometheus",
-      "Grafana",
-      "Datadog",
-      "HashiCorp Vault",
-    ],
-  },
-  {
-    category: "Data & Analytics",
-    items: [
-      "Snowflake",
-      "BigQuery",
-      "dbt",
-      "Airflow",
-      "Power BI",
-      "Tableau",
-      "Spark",
-    ],
-  },
-  {
-    category: "QA & Testing",
-    items: [
-      "Cypress",
-      "Playwright",
-      "Selenium",
-      "Jest",
-      "Postman",
-      "k6",
-      "JMeter",
-    ],
+    category: "Cloud Platforms",
+    items: ["AWS", "Azure", "CloudWatch", "Azure Monitor"],
   },
 ];
