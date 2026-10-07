@@ -1,9 +1,4 @@
-import {
-  Laptop,
-  ShieldCheck,
-  CloudCog,
-  Headphones,
-} from "lucide-react";
+import { Laptop, ShieldCheck, CloudCog, Headphones } from "lucide-react";
 import type {
   ServiceSummary,
   ProofPoint,
@@ -20,7 +15,7 @@ export const services: ServiceSummary[] = [
     icon: Laptop,
     description:
       "Keeping remote laptops and workstations updated, healthy, and ready for everyday work.",
-    path: "/services/managed-it-infrastructure",
+    path: "/services/endpoint-management",
   },
   {
     slug: "endpoint-security-monitoring",
@@ -29,7 +24,7 @@ export const services: ServiceSummary[] = [
     icon: ShieldCheck,
     description:
       "Protecting devices against threats with proactive monitoring and clear response procedures.",
-    path: "/delivery-model/security-compliance-ip-protection",
+    path: "/services/endpoint-security",
   },
   {
     slug: "vulnerability-cloud-care",
@@ -38,7 +33,7 @@ export const services: ServiceSummary[] = [
     icon: CloudCog,
     description:
       "Finding and fixing security gaps in cloud infrastructure before they become larger problems.",
-    path: "/services/managed-it-infrastructure",
+    path: "/services/vulnerability-management",
   },
   {
     slug: "helpdesk-end-user-support",
@@ -47,7 +42,7 @@ export const services: ServiceSummary[] = [
     icon: Headphones,
     description:
       "Reliable technical help for your team's day-to-day computer, access, and software needs.",
-    path: "/services/helpdesk-end-user-support",
+    path: "/services/helpdesk-support",
   },
 ];
 
@@ -118,7 +113,7 @@ export const clientLogos: string[] = ["INCYT", "Renaissance Investments"];
 export const techCategories: TechCategory[] = [
   {
     category: "Endpoint Management",
-    items: ["Microsoft Intune", "Microsoft 365", "Azure AD", "Windows"] ,
+    items: ["Microsoft Intune", "Microsoft 365", "Azure AD", "Windows"],
   },
   {
     category: "Security and Monitoring",
