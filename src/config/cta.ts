@@ -10,7 +10,7 @@ export const ctaConfig = {
   contextual: {
     slaAssessment: { label: "Request SLA Assessment", path: "/contact" },
     managedIT: { label: "Discuss Managed IT", path: "/contact" },
-    softwareDelivery: { label: "Discuss Software Delivery", path: "/contact" },
+    softwareDelivery: { label: "Discuss IT Support", path: "/contact" },
     technicalConsultation: { label: "Request Technical Consultation", path: "/contact" },
     exploreServices: { label: "Explore Our Services", path: "/services/managed-it-infrastructure" }
   },

@@ -5,16 +5,8 @@ import { Layout } from "../layouts/Layout";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 
 const Home = lazy(() => import("../pages/Home"));
-const SoftwareEngineering = lazy(
-  () => import("../pages/services/SoftwareEngineering"),
-);
 const ManagedIT = lazy(() => import("../pages/services/ManagedIT"));
-const QATesting = lazy(() => import("../pages/services/QATesting"));
-const DataEngineering = lazy(() => import("../pages/services/DataEngineering"));
 const HelpdeskSupport = lazy(() => import("../pages/services/HelpdeskSupport"));
-const CRM = lazy(() => import("../pages/services/CRM"));
-const ERP = lazy(() => import("../pages/services/ERP"));
-const DevOps = lazy(() => import("../pages/services/DevOps"));
 const SLAGovernance = lazy(() => import("../pages/delivery/SLAGovernance"));
 const SecurityCompliance = lazy(
   () => import("../pages/delivery/SecurityCompliance"),
@@ -52,28 +44,13 @@ export function AppRouter() {
                   <Routes>
                     <Route path="/" element={<Home />} />
                     <Route
-                      path="/services/software-engineering-outsourcing"
-                      element={<SoftwareEngineering />}
-                    />
-                    <Route
                       path="/services/managed-it-infrastructure"
                       element={<ManagedIT />}
-                    />
-                    <Route
-                      path="/services/quality-assurance-testing"
-                      element={<QATesting />}
-                    />
-                    <Route
-                      path="/services/data-engineering-analytics"
-                      element={<DataEngineering />}
                     />
                     <Route
                       path="/services/helpdesk-end-user-support"
                       element={<HelpdeskSupport />}
                     />
-                    <Route path="/services/Devops" element={<DevOps />} />
-                    <Route path="/services/crm-solutions" element={<CRM />} />
-                    <Route path="/services/erp-solutions" element={<ERP />} />
                     <Route
                       path="/delivery-model/sla-governance-reporting"
                       element={<SLAGovernance />}
