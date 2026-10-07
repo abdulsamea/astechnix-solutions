@@ -30,15 +30,15 @@ export default function Contact() {
     <>
       <Seo
         meta={{
-          title: "Contact AStechnix | Request a Consultation",
+          title: "Contact AStechnix | Request IT Support",
           description:
-            "Contact AStechnix to discuss managed IT outsourcing, SLA governance, and engagement models. Email, phone, and inquiry form.",
+            "Get in touch with AStechnix to discuss endpoint management, security monitoring, vulnerability checks, and IT helpdesk support. Email, phone, and inquiry form.",
         }}
       />
       <PageHeader
         breadcrumbs={crumbs}
-        title="Request a Consultation"
-        description="Tell us about your requirements. We'll respond within one business day to schedule a consultation with our delivery team."
+        title="Get in Touch"
+        description="Tell us about your IT support requirements. We will respond within one business day to discuss how we can help keep your operations running smoothly."
       />
 
       <section className="section-padding bg-canvas">
@@ -47,7 +47,7 @@ export default function Contact() {
             <div ref={sectionRef} className="scroll-mt-24 lg:col-span-7">
               <SectionHeader
                 eyebrow="Inquiry"
-                title="Request outsourcing details"
+                title="Send us a message"
                 className="mb-8"
               />
               <ContactForm />

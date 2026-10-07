@@ -1,0 +1,173 @@
+import { ServicePageTemplate } from "./ServicePageTemplate";
+import { heroImages, sectionImages } from "../../config/images";
+
+export default function HelpdeskAndSupport() {
+  return (
+    <ServicePageTemplate
+      slug="helpdesk-end-user-support"
+      title="IT Helpdesk and Support"
+      shortTitle="IT Helpdesk"
+      heroDescription="We provide responsive, human-centered IT helpdesk and end-user support, resolving technical issues quickly and keeping your team productive."
+      heroImage={heroImages.managedIT}
+      sectionImage={sectionImages.dataCenter}
+      sectionImageAlt="IT support desk and technical assistance"
+      businessProblem="Technical issues and user friction drain valuable time across your organization. When employees struggle with software access, email configuration, hardware glitches, or network connectivity, internal momentum stalls. Managing helpdesk tickets internally pulls skilled engineers away from core projects. Organizations need a reliable, responsive support desk that handles day-to-day IT issues smoothly and professionally."
+      whatWeOwn={[
+        {
+          title: "Ticket lifecycle management",
+          description:
+            "We own support requests from initial submission to final resolution and user sign-off.",
+        },
+        {
+          title: "End-user assistance",
+          description:
+            "Friendly, structured technical help for software, hardware, and access issues encountered by your team.",
+        },
+        {
+          title: "Service level adherence",
+          description:
+            "We manage response and resolution times in accordance with clearly defined service agreements.",
+        },
+        {
+          title: "Knowledge base maintenance",
+          description:
+            "We document common solutions and internal FAQs to accelerate future resolution times.",
+        },
+      ]}
+      capabilities={[
+        {
+          title: "Multi-channel ticketing",
+          description:
+            "Support intake via email, portal, chat, or phone with structured severity triage.",
+        },
+        {
+          title: "Access and identity support",
+          description:
+            "Password resets, multi-factor authentication setup, and role-based permission provisioning.",
+        },
+        {
+          title: "Software troubleshooting",
+          description:
+            "Diagnosing and resolving application errors, office suite issues, and browser problems.",
+        },
+        {
+          title: "Hardware support",
+          description:
+            "Troubleshooting peripheral connectivity, printer issues, display setups, and laptop hardware glitches.",
+        },
+        {
+          title: "Onboarding assistance",
+          description:
+            "Guiding new team members through account setups, software installations, and device configuration.",
+        },
+        {
+          title: "Vendor coordination",
+          description:
+            "Liaising with third-party software and hardware vendors on behalf of your team to resolve escalated bugs.",
+        },
+      ]}
+      scope={[
+        "Helpdesk support via email, portal, and chat",
+        "Incident triage, prioritization, and tracking",
+        "User account creation, modification, and deactivation",
+        "Password resets and multi-factor authentication management",
+        "Software installation and troubleshooting assistance",
+        "Hardware and peripheral troubleshooting",
+        "New employee IT onboarding coordination",
+        "Monthly ticketing metrics and satisfaction reporting",
+      ]}
+      technology={[
+        "Zendesk",
+        "Freshdesk",
+        "Jira Service Management",
+        "Microsoft 365",
+        "Google Workspace",
+        "Active Directory",
+        "Remote Support Tools",
+      ]}
+      process={[
+        {
+          step: "01",
+          title: "Submit",
+          description:
+            "User raises a support request through portal, email, or chat channel.",
+        },
+        {
+          step: "02",
+          title: "Triage",
+          description:
+            "Ticket is categorized by urgency and assigned to a qualified support engineer.",
+        },
+        {
+          step: "03",
+          title: "Resolve",
+          description:
+            "Engineer troubleshoots and resolves the issue, communicating status clearly to the user.",
+        },
+        {
+          step: "04",
+          title: "Verify",
+          description:
+            "User confirms resolution and the ticket is officially closed.",
+        },
+        {
+          step: "05",
+          title: "Review",
+          description:
+            "Monthly analysis of support trends, recurring issues, and user satisfaction.",
+        },
+      ]}
+      securityPrinciples={[
+        {
+          title: "Identity verification",
+          description:
+            "Rigorous identity confirmation protocols before executing password resets or permission changes.",
+        },
+        {
+          title: "Secure remote sessions",
+          description:
+            "Support engineers access user endpoints only through encrypted, user-approved remote assistance tools.",
+        },
+        {
+          title: "Privileged action logging",
+          description:
+            "All administrative helpdesk actions and account changes are fully logged and auditable.",
+        },
+        {
+          title: "Data confidentiality",
+          description:
+            "Support personnel adhere strictly to data privacy standards when handling user files or local data.",
+        },
+      ]}
+      faqs={[
+        {
+          question: "What are your helpdesk support hours?",
+          answer:
+            "Support hours are tailored to your business needs, ranging from standard business hours to extended or 24/7 coverage.",
+        },
+        {
+          question: "How do employees submit support requests?",
+          answer:
+            "Employees can submit tickets through an online portal, via email, or directly through chat integrations like Slack or Microsoft Teams.",
+        },
+        {
+          question: "What is your typical response time?",
+          answer:
+            "Response times are defined by priority level in our service agreement, with urgent workflow-blocking issues addressed immediately.",
+        },
+        {
+          question: "Can you help with Microsoft 365 and Google Workspace?",
+          answer:
+            "Yes. We manage user accounts, mailbox permissions, licensing, and application support for both major productivity suites.",
+        },
+        {
+          question: "Do you provide satisfaction reports?",
+          answer:
+            "Yes. We track user satisfaction scores and resolution times, providing regular summaries during monthly reviews.",
+        },
+      ]}
+      seoDescription="IT helpdesk and end-user support services: responsive ticket management, user onboarding, access administration, and hardware troubleshooting."
+      contextualCtaLabel="Discuss IT Helpdesk"
+    />
+  );
+}

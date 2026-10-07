@@ -5,12 +5,24 @@ import { Layout } from "../layouts/Layout";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 
 const Home = lazy(() => import("../pages/Home"));
-const ManagedIT = lazy(() => import("../pages/services/ManagedIT"));
-const HelpdeskSupport = lazy(() => import("../pages/services/HelpdeskSupport"));
-const SLAGovernance = lazy(() => import("../pages/delivery/SLAGovernance"));
-const SecurityCompliance = lazy(
-  () => import("../pages/delivery/SecurityCompliance"),
+const EndpointSecurity = lazy(
+  () => import("../pages/services/EndpointSecurity"),
 );
+const EndpointManagement = lazy(
+  () => import("../pages/services/EndpointManagement"),
+);
+
+const HelpdeskAndSupport = lazy(
+  () => import("../pages/services/HelpdeskAndSupport"),
+);
+const VulnerabilityChecksAndCloudCare = lazy(
+  () => import("../pages/services/VulnerabilityChecksAndCloudCare"),
+);
+
+// const SLAGovernance = lazy(() => import("../pages/delivery/SLAGovernance"));
+// const SecurityCompliance = lazy(
+//   () => import("../pages/delivery/SecurityCompliance"),
+// );
 const PricingContracts = lazy(
   () => import("../pages/engagement/PricingContracts"),
 );
@@ -44,21 +56,29 @@ export function AppRouter() {
                   <Routes>
                     <Route path="/" element={<Home />} />
                     <Route
-                      path="/services/managed-it-infrastructure"
-                      element={<ManagedIT />}
+                      path="/services/endpoint-management"
+                      element={<EndpointManagement />}
                     />
                     <Route
-                      path="/services/helpdesk-end-user-support"
-                      element={<HelpdeskSupport />}
+                      path="/services/helpdesk-support"
+                      element={<HelpdeskAndSupport />}
                     />
                     <Route
+                      path="/services/endpoint-security"
+                      element={<EndpointSecurity />}
+                    />
+                    <Route
+                      path="/services/vulnerability-management"
+                      element={<VulnerabilityChecksAndCloudCare />}
+                    />
+                    {/* <Route
                       path="/delivery-model/sla-governance-reporting"
                       element={<SLAGovernance />}
                     />
                     <Route
                       path="/delivery-model/security-compliance-ip-protection"
                       element={<SecurityCompliance />}
-                    />
+                    /> */}
                     <Route
                       path="/engagement/pricing-and-contracts"
                       element={<PricingContracts />}

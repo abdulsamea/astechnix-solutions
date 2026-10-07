@@ -93,13 +93,13 @@ export function ContactForm() {
       newErrors.company = "Company name must be less than 150 characters.";
     }
 
-    // Scope validation
+    // Message validation
     if (!form.message.trim()) {
       newErrors.message =
-        "Please describe your IT outsourcing or staffing needs.";
+        "Please describe your IT support or infrastructure needs.";
     } else if (form.message.trim().length < 10) {
       newErrors.message =
-        "Please provide a few more details about your team size or tech stack.";
+        "Please provide a few more details about your endpoint setup or support requirements.";
     } else if (form.message.trim().length > 5000) {
       newErrors.message = "Details must be less than 5000 characters.";
     }
@@ -155,7 +155,7 @@ export function ContactForm() {
     if (!serviceId || !templateId || !publicKey) {
       setStatus("error");
       setSubmitError(
-        "The inquiry form is temporarily unavailable. Please email us directly.",
+        "The contact form is temporarily unavailable. Please email us directly.",
       );
       return;
     }
@@ -190,7 +190,9 @@ export function ContactForm() {
             currency: "INR",
           });
         } else if (
-          Array.isArray((window as unknown as { dataLayer: unknown[] }).dataLayer)
+          Array.isArray(
+            (window as unknown as { dataLayer: unknown[] }).dataLayer,
+          )
         ) {
           (window as unknown as { dataLayer: unknown[] }).dataLayer.push({
             event: "conversion",
@@ -210,7 +212,7 @@ export function ContactForm() {
 
       setStatus("error");
       setSubmitError(
-        "We couldn't submit your inquiry right now. Please try again or email us directly.",
+        "We couldn't submit your message right now. Please try again or email us directly.",
       );
     }
   };
@@ -321,14 +323,13 @@ export function ContactForm() {
           )}
         </div>
 
-        {/* Outsourcing Scope & Requirements */}
+        {/* Requirements & Support Needs */}
         <div>
           <label
             htmlFor="message"
             className="mb-1 block text-xs font-semibold text-ink"
           >
-            Outsourcing Requirements & Team Needs{" "}
-            <span className="text-red-500">*</span>
+            IT Support Requirements <span className="text-red-500">*</span>
           </label>
 
           <textarea
@@ -337,7 +338,7 @@ export function ContactForm() {
             value={form.message}
             onChange={handleChange}
             className="input-field !py-1.5 !text-sm resize-y"
-            placeholder="e.g., Need offshore software developers, DevOps support, or dedicated support team..."
+            placeholder="e.g., Endpoint management, patching, security monitoring, or IT helpdesk support..."
             maxLength={5000}
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? "message-error" : undefined}
@@ -366,13 +367,11 @@ export function ContactForm() {
           disabled={status === "submitting"}
           className="btn-primary w-full !py-2.5 !text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {status === "submitting"
-            ? "Submitting Request..."
-            : "Request Outsourcing Proposal"}
+          {status === "submitting" ? "Sending Message..." : "Send Message"}
         </button>
 
         <p className="text-center text-[11px] text-ink-muted">
-          Strict NDA policy. We respond within 1 business day.
+          Strict privacy policy. We respond within 1 business day.
         </p>
       </form>
     </div>

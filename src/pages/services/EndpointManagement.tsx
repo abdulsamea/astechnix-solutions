@@ -1,0 +1,176 @@
+import { ServicePageTemplate } from "./ServicePageTemplate";
+import { heroImages, sectionImages } from "../../config/images";
+
+export default function EndpointManagement() {
+  return (
+    <ServicePageTemplate
+      slug="endpoint-management"
+      title="Endpoint Management"
+      shortTitle="Endpoint Management"
+      heroDescription="We take full operational ownership of your device fleet, handling provisioning, inventory tracking, configuration management, and ongoing maintenance under clear operational service standards."
+      heroImage={heroImages.managedIT}
+      sectionImage={sectionImages.dataCenter}
+      sectionImageAlt="Workstations and modern enterprise IT equipment"
+      businessProblem="Managing a growing fleet of employee workstations, laptops, and mobile devices creates significant internal overhead. Internal teams get bogged down manual setups, inconsistent software versions, missing security updates, and device troubleshooting. When devices fail or lack proper baseline configurations, employee productivity drops and security risks increase. Organizations need reliable device lifecycle management without heavy administrative friction."
+      whatWeOwn={[
+        {
+          title: "Device standardization",
+          description:
+            "We establish and enforce consistent baseline configurations across all laptops, workstations, and mobile devices.",
+        },
+        {
+          title: "Inventory visibility",
+          description:
+            "We maintain accurate, real time asset inventories covering hardware details, assigned users, and software licenses.",
+        },
+        {
+          title: "Lifecycle administration",
+          description:
+            "From initial provisioning and onboarding setup to routine maintenance and retirement, we manage the full device lifecycle.",
+        },
+        {
+          title: "Operational consistency",
+          description:
+            "Routine configuration policies, compliance checks, and software deployments are handled systematically across the fleet.",
+        },
+      ]}
+      capabilities={[
+        {
+          title: "Automated provisioning",
+          description:
+            "Streamlined device enrollment and setup protocols for new hires to ensure immediate out of box readiness.",
+        },
+        {
+          title: "Configuration management",
+          description:
+            "Enforcing security policies, firewall settings, disk encryption, and corporate guidelines across all endpoints.",
+        },
+        {
+          title: "Software deployment",
+          description:
+            "Remote installation, updates, and removal of authorized applications without disrupting daily user workflows.",
+        },
+        {
+          title: "Hardware inventory tracking",
+          description:
+            "Continuous tracking of hardware lifecycles, warranty statuses, and peripheral allocations.",
+        },
+        {
+          title: "Performance monitoring",
+          description:
+            "Proactive tracking of device health, storage utilization, and system performance to prevent hardware failures.",
+        },
+        {
+          title: "Remote endpoint control",
+          description:
+            "Secure remote session tools to diagnose and resolve device configuration issues efficiently.",
+        },
+      ]}
+      scope={[
+        "Standardized device provisioning and baseline setup",
+        "Continuous hardware and software inventory tracking",
+        "Automated software deployment and application packaging",
+        "Disk encryption and security configuration enforcement",
+        "Device performance monitoring and health checks",
+        "Warranty tracking and hardware lifecycle reporting",
+        "Monthly endpoint health and compliance reviews",
+        "Decommissioning and secure data wiping protocols",
+      ]}
+      technology={[
+        "ManageEngine",
+        "Microsoft Intune",
+        "Ivanti Neurons",
+        "Jamf",
+        "Windows Autopilot",
+        "Active Directory",
+        "Azure AD",
+        "PowerShell",
+        "Ansible",
+        "MDM Platforms",
+      ]}
+      process={[
+        {
+          step: "01",
+          title: "Audit",
+          description:
+            "Complete inventory assessment of current device fleets, operating systems, and software standards.",
+        },
+        {
+          step: "02",
+          title: "Configure",
+          description:
+            "Establish baseline security profiles, provisioning templates, and management policies.",
+        },
+        {
+          step: "03",
+          title: "Deploy",
+          description:
+            "Enroll existing and new endpoints into the centralized management ecosystem.",
+        },
+        {
+          step: "04",
+          title: "Maintain",
+          description:
+            "Continuous monitoring, software updates, and policy enforcement across all devices.",
+        },
+        {
+          step: "05",
+          title: "Report",
+          description:
+            "Regular reporting on fleet compliance, inventory status, and lifecycle health.",
+        },
+      ]}
+      securityPrinciples={[
+        {
+          title: "Mandatory disk encryption",
+          description:
+            "All endpoints enforced with BitLocker or FileVault to protect data at rest against physical theft.",
+        },
+        {
+          title: "Least-privilege user accounts",
+          description:
+            "Standard users operate without local administrator rights to prevent unauthorized software installations.",
+        },
+        {
+          title: "Baseline compliance checks",
+          description:
+            "Automated verification ensuring all devices adhere strictly to baseline corporate security policies.",
+        },
+        {
+          title: "Secure retirement",
+          description:
+            "Complete cryptographic data sanitization and secure wiping protocols for decommissioned hardware.",
+        },
+      ]}
+      faqs={[
+        {
+          question: "Can you manage mixed operating system environments?",
+          answer:
+            "Yes. We manage fleets running Windows, macOS, and Linux across diverse hardware models using unified management tools.",
+        },
+        {
+          question: "How are new employee devices set up?",
+          answer:
+            "We configure zero touch deployment pipelines so devices drop shipped to employees automatically configure upon first login.",
+        },
+        {
+          question: "Does endpoint management disrupt employee work?",
+          answer:
+            "Software deployments and updates are scheduled outside core working hours or executed silently in the background to minimize disruption.",
+        },
+        {
+          question: "How do you handle lost or stolen devices?",
+          answer:
+            "We can trigger remote lock, data wipe, and location tracking immediately upon receiving a security notification.",
+        },
+        {
+          question: "Can you integrate with our existing directory services?",
+          answer:
+            "Yes. We integrate seamlessly with Microsoft Entra ID, Active Directory, and Google Workspace directory systems.",
+        },
+      ]}
+      seoDescription="Managed endpoint management services: device provisioning, configuration enforcement, software deployment, and lifecycle tracking for enterprise fleets."
+      contextualCtaLabel="Discuss Endpoint Management"
+    />
+  );
+}

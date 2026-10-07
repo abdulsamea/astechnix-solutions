@@ -1,8 +1,8 @@
 export const company = {
   name: "AStechnix",
-  tagline: "Managed IT Outsourcing & Technology Delivery",
+  tagline: "Reliable IT Support and Infrastructure Management",
   description:
-    "AStechnix is an end-to-end managed IT outsourcing and technology delivery company. We own service outcomes with operational accountability — not staff augmentation, not recruitment, not body-shopping.",
+    "AStechnix provides dependable remote IT support, endpoint management, security monitoring, vulnerability checks, and helpdesk operations for growing organizations.",
   email: "contact@astechnix.com",
   emailHref: "mailto:contact@astechnix.com",
   phoneDisplay: "+91 90045 75425",

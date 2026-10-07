@@ -14,25 +14,46 @@ export const navigation: NavGroup[] = [
     label: "Services",
     path: "/services",
     children: [
-      { label: "Endpoint Management", path: "/services/managed-it-infrastructure" },
-      { label: "Endpoint Security", path: "/delivery-model/security-compliance-ip-protection" },
-      { label: "Vulnerability Checks and Cloud Care", path: "/services/managed-it-infrastructure" },
-      { label: "IT Helpdesk and Support", path: "/services/helpdesk-end-user-support" },
+      {
+        label: "Endpoint Management",
+        path: "/services/endpoint-management",
+      },
+      {
+        label: "Endpoint Security",
+        path: "/services/endpoint-security",
+      },
+      {
+        label: "Vulnerability Management",
+        path: "/services/vulnerability-management",
+      },
+      {
+        label: "IT Helpdesk & Support",
+        path: "/services/helpdesk-support",
+      },
     ],
   },
-  {
-    label: "Delivery Model",
-    path: "/delivery-model",
-    children: [
-      { label: "SLA Governance & Reporting", path: "/delivery-model/sla-governance-reporting" },
-      { label: "Security, Compliance & IP Protection", path: "/delivery-model/security-compliance-ip-protection" },
-    ],
-  },
+  // {
+  //   label: "Delivery Model",
+  //   path: "/delivery-model",
+  //   children: [
+  //     {
+  //       label: "SLA Governance & Reporting",
+  //       path: "/delivery-model/sla-governance-reporting",
+  //     },
+  //     {
+  //       label: "Security, Compliance & IP Protection",
+  //       path: "/delivery-model/security-compliance-ip-protection",
+  //     },
+  //   ],
+  // },
   {
     label: "Engagement",
     path: "/engagement",
     children: [
-      { label: "Pricing & Contracts", path: "/engagement/pricing-and-contracts" },
+      {
+        label: "Pricing & Contracts",
+        path: "/engagement/pricing-and-contracts",
+      },
     ],
   },
   {
@@ -47,15 +68,33 @@ export const navigation: NavGroup[] = [
 ];
 
 export const footerServices: NavItem[] = [
-  { label: "Endpoint Management", path: "/services/managed-it-infrastructure" },
-  { label: "Endpoint Security", path: "/delivery-model/security-compliance-ip-protection" },
-  { label: "Vulnerability Checks and Cloud Care", path: "/services/managed-it-infrastructure" },
-  { label: "IT Helpdesk and Support", path: "/services/helpdesk-end-user-support" },
+  {
+    label: "Endpoint Management",
+    path: "/services/endpoint-management",
+  },
+  {
+    label: "Endpoint Security",
+    path: "/services/endpoint-security",
+  },
+  {
+    label: "Vulnerability Management",
+    path: "/services/vulnerability-management",
+  },
+  {
+    label: "IT Helpdesk & Support",
+    path: "/services/helpdesk-support",
+  },
 ];
 
 export const footerDeliveryModel: NavItem[] = [
-  { label: "SLA Governance & Reporting", path: "/delivery-model/sla-governance-reporting" },
-  { label: "Security, Compliance & IP Protection", path: "/delivery-model/security-compliance-ip-protection" },
+  {
+    label: "SLA Governance & Reporting",
+    path: "/delivery-model/sla-governance-reporting",
+  },
+  {
+    label: "Security, Compliance & IP Protection",
+    path: "/delivery-model/security-compliance-ip-protection",
+  },
 ];
 
 export const footerEngagement: NavItem[] = [
