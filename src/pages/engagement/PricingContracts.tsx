@@ -15,42 +15,42 @@ const crumbs: Crumb[] = [
 
 const pricingModels = [
   {
-    model: "Managed Service",
-    structure: "Fixed monthly fee",
-    best: "Ongoing operations with defined scope",
+    model: "Per-Device (Managed Endpoint)",
+    structure: "Fixed monthly rate per device",
+    best: "Comprehensive management for laptops, workstations, and mobile fleets",
     description:
-      "Fixed monthly fee for a defined service scope with SLA governance. Includes team, infrastructure, management, and reporting.",
+      "Predictable monthly pricing based on the total active device count. Covers endpoint management, patch deployment, EDR security monitoring, and automated health checks.",
     features: [
-      "SLA governance included",
-      "Monthly performance reporting",
-      "Team management",
-      "Infrastructure and tooling",
+      "Scaled pricing by device volume",
+      "Automated patch management",
+      "Endpoint security & EDR monitoring",
+      "Hardware inventory tracking",
     ],
   },
   {
-    model: "Dedicated Team",
-    structure: "Monthly rate per pod",
-    best: "Long-term engineering capacity",
+    model: "Tiered Helpdesk & Support",
+    structure: "Monthly retainer by user tiers",
+    best: "Ongoing end-user support and day-to-day IT ticketing",
     description:
-      "Monthly rate for a dedicated pod — leads, engineers, QA — operating as an extension of your delivery organization.",
+      "Retainer-based helpdesk coverage scaled to your headcount. Includes multi-channel ticket triaging, user onboarding assistance, password resets, and software troubleshooting.",
     features: [
-      "Dedicated resources",
-      "Sprint-based delivery",
-      "Weekly demos",
-      "Flexible scaling",
+      "Defined SLA response times",
+      "Email, portal, and chat ticket intake",
+      "User onboarding & account provisioning",
+      "Monthly ticket & satisfaction reporting",
     ],
   },
   {
-    model: "Project-Based",
+    model: "Project & Audit-Based",
     structure: "Fixed price per scope",
-    best: "Defined deliverables and timelines",
+    best: "One-off infrastructure audits, security hardening, or migrations",
     description:
-      "Fixed-price engagement for a scoped project with defined milestones, deliverables, and acceptance criteria.",
+      "Fixed-price engagement for specific milestones, such as initial cloud posture assessments, device baseline setup, or vulnerability remediation projects.",
     features: [
-      "Milestone-based payments",
-      "Defined scope statement",
-      "Acceptance criteria",
-      "Change management process",
+      "Milestone-based payment structure",
+      "Comprehensive vulnerability assessment",
+      "Detailed remediation roadmap",
+      "Implementation and handoff",
     ],
   },
 ];
@@ -58,12 +58,21 @@ const pricingModels = [
 const contractTerms: string[][] = [
   ["Contract Duration", "Minimum 3 months, renewing quarterly"],
   ["Notice Period", "30 days for termination or scope adjustment"],
-  ["IP Ownership", "100% transfer to client — contractually guaranteed"],
-  ["SLA Governance", "Monthly reviews with performance metrics"],
-  ["Security", "NDA, least-privilege access, background verification"],
-  ["Reporting", "Monthly operational dashboard and SLA scorecard"],
-  ["Change Management", "Defined process for scope changes and adjustments"],
-  ["Trial Period", "30-day evaluation with exit option"],
+  [
+    "Device Adjustments",
+    "Scale up or down monthly based on active device counts",
+  ],
+  [
+    "SLA Governance",
+    "Monthly reviews with uptime and ticket resolution metrics",
+  ],
+  [
+    "Security",
+    "Strict NDA, least-privilege administrative access, and data privacy",
+  ],
+  ["Reporting", "Monthly operational dashboard and endpoint health summaries"],
+  ["Change Management", "Defined process for adding new software or policies"],
+  ["Trial Period", "30-day evaluation window with standard exit options"],
 ];
 
 export default function PricingContracts() {
@@ -73,21 +82,21 @@ export default function PricingContracts() {
         meta={{
           title: "Pricing & Contracts | AStechnix",
           description:
-            "AStechnix engagement models: managed service, dedicated team, and project-based pricing with transparent contract terms and SLA governance.",
+            "Transparent IT support and endpoint management pricing based on device counts, helpdesk retainers, and fixed-scope security audits.",
         }}
       />
       <PageHeader
         breadcrumbs={crumbs}
         title="Pricing & Contracts"
-        description="Three engagement models with flexible contract terms. Every model includes SLA governance, IP ownership transfer, and transparent reporting. Pricing is defined per engagement based on scope and complexity."
+        description="Flexible engagement models designed for IT support, endpoint management, and security monitoring. Every plan includes clear service level standards, responsive helpdesk coverage, and transparent monthly reporting."
       />
 
       <section className="section-padding bg-canvas">
         <div className="container-content">
           <SectionHeader
             eyebrow="Engagement Models"
-            title="Choose the structure that fits your needs"
-            description="Pricing is defined per engagement based on scope, complexity, SLA requirements, and team composition. We don't publish generic rate cards — every proposal is specific to your context."
+            title="Choose the structure that fits your IT operations"
+            description="Pricing is tailored to your device inventory, team size, and support window requirements. We provide transparent, predictable pricing models to match your operational scale."
             className="mb-10"
           />
           <div className="grid gap-5 md:grid-cols-3">
@@ -130,7 +139,7 @@ export default function PricingContracts() {
           <SectionHeader
             eyebrow="Contract Terms"
             title="Standard contract provisions"
-            description="Every engagement includes these provisions by default. Custom terms can be negotiated based on your requirements."
+            description="Every support engagement includes these foundational terms by default. Custom requirements can be aligned during onboarding."
             className="mb-8"
           />
           <ResponsiveTable
@@ -149,11 +158,11 @@ export default function PricingContracts() {
           />
           <ul className="space-y-3">
             {[
-              "We don't publish generic rate cards — pricing is specific to your scope",
-              "We don't charge for onboarding or transition separately — it's part of the engagement",
-              "We don't bill for idle time in managed service or project-based models",
-              "We don't impose long lock-in periods beyond the initial minimum term",
-              "We don't hide SLA metrics behind paywalls or premium reporting tiers",
+              "We don't use generic hidden rate cards — pricing scales directly with your device or user count",
+              "We don't charge separate fees for initial device onboarding setup or agent deployment",
+              "We don't bill extra for standard routine maintenance windows or scheduled patch updates",
+              "We don't lock you into rigid long-term commitments beyond your initial agreement term",
+              "We don't restrict your access to ticketing metrics or endpoint health scorecards",
             ].map((item) => (
               <li
                 key={item}
@@ -168,8 +177,8 @@ export default function PricingContracts() {
       </section>
 
       <CTASection
-        title="Need a custom pricing structure?"
-        description="Book a consultation to discuss your scope. We'll propose an engagement model with transparent pricing — no obligation."
+        title="Need a custom quote for your device fleet?"
+        description="Share your endpoint count and support requirements. We'll provide a transparent pricing proposal with no obligation."
       >
         <Button to={ctaConfig.primary.path} variant="primary" size="lg">
           {ctaConfig.primary.label}
