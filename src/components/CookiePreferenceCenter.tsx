@@ -207,7 +207,7 @@ export function CookiePreferenceCenter() {
               </div>
 
               {/* Desktop: compact stacked layout with actions along the bottom */}
-              <div className="hidden flex-col gap-4 p-5 sm:flex">
+              <div className="hidden flex-col gap-3 p-4 sm:flex">
                 <div className="flex items-start gap-3">
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-accent/10 text-brand-accent">
                     <Shield className="h-4.5 w-4.5" />
@@ -227,7 +227,7 @@ export function CookiePreferenceCenter() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center justify-evenly gap-2 border-t border-ink/10 pt-3">
+                <div className="grid w-full grid-cols-3 gap-2 border-t border-ink/10 pt-3">
                   <button
                     onClick={handleAcceptAll}
                     className="btn-primary justify-center !px-5 !py-2 !text-sm"
