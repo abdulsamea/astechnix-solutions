@@ -8,7 +8,7 @@ export const company = {
   phoneDisplay: "+91 90045 75425",
   phoneHref: "tel:+919004575425",
   headquarters: "Mumbai, India",
-  founded: 2015,
+  founded: 2019,
   yearsExperience: 10,
   social: {
     linkedin: "https://www.linkedin.com/company/astechnix/",
