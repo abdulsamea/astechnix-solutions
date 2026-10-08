@@ -7,9 +7,9 @@ export interface SeoMeta {
 
 export const siteConfig = {
   url: "https://astechnix.com",
-  defaultTitle: "AStechnix — Managed IT Outsourcing & Technology Delivery",
+  defaultTitle: "AStechnix — Managed IT Support Services",
   defaultDescription:
-    "AStechnix is an end-to-end managed IT outsourcing and technology delivery company. Software engineering, managed infrastructure, QA, data engineering, and helpdesk support.",
+    "AStechnix provides enterprise-grade managed IT outsourcing, endpoint security, automated patching, cloud backups, and IT helpdesk support for grwoing businesses, SMBs and Startups.",
   twitterHandle: "@astechnix",
 } as const;
 

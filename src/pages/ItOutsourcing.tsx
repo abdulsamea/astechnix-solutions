@@ -192,7 +192,7 @@ const faqs: FaqItem[] = [
     question:
       "How does AStechnix handle 24/7 support across different time zones?",
     answer:
-      "Our follow-the-sun model stations NOC and support pods across India and global delivery centers so your environment is always covered by a live, senior team — not an after-hours answering service. Tier 1–3 escalation is available around the clock, every day of the year.",
+      "We provide true 24/7 coverage with active technical teams always on duty. Whether it is day or night in your time zone, a qualified IT engineer is available to help immediately.",
   },
 ];
 

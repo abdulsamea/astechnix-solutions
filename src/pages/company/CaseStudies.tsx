@@ -19,7 +19,7 @@ export default function CaseStudies() {
         meta={{
           title: "Case Studies | AStechnix",
           description:
-            "Engagement summaries with verified outcomes from AStechnix managed IT outsourcing engagements.",
+            "Engagement summaries with verified outcomes from AStechnix managed IT engagements.",
         }}
       />
       <PageHeader
