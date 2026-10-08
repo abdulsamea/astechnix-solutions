@@ -371,7 +371,7 @@ export function ContactForm() {
         </button>
 
         <p className="text-center text-[11px] text-ink-muted">
-          Strict privacy policy. We respond within 1 business day.
+          Strict privacy policy. We respond within 1-3 business hours.
         </p>
       </form>
     </div>
