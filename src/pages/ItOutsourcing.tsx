@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import {
   ShieldCheck,
-  Check,
   Gem,
   HandshakeIcon,
   Code2,

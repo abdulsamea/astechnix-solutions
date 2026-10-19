@@ -11,7 +11,6 @@ import { Logo } from "./Logo";
 import { company } from "../config/company";
 import {
   footerServices,
-  footerDeliveryModel,
   footerEngagement,
   footerCompany,
   footerLegal,

@@ -137,7 +137,7 @@ export default function Home() {
         </div>
       </ImageContentSection>
 
-      <section className="section-padding border-y border-ink/10 bg-canvas/35">
+      <section className="section-padding border-y border-border-default bg-surface/70">
         <div className="container-content">
           <SectionHeader
             eyebrow="Tools We Use"

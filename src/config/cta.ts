@@ -12,6 +12,6 @@ export const ctaConfig = {
     managedIT: { label: "Discuss Managed IT", path: "/contact" },
     softwareDelivery: { label: "Discuss IT Support", path: "/contact" },
     technicalConsultation: { label: "Request Technical Consultation", path: "/contact" },
-    exploreServices: { label: "Explore Our Services", path: "/services/managed-it-infrastructure" }
+    exploreServices: { label: "Explore Our Services", path: "/services/endpoint-management" }
   },
 } as const;

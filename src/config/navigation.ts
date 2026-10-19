@@ -86,16 +86,7 @@ export const footerServices: NavItem[] = [
   },
 ];
 
-export const footerDeliveryModel: NavItem[] = [
-  {
-    label: "SLA Governance & Reporting",
-    path: "/delivery-model/sla-governance-reporting",
-  },
-  {
-    label: "Security, Compliance & IP Protection",
-    path: "/delivery-model/security-compliance-ip-protection",
-  },
-];
+export const footerDeliveryModel: NavItem[] = [];
 
 export const footerEngagement: NavItem[] = [
   { label: "Pricing & Contracts", path: "/engagement/pricing-and-contracts" },
