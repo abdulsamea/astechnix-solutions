@@ -9,7 +9,7 @@ export function TechShowcase({ categories, variant = "light" }: TechShowcaseProp
   const isDark = variant === "dark";
 
   return (
-    <div className={`rounded-lg border p-8 md:p-10 ${isDark ? "border-white/10 bg-white/5" : "border-ink/10 bg-canvas/50"}`}>
+    <div className={`rounded-lg border p-8 md:p-10 ${isDark ? "border-white/10 bg-white/5" : "border-border-default bg-surface"}`}>
       <div className="flex flex-wrap justify-center gap-8 sm:gap-10 lg:gap-14">
         {categories.map((cat) => (
           <div key={cat.category} className="text-center">

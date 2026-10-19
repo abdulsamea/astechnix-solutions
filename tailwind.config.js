@@ -4,15 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        "brand-dark": "#23374D",
-        "brand-accent": "#1089FF",
-        "brand-accent-light": "#3BA0FF",
-        "surface": "#E5E5E5",
-        "canvas": "#EEEEEE",
+        "brand-dark": "#0d1b3e",
+        "brand-accent": "#d4892a",
+        "brand-accent-light": "#e0a55c",
+        "surface": "#f3f5f7",
+        "canvas": "#f3f5f7",
+        "border-default": "#dbe0e6",
         "ink": {
-          DEFAULT: "#1A2332",
-          soft: "#3D4F63",
-          muted: "#6B7B8C",
+          DEFAULT: "#0d1826",
+          soft: "#3a4a5e",
+          muted: "#768093",
         },
       },
       fontFamily: {
@@ -45,8 +46,10 @@ export default {
         enterprise: "cubic-bezier(0.22, 1, 0.36, 1)",
       },
       boxShadow: {
-        card: "0 1px 3px 0 rgba(35, 55, 77, 0.06), 0 1px 2px 0 rgba(35, 55, 77, 0.04)",
-        "card-hover": "0 8px 24px 0 rgba(35, 55, 77, 0.10), 0 2px 6px 0 rgba(35, 55, 77, 0.06)",
+        card: "0 1px 3px 0 rgba(13, 27, 62, 0.06), 0 1px 2px 0 rgba(13, 27, 62, 0.04)",
+        "card-hover": "0 8px 24px 0 rgba(13, 27, 62, 0.10), 0 2px 6px 0 rgba(13, 27, 62, 0.06)",
+        "accent-glow": "0 0 20px hsl(34 72% 50% / 0.10)",
+        "navy-glow": "0 0 25px hsl(218 68% 22% / 0.15)",
       },
     },
   },

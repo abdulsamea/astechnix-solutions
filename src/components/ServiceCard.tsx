@@ -22,7 +22,7 @@ export function ServiceCard({ service, index = 0 }: ServiceCardProps) {
     >
       <Link
         to={service.path}
-        className="group block h-full rounded-lg border border-ink/10 bg-white p-7 shadow-card transition-all duration-300 hover:shadow-card-hover hover:border-ink/15"
+        className="group block h-full rounded-lg border border-border-default bg-white p-7 shadow-card transition-all duration-300 hover:shadow-accent-glow hover:border-brand-accent"
       >
         <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-accent/10 text-brand-accent transition-colors duration-300 group-hover:bg-brand-accent group-hover:text-white">
           <Icon className="h-6 w-6" />

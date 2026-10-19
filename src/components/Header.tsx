@@ -49,7 +49,7 @@ export function Header() {
     <>
       <header
         className={`sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b transition-all duration-300 ${
-          scrolled ? "border-ink/10 shadow-sm" : "border-transparent"
+          scrolled ? "border-border-default shadow-sm" : "border-transparent"
         }`}
       >
         <div className="container-content">
@@ -81,7 +81,7 @@ export function Header() {
               </Link>
               <a
                 href={company.phoneHref}
-                className="btn-primary inline-flex items-center gap-2 whitespace-nowrap text-xs xl:text-sm px-3 py-2 xl:px-4 xl:py-2.5 shrink-0"
+className="btn-primary inline-flex items-center gap-2 whitespace-nowrap text-xs xl:text-sm px-3 py-2 xl:px-4 xl:py-2.5 shrink-0"
               >
                 <Phone className="h-4 w-4 shrink-0" />
                 <span>{company.phoneDisplay}</span>
@@ -182,7 +182,7 @@ function DesktopNavigation({
                   className="absolute left-0 top-full z-50 min-w-[280px] xl:min-w-[300px] pt-3"
                   role="menu"
                 >
-                  <div className="overflow-hidden rounded-lg border border-ink/10 bg-white shadow-card-hover">
+                  <div className="overflow-hidden rounded-lg border border-border-default bg-white shadow-card-hover">
                     {group.children!.map((child) => (
                       <Link
                         key={child.path}
@@ -263,7 +263,7 @@ function MobileNavigation({
             aria-label="Navigation menu"
             onKeyDown={handleKeyDown}
           >
-            <div className="flex items-center justify-between border-b border-ink/10 px-5 py-4">
+            <div className="flex items-center justify-between border-b border-border-default px-5 py-4">
               <Logo className="h-7 w-auto" />
               <button
                 onClick={onClose}
@@ -309,7 +309,7 @@ function MobileNavigation({
                   )}
                 </div>
               ))}
-              <div className="mt-6 border-t border-ink/10 pt-4">
+              <div className="mt-6 border-t border-border-default pt-4">
                 <Link
                   to={ctaConfig.primary.path}
                   className="btn-primary w-full"

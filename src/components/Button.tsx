@@ -1,15 +1,16 @@
 import { type ButtonHTMLAttributes, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-type Variant = "primary" | "secondary" | "ghost" | "dark" | "outline-white";
+type Variant = "primary" | "secondary" | "ghost" | "dark" | "outline-white" | "accent";
 type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-brand-accent text-white hover:bg-brand-accent/90 active:bg-brand-accent/80",
-  secondary: "bg-white text-brand-dark border border-ink/15 hover:border-brand-accent hover:text-brand-accent",
+  primary: "bg-brand-dark text-white hover:bg-brand-dark/90 active:bg-brand-dark/80",
+  secondary: "bg-white text-brand-dark border border-border-default hover:border-brand-accent hover:text-brand-accent",
   ghost: "text-brand-dark hover:bg-surface",
   dark: "bg-brand-dark text-white hover:bg-brand-dark/90",
   "outline-white": "bg-transparent text-white border border-white/25 hover:bg-white/10 hover:border-white/50",
+  accent: "bg-brand-accent text-white hover:bg-brand-accent/90 active:bg-brand-accent/80",
 };
 
 const sizes: Record<Size, string> = {

@@ -10,7 +10,7 @@ export function TrustStrip({ points }: TrustStripProps) {
   const reducedMotion = useReducedMotion();
 
   return (
-    <section className="border-y border-ink/10 bg-white">
+    <section className="border-y border-border-default bg-white">
       <div className="container-content">
         <div className="grid grid-cols-2 gap-8 py-10 md:grid-cols-4 md:py-14">
           {points.map((point, i) => (

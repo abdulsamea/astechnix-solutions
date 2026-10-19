@@ -17,18 +17,18 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
   const reducedMotion = useReducedMotion();
 
   return (
-    <div className="divide-y divide-ink/10 border-y border-ink/10">
+    <div className="divide-y divide-border-default border-y border-border-default">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         return (
-          <div key={index}>
+          <div key={index} className={`transition-colors duration-300 ${isOpen ? "border-l-4 border-brand-dark pl-3" : "border-l-4 border-transparent pl-3"}`}>
             <button
               onClick={() => setOpenIndex(isOpen ? null : index)}
               className="flex w-full items-center justify-between gap-4 py-5 text-left"
               aria-expanded={isOpen}
             >
-              <span className="text-base font-heading font-semibold text-ink">{item.question}</span>
-              <ChevronDown className={`h-5 w-5 shrink-0 text-ink-muted transition-transform duration-300 ${isOpen ? "rotate-180 text-brand-accent" : ""}`} />
+              <span className="text-base font-heading font-semibold text-brand-dark">{item.question}</span>
+              <ChevronDown className={`h-5 w-5 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-brand-accent" : "text-ink-muted"}`} />
             </button>
             <AnimatePresence initial={false}>
               {isOpen && (

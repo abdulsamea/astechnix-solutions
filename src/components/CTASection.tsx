@@ -14,7 +14,7 @@ export function CTASection({
   children,
 }: CTASectionProps) {
   return (
-    <section className="relative overflow-hidden bg-brand-dark/80">
+    <section className="relative overflow-hidden bg-brand-dark">
       <div className="absolute inset-0 grid-pattern-dark opacity-40" />
       <div className="container-content relative py-section-sm md:py-section">
         <div className="mx-auto max-w-3xl text-center">
@@ -25,7 +25,7 @@ export function CTASection({
           <div className="mt-10 flex flex-col gap-3 sm:flex-row justify-center">
             {children ?? (
               <>
-                <Button to={ctaConfig.primary.path} variant="primary" size="lg">
+                <Button to={ctaConfig.primary.path} variant="accent" size="lg">
                   {ctaConfig.primary.label}
                 </Button>
               </>

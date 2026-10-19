@@ -7,7 +7,7 @@ export function ClientLogos({ logos, variant = "light" }: ClientLogosProps) {
   const isDark = variant === "dark";
 
   return (
-    <section className={`${isDark ? "bg-brand-dark" : "bg-white border-y border-ink/10"}`}>
+    <section className={`${isDark ? "bg-brand-dark" : "bg-white border-y border-border-default"}`}>
       <div className="container-content">
         <div className="py-8 md:py-10">
           <p className={`text-center text-xs font-semibold uppercase tracking-[0.2em] mb-6 ${isDark ? "text-white/40" : "text-ink-muted"}`}>
